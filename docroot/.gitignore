@@ -1,0 +1,8 @@
+# Ignore configuration files that may contain sensitive information.
+
+# Ignore paths that contain generated content.
+files/
+sites/*/files
+sites/*/private
+
+# Ignore default text files
