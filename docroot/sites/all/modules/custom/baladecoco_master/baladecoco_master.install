@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * For hook_update_X functions.
+ */
+
+function nas_master_install() {
+  
+}
+
+/**
+ * Enable nas_slideshow_feature feature.
+ */
+function nas_master_update_7002() {
+}
