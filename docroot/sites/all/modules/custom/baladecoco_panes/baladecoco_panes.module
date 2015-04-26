@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Maintains panel panes.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function baladecoco_panes_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && !empty($plugin_type)) {
+    return 'plugins/' . $plugin_type;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function baladecoco_panes_theme() {
+  $theme = array(
+    'baladecoco_footer_theme' => array(
+      'variables' => array(
+        'teasers' => NULL,
+        'title' => '',
+        'more_link' => '',
+        'contextual_links' => '',
+      ),
+      'template' => 'article-more-features',
+      'path' => drupal_get_path('module', 'nas_panes') . '/plugins/content_types/article_more_features',
+    ),
+  );
+  return $theme;
+}
