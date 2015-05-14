@@ -21,13 +21,12 @@ function baladecoco_panes_theme() {
   $theme = array(
     'baladecoco_footer_theme' => array(
       'variables' => array(
-        'teasers' => NULL,
         'title' => '',
-        'more_link' => '',
+        'image' => '',
         'contextual_links' => '',
       ),
-      'template' => 'article-more-features',
-      'path' => drupal_get_path('module', 'nas_panes') . '/plugins/content_types/article_more_features',
+      'template' => 'baladecoco-footer',
+      'path' => drupal_get_path('module', 'baladecoco_panes') . '/plugins/baladecoco_footer',
     ),
   );
   return $theme;

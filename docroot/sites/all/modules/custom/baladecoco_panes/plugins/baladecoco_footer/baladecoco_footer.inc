@@ -57,22 +57,20 @@ function baladecoco_footer_form_submit(&$form, &$form_state) {
  */
 function baladecoco_footer_render($subtype, $conf, $args, $contexts) {
   $block = new stdClass();
-  
+
   $contextual_links = '';
 
   $image_markup = '';
   if (!empty($conf['image'])) {
     $image_object = file_load($conf['image']);
-    $image = theme('image', array('path' => image_style_url('local_chapters_centers', $image_object->uri)));
-    $image_markup = !empty($conf['image_link']) ? l($image, $conf['image_link'], array('html' => TRUE)) : $image;
+    $image_markup = theme('image_style', array('style_name' => 'thumbnail', 'path' => $image_object->uri));
   }
 
-  $locations = _nas_panes_get_local_chapters_centers();
   $content = theme('baladecoco_footer_theme', array(
-      'contextual_links' => $contextual_links,
-      'title' => !empty($conf['override_title']) ? $conf['override_title_text'] : t('Footer'),
-      'image' => $image_markup,
-    ));
+    'contextual_links' => $contextual_links,
+    'title' => !empty($conf['override_title']) ? $conf['override_title_text'] : t('Footer'),
+    'image' => $image_markup,
+  ));
 
   $block->content = $content;
 

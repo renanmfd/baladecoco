@@ -1,1 +1,68 @@
-// Insert your styling here.
+// main: style.less
+#navbar {
+  display: block;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.topbar-header {
+  display: block;
+  width: 100%;
+  height: 120px;
+  background-color: @bc_purple;
+}
+
+.lang-wrapper {
+  right: 50px;
+  
+  .chosen-container {
+    height: auto;
+    padding: 0;
+    border: none;
+  }
+}
+
+.logo-wrapper {
+  left: 50px;
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.logo-wrapper,
+.lang-wrapper {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: @bc_topbar_height;
+  height: @bc_topbar_height;
+  overflow: hidden;
+}
+
+.site-wrapper {
+  font-size: 30px;
+}
+
+.menu-wrapper {
+  ul {
+    display: inline-block;
+    float: none;
+  }
+}
+
+.site-wrapper,
+.menu-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 100%;
+  height: @bc_topbar_height/2;
+  padding: 0 170px;
+  text-align: center;
+}
