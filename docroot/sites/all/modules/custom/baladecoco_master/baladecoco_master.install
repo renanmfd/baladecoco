@@ -6,11 +6,11 @@
  */
 
 function nas_master_install() {
-  
 }
 
 /**
  * Enable nas_slideshow_feature feature.
  */
-function nas_master_update_7002() {
+function nas_master_update_7102() {
+  module_enable(array('nas_bala_feature'));
 }
