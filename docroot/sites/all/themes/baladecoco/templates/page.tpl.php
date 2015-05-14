@@ -75,19 +75,14 @@
 ?>
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="topbar-header container">
-	<?php if ($logo): ?>
-      <div class="logo-wrapper clearfix">
-        <?php print $logo; ?>
-      </div>
-    <?php endif; ?>
-    <?php if (!empty($site_name)): ?>
-      <div class="site-wrapper clearfix">
-        <span><?php print $site_name; ?></span>
-      </div>
-    <?php endif; ?>
     <?php if (!empty($primary_nav)): ?>
       <div class="menu-wrapper clearfix">
         <?php print render($primary_nav); ?>
+      </div>
+    <?php endif; ?>
+    <?php if ($logo): ?>
+      <div class="logo-wrapper clearfix">
+        <a href="<?php print $front_page; ?>" title="<?php print $site_name; ?>"><?php print $logo; ?></a>
       </div>
     <?php endif; ?>
     <?php if (!empty($lang_dropdown)): ?>
@@ -151,6 +146,6 @@
 
   </div>
 </div>
-<footer class="footer container">
+<footer id="footer" class="clearfix">
   <?php print $footer; ?>
 </footer>

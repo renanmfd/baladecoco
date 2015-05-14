@@ -5,6 +5,10 @@
  */
 ?>
 <div class="topbar-wrapper">
-  front page block TODO
+  <?php if (!empty($site_name)): ?>
+    <div class="site-wrapper clearfix">
+      <span><?php print $site_name; ?></span>
+    </div>
+  <?php endif; ?>
 </div>
 

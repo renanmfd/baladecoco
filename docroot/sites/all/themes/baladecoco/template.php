@@ -48,6 +48,21 @@ function baladecoco_preprocess_front_header(&$vars) {
  * page--footer.tpl.php
  */
 function baladecoco_preprocess_footer(&$vars) {
-  $vars['copyright'] = t('All rights reserved.');
-  dpm($vars);
+  // Theme footer menus
+  $menu = array('menu-support' => t('Support'));
+  $attr = array('class' => array('menu', 'nav', 'clearfix'));
+  $head = array('level' => 'h2', 'class' => array('menu-title'));
+  foreach ($menu as $key => $name) {
+    $attr['id'] = $key;
+    $head['text'] = $name;
+    $links = menu_navigation_links($key);
+    $vars['menus'][$key] = theme('links', array(
+      'links' => $links,
+      'attributes' => $attr,
+      'heading' => $head,
+    ));
+  }
+
+  // Bottom content
+  $vars['copyright'] = '<span>&#169; </span>'.t('All rights reserved.');
 }
