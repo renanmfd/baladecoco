@@ -7,7 +7,7 @@
 <div class="footer">
   <div class="container">
     <?php foreach ($menus as $id => $menu): ?>
-      <div class="<?php print $id; ?>">
+      <div class="menu <?php print $id; ?>">
         <?php print $menu; ?>
       </div>
     <?php endforeach; ?>

@@ -7225,6 +7225,10 @@ html > object {
 .footer {
   padding: 0;
   border: none;
+  background-color: #ffeeee;
+  border-top: 1px solid #ffa9fb;
+  background-image: url('../images/bg/bg-pinkdiamond.png');
+  background-size: 200px auto;
 }
 .footer .container {
   height: 100%;

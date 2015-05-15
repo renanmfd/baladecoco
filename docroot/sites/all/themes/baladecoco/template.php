@@ -23,24 +23,12 @@ function baladecoco_preprocess_page(&$vars) {
  */
 function baladecoco_theme() {
   $themes = array(
-    'front_header' => array(
-      'template' => 'templates/page--front-header',
-      'variables' => array('vars' => NULL),
-    ),
     'footer' => array(
       'template' => 'templates/page--footer',
       'variables' => array('vars' => NULL),
     ),
   );
   return $themes;
-}
-
-/**
- * Implement THEME_preprocess_TEMPLATE().
- * page--front-header.tpl.php
- */
-function baladecoco_preprocess_front_header(&$vars) {
-  dpm($vars);
 }
 
 /**

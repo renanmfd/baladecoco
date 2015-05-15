@@ -91,13 +91,6 @@
       </div>
     <?php endif; ?>
   </div>
-  <div class="front-header container">
-    <?php if ($is_front): ?>
-      <?php print $front_header; ?>
-    <?php else: ?>
-      <?php print ''; ?>
-    <?php endif; ?>
-  </div>
 </header>
 
 <div class="main-container container">
