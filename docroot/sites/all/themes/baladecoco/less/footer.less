@@ -8,14 +8,53 @@
   background-image: url('../images/bg/bg-pinkdiamond.png');
   background-size: 200px auto;
   
-  .container { height: 100%; }
+  .container { 
+    height: 100%;
+    font-size: 0;
+    text-aling: center;
+  }
+  .menu {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 250px;
+    min-width: 200px;
+    width: 250px;
+    margin-bottom: 20px;
+  }
+  h2.menu-title {
+    padding: 5px 10px;
+    border-bottom: 2px solid @bc_purple;
+    color: @bc_purple;
+    font-size: 24px;
+    font-family: @bc_font2;
+    text-shadow: 2px 2px 3px @bc_purple;
+  }
+  ul.menu {
+
+    li {
+      width: 100%;
+      padding: 0;
+    }
+    li a {
+      font-size: 14px;
+      font-family: @bc_font1;
+      font-weight: bold;
+      color: @bc_purple;
+      padding: 5px 10px;
+      letter-spacing: 0.1em;
+      border-radius: 5px;
+      
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
 }
 
 .bottom {
   background-color: @bc_purple;
   height: @bc_bottom_height;
   
-  .container { height: 100%; }
   .copyright {
     float: right;
     height: 100%;

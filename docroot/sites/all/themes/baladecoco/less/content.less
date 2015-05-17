@@ -11,3 +11,12 @@ body {
 html > object {
   display: none;
 }
+
+body.site_purple {
+  svg *{ fill: @bc_purple; }
+  .carousel-indicators li {
+    border: 1px solid darken(@bc_purple, 20%);
+
+    &.active { background-color: darken(@bc_purple, 20%); }
+  }
+}

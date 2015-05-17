@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * CT Bala module alter.
+ */
+define('BC_BALA_SLIDER_WIDTH', 500);
+define('BC_BALA_SLIDER_HEIGHT', 360);
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function bc_bala_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['slideshow'] = array(
+    'label' => t('Slideshow'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+* Implements hook_preprocess_node().
+*/
+function bc_bala_preprocess_node(&$vars) {
+  if($vars['view_mode'] == 'slideshow') {
+    $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__slideshow';
+	$vars['image'] = theme('image_style', array(
+	  'style_name' => 'slideshow',
+	  'path' => $vars['field_bala_image'][0]['uri'],
+	  'width' => BC_BALA_SLIDER_WIDTH,
+	  'height' => BC_BALA_SLIDER_HEIGHT,
+	));
+  }
+} 
+
+/**
+* Implements hook_image_default_styles().
+*/
+function bc_bala_image_default_styles() {
+  $styles = array();
+  $styles['slideshow'] = array(
+    'label' => t('Slideshow'),
+    'effects' => array(
+      array(
+        'name' => 'image_scale',
+        'data' => array(
+          'height' => BC_BALA_SLIDER_HEIGHT,
+          'width' => BC_BALA_SLIDER_HEIGHT,
+          'upscale' => 1,
+        ),
+        'weight' => 0,
+      ),
+      array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => BC_BALA_SLIDER_WIDTH,
+          'height' => BC_BALA_SLIDER_HEIGHT,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+  return $styles;
+}

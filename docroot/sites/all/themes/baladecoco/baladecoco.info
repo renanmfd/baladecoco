@@ -24,10 +24,14 @@ regions[page_bottom]    = 'Page bottom'
 
 stylesheets[all][] = less/style.css.less
 
+; ;;;;;;;;;;;;;;;;;;;;;
+; ;; Scripts
+; ;;;;;;;;;;;;;;;;;;;;;
+
+scripts[] = 'js/script.js'
 
 ; Panels layouts. You can place multiple layouts under the "layouts" folder.
 plugins[panels][layouts] = layouts
-
 
 ; For information on choosing the desired method, please read the Drupal
 ; Bootstrap sub-theme "how-to" documentation:

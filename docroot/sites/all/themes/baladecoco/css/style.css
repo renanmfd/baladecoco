@@ -7222,6 +7222,15 @@ body {
 html > object {
   display: none;
 }
+body.site_purple svg * {
+  fill: #b10095;
+}
+body.site_purple .carousel-indicators li {
+  border: 1px solid #4b003f;
+}
+body.site_purple .carousel-indicators li.active {
+  background-color: #4b003f;
+}
 .footer {
   padding: 0;
   border: none;
@@ -7232,17 +7241,87 @@ html > object {
 }
 .footer .container {
   height: 100%;
+  font-size: 0;
+  text-aling: center;
+}
+.footer .menu {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 250px;
+  min-width: 200px;
+  width: 250px;
+  margin-bottom: 20px;
+}
+.footer h2.menu-title {
+  padding: 5px 10px;
+  border-bottom: 2px solid #b10095;
+  color: #b10095;
+  font-size: 24px;
+  font-family: 'Indie Flower', cursive;
+  text-shadow: 2px 2px 3px #b10095;
+}
+.footer ul.menu li {
+  width: 100%;
+  padding: 0;
+}
+.footer ul.menu li a {
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: #b10095;
+  padding: 5px 10px;
+  letter-spacing: 0.1em;
+  border-radius: 5px;
+}
+.footer ul.menu li a:hover {
+  background-color: rgba(0, 0, 0, 0.25);
 }
 .bottom {
   background-color: #b10095;
   height: 30px;
-}
-.bottom .container {
-  height: 100%;
 }
 .bottom .copyright {
   float: right;
   height: 100%;
   color: #ffeeee;
   line-height: 30px;
+}
+.carousel-frame {
+  position: relative;
+  width: 631px;
+  padding: 65px;
+  margin: 0 auto;
+}
+.carousel-frame > svg,
+.carousel-frame > img {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 631px;
+  height: 530px;
+  pointer-events: none;
+}
+.carousel-frame > svg * {
+  fill: #b10095;
+}
+.carousel-frame > img {
+  display: none;
+}
+.carousel-frame .carousel-control .glyphicon:before {
+  content: '';
+}
+.carousel-frame .carousel-control .glyphicon svg {
+  display: block;
+  width: 35px;
+  height: 35px;
+}
+.carousel-frame .carousel-control svg * {
+  fill: #b10095;
+}
+.carousel-frame .carousel-indicators li {
+  border: 1px solid #ff18da;
+}
+.carousel-frame .carousel-indicators li.active {
+  background-color: #7e006a;
 }
