@@ -5,20 +5,19 @@
  * Template implementation to display the panel's layout.
  */
 ?>
-<section class="curtain">
-  <header class="global-header">
-    <?php print $content['header']; ?>
-  </header>
+<section class="slider-region">
+  <div class="slider-wrapper clearfix">
+    <?php print $content['slider']; ?>
+  </div>
+  <div class="slider-left-wrapper slider-side">
+    <?php print $content['slider_left']; ?>
+  </div>
+  <div class="slider-right-wrapper slider-side">
+    <?php print $content['slider_right']; ?>
+  </div>
 </section>
-<div class="curtain-wrapper">
-  <header class="global-header standard">
-    <?php print $content['top']; ?>
-  </header>
-  <section class="global-content">
-    <div class="homepage-first-row row space-top double" data-equalizer>
-      <?php print $content['featured']; ?>
-    </div>
+<section class="todotodotodo">
+  <div class="baladecococnewtodotodotodo">
     <?php print $content['baladecoco_news']; ?>
-  </section>
-</div>
-<?php print $content['footer']; ?>
+  </div>
+</section>

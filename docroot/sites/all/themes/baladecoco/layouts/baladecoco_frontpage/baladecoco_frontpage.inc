@@ -15,10 +15,9 @@ $plugin = array(
   'icon' => 'baladecoco_frontpage.png',
   'theme' => 'panels_baladecoco_frontpage',
   'regions' => array(
-    'header' => t('Header'),
-    'top' => t('Top'),
-    'featured' => t('Featured content'),
+    'slider' => t('Slider'),
+    'slider_left' => t('Slider Left'),
+    'slider_right' => t('Slider Right'),
     'baladecoco_news' => t('Bala de Coco News'),
-    'footer' => t('Footer'),
   ),
 );

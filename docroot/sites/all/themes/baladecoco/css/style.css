@@ -7289,7 +7289,7 @@ body.site_purple .carousel-indicators li.active {
 .carousel-frame {
   position: relative;
   width: 631px;
-  padding: 65px;
+  padding: 85px 65px;
   margin: 0 auto;
 }
 .carousel-frame > svg,
