@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Maintains panel panes.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function bc_panes_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && !empty($plugin_type)) {
+    return 'plugins';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function bc_panes_theme() {
+  $theme = array(
+    'baladecoco_hero_slider' => array(
+      'variables' => array(
+        'contextual_links' => '',
+        'title' => '',
+        'images' => array(),
+      ),
+      'template' => 'baladecoco-hero-slider',
+      'path' => drupal_get_path('module', 'bc_panes') . '/plugins/baladecoco_hero_slider',
+    ),
+  );
+  return $theme;
+}

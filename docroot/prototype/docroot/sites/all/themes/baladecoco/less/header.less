@@ -1,0 +1,108 @@
+// main: style.less
+
+// TOPBAR ====================== //
+#navbar {
+  display: block;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.topbar-header {
+  display: block;
+  width: 100%;
+  height: @bc_topbar_height;
+  background-color: @bc_white;
+  border-bottom: 1px solid @bc_purple;
+  background-image: url('../images/bg/bg-pinkmoon.png');
+  background-size: 150px auto;
+}
+
+.lang-wrapper {
+  right: 50px;
+  
+  .chosen-container {
+    height: auto;
+    padding: 0;
+    border: none;
+  }
+  .lang_dropdown_form {
+    height: @bc_lang_height;
+    padding: (@bc_topbar_height - @bc_lang_height)/2 0;
+    box-sizing: content-box;
+  }
+}
+
+.logo-wrapper {
+  left: 50px;
+  padding: 5px;
+  
+  img {
+    width: auto;
+    height: 100%;
+    padding: 0 10px;
+    border-radius: @bc_mainmenu_radius;
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.logo-wrapper,
+.lang-wrapper {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 2*@bc_topbar_height;
+  height: @bc_topbar_height;
+}
+
+.menu-wrapper {
+  ul {
+    display: inline-block;
+    float: none;
+    margin-top: 7px;
+    border-radius: @bc_mainmenu_radius;
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    
+    li {
+      
+    }
+    li a {
+      font-family: @bc_font2;
+      font-size: 22px;
+      color: @bc_purple !important;
+      background-color: transparent !important;
+      border-radius: @bc_mainmenu_radius;
+      border: 1px solid transparent;
+      padding: 12px;
+      transition: all .1s ease-in-out .1s;
+      
+      &:hover {
+        border: 1px solid @bc_purple_t;
+        box-shadow: inset 0 0 20px 10px @bc_purple_t;
+        text-shadow: 0 0 5px @bc_white;
+      }
+    }
+    li.active a {
+      color: @bc_blue !important;
+      border: none;
+      box-shadow: none;
+      text-shadow: none;
+      pointer-events: none;
+    }
+  }
+}
+
+.menu-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 100%;
+  height: @bc_topbar_height;
+  padding: 0 (2*@bc_topbar_height+50px);
+  text-align: center;
+}

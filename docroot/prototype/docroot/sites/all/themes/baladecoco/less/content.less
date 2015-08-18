@@ -1,0 +1,22 @@
+// main: style.less
+// Insert your styling here.
+
+body {
+  font-family: @bc_font1;
+  font-size: 12px;
+  background-image: url('../images/bg/bg-simple.jpg');
+  background-repeat: repeat;
+}
+
+html > object {
+  display: none;
+}
+
+body.site_purple {
+  svg *{ fill: @bc_purple; }
+  .carousel-indicators li {
+    border: 1px solid darken(@bc_purple, 20%);
+
+    &.active { background-color: darken(@bc_purple, 20%); }
+  }
+}

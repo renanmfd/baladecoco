@@ -1,0 +1,36 @@
+// main: ../style.less
+.slider-region {
+  background-color: rgba(54, 77, 173, 0.5);
+}
+.carousel-frame {
+  position: relative;
+  width: 631px;
+  padding: 66px;
+  margin: 0 auto;
+  
+  > svg, > img {
+    position: absolute;
+    z-index: 1;
+    top: -20px;
+    left: 0;
+    width: 631px;
+    height: 530px;
+    pointer-events: none;
+  }
+  > svg *{ fill: @bc_purple; }
+  > img { display: none; }
+  .carousel-control {
+    .glyphicon:before{ content: ''; }
+    .glyphicon svg {
+      display: block;
+      width: 35px;
+      height: 35px;
+    }
+    svg *{ fill: @bc_purple; }
+  }
+  .carousel-indicators li {
+    border: 1px solid lighten(@bc_purple, 20%);
+
+    &.active { background-color: darken(@bc_purple, 10%); }
+  }
+}

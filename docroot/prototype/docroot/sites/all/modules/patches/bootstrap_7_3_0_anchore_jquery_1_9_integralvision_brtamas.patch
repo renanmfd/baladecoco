@@ -1,0 +1,19 @@
+commit c629931f1282534838fd105e60c5ebd4d2893ec0
+Author: Brückner Tamás <tamas.bruckner@integralvision.hu>
+Date:   Wed Sep 24 12:07:21 2014 +0200
+
+    Anchor fix for js 1.9
+
+diff --git a/js/bootstrap.js b/js/bootstrap.js
+index 86bccbd..b4e26cb 100644
+--- a/js/bootstrap.js
++++ b/js/bootstrap.js
+@@ -144,7 +144,7 @@ var Drupal = Drupal || {};
+               top: offset + 'px',
+               zIndex: -1000
+             })
+-            .appendTo(document);
++            .appendTo('body');
+           $target.removeAttr(attr);
+           var complete = function () {
+             location.hash = element.hash;
