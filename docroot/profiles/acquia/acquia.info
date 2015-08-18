@@ -44,4 +44,4 @@ files[] = acquia.profile
 ; Information added by Acquia.com packaging script
 acquia = "1"
 
-version = 7.x-1.42
+version = 7.x-1.44
