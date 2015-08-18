@@ -1,0 +1,28 @@
+{# Usage:  
+    {% include "form-elements/radiobuttons.twig" with {
+      name: 'Name',
+      label: 'Label',
+      required: true|false,
+      classes: 'classes',
+      options: {value1: 'label1', value2: 'label2', value3: 'label3'},
+      selected: 'value1'
+      } 
+    %}
+  #}
+<div class="form-item form-type-radios form-item-{{ name|css }}{% if classes %} {{ classes }}{% endif %}" title="{{ name }}">
+  <label for="edit-{{ name|css }}">
+    {{ label }}
+    {% if required %}
+      <span class="form-required">*</span>
+    {% endif %}
+  </label>
+  <div id="edit-{{ name|css }}" class="form-radios">
+    {% for value, label in options %}
+      <div class="form-item form-type-radio form-item-{{ name|css }}">
+         <input type="radio" class="form-radio" id="edit-{{ value|css }}" 
+                name="{{ name }}" value="{{ value }}"{% if value == selected %} checked="checked" {% endif %}>
+         <label class="option" for="edit-{{ value|css }}">{{ label }}</label>
+      </div>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,12 @@
+
+{% extends 'blocks/layout.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block page_heading %}Home{% endblock %}
+
+{% block content %}
+  {% include "blocks/bala-reviews.twig" with reviews %}
+  {% include "blocks/bala-showroom.twig" with balas %}
+  {% include "blocks/bala-register-call.twig" %}
+{% endblock content %}

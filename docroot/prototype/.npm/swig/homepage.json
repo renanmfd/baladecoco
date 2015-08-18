@@ -1,0 +1,59 @@
+{  
+  "balas":{  
+    "bala_1":{ 
+      "type":"Comum",
+      "title":"Coco",
+      "src":"files/DSC03587.jpg",
+      "price":22.00,
+      "flag":"promotion"
+    },
+    "bala_2":{ 
+      "type":"Recheada",
+      "title":"Coco com Abacaxi",
+      "src":"files/DSC03982.jpg",
+      "price":30.00,
+      "flag":false
+    },
+    "bala_3":{ 
+      "type":"Bombom",
+      "title":"Coco",
+      "src":"files/DSC04917.jpg",
+      "price":45.00,
+      "flag":"hot"
+    }
+  },
+  "reviews":{  
+    "review_1":{ 
+      "type":"Bala",
+      "title":"Review 1",
+      "text":"Realmente derretem na boca!",
+      "name":"Carla Lima",
+      "city":"Campinas, SP",
+      "date":""
+    },
+    "review_2":{ 
+      "type":"Bala",
+      "title":"Review 2",
+      "text":"Vendedores atenciosos e responsáveis. Balas maravilhosas! Recomendo a todos.",
+      "name":"Luiza Vegas Pereira",
+      "city":"Porto Alegre, RS",
+      "date":"Ago/2014"
+    },
+    "review_3":{ 
+      "type":"Bala",
+      "title":"Review 3",
+      "text":"Melhor impossível. Gostinho de infancia.",
+      "name":"Alesandro Silveira",
+      "city":"Itajubá, MG",
+      "date":"Jan/2015"
+    },
+    "review_4":{ 
+      "type":"Bala",
+      "title":"Review 4",
+      "text":"Maravilhosa!!! Além de confiáveis e pontuais. Compro há 4 anos e nunca tive problemas. As balas chegam antes da data, fresquinhas, bem embaladas!",
+      "name":"Bia Doces e Chocolates",
+      "city":"Niteroi, RJ",
+      "date":"Jun/2015"
+    }
+  }
+}

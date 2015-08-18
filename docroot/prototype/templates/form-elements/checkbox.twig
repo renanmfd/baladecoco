@@ -1,0 +1,10 @@
+{# Usage:  
+    {% include "form-elements/checkbox.twig" with {
+      name: 'Name',
+      label: 'Label' } 
+    %}
+  #}
+<div class="form-item form-type-checkbox form-item-{{ name|css }}" title="{{ name }}">
+  <input type="checkbox" class="form-checkbox" id="edit-{{ name|css }}">
+  <label for="edit-{{ name|css }}"><span></span>{{ label|raw }}</label>
+</div>

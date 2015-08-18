@@ -1,0 +1,83 @@
+#navigation {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: $header-navigation-bg;
+  margin-top: -45px;
+  z-index: 50;
+
+  .menu-wrapper h3 {
+    display: inline-block !important;
+    visibility: visible !important;
+    padding-left: 30px;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    padding: 15px;
+    padding-left: 30px;
+    @include font ($bc-font2, $font-default, $font-normal);
+    text-transform: uppercase;
+    color: $header-navigation-cl;
+    float: right;
+    cursor: pointer;
+    
+    @include susy-breakpoint($tablet, $susy_tablet) {
+      display: none !important;
+    }
+    &:hover {
+      color: $header-navigation-cl-hover;
+    }
+  }
+  .menu-wrapper {
+    text-align: center;
+  }
+  ul.main-menu {
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0;
+    
+    @include susy-breakpoint($mobile-only, $susy) {
+      display: none;
+    }
+    li {
+      display: inline-block;
+      vertical-align: top;
+      width: auto;
+      @include padding (10px 15px);
+      
+      a {
+        display: block;
+        @include font ($bc_font2, $font-default, $font-light);
+        text-transform: uppercase;
+        color: $header-navigation-cl;
+        transition: color 0.2s ease-in-out;
+        
+        &:hover {
+          color: $header-navigation-cl-hover;
+        }
+      }
+      
+      .icon {
+        display: inline-block;
+        margin-right: 3px;
+      }
+      
+      .title {
+        display: inline-block;
+
+        &:first-letter {
+          @include font-size ($font-large);
+        }
+      }
+    }
+  }
+}
+
+.sticky {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  margin: 0 !important;
+}

@@ -1,0 +1,16 @@
+{# Usage:  
+    {% include "form-elements/textarea.twig" with {name: 'name', label: true, required: true, classes: 'class class'} %}
+  #}
+<div class="form-item form-type-textarea form-item-{{ name|css }}{% if classes %} {{ classes }}{% endif %}">
+  {% if label %}
+    <label for="edit-{{ name|css }}">
+      {{ name }}
+      {% if required %}
+        <span class="form-required">*</span>
+      {% endif %}
+    </label>
+  {% endif %}
+  <div class="form-textarea-wrapper">
+    <textarea type="text" id="edit-{{ name|css }}" class="form-textarea{% if required %} required{% endif %}" title="{{ name }}"></textarea>
+  </div>
+</div>

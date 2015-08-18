@@ -1,0 +1,45 @@
+{% set menu_links = [
+  {
+    'link' : 'homepage.html',
+    'title' : 'Home',
+    'current' : '',
+    'icon': 'icon-home3'
+  },
+  {
+    'link' : 'product.html',
+    'title' : 'Comprar',
+    'current' : 'bold',
+    'icon': 'icon-star-full'
+  },
+  {
+    'link' : 'gallery.html',
+    'title' : 'Galeria',
+    'current' : '',
+    'icon': 'icon-images'
+  },
+  {
+    'link' : 'clients.html',
+    'title' : 'Clientes',
+    'current' : '',
+    'icon': 'icon-bubbles2'
+  },
+  {
+    'link' : 'contact.html',
+    'title' : 'Contato',
+    'current' : '',
+    'icon': 'icon-phone'
+  }
+] 
+%}
+
+<h3 class="hidden">Menu</h3>
+<ul class="menu main-menu">
+  {% for link in menu_links %}
+    <li class="leaf{% if loop.first %} first{% endif %}{% if loop.last %} last{% endif %}">
+      <a href="{{ link.link }}" class="{{ link.current }}">
+        <span class="icon {{ link.icon }}"></span>
+        <span class="title">{{ link.title }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

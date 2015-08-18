@@ -1,0 +1,184 @@
+form {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 10px 0;
+  
+  label {
+    display: block;
+    @include font ($bc-font2, $font-default, $font-normal);
+    margin-bottom: 5px;
+    
+    .form-required {
+      color: $orange;
+    }
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+fieldset {
+  > div {
+    margin-bottom: rem(10px);
+  }
+}
+
+.form-item {
+  padding: 10px 0;
+}
+
+input.form-submit {
+  display: inline-block;
+  padding: rem(10px 20px);
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background-color: $gray;
+  color: #fff;
+}
+
+input:not([type="submit"]), textarea {
+  width: 100%;
+  padding: rem(6px);
+  border: 1px solid $darkgray;
+}
+
+::-webkit-input-placeholder {
+  @include font ($bc-font2, $font-default, $font-normal);
+  font-style: italic;
+  color: $lightgray;
+}
+
+:-moz-placeholder {
+  @include font ($bc-font2, $font-default, $font-normal);
+  font-style: italic;
+  color: $lightgray;
+}
+
+::-moz-placeholder {
+  @include font ($bc-font2, $font-default, $font-normal);
+  font-style: italic;
+  color: $lightgray;
+}
+
+:-ms-input-placeholder {
+  @include font ($bc-font2, $font-default, $font-normal);
+  font-style: italic;
+  color: $lightgray;
+}
+
+$form-border-radius: 8px;
+
+// TEXT FIELD ========================================== //
+.form-type-textfield {
+  input {
+    @include font ($bc-font2, $font-default, $font-normal);
+    @include padding (10px 10px);
+    color: $darkpurple;
+    border: 1px solid $darkpurple;
+    border-radius: $form-border-radius;
+    transition: border-color 0.4s ease-in-out;
+    
+    &:focus {
+      outline: none;
+      border-color: $orange;
+    }
+  }
+}
+
+// SELECT ============================================== //
+.form-type-select {
+  .chosen-container {
+    .chosen-single {
+      border: 1px solid $darkpurple;
+      border-radius: $form-border-radius;
+      padding: 4px 0 3px 10px;
+      color: $darkpurple;
+      transition: border-color 0.4s ease-in-out;
+      
+      &:hover span {
+        color: inherit;
+      }
+      
+      &.chosen-default span {
+        font-style: italic;
+        color: $lightgray;
+      }
+      
+      span {
+        @include font ($bc-font2, $font-default, $font-normal);
+        color: $darkpurple;
+      }
+      
+      b:before, b:after {
+        color: $darkpurple;
+      }
+    }
+    
+    .chosen-drop {
+      border: 1px solid $darkpurple;
+      transition: border-color 0.4s ease-in-out;
+    }
+  }
+  
+  .chosen-with-drop {
+    .chosen-single {
+      border-color: $orange;
+    }
+    
+    .chosen-drop {
+      margin-top: -10px;
+      border-color: $orange;
+      border-top: none;
+      border-bottom-left-radius: $form-border-radius;
+      border-bottom-right-radius: $form-border-radius;
+      
+      li:hover {
+        color: $orange;
+      }
+    }
+  }
+}
+
+// TEXT AREA =========================================== //
+.form-type-textarea {
+  textarea {
+    max-width: 100%;
+    max-height: 500px;
+    min-height: 100px;
+    @include font ($bc-font2, $font-default, $font-normal);
+    color: $darkpurple;
+    border: 1px solid $darkpurple;
+    border-radius: $form-border-radius;
+    resize: vertical;
+    transition: border-color 0.4s ease-in-out;
+    
+    &:focus {
+      outline: none;
+      border-color: $orange;
+    }
+  }
+}
+
+// BUTTONS ============================================= //
+input.form-submit {
+  float: right;
+  width: auto;
+  min-width: 120px;
+  @include font ($bc-font2, $font-default, $font-normal);
+  color: $white;
+  background-color: $orange;
+  text-align: center;
+  border: 1px solid $darkpurple;
+  
+  &:hover {
+    color: $darkpurple;
+    background-color: $lightorange;
+  }
+}

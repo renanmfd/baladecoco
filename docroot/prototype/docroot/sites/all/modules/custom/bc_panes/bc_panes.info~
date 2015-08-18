@@ -1,5 +1,0 @@
-name = BC Panes
-description = Stores and handles Bala de Coco custom panels panes
-core = 7.x
-package = Bala de Coco
-dependencies[] = panels

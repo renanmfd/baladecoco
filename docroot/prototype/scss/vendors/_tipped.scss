@@ -1,0 +1,771 @@
+//colors
+$white: rgb(255, 255, 255);
+$color_shark_approx: rgb(40, 40, 40);
+$white_10: rgba(255, 255, 255, .1);
+$white_20: rgba(255, 255, 255, 0.2);
+$gray: rgb(128, 128, 128);
+$color_dove_gray_approx: rgb(108, 108, 108);
+$color_cape_cod_approx: rgb(64, 64, 64);
+$color_celeste_approx: rgb(204, 204, 204);
+$silver: rgb(192, 192, 192);
+
+//fonts
+$font_0: $bc-font1;
+$font_1: "Arial";
+$font_2: "monospace";
+
+//@extend-elements
+//original selectors
+//.tpd-tooltip, .tpd-tooltip [class^="tpd-"]
+%extend_1 {
+  	//Instead of the line below you could use @include box-sizing($bs)
+  	box-sizing: content-box;
+  	moz-box-sizing: content-box;
+  	webkit-box-sizing: content-box;
+}
+
+//original selectors
+//.tpd-background-box-shift, .tpd-background-box-shift-further
+%extend_2 {
+  	float: left;
+  	height: 100%;
+  	position: relative;
+  	width: 100%;
+}
+
+//original selectors
+//.tpd-stem-downscale, .tpd-stem-transform
+%extend_3 {
+  	float: left;
+  	height: 100%;
+  	position: relative;
+  	//Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+  	transform-origin: 0 0;
+  	webkit-transform-origin: 0 0;
+  	width: 100%;
+}
+
+//original selectors
+//.tpd-stem-border-center-offset, .tpd-stem-border-center-offset-inverse
+%extend_4 {
+  	float: left;
+  	height: 100%;
+  	overflow: hidden;
+  	position: relative;
+  	width: 100%;
+}
+
+//original selectors
+//.tpd-stem-notransform .tpd-stem-border-center, .tpd-stem-notransform .tpd-stem-triangle
+%extend_5 {
+  	border: 0;
+  	height: 0;
+  	left: 50%;
+}
+
+//original selectors
+//.tpd-spinner-spin, .tpd-spinner-spin:after
+%extend_6 {
+  	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  	border-radius: 50%;
+  	height: 20px;
+  	width: 20px;
+}
+
+//original selectors
+//.tpd-size-x-small .tpd-content, .tpd-size-x-small .tpd-title
+%extend_7 {
+  	font-size: 10px;
+  	line-height: 15px;
+  	padding: 7px 8px;
+}
+
+//original selectors
+//.tpd-size-small .tpd-content, .tpd-size-small .tpd-title
+%extend_8 {
+  	font-size: 10px;
+  	line-height: 16px;
+  	padding: 8px;
+}
+
+//original selectors
+//.tpd-size-medium .tpd-content, .tpd-size-medium .tpd-title
+%extend_9 {
+  	font-size: 11px;
+  	line-height: 16px;
+  	padding: 10px;
+}
+
+//original selectors
+//.tpd-size-large .tpd-content, .tpd-size-large .tpd-title
+%extend_10 {
+  	font-size: 13px;
+  	line-height: 18px;
+  	padding: 10px;
+}
+
+
+.tpd-tooltip {
+  	position: absolute;
+  	@extend %extend_1;
+  	[class^="tpd-"] {
+  	  	@extend %extend_1;
+  	}
+  	.tpd-content-no-padding {
+  	  	padding: 0 !important;
+  	}
+  	a {
+  	  	color: $gray;
+  	  	text-decoration: underline;
+  	  	&:hover {
+  	  	  	color: $gray;
+  	  	  	text-decoration: underline;
+  	  	  	color: $color_dove_gray_approx;
+  	  	}
+  	}
+  	.tpd-skin .tpd-frames .tpd-frame .tpd-shift-stem .tpd-stem-reset {
+  	  	margin: 0 !important;
+  	}
+}
+.tpd-content-wrapper {
+  	float: left;
+  	height: 100%;
+  	left: 0;
+  	overflow: hidden;
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
+}
+.tpd-content-spacer {
+  	float: left;
+  	position: relative;
+}
+.tpd-content-relative {
+  	float: left;
+  	position: relative;
+  	width: 100%;
+}
+.tpd-content-relative-padder {
+  	float: left;
+  	position: relative;
+}
+.tpd-content {
+  	clear: both;
+  	color: $white;
+  	float: left;
+  	font-size: 11px;
+  	line-height: 16px;
+  	padding: 10px;
+  	position: relative;
+}
+.tpd-title-wrapper {
+  	float: left;
+  	overflow: hidden;
+  	position: relative;
+}
+.tpd-title-spacer {
+  	float: left;
+}
+.tpd-title-relative {
+  	float: left;
+  	position: relative;
+  	width: 100%;
+}
+.tpd-title-relative-padder {
+  	float: left;
+  	position: relative;
+}
+.tpd-title {
+  	color: $white;
+  	float: left;
+  	font-size: 11px;
+  	font-weight: bold;
+  	line-height: 16px;
+  	padding: 10px;
+  	position: relative;
+  	text-transform: uppercase;
+}
+.tpd-close {
+  	color: $white;
+  	cursor: pointer;
+  	height: 28px;
+  	overflow: hidden;
+  	position: absolute;
+  	right: 0;
+  	top: 0;
+  	width: 28px;
+}
+.tpd-close-icon {
+  	float: left;
+  	font-family: $font_0, $font_1, $font_2;
+  	font-size: 28px;
+  	font-style: normal;
+  	font-weight: normal;
+  	height: 28px;
+  	line-height: 28px;
+  	text-align: center;
+  	text-decoration: none;
+  	width: 28px;
+}
+.tpd-skin {
+  	left: 0;
+  	position: absolute;
+  	top: 0;
+}
+.tpd-frames {
+  	left: 0;
+  	position: absolute;
+  	top: 0;
+  	.tpd-frame {
+  	  	clear: both;
+  	  	display: none;
+  	  	float: left;
+  	  	height: 100%;
+  	  	width: 100%;
+  	}
+}
+.tpd-backgrounds {
+  	height: 100%;
+  	left: 0;
+  	position: absolute;
+  	top: 0;
+  	//Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+  	transform-origin: 0 0;
+  	webkit-transform-origin: 0 0;
+  	width: 100%;
+}
+.tpd-background-shadow {
+  	background-color: transparent;
+  	height: 100%;
+  	left: 0;
+  	pointer-events: none;
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
+}
+.tpd-background-box {
+  	height: 100%;
+  	left: 0;
+  	overflow: hidden;
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
+}
+.tpd-no-stem {
+  	.tpd-background-box {
+  	  	display: none;
+  	}
+  	.tpd-shift-stem {
+  	  	display: none;
+  	}
+  	.tpd-background-box-top {
+  	  	display: block;
+  	}
+}
+.tpd-background-box-shift {
+  	@extend %extend_2;
+}
+.tpd-background-box-shift-further {
+  	@extend %extend_2;
+}
+.tpd-background {
+  	background: none;
+  	//Instead of the line below you could use @include background-clip($clip)
+  	background-clip: padding-box;
+  	border-color: $color_shark_approx;
+  	border-color: $white_10;
+  	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  	border-radius: 10px;
+  	border-style: solid;
+  	border-width: 1px;
+  	clear: both;
+  	float: left;
+  	webkit-background-clip: padding-box;
+}
+.tpd-background-loading {
+  	display: none;
+}
+.tpd-background-title {
+  	background-color: $color_shark_approx;
+  	clear: both;
+  	float: left;
+  	width: 100%;
+}
+.tpd-background-content {
+  	background-color: $color_shark_approx;
+  	clear: both;
+  	float: left;
+  	width: 100%;
+}
+.tpd-background-border-hack {
+  	border-style: solid;
+  	height: 100%;
+  	left: 0;
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
+}
+.tpd-background-box-top {
+  	top: 0;
+}
+.tpd-background-box-bottom {
+  	bottom: 0;
+}
+.tpd-background-box-left {
+  	left: 0;
+}
+.tpd-background-box-right {
+  	right: 0;
+}
+.tpd-iframeshim {
+  	filter: alpha(opacity=0);
+  	height: 100%;
+  	left: 0;
+  	margin: 0;
+  	opacity: 0;
+  	padding: 0;
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
+  	zoom: 1;
+}
+.tpd-shift-stem {
+  	left: 0;
+  	overflow: hidden;
+  	position: absolute;
+  	top: 0;
+}
+.tpd-shift-stem-side {
+  	position: absolute;
+}
+.tpd-stem {
+  	height: 8px;
+  	left: 0;
+  	margin-left: 3px;
+  	margin-top: 2px;
+  	overflow: hidden;
+  	position: absolute;
+  	top: 0;
+  	//Instead of the line below you could use @include transform-origin($origin-x, $origin-y, $origin-z, $only3d)
+  	transform-origin: 0 0;
+  	webkit-transform-origin: 0 0;
+  	width: 16px;
+  	* {
+  	  	z-index: 0;
+  	  	zoom: 1;
+  	}
+}
+.tpd-stem-spacer {
+  	height: 100%;
+  	left: 0;
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
+}
+.tpd-stem-point {
+  	left: 50%;
+  	position: absolute;
+  	top: 0;
+  	width: 100px;
+}
+.tpd-stem-downscale {
+  	@extend %extend_3;
+}
+.tpd-stem-transform {
+  	@extend %extend_3;
+}
+.tpd-stem-side {
+  	float: left;
+  	height: 100%;
+  	overflow: hidden;
+  	position: relative;
+  	width: 50%;
+}
+.tpd-stem-side-inversed {
+  	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  	transform: scale(-1,1);
+  	webkit-transform: scale(-1,1);
+}
+.tpd-stem-triangle {
+  	border-bottom-style: solid;
+  	border-left-color: transparent;
+  	border-left-style: solid;
+  	height: 0;
+  	left: 0;
+  	position: absolute;
+  	top: 0;
+  	width: 0;
+}
+.tpd-stem-border {
+  	background-color: $white;
+  	border-right-color: $white;
+  	border-right-style: solid;
+  	border-right-width: 0;
+  	height: 100%;
+  	left: 50%;
+  	position: absolute;
+  	top: 0;
+  	width: 20px;
+}
+.tpd-stem-border-corner {
+  	border-right-style: solid;
+  	border-right-width: 0;
+  	height: 100%;
+  	left: 50%;
+  	position: absolute;
+  	top: 0;
+}
+.tpd-stem-border-center-offset {
+  	@extend %extend_4;
+}
+.tpd-stem-border-center-offset-inverse {
+  	@extend %extend_4;
+}
+.tpd-stem-notransform {
+  	float: left;
+  	height: 100%;
+  	position: relative;
+  	width: 100%;
+  	.tpd-stem-border {
+  	  	float: left;
+  	  	height: 100%;
+  	  	left: 0;
+  	  	margin: 0;
+  	  	position: relative;
+  	  	top: 0;
+  	}
+  	.tpd-stem-border-center {
+  	  	position: absolute;
+  	  	@extend %extend_5;
+  	}
+  	.tpd-stem-border-corner {
+  	  	background: $white;
+  	  	border: 0;
+  	  	left: auto;
+  	  	top: auto;
+  	}
+  	.tpd-stem-triangle {
+  	  	@extend %extend_5;
+  	}
+}
+.tpd-stem-transform-left {
+  	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  	transform: rotate(-90deg) scale(-1,1);
+  	webkit-transform: rotate(-90deg) scale(-1,1);
+}
+.tpd-stem-transform-right {
+  	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  	transform: rotate(90deg) translate(0, -100%);
+  	webkit-transform: rotate(90deg) translate(0, -100%);
+}
+.tpd-stem-transform-bottom {
+  	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  	transform: scale(1,-1) translate(0, -100%);
+  	webkit-transform: scale(1,-1) translate(0, -100%);
+}
+.tpd-spinner {
+  	height: 36px;
+  	left: 50%;
+  	position: absolute;
+  	top: 50%;
+  	width: 46px;
+}
+.tpd-spinner-spin {
+  	animation: tpd-spinner-animation 1.1s infinite linear;
+  	border-bottom: 2px solid $white_20;
+  	border-left: 2px solid $white;
+  	border-right: 2px solid $white_20;
+  	border-top: 2px solid $white_20;
+  	//Instead of the line below you could use @include box-sizing($bs)
+  	box-sizing: border-box !important;
+  	float: left;
+  	margin: 8px 0 0 13px;
+  	position: relative;
+  	text-indent: -9999em;
+  	webkit-animation: tpd-spinner-animation 1.1s infinite linear;
+  	@extend %extend_6;
+  	&:after {
+  	  	@extend %extend_6;
+  	}
+}
+@-webkit-keyframes tpd-spinner-animation {
+  	0% {
+  	  	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  	  	transform: rotate(0deg);
+  	  	webkit-transform: rotate(0deg);
+  	}
+  	100% {
+  	  	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  	  	transform: rotate(360deg);
+  	  	webkit-transform: rotate(360deg);
+  	}
+}
+@keyframes tpd-spinner-animation {
+  	0% {
+  	  	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  	  	transform: rotate(0deg);
+  	  	webkit-transform: rotate(0deg);
+  	}
+  	100% {
+  	  	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  	  	transform: rotate(360deg);
+  	  	webkit-transform: rotate(360deg);
+  	}
+}
+.tpd-is-loading {
+  	.tpd-content-wrapper {
+  	  	display: none;
+  	}
+  	.tpd-title-wrapper {
+  	  	display: none;
+  	}
+  	.tpd-background {
+  	  	display: none;
+  	}
+  	.tpd-background-loading {
+  	  	display: block;
+  	}
+}
+.tpd-tooltip-measuring {
+  	left: 0;
+  	max-width: 100%;
+  	position: absolute;
+  	top: 0;
+  	width: 100%;
+  	.tpd-skin {
+  	  	display: none;
+  	}
+  	.tpd-spinner {
+  	  	display: none;
+  	}
+  	.tpd-content-wrapper {
+  	  	display: block;
+  	}
+  	.tpd-title-wrapper {
+  	  	display: block;
+  	}
+}
+.tpd-size-x-small {
+  	.tpd-content {
+  	  	@extend %extend_7;
+  	}
+  	.tpd-title {
+  	  	@extend %extend_7;
+  	}
+  	.tpd-background {
+  	  	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  	  	border-radius: 5px;
+  	}
+  	.tpd-stem {
+  	  	height: 6px;
+  	  	margin-left: 4px;
+  	  	margin-top: 2px;
+  	  	width: 12px;
+  	}
+  	.tpd-close {
+  	  	margin-bottom: 1px;
+  	}
+  	.tpd-spinner {
+  	  	height: 29px;
+  	  	width: 35px;
+  	}
+  	.tpd-spinner-spin {
+  	  	margin: 6px 0 0 9px;
+  	  	height: 17px;
+  	  	width: 17px;
+  	  	&:after {
+  	  	  	height: 17px;
+  	  	  	width: 17px;
+  	  	}
+  	}
+  	&.tpd-no-radius .tpd-stem {
+  	  	margin-left: 7px;
+  	}
+}
+.tpd-size-small {
+  	.tpd-content {
+  	  	@extend %extend_8;
+  	}
+  	.tpd-title {
+  	  	@extend %extend_8;
+  	}
+  	.tpd-background {
+  	  	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  	  	border-radius: 6px;
+  	}
+  	.tpd-stem {
+  	  	height: 7px;
+  	  	margin-left: 5px;
+  	  	margin-top: 2px;
+  	  	width: 14px;
+  	}
+  	.tpd-close {
+  	  	margin: 2px 1px;
+  	}
+  	.tpd-spinner {
+  	  	height: 32px;
+  	  	width: 42px;
+  	}
+  	.tpd-spinner-spin {
+  	  	margin: 7px 0 0 13px;
+  	  	height: 18px;
+  	  	width: 18px;
+  	  	&:after {
+  	  	  	height: 18px;
+  	  	  	width: 18px;
+  	  	}
+  	}
+  	&.tpd-no-radius .tpd-stem {
+  	  	margin-left: 8px;
+  	}
+}
+.tpd-size-medium {
+  	.tpd-content {
+  	  	@extend %extend_9;
+  	}
+  	.tpd-title {
+  	  	@extend %extend_9;
+  	}
+  	.tpd-background {
+  	  	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  	  	border-radius: 8px;
+  	}
+  	.tpd-stem {
+  	  	height: 8px;
+  	  	margin-left: 6px;
+  	  	margin-top: 2px;
+  	  	width: 16px;
+  	}
+  	.tpd-close {
+  	  	margin: 4px 2px;
+  	}
+  	.tpd-spinner {
+  	  	height: 36px;
+  	  	width: 50px;
+  	}
+  	.tpd-spinner-spin {
+  	  	margin: 8px 0 0 15px;
+  	  	height: 20px;
+  	  	width: 20px;
+  	  	&:after {
+  	  	  	height: 20px;
+  	  	  	width: 20px;
+  	  	}
+  	}
+  	&.tpd-no-radius .tpd-stem {
+  	  	margin-left: 10px;
+  	}
+}
+.tpd-size-large {
+  	.tpd-content {
+  	  	@extend %extend_10;
+  	}
+  	.tpd-title {
+  	  	@extend %extend_10;
+  	}
+  	.tpd-background {
+  	  	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  	  	border-radius: 8px;
+  	}
+  	.tpd-stem {
+  	  	height: 9px;
+  	  	margin-left: 7px;
+  	  	margin-top: 2px;
+  	  	width: 18px;
+  	}
+  	.tpd-close {
+  	  	margin: 5px 2px;
+  	}
+  	.tpd-spinner {
+  	  	height: 38px;
+  	  	width: 54px;
+  	}
+  	.tpd-spinner-spin {
+  	  	margin: 9px 0 0 17px;
+  	  	height: 20px;
+  	  	width: 20px;
+  	  	&:after {
+  	  	  	height: 20px;
+  	  	  	width: 20px;
+  	  	}
+  	}
+  	&.tpd-no-radius .tpd-stem {
+  	  	margin-left: 10px;
+  	}
+}
+.tpd-skin-dark {
+  	.tpd-content {
+  	  	color: $white;
+  	}
+  	.tpd-title {
+  	  	color: $white;
+  	}
+  	.tpd-close {
+  	  	color: $white;
+  	}
+  	.tpd-background-content {
+  	  	background-color: $color_shark_approx;
+  	}
+  	.tpd-background-title {
+  	  	background-color: $color_shark_approx;
+  	}
+  	.tpd-background {
+  	  	border-color: $color_shark_approx;
+  	  	border-color: $white_10;
+  	  	border-width: 1px;
+  	}
+  	.tpd-title-wrapper {
+  	  	border-bottom: 1px solid $color_cape_cod_approx;
+  	}
+  	.tpd-spinner-spin {
+  	  	border-color: $white_20;
+  	  	border-left-color: $white;
+  	}
+  	a {
+  	  	color: $color_celeste_approx;
+  	  	&:hover {
+  	  	  	color: $silver;
+  	  	}
+  	}
+}
+.tpd-has-inner-close .tpd-content-relative .tpd-content {
+  	padding-right: 0 !important;
+}
+.tpd-has-title-close .tpd-title {
+  	padding-right: 0 !important;
+}
+.tpd-visible-frame-top .tpd-frame-top {
+  	display: block;
+}
+.tpd-visible-frame-bottom .tpd-frame-bottom {
+  	display: block;
+}
+.tpd-visible-frame-left .tpd-frame-left {
+  	display: block;
+}
+.tpd-visible-frame-right .tpd-frame-right {
+  	display: block;
+}
+.tpd-no-shadow .tpd-skin .tpd-background-shadow {
+  	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  	box-shadow: none !important;
+}
+.tpd-no-radius .tpd-skin .tpd-frames .tpd-frame .tpd-backgrounds .tpd-background {
+  	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  	border-radius: 0;
+}
+.tpd-frame-top .tpd-shift-stem-side {
+  	width: 100%;
+}
+.tpd-frame-bottom .tpd-shift-stem-side {
+  	width: 100%;
+}
+.tpd-frame-left .tpd-shift-stem-side {
+  	height: 100%;
+}
+.tpd-frame-right .tpd-shift-stem-side {
+  	height: 100%;
+}
+.tpd-stem-reset .tpd-stem-spacer {
+  	margin-top: 0;
+}

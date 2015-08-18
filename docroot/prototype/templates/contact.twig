@@ -1,0 +1,44 @@
+
+{% extends 'blocks/layout.twig' %}
+
+{% block title %}Contato{% endblock %}
+
+{% block page_heading %}Contato{% endblock %}
+
+{% block content %}
+  <section id="contact-page">
+    <div class="container">
+      <div class="prev-contact">
+        <h2>Atendimento</h2>
+        <div>
+          <p>Olá <span class="client-name">renanmfd</span>,</p>
+          <p>Aqui resolveremos todas as suas dúvidas sobre as Balas de Coco, a nossa empresa e o nosso site. Vamos passo a passo...</p>
+        </div>
+        <ul>
+          <li>
+            <h3><span class="icon icon-arrow-right"></span>Perguntas Frequentes</h3>
+            <p>O primeiro passo é consultar a FAQ, página onde temos respostas para as dúvidas mais comuns dos nossos clientes.</p>
+            <p><a href="faq.html" class="contact-link faq">Clique aqui para acessar</a></p>
+          </li>
+          <li>
+            <h3><span class="icon icon-arrow-right"></span>Mensagem</h3>
+            <p>Se sua dúvida ainda persiste, mande uma mensagem. Nós vamos responder sua pergunta via e-mail em até 48h.</p>
+            <p><a href="#message-form" class="contact-link email">Clique aqui mandar uma mensagem</a></p>
+          </li>
+          <li>
+            <h3><span class="icon icon-arrow-right"></span>Contato Rápido</h3>
+            <p>Por último, se você precisa ou prefere um atendimento rápido, não hesite em nos contatar pelo telefone:</p>
+            <p><span class="contact-link phone">(35) 3621-7882</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <section id="mail-message">
+    <div class="container">
+      {% include "blocks/message-form.twig" %}
+    </div>
+  </section>
+{% endblock %}
+
+{% block content_sidebar %}{% endblock %}

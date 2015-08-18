@@ -1,0 +1,145 @@
+.section-title {
+  display: inline-block;
+  clear: both;
+  margin-bottom: 30px;
+  @include font ($bc-font2, $font-xlarge, $font-light);
+  text-transform: uppercase;
+  border-bottom: 2px solid $darkpurple;
+  color: $darkpurple;
+}
+
+quotes {
+  display: inline-block;
+  position: relative;
+  @include padding(10px 30px);
+  @include font ($bc-font1, $font-default, $font-bold);
+  
+  &:before, &:after {
+    content: '\e600';
+    font-family: 'icomoon';
+    font-size: $font-large;
+    display: block;
+    width: 30px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  &:after {
+    left: initial;
+    top: initial;
+    right: 0;
+    bottom: 20px; // tied to background-size
+    transform: rotate(180deg);
+  }
+}
+
+.show-more {
+  @include padding (2px 10px);
+  @include font ($bc-font2, $font-default, $font-normal);
+  color: $sections-showmore-cl;
+  border: 1px solid $sections-showmore-cl;
+  border-radius: 6px;
+  
+  &:hover {
+    color: darken($sections-showmore-cl, 20%);
+    border-color: darken($sections-showmore-cl, 20%);
+  }
+}
+
+.baladecoco-section {
+  display: block;
+  position: relative;
+  width: 100%;
+  @include padding (20px 0 40px 0);
+  text-align: center;
+  
+  @include susy-breakpoint($tablet, $susy_tablet) {
+    @include padding (30px 0 40px 0);
+  }
+}
+
+.text {
+  font-family: $bc-font1;
+  @include font-size ($font-default);
+  color: $black;
+  // Font FAMILY
+  &.sans {
+    font-family: $bc-font2;
+  }
+  // Font STYLE
+  &.italic {
+    font-style: italic;
+  }
+  // Font SIZE
+  &.small {
+    @include font-size ($font-small);
+  }
+  &.medium {
+    @include font-size ($font-medium);
+  }
+  &.big {
+    @include font-size ($font-large);
+  }
+  &.large {
+    @include font-size ($font-xlarge);
+  }
+  // Font WEIGHT
+  &.bold {
+    font-weight: $font-bold;
+  }
+  &.light {
+    font-weight: $font-light
+  }
+  // Text TRANSFORM
+  &.upper {
+    text-transform: uppercase;
+  }
+  &.lower {
+    text-transform: lowercase;
+  }
+  // Text COLOR
+  &.purple {
+    color: $purple;
+  }
+  &.blue {
+    color: $blue;
+  }
+  &.orange {
+    color: $orange;
+  }
+  &.white {
+    color: $white;
+  }
+  // Text POSITION
+  &.left {
+    float: left;
+  }
+  &.right {
+    float: right;
+  }
+}
+
+.background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  
+  .background {
+    position: absolute;
+    width: 120%;
+    min-width: 600px;
+    max-width: none;
+    height: auto;
+    left: -10%;
+    top: 0;
+    z-index: 0;
+  }
+  & + div {
+    position: relative;
+  }
+}
