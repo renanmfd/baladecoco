@@ -2,10 +2,13 @@
   display: inline-block;
   clear: both;
   margin-bottom: 30px;
+  margin-top: 0;
+  padding: 0;
   @include font ($bc-font2, $font-xlarge, $font-light);
   text-transform: uppercase;
   border-bottom: 2px solid $darkpurple;
   color: $darkpurple;
+  transition: color 0.2s ease-in-out;
 }
 
 quotes {

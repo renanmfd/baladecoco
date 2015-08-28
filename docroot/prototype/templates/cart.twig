@@ -1,0 +1,133 @@
+
+{% extends 'blocks/layout.twig' %}
+
+{% block title %}Balas de Coco{% endblock %}
+
+{% block page_heading %}Produtos{% endblock %}
+
+{% block presentation %}{% endblock %}
+
+{% block navigation %}{% endblock %}
+
+{% block content %}
+  <section id="cart-section">
+    <div class="container">
+
+      <div class="breadcrumb checkout cart">
+        <ul>
+          <li class="breadcrumb__item active"><span>1.&nbsp;</span>Meu Carrinho</li>
+          <li class="breadcrumb__item"><span>2.&nbsp;</span>Identificação</li>
+          <li class="breadcrumb__item"><span>3.&nbsp;</span>Pagamento</li>
+          <li class="breadcrumb__item"><span>4.&nbsp;</span>Confirmação</li>
+        </ul>
+      </div>
+
+      <div class="shipping-wrapper">
+        <div class="more-products-wrapper">
+          <a href="homepage.html" class="btn btn-cart btn-more-products">
+            Escolher&nbsp;<span class="icon icon-plus2"></span>&nbsp;Produtos
+          </a>
+        </div>
+
+        <div class="shipping">
+          <div class="shipping__no">
+            <p>Consulte o prazo de entrega e o frete para o seu CEP:</p>
+            
+            {% include "blocks/shipping-calc.twig" %}
+          </div>
+          <div class="shipping__yes">
+            <p>Verifique abaixo as opções de frete disponíveis para:</p>
+            <div class="shipping__yes__address">
+              <div><span class="icon-truck icon"></span>12230-660</div>
+              <a href="cart.html"><span>Mudar o CEP</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% include "blocks/button-checkout.twig" %}
+
+      <div class="cart-table">
+        <div class="cart-table__header">
+          <div class="cart-table__cell cart-table__header__cell">Produto</div>
+          <div class="cart-table__cell cart-table__header__cell">Quantidade</div>
+          <div class="cart-table__cell cart-table__header__cell">Valor Unitário</div>
+          <div class="cart-table__cell cart-table__header__cell">Total</div>
+        </div>
+
+        <div class="cart-table__body">
+          {% include "blocks/cart-item.twig" with {
+            id: 100,
+            title: 'Bala de Coco',
+            image: 'files/cart-item-1.jpg',
+            quantity: 1,
+            price: 25.00,
+            discount: 0.00,
+            } 
+          %}
+          {% include "blocks/cart-item.twig" with {
+            id: 101,
+            title: 'Bala de Coco com Abacaxi',
+            image: 'files/cart-item-2.jpg',
+            quantity: 2,
+            price: 32.00,
+            discount: 0.05,
+            } 
+          %}
+          {% include "blocks/cart-item.twig" with {
+            id: 199,
+            title: 'Bala Bombom de Coco',
+            image: 'files/cart-item-3.jpg',
+            quantity: 1,
+            price: 40.00,
+            discount: 0.00,
+            } 
+          %}
+        </div>
+
+        <div class="cart-table__shipping">
+          {% include "blocks/cart-shipping.twig" %}
+        </div>
+
+        <div class="cart-table__total">
+          <form action="#" id="cupom-form">
+            <div>
+              {% include "form-elements/textfield.twig" with {
+                name: 'Cupom',
+                label: true,
+                required: false,
+                classes: '',
+                placeholder: false,
+              } %}
+              <input type="submit" class="form-submit" name="submit" value="OK">
+            </div>
+          </form>
+          <div class="shipping-total-price">
+            <div class="label">Sub-total:</div>
+            <div class="value"><span>129.00</span>&nbsp;<b>R$</b></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  {% include "blocks/button-checkout.twig" %}
+
+  {% include "blocks/similar-slider.twig" %}
+
+{% endblock %}
+
+{% block content_sidebar %}{% endblock %}
+
+{% block footer %}
+  <footer>
+    <section id="bottom">
+      <div class="container">
+        <div class="copyright">
+          <span>&copy; Menina das Balas. Todos os direitos reservados.</span>
+        </div>
+      </div>
+    </section>
+  </footer>
+{% endblock %}

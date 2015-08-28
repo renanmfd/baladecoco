@@ -1,5 +1,5 @@
 {# Usage:  
-    {% include "form-elements/textarea.twig" with {name: 'name', label: true, required: true, classes: 'class class'} %}
+    {% include "form-elements/textarea.twig" with {name: 'name', label: true, required: true, classes: 'class class', placeholder: 'placeholdertext'} %}
   #}
 <div class="form-item form-type-textarea form-item-{{ name|css }}{% if classes %} {{ classes }}{% endif %}">
   {% if label %}
@@ -11,6 +11,6 @@
     </label>
   {% endif %}
   <div class="form-textarea-wrapper">
-    <textarea type="text" id="edit-{{ name|css }}" class="form-textarea{% if required %} required{% endif %}" title="{{ name }}"></textarea>
+    <textarea type="text" id="edit-{{ name|css }}" class="form-textarea{% if required %} required{% endif %}" title="{{ name }}" {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}></textarea>
   </div>
 </div>

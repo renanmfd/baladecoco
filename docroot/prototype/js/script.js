@@ -1,21 +1,26 @@
 (function (window, document, $) {
   Drupal.behaviors.navigation_fixed = {
     attach: function (context, settings) {
-      var nav = $('#navigation').offset().top;
-      $(window).scroll(function(e) {
-        var offset = $(window).scrollTop();
-        if (offset > nav) {
-          $('#navigation').addClass('sticky');
-        }
-        else {
-          $('#navigation.sticky').removeClass('sticky');
-        }
-      });
+      // TOPBAR - Make topbar sticky when scroll down.
+      if ($('#navigation').length) {
+        var nav = $('#navigation').offset().top;
+        $(window).scroll(function(e) {
+          var offset = $(window).scrollTop();
+          if (offset > nav) {
+            $('#navigation').addClass('sticky');
+          }
+          else {
+            $('#navigation.sticky').removeClass('sticky');
+          }
+        });
+      }
     }
   };
 
   Drupal.behaviors.general_behaviors = {
     attach: function (context, settings) {
+      // Add JS class to HTML tag
+      $('html').addClass('js');
       // Tooltips
       Tipped.create('.simple-tooltip');
       // Chosen
@@ -86,6 +91,14 @@
     }
     else {
        $('.review-teaser').height('');
+    }
+  }
+  
+  Drupal.behaviors.cart_behaviors = {
+    attach: function (context, settings) {
+      $('.flexslider').flexslider({
+        animation: "slide"
+      });
     }
   }
 

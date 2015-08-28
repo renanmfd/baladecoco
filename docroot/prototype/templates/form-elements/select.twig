@@ -6,8 +6,9 @@
       chosen: true,
       classes: '',
       placeholder: '',
-      options: {'0':'Opt1', '1':'Opt2', '2':'Opt3'} } 
-    %}
+      options: {'0':'Opt1', '1':'Opt2', '2':'Opt3'},
+      selected: '1',
+    } %}
   #}
 <div class="form-item form-type-select form-item-{{ name|css }}{% if classes %} {{ classes }}{% endif %}{% if !label %} no-label{% endif %}">
   {% if label %}
@@ -21,7 +22,7 @@
   <select id="edit-{{ name|css }}" class="form-select{% if chosen %} chosen-select{% endif %}" title="{{ name }}" {% if placeholder %}data-placeholder="{{ placeholder }}"{% endif %}>
     {% if placeholder %}<option></option>{% endif %}
     {% for key, value in options %}
-      <option value="{{ key }}">{{ value }}</option>
+      <option value="{{ key }}" {% if key == selected %}selected="selected"{% endif %}>{{ value }}</option>
     {% endfor %}
   </select>
 </div>

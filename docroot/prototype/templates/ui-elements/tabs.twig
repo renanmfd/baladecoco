@@ -1,0 +1,30 @@
+{# Usage:  
+    {% include "ui-elements/tabs.twig" with {
+      name: 'Product',
+      tabs: ['name-tab1','name-tab2','name-tab3'],
+      contents: ['name-tab1','name-tab2','name-tab3'],
+      } 
+    %}
+  #}
+
+<div class="product-wrapper tabbed-pane">
+  <ul class="tabs">
+    {% for tab in tabs %}
+      <li class="leaf{% if loop.first %} first{% endif %}{% if loop.last %} last{% endif %}">
+        <a href="#tab-{{ loop.index }}">{{ tab.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% for tab in tabs %}
+    <div id="tab-{{ loop.index }}" class="tab tab-{{ loop.index }} {{ tab.name|css }}">
+      {% for content in tab.content %}
+        <div class="content content-{{ loop.index }}">
+          <a href="bala-page.html">
+            <h4>{{ content.name }}</h4>
+            <img src="{{ content.image }}">
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

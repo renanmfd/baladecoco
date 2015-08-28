@@ -4,16 +4,19 @@ $darkpurple:    #29023F;
 $purple:        #420464;
 $purple2:       #6C05A4;
 $purple3:       #8A20C4;
-$lightpurple:   #CF82F8;
-$lighterpurple: #F2D9FF;
+$lightpurple:   #AD14FF;
+$lighterpurple: #F2DAFF;
 
 $darkorange:    #874200;
 $orange:        #FF8C00;
 $lightorange:   #FFAD5F;
 
 $darkblue:      #050558;
-$blue:          #0e0eed;
-$lightblue:     #8e8ef5;
+$blue:          #0E0EED;
+$lightblue:     #8E8Ef5;
+
+$green:         #15ef15;
+$darkgreen:     #0b790b;
 
 $darkgray:      rgb(101, 98, 129);
 $gray:          rgb(183, 177, 232);
@@ -67,12 +70,14 @@ $sections-showmore-cl:            $purple2;
 // Review block ============================= //
 $review-bg:                       $lighterpurple;
 $review-title-cl:                 $purple2;
+$review-title-cl-hover:           $purple;
 $review-content-cl:               $darkpurple;
 $review-info-cl:                  $darkorange;
 
 // Showroom block =========================== //
 $showroom-bg:                     $purple3;
 $showroom-title-cl:               $white;
+$showroom-title-cl-hover:         $gray;
 $showroom-content-title-bg:       $lightpurple;
 $showroom-content-title-cl:       $darkpurple;
 $showroom-content-title-bg-hover: $lightblue;

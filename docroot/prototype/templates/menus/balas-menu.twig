@@ -1,0 +1,17 @@
+{% set menu_links = [
+  {'link' : 'bala_landing.html', 'title' : 'Lista de Balas', 'current' : ''},
+  {'link' : 'balas.html', 'title' : 'Sobre as Balas', 'current' : ''},
+  {'link' : 'conserve.html', 'title' : 'Como conservar', 'current' : ''},
+  {'link' : 'package.html', 'title' : 'Dicas de embalagem', 'current' : ''},
+  {'link' : 'videos.html', 'title' : 'Videos', 'current' : ''},
+]
+%}
+
+<h3>Balas de Coco</h3>
+<ul class="menu main-menu">
+  {% for link in menu_links %}
+    <li class="leaf{% if loop.first %} first{% endif %}{% if loop.last %} last{% endif %}">
+      <a href="{{ link.link }}" class="{{ link.current }}">{{ link.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

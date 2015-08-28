@@ -1,0 +1,68 @@
+
+{% extends 'blocks/layout.twig' %}
+
+{% block title %}Balas de Coco{% endblock %}
+
+{% block page_heading %}Produtos{% endblock %}
+
+{% block content %}
+  <section id="product-page">
+    <div class="container">
+      <div class="product-intro">
+        <p>Confira a lista de balas...</p>
+      </div>
+      <div class="product-tabs">
+        {% include "ui-elements/tabs.twig" with {
+          name: 'Product',
+          tabs: {
+            tab1: { 
+              name: 'Comum',
+              content: [
+                { name: 'Bala de Coco Tradicional',
+                  image: 'files/DSC03587.jpg',
+                },
+                { name: 'Bala de Chocolate',
+                  image: 'files/DSC03587.jpg',
+                },
+                { name: 'Bala de Morango',
+                  image: 'files/DSC03587.jpg',
+                },
+                { name: 'Bala de Leite Condensado',
+                  image: 'files/DSC03587.jpg',
+                },
+              ]
+            },
+            tab2: { 
+              name: 'Recheada',
+              content: [
+                { name: 'Bala de Abacaxi',
+                  image: 'files/DSC03982.jpg',
+                },
+                { name: 'Bala de Maracuja',
+                  image: 'files/DSC03982.jpg',
+                },
+                { name: 'Bala de Morango',
+                  image: 'files/DSC03982.jpg',
+                },
+                { name: 'Bala de Doce de Leite',
+                  image: 'files/DSC03982.jpg',
+                },
+              ]
+            },
+            tab3: { 
+              name: 'Bombom',
+              content: [
+                { name: 'Bala de Coco Bombom',
+                  image: 'files/DSC03982.jpg',
+                },
+              ]
+            }
+          },
+        } 
+        %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content_sidebar %}{% endblock %}

@@ -22,6 +22,7 @@
 @import 'helpers/grid';
 @import 'base/typography';
 @import 'base/forms';
+@import 'base/buttons';
 
 // Components.
 @import 'components/extends';
@@ -44,10 +45,14 @@
 // Pages.
 @import 'pages/homepage';
 @import 'pages/contact';
+@import 'pages/product';
+@import 'pages/cart';
 @import 'pages/styleguide';
 
 // Blocks
 @import 'blocks/reviews';
 @import 'blocks/showroom';
+@import 'blocks/shipping';
 @import 'blocks/register-call';
+@import 'blocks/similar-slider';
 @import 'blocks/cart';
