@@ -1,0 +1,33 @@
+name = BC Theme
+description = Theme for Menina das Balas.
+core = 7.x
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[topbar]         = 'Topbar'
+regions[presentation]   = 'Presentation'
+regions[navbar]         = 'Navigation'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[sidebar]        = 'Sidebar'
+regions[footer]         = 'Footer'
+regions[bottom]         = 'Bottom'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = css/styles.css
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+ 
+scripts[] = js/script.js
