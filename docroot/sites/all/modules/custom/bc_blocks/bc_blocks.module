@@ -1,0 +1,264 @@
+<?php
+
+/**
+ * @file
+ * Empty file. All code to be plased to baladecoco_master.install.
+ */
+
+/**
+ * Implements HOOK_block_info().
+ */
+function bc_blocks_block_info() {
+  $blocks['bc_ssl'] = array(
+    'info' => t('SSL Certificate'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['bc_copyright'] = array(
+    'info' => t('Copyright'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['bc_logo'] = array(
+    'info' => t('Logo'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements HOOK_block_configure().
+ */
+function bc_blocks_block_configure($delta = '') {
+  $form = array();
+  if ($delta == 'bc_ssl') {
+    $form['bc_ssl_name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('SSL Certificate Name'),
+      '#default_value' => variable_get('bc_blocks_ssl_name', ''),
+      '#required' => TRUE,
+    );
+    $form['bc_ssl_image'] = array(
+      '#type' => 'media',
+      '#tree' => TRUE,
+      '#input' => TRUE,
+      '#field_name' => 'media',
+      '#title' => t('SSL Certificate Image'),
+      '#description' => t('Allowed formats: PNG, JPG, SVG, GIF.'),
+      '#default_value' => variable_get('bc_blocks_ssl_image', 0),
+      '#media_options' => array(
+        'global' => array(
+          'file_extensions' => 'png jpg jpeg svg gif',
+          'max_filesize' => '5 MB',
+          'file_directory' => 'blocks/',
+          'types' => array('image'),
+          'enabledPlugins' => array(
+            'upload' => 'upload',
+          ),
+        ),
+      ),
+      '#required' => TRUE,
+    );
+    $form['bc_ssl_link'] = array(
+      '#type' => 'textfield',
+      '#field_name' => 'link_field',
+      '#title' => t('SSL Certificate Link'),
+      '#default_value' => variable_get('bc_blocks_ssl_link', ''),
+      '#required' => TRUE,
+    );
+  }
+  elseif ($delta == 'bc_copyright') {
+    $form['bc_copyright_text'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Copyright Text'),
+      '#default_value' => variable_get('bc_blocks_copyright_text', array()),
+    );
+  }
+  elseif ($delta == 'bc_logo') {
+    $form['bc_blocks_logo_image'] = array(
+      '#type' => 'media',
+      '#tree' => TRUE,
+      '#input' => TRUE,
+      '#field_name' => 'media',
+      '#title' => t('Logo Image'),
+      '#description' => t('Allowed formats: PNG, JPG, SVG, GIF.'),
+      '#default_value' => variable_get('bc_blocks_logo_image', 0),
+      '#media_options' => array(
+        'global' => array(
+          'file_extensions' => 'png jpg jpeg svg gif',
+          'max_filesize' => '5 MB',
+          'file_directory' => 'logo/',
+          'types' => array('image'),
+          'enabledPlugins' => array(
+            'upload' => 'upload',
+          ),
+        ),
+      ),
+      '#required' => TRUE,
+    );
+    $form['bc_blocks_logo_fallback'] = array(
+      '#type' => 'media',
+      '#tree' => TRUE,
+      '#input' => TRUE,
+      '#field_name' => 'media',
+      '#title' => t('Logo Fallback'),
+      '#description' => t('Allowed formats: PNG, JPG.'),
+      '#default_value' => variable_get('bc_blocks_logo_fallback', 0),
+      '#media_options' => array(
+        'global' => array(
+          'file_extensions' => 'png jpg jpeg',
+          'max_filesize' => '5 MB',
+          'file_directory' => 'logo/',
+          'types' => array('image'),
+          'enabledPlugins' => array(
+            'upload' => 'upload',
+          ),
+        ),
+      ),
+    );
+  }
+  return $form;
+}
+
+/**
+ * Implements HOOK_block_save().
+ */
+function bc_blocks_block_save($delta = '', $edit = array()) {
+  if ($delta == 'bc_ssl') {
+    variable_set('bc_blocks_ssl_name', t($edit['bc_ssl_name']));
+    variable_set('bc_blocks_ssl_image', $edit['bc_ssl_image']);
+    variable_set('bc_blocks_ssl_link', $edit['bc_ssl_link']);
+  }
+  elseif ($delta == 'bc_copyright') {
+    variable_set('bc_blocks_copyright_text', $edit['bc_copyright_text']);
+  }
+  elseif ($delta == 'bc_logo') {
+    variable_set('bc_blocks_logo_image', $edit['bc_blocks_logo_image']);
+    variable_set('bc_blocks_logo_fallback', $edit['bc_blocks_logo_fallback']);
+  }
+}
+
+/**
+ * Implements HOOK_block_view().
+ */
+function bc_blocks_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'bc_ssl':
+      $block['subject'] = NULL;
+      $name = variable_get('bc_blocks_ssl_name', '');
+      $link = variable_get('bc_blocks_ssl_link', '');
+      $image = array();
+      $fid = variable_get('bc_blocks_ssl_image', 0);
+      if ($fid > 0) {
+        $file = file_load($fid);
+        $image_file = image_load($file->uri);
+        $image = array(
+          '#theme' => 'image',
+          '#path' => $image_file->source,
+          '#width' => $image_file->info['width'],
+          '#height' => $image_file->info['height'],
+        );
+      }
+      $block['content'] = theme('ssl_certificate', array(
+        'title' => $name,
+        'link' => $link,
+        'image' => drupal_render($image),
+      ));
+      break;
+
+    case 'bc_copyright':
+      $text = variable_get('bc_blocks_copyright_text', 'Copyright');
+      $block['subject'] = '<none>';
+      $block['content'] = '<span>&copy;' . $text . '</span>';
+      break;
+
+    case 'bc_logo':
+      // Handle main logo image.
+      $image_fid = variable_get('bc_blocks_logo_image', 0);
+      $image_content = '';
+      if ($image_fid > 0) {
+        $image_file = file_load($image_fid);
+        // If the file is a SVG, open it's content, else theme image.
+        if (strpos($image_file->filemime, 'svg')) {
+          $image_handle = fopen($image_file->uri, 'r');
+          $image_content = fread($image_handle, filesize($image_file->uri));
+        }
+        else {
+          $image = image_load($image_file->uri);
+          $image_info = array(
+            '#theme' => 'image',
+            '#alt' => variable_get('site_name', 'Logo'),
+            '#path' => $image->source,
+            '#width' => $image->info['width'],
+            '#height' => $image->info['height'],
+          );
+          $image_content = drupal_render($image_info);
+        }
+      }
+      // Handle fallback image (optional).
+      $fb_fid = variable_get('bc_blocks_logo_fallback', 0);
+      $fb_content = '';
+      if ($fb_fid > 0) {
+        $fb_file = file_load($fb_fid);
+        $fb_url = file_create_url($fb_file->uri);
+        $fb_content = '<img data-src="' . $fb_url . '" src="" class="svg-fallback"/>';
+      }
+      // Block build.
+      $block['subject'] = '<none>';
+      $block['content'] = array(
+        0 => array(
+          '#markup' => $fb_content,
+          '#prefix' => '<a href="' . url('<front>') . '">'
+        ),
+        1 => array(
+          '#markup' => $image_content,
+          '#suffix' => '</a>'
+        ),
+      );
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements HOOOK_theme().
+ */
+function bc_blocks_theme($existing, $type, $theme, $path) {
+  return array(
+    'ssl_certificate' => array(
+      'variables' => array('title' => '', 'link' => '', 'image' => NULL),
+      'template' => 'templates/bc-blocks--ssl-certificate'
+    ),
+  );
+}
+
+/**
+ * Implements HOOK_image_default_styles().
+ */
+function bc_blocks_image_default_styles() {
+  $styles = array();
+  $styles['topbar_logo'] = array(
+    'name' => 'topbar_logo',
+    'effects' => array(
+      array(
+        'name' => 'image_scale',
+        'data' => array(
+          'height' => 200,
+          'upscale' => 1,
+        ),
+        'weight' => 0,
+      ),
+      array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 200,
+          'height' => 200,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
