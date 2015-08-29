@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the bc_block_settings_feature feature.
  */
+
+include_once 'bc_block_settings_feature.features.inc';
