@@ -1955,7 +1955,7 @@ h3 {
     display: block;
   }
 }
-#topbar ul li {
+#topbar ul.menu li {
   display: inline-block;
   vertical-align: top;
 }
