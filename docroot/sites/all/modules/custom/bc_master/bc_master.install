@@ -63,3 +63,26 @@ function bc_master_update_7102() {
     'bc_block_settings_feature'
   ));
 }
+
+/**
+ * Enable media, mediafield and bc_blocks modules.
+ */
+function bc_master_update_7103() {
+  module_enable(array(
+    'bc_menu_feature',
+    'file_entity',
+    'media',
+    'mediafield',
+    'bc_blocks'
+  ));
+}
+
+/**
+ * Enable media, mediafield and bc_blocks modules.
+ */
+function bc_master_update_7104() {
+  module_enable(array(
+    'uuid_features',
+    'bc_menu_feature'
+  ));
+}
