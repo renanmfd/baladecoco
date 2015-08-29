@@ -570,13 +570,13 @@ function bc_menu_feature_menu_default_menu_links() {
     'link_title' => 'Minha Conta',
     'options' => array(
       'alter' => TRUE,
+      'identifier' => 'user-menu_minha-conta:user',
       'attributes' => array(),
       'item_attributes' => array(
-        'id' => '',
+        'id' => 'icon icon-profile',
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'user-menu_minha-conta:user',
     ),
     'module' => 'system',
     'hidden' => 0,
@@ -594,13 +594,13 @@ function bc_menu_feature_menu_default_menu_links() {
     'link_title' => 'Sair',
     'options' => array(
       'alter' => TRUE,
+      'identifier' => 'user-menu_sair:user/logout',
       'attributes' => array(),
       'item_attributes' => array(
-        'id' => '',
+        'id' => 'icon icon-cross',
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'user-menu_sair:user/logout',
     ),
     'module' => 'system',
     'hidden' => 0,
