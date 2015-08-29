@@ -111,11 +111,11 @@
   <!-- MAIN CONTENT -->
   <div id="main-content">
 
-    <!-- Help -->
     <?php if (!empty($page['help'])): ?>
+      <!-- Help -->
       <?php print render($page['help']); ?>
+      <!-- /Help -->
     <?php endif; ?>
-    <!-- /Help -->
 
     <!-- Content -->
     <?php print render($page['content']); ?>
