@@ -83,6 +83,9 @@ function bc_master_update_7103() {
 function bc_master_update_7104() {
   module_enable(array(
     'uuid_features',
-    'bc_menu_feature'
+    'bc_menu_feature',
+    'chosen',
+    'block_class',
+    'pathauto',
   ));
 }

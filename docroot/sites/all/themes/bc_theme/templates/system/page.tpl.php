@@ -102,6 +102,7 @@
   </header>
   <!-- /HEADER -->
 
+
   <!-- MAIN CONTENT -->
   <div id="main-content">
     
@@ -125,7 +126,8 @@
 
   </div>
   <!-- /MAIN CONTENT -->
-  
+
+
   <!-- FOOTER -->
   <footer id="footer-wrapper">
 
@@ -145,5 +147,17 @@
 
   </footer>
   <!-- /FOOTER -->
+
+
+  <!-- MOBILE MENU -->
+  <section id="mobile-menu">
+
+    <div class="mobile-menu-wrapper clearfix">
+      <h3 class="hidden"><?php print t('Mobile Menu'); ?></h3>
+      <?php print render($page['mobile_menu']);?>
+    </section>
+
+  </section>
+  <!-- /MOBILE MENU -->
 
 </div>
