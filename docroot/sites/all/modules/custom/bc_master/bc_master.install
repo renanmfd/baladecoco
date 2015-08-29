@@ -58,5 +58,8 @@ function bc_master_update_7101() {
  * Enable feature block settings.
  */
 function bc_master_update_7102() {
-  module_enable(array('bc_block_settings_feature'));
+  module_enable(array(
+    'fe_block',
+    'bc_block_settings_feature'
+  ));
 }
