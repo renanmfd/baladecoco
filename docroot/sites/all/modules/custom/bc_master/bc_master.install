@@ -43,7 +43,15 @@ function bc_master_install() {
 }
 
 /**
- * 
- *//*
+ * Disable overlay module - Enable theme settings feature.
+ */
 function bc_master_update_7101() {
-}*/
+  module_disable(array('overlay'));
+  module_enable(array(
+    'bc_theme_settings_feature',
+    'bc_site_settings_feature',
+    'menu_item_visibility'
+  ));
+}
+
+
