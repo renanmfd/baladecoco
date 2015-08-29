@@ -1,0 +1,207 @@
+diff --git a/includes/features.menu.inc b/includes/features.menu.inc
+index be310e4..f6ad98a 100644
+--- a/includes/features.menu.inc
++++ b/includes/features.menu.inc
+@@ -142,6 +142,12 @@ function menu_links_features_export_options() {
+     list($menu_name, $mlid) = explode(':', $key, 2);
+     if ($mlid != 0) {
+       $link = menu_link_load($mlid);
++
++      // UUID URL handling.
++      if (module_exists('uuid')) {
++        _features_set_menu_link_uuid_path($link);
++      }
++
+       $identifier = menu_links_features_identifier($link, TRUE);
+       $options[$identifier] = "{$menu_name}: {$name}";
+     }
+@@ -191,6 +197,11 @@ function menu_links_features_export($data, &$export, $module_name = '') {
+   $map = features_get_default_map('menu_links', 'menu_links_features_identifier');
+   foreach ($data as $key => $identifier) {
+     if ($link = features_menu_link_load($identifier)) {
++      // UUID URL handling.
++      // Without this, features info file will lose UUID for menu links.
++      if (module_exists('uuid')) {
++        _features_set_menu_link_uuid_path($link);
++      }
+       // If this link is provided by a different module, add it as a dependency.
+       $new_identifier = menu_links_features_identifier($link, empty($export));
+       if (isset($map[$identifier]) && $map[$identifier] != $module_name) {
+@@ -211,6 +222,67 @@ function menu_links_features_export($data, &$export, $module_name = '') {
+ }
+ 
+ /**
++ * Helper function to set UUID data for menu items.
++ */
++function _features_set_menu_link_uuid_path(&$link) {
++  // UUID URL handling.
++  if (module_exists('uuid') &&
++    in_array(
++      $link['router_path'],
++      array('node/%', 'taxonomy/term/%', 'user/%', 'uuid'))
++  ) {
++    $entity_type = 'node';
++    switch ($link['router_path']) {
++      case 'taxonomy/term/%':
++        $entity_type = 'taxonomy_term';
++        break;
++
++      case 'user/%':
++        $entity_type = 'user';
++        break;
++
++      case 'uuid':
++        // Restore the internal path instead of the UUID path.
++        $uri = explode('/', $link['link_path']);
++        if (count($uri) == 3 && $uri[0] == 'uuid') {
++          $entity_data = uuid_uri_array_to_data($uri);
++          $entities = entity_uuid_load($entity_data['entity_type'], array($entity_data['uuid']));
++          if (!empty($entities)) {
++            $entity_type = $entity_data['entity_type'];
++            $entity = reset($entities);
++            $internal_uri = entity_uri($entity_data['entity_type'], $entity);
++            $link['link_path'] = $internal_uri['path'];
++          }
++        }
++        // The router path is set to 'uuid', but the link path is not a UUID
++        // path.
++        else {
++          switch ($uri[0]) {
++            case 'taxonomy':
++              $entity_type = 'taxonomy_term';
++              break;
++
++            case 'user':
++              $entity_type = 'user';
++              break;
++          }
++        }
++        break;
++    }
++    $path_position = substr_count($link['link_path'], '/');
++    $entity = menu_get_object($entity_type, $path_position, $link['link_path']);
++    if ($entity && isset($entity->uuid)) {
++      $link['uuid'] = $entity->uuid;
++      $link['link_path'] = 'uuid/' . $entity_type . '/' . $entity->uuid;
++      $link['router_path'] = 'uuid';
++    }
++    if ($entity && isset($entity->vuuid)) {
++      $link['vuuid'] = $entity->vuuid;
++    }
++  }
++}
++
++/**
+  * Implements hook_features_export_render()
+  */
+ function menu_links_features_export_render($module, $data, $export = NULL) {
+@@ -222,10 +294,20 @@ function menu_links_features_export_render($module, $data, $export = NULL) {
+   foreach ($data as $identifier) {
+ 
+     if ($link = features_menu_link_load($identifier)) {
++
++      // UUID URL handling.
++      if (module_exists('uuid')) {
++        _features_set_menu_link_uuid_path($link);
++      }
++
+       $new_identifier = menu_links_features_identifier($link, empty($export));
+ 
+       // Replace plid with a parent path.
+       if (!empty($link['plid']) && $parent = menu_link_load($link['plid'])) {
++        // UUID URL handling.
++        if (module_exists('uuid')) {
++          _features_set_menu_link_uuid_path($parent);
++        }
+         // If the new identifier is different than the old, maintain
+         // 'parent_path' for backwards compatibility.
+         if ($new_identifier != menu_links_features_identifier($link)) {
+@@ -242,6 +324,17 @@ function menu_links_features_export_render($module, $data, $export = NULL) {
+         $link['options']['identifier'] = $new_identifier;
+         // identifiers are renewed, => that means we need to update them in the db
+         $temp = $link;
++        // Restore the internal path instead of the UUID path.
++        $uri = explode('/', $temp['link_path']);
++        if (module_exists('uuid') && $uri[0] == 'uuid' && count($uri) == 3) {
++          $entity_data = uuid_uri_array_to_data($uri);
++          $entities = entity_uuid_load($entity_data['entity_type'], array($entity_data['uuid']));
++          if (!empty($entities)) {
++            $entity = reset($entities);
++            $internal_uri = entity_uri($entity_data['entity_type'], $entity);
++            $temp['link_path'] = $internal_uri['path'];
++          }
++        }
+         menu_link_save($temp);
+       }
+ 
+@@ -249,7 +342,7 @@ function menu_links_features_export_render($module, $data, $export = NULL) {
+        unset($link['mlid']);
+ 
+       $code[] = "  // Exported menu link: {$new_identifier}";
+-      $code[] = "  \$menu_links['{$new_identifier}'] = ". features_var_export($link, '  ') .";";
++      $code[] = "  \$menu_links['{$new_identifier}'] = " . features_var_export($link, '  ') . ";";
+       $translatables[] = $link['link_title'];
+     }
+   }
+@@ -327,6 +420,23 @@ function menu_links_features_rebuild_ordered($menu_links, $reset = FALSE) {
+ 
+     $existing = features_menu_link_load($identifier);
+     if (!$existing || in_array($link, $menu_links)) {
++      // Restore the internal path instead of the UUID path.
++      $internal_path = '';
++      $uri = explode('/', $link['link_path']);
++      if (module_exists('uuid') && $uri[0] == 'uuid' && count($uri) == 3) {
++        $entity_data = uuid_uri_array_to_data($uri);
++        $entities = entity_uuid_load($entity_data['entity_type'], array($entity_data['uuid']));
++        if (!empty($entities)) {
++          $entity = reset($entities);
++          $internal_uri = entity_uri($entity_data['entity_type'], $entity);
++          $internal_path = $internal_uri['path'];
++        }
++      }
++      $link_paths = array($link['link_path']);
++      if (!empty($internal_path)) {
++        $link['link_path'] = $internal_path;
++      }
++
+       // Retrieve the mlid if this is an existing item.
+       if ($existing) {
+         $link['mlid'] = $existing['mlid'];
+@@ -358,17 +468,35 @@ function features_menu_link_load($identifier) {
+   if (strstr($identifier, "_")) {
+     $link_path = substr($identifier, strpos($identifier, ":") + 1);
+     list($menu_name) = explode('_', $identifier, 2);
+-    $clean_title = substr($identifier, strpos($identifier, "_")  + 1, strpos($identifier, ":") - strpos($identifier, "_") - 1);
++    $clean_title = substr($identifier, strpos($identifier, "_") + 1, strpos($identifier, ":") - strpos($identifier, "_") - 1);
+   }
+   // This gets variables for traditional identifier format.
+   else {
+     $clean_title = '';
+     list($menu_name, $link_path) = explode(':', $identifier, 2);
+   }
++
++  // Menu item can link either to internal URL or UUID URL.
++  $internal_path = '';
++  $uri = explode('/', $link_path);
++  if (module_exists('uuid') && $uri[0] == 'uuid' && count($uri) == 3) {
++    $entity_data = uuid_uri_array_to_data($uri);
++    $entities = entity_uuid_load($entity_data['entity_type'], array($entity_data['uuid']));
++    if (!empty($entities)) {
++      $entity = reset($entities);
++      $internal_uri = entity_uri($entity_data['entity_type'], $entity);
++      $internal_path = $internal_uri['path'];
++    }
++  }
++  $link_paths = array($link_path);
++  if (!empty($internal_path)) {
++    $link_paths = array($internal_path);
++  }
++
+   $links = db_select('menu_links')
+     ->fields('menu_links', array('menu_name', 'mlid', 'plid', 'link_path', 'router_path', 'link_title', 'options', 'module', 'hidden', 'external', 'has_children', 'expanded', 'weight', 'customized'))
+     ->condition('menu_name', $menu_name)
+-    ->condition('link_path', $link_path)
++    ->condition('link_path', $link_paths, 'IN')
+     ->addTag('features_menu_link')
+     ->execute()
+     ->fetchAllAssoc('mlid');
