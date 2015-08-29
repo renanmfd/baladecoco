@@ -9,7 +9,7 @@ core = 7.x
 
 regions[topbar]         = 'Topbar'
 regions[presentation]   = 'Presentation'
-regions[navbar]         = 'Navigation'
+regions[navigation]     = 'Navigation'
 regions[help]           = 'Help'
 regions[content]        = 'Content'
 regions[sidebar]        = 'Sidebar'

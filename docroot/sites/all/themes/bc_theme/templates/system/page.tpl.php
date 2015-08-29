@@ -81,27 +81,21 @@
     <!-- Topbar -->
     <section id="topbar">
       <h3 class="hidden"><?php print t('Topbar'); ?></h3>
-      <div class="container">
-        <?php print render($page['topbar']);?>
-      </div>
+      <?php print render($page['topbar']);?>
     </section>
     <!-- /Topbar -->
 
     <!-- Presentation -->
     <section id="presentation">
       <h3 class="hidden"><?php print t('Presentation'); ?></h3>
-      <div class="container">
-        <?php print render($page['presentation']);?>
-      </div>
+      <?php print render($page['presentation']);?>
     </section>
     <!-- /Presentation -->
 
     <!-- Navigation -->
     <section id="navigation">
       <h3 class="hidden"><?php print t('Navigation'); ?></h3>
-      <div class="container">
-        <?php print render($page['navigation']);?>
-      </div>
+      <?php print render($page['navigation']);?>
     </section>
     <!-- /Navigation -->
 
@@ -110,6 +104,14 @@
 
   <!-- MAIN CONTENT -->
   <div id="main-content">
+    
+    <?php if (!empty($messages)): ?>
+      <!-- Messages -->
+      <section id="messages">
+        <?php print $messages; ?>
+      </section>
+      <!-- /Messages -->
+    <?php endif; ?>
 
     <?php if (!empty($page['help'])): ?>
       <!-- Help -->
@@ -130,18 +132,14 @@
     <!-- Footer -->
     <section id="footer">
       <h3 class="hidden"><?php print t('Footer'); ?></h3>
-      <div class="container">
-        <?php print render($page['footer']);?>
-      </div>
+      <?php print render($page['footer']);?>
     </section>
     <!-- /Footer -->
 
     <!-- Bottom -->
     <section id="bottom">
       <h3 class="hidden"><?php print t('Bottom'); ?></h3>
-      <div class="container">
-        <?php print render($page['bottom']);?>
-      </div>
+      <?php print render($page['bottom']);?>
     </section>
     <!-- /Bottom -->
 
