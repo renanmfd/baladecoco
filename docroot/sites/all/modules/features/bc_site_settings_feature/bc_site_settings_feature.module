@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the bc_site_settings_feature feature.
+ */
+
+include_once 'bc_site_settings_feature.features.inc';
