@@ -1955,7 +1955,7 @@ h3 {
     display: block;
   }
 }
-#topbar ul li {
+#topbar ul.menu li {
   display: inline-block;
   vertical-align: top;
 }
@@ -2043,7 +2043,7 @@ h3 {
 #topbar .user-menu a .icon {
   margin-right: 5px;
   margin-top: 0;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 #presentation {

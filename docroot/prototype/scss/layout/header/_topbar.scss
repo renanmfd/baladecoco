@@ -30,7 +30,7 @@
       }
     }
   }
-  ul li {
+  ul.menu li {
     display: inline-block;
     vertical-align: top;
   }
@@ -115,7 +115,7 @@
     .icon {
       margin-right: 5px;
       margin-top: 0;
-      font-size: $font-large;
+      font-size: $font-default;
     }
   }
 }
