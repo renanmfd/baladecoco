@@ -246,8 +246,8 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
-        'region' => 'dashboard_inactive',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'bartik',
         'weight' => -1,
       ),
