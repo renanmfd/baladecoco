@@ -278,8 +278,8 @@ function bc_theme_settings_feature_strongarm() {
     'toggle_main_menu' => 1,
     'toggle_secondary_menu' => 1,
     'shortcut_module_link' => '1',
-    'logo' => 'http://local.baladecoco.com/profiles/acquia/AcquiaDrupalLogo.png',
-    'favicon' => 'http://local.baladecoco.com/misc/favicon.ico',
+    'logo' => 'http://baladecocos4ucbixcsy.devcloud.acquia-sites.com/profiles/acquia/AcquiaDrupalLogo.png',
+    'favicon' => 'http://baladecocos4ucbixcsy.devcloud.acquia-sites.com/misc/favicon.ico',
     'jquery_update_jquery_version' => 'default',
   );
   $export['theme_seven_settings'] = $strongarm;
