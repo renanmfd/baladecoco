@@ -122,8 +122,12 @@ function bc_master_update_7105() {
 /**
  * Enable bc_presentation_feature.
  */
-function bc_master_update_7102() {
+function bc_master_update_7106() {
   module_enable(array(
     'bc_presentation_feature'
+  ));
+  features_revert(array(
+    'bc_block_settings_feature',
+    'bc_site_settings_feature',
   ));
 }

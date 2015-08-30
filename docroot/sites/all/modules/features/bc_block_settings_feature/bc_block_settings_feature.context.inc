@@ -44,6 +44,12 @@ function bc_block_settings_feature_context_default_contexts() {
           'region' => 'topbar',
           'weight' => '-13',
         ),
+        'views-presentation-block' => array(
+          'module' => 'views',
+          'delta' => 'presentation-block',
+          'region' => 'presentation',
+          'weight' => '1',
+        ),
         'system-main-menu' => array(
           'module' => 'system',
           'delta' => 'main-menu',
