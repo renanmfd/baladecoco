@@ -50,7 +50,6 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
-  
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <?php print $page_top; ?>

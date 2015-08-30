@@ -45,3 +45,38 @@ function bc_theme_menu_link__main_menu($vars) {
 function bc_theme_menu_link__user_menu($vars) {
   return bc_theme_menu_link__main_menu($vars);
 }
+
+/**
+ * Implement HOOK_theme().
+ */
+function bc_theme_theme($existing, $type, $theme, $path) {
+  return array(
+    'presentation_fallback' => array(
+      'variables' => array('fallback' => NULL, 'alt' => ''),
+      'template' => 'templates/block/bc--presentation--fallback'
+    ),
+  );
+}
+
+/**
+ * Implement HOOK_views_post_render().
+ */
+function bc_theme_views_post_render(&$view, &$output, &$cache) {
+  if ($view->name == 'presentation') {
+    // Get one presentation image to be fallback if js in not active.
+    $fb_image = $view->result[0]->field_field_presentation_image_2;
+    $fb_file = image_load($fb_image[0]['raw']['uri']);
+    $alt = t('Delícias que derretem na boca!');
+    $fb_image = array(
+      '#theme' => 'image',
+      '#alt' => $alt,
+      '#path' => $fb_file->source,
+      '#width' => $fb_file->info['width'],
+      '#height' => $fb_file->info['height'],
+    );
+    $output .= theme('presentation_fallback', array(
+      'fallback' => $fb_image,
+      'alt' => $alt,
+    ));
+  }
+}
