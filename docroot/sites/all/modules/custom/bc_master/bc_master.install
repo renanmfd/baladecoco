@@ -118,3 +118,12 @@ function bc_master_update_7105() {
     'image_url_formatter',
   ));
 }
+
+/**
+ * Enable bc_presentation_feature.
+ */
+function bc_master_update_7102() {
+  module_enable(array(
+    'bc_presentation_feature'
+  ));
+}
