@@ -86,7 +86,7 @@ function bc_presentation_feature_views_default_views() {
   $handler->display->display_options['fields']['field_presentation_image_2']['type'] = 'image_url';
   $handler->display->display_options['fields']['field_presentation_image_2']['settings'] = array(
     'url_type' => '1',
-    'image_style' => '',
+    'image_style' => 'presentation_desktop',
     'image_link' => '',
   );
   /* Field: Block: Presentation Image */
