@@ -1,4 +1,26 @@
 (function (window, document, $) {
+
+   Drupal.behaviors.presentation_adaptative_image = {
+    attach: function (context, settings) {
+      var breakpoints = {'mobile': 0, 'mobile-landscape': 480, 'tablet': 768, 'desktop': 1024, 'desktop-wide': 1280, 'desktop-superwide': 1440},
+        width = window.innerWidth,
+        result = '',
+        element = null,
+        src = '',
+        image = document.querySelector('.image-wrapper .active');
+      if (width > breakpoints['desktop-superwide']) result = 'desktop-superwide';
+      else if (width > breakpoints['desktop-wide']) result = 'desktop-wide';
+      else if (width > breakpoints['desktop']) result = 'desktop';
+      else if (width > breakpoints['tablet']) result = 'tablet';
+      else if (width > breakpoints['mobile-landscape']) result = 'mobile-landscape';
+      else if (width > breakpoints['mobile']) result = 'mobile';
+      element = document.querySelector('.images-holder .' + result);
+      src = element.getAttribute('data-src');
+      image.setAttribute('src', src);
+      console.log(result);
+    }
+  };
+
   Drupal.behaviors.navigation_fixed = {
     attach: function (context, settings) {
       // TOPBAR - Make topbar sticky when scroll down.
@@ -22,13 +44,13 @@
       // Add JS class to HTML tag
       $('html').addClass('js');
       // Tooltips
-      Tipped.create('.simple-tooltip');
+      //Tipped.create('.simple-tooltip');
       // Chosen
-      $('.chosen-select').chosen({
+      /*$('.chosen-select').chosen({
         disable_search: true,
         display_disabled_options: false,
         display_selected_options: false,
-      });
+      });*/
     }
   };
 
@@ -96,10 +118,10 @@
   
   Drupal.behaviors.cart_behaviors = {
     attach: function (context, settings) {
-      $('.flexslider').flexslider({
+      /*$('.flexslider').flexslider({
         animation: "slide"
-      });
+      });*/
     }
-  }
+  };
 
 }(this, this.document, this.jQuery));

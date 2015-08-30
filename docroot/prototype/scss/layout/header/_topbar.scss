@@ -76,31 +76,33 @@
     }
   }
   ul.menu {
-    font-size: 0;
+    font-size: 1px;
     text-align: right;
     
     @include susy-breakpoint($tablet, $susy_tablet) {
       &.user-menu { text-align: right; }
       &.topbar-menu { text-align: left; }
     }
-  }
-  li {
-    @include padding (0 10px);
     
-    &:first-child { padding-left: 0; }
-    &:last-child { padding-right: 0; }
-    a {
-      display: block;
-      @include font ($bc_font2, $font-medium, $font-normal);
-      line-height: 40px;
-      color: $header-topbar-cl;
-      transition: color 0.2s ease-in-out;
+    li {
+      @include padding (0 10px);
 
-      &:hover {
-        color: $header-topbar-cl-hover;
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+      a {
+        display: block;
+        @include font ($bc_font2, $font-medium, $font-normal);
+        line-height: 40px;
+        color: $header-topbar-cl;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+          color: $header-topbar-cl-hover;
+        }
       }
     }
   }
+
   .user-menu a {
     background-repeat: no-repeat;
     background-position: 5px center;
