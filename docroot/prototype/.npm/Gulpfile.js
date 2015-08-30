@@ -41,6 +41,7 @@ gulp.task('js', function() {
   return gulp.src('../js/script.js')
     .pipe(jshint())
     .pipe(jshint.reporter(jshint_reporter))
+    .pipe(gulp.dest('./../../sites/all/themes/bc_theme/js'))
     .pipe(reload({
       stream: true
     }));
@@ -62,7 +63,7 @@ function sassStream() {
     .pipe(sourcemaps.write('./', {
       includeContent: false,
       sourceRoot: '../scss'
-    }));
+    }))
 }
 
 
@@ -72,6 +73,7 @@ function sassStream() {
 gulp.task('sass', function () {
   return sassStream()
     .pipe(gulp.dest(src.css))
+    .pipe(gulp.dest('../../sites/all/themes/bc_theme/css'))
     .pipe(filter("**/*.css"))
     .pipe(reload({
       stream: true

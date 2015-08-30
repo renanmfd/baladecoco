@@ -1995,7 +1995,7 @@ h3 {
   stroke: #FFAD5F !important;
 }
 #topbar ul.menu {
-  font-size: 0;
+  font-size: 1px;
   text-align: right;
 }
 @media (min-width: 48em) {
@@ -2006,17 +2006,17 @@ h3 {
     text-align: left;
   }
 }
-#topbar li {
+#topbar ul.menu li {
   padding: 0 10px;
   padding: 0 0.625rem;
 }
-#topbar li:first-child {
+#topbar ul.menu li:first-child {
   padding-left: 0;
 }
-#topbar li:last-child {
+#topbar ul.menu li:last-child {
   padding-right: 0;
 }
-#topbar li a {
+#topbar ul.menu li a {
   display: block;
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
@@ -2027,7 +2027,7 @@ h3 {
   -webkit-transition: color 0.2s ease-in-out;
           transition: color 0.2s ease-in-out;
 }
-#topbar li a:hover {
+#topbar ul.menu li a:hover {
   color: #FFAD5F;
 }
 #topbar .user-menu a {
