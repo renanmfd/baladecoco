@@ -15,9 +15,12 @@
       else if (width > breakpoints['mobile-landscape']) result = 'mobile-landscape';
       else if (width > breakpoints['mobile']) result = 'mobile';
       element = document.querySelector('.images-holder .' + result);
-      src = element.getAttribute('data-src');
-      image.setAttribute('src', src);
-      console.log(result);
+      if (element) {
+        src = element.getAttribute('data-src');
+        image.style.display = 'none';
+        image.setAttribute('src', src);
+        $(image).fadeIn(3000);
+      }
     }
   };
 
