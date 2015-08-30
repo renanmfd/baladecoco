@@ -86,13 +86,12 @@ function bc_master_update_7104() {
   module_enable(array(
     'context',
     'context_ui',
-    'context_layout',
+    'context_layouts',
     'uuid_features',
     'bc_menu_feature',
     'chosen',
     'block_class',
     'pathauto',
-    'imagefield_crop',
   ));
   features_revert(array(
     'bc_block_settings_feature',
@@ -108,7 +107,6 @@ function bc_master_update_7104() {
 function bc_master_update_7105() {
   module_enable(array(
     'libraries',
-    'media_crop',
     'wysiwyg',
     'entitycache',
     'googleanalytics',
@@ -131,3 +129,19 @@ function bc_master_update_7106() {
     'bc_site_settings_feature',
   ));
 }
+
+/**
+ * Enable bean_entitycache and espacrop modules and revert 
+ * bc_presentation_feature and bc_menu_feature features.
+ */
+function bc_master_update_7107() {
+  module_enable(array(
+    'bean_entitycache',
+    'espacrop',
+  ));
+  features_revert(array(
+    'bc_presentation_feature',
+    'bc_menu_feature',
+  ));
+}
+
