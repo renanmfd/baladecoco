@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the bc_presentation_feature feature.
+ */
+
+include_once 'bc_presentation_feature.features.inc';
