@@ -562,6 +562,30 @@ function bc_menu_feature_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
+  // Exported menu link: user-menu_login:user
+  $menu_links['user-menu_login:user'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'user',
+    'router_path' => 'user',
+    'link_title' => 'Login',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => 'icon icon-login15',
+        'class' => '',
+        'style' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'user-menu_login:user',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+  );
   // Exported menu link: user-menu_minha-conta:user
   $menu_links['user-menu_minha-conta:user'] = array(
     'menu_name' => 'user-menu',
@@ -584,6 +608,30 @@ function bc_menu_feature_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -50,
+    'customized' => 1,
+  );
+  // Exported menu link: user-menu_registrar:http://google.com/
+  $menu_links['user-menu_registrar:http://google.com/'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'http://google.com/',
+    'router_path' => '',
+    'link_title' => 'Registrar',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => 'icon icon-plus',
+        'class' => '',
+        'style' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'user-menu_registrar:http://google.com/',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
     'customized' => 1,
   );
   // Exported menu link: user-menu_sair:user/logout
@@ -623,12 +671,14 @@ function bc_menu_feature_menu_default_menu_links() {
   t('Galeria');
   t('Home');
   t('Lista de Balas');
+  t('Login');
   t('Minha Conta');
   t('Nossos Clientes');
   t('Parceiros');
   t('Perguntas Frequentes');
   t('Políticas de Privacidade');
   t('Quem Somos');
+  t('Registrar');
   t('Revendedor');
   t('Sair');
   t('Sobre Nós');
