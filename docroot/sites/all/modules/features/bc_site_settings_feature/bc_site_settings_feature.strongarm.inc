@@ -28,7 +28,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'acquia_spi_boot_last';
-  $strongarm->value = 1440885899;
+  $strongarm->value = 1440920476;
   $export['acquia_spi_boot_last'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -221,7 +221,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'acquia_subscription_data';
   $strongarm->value = array(
-    'timestamp' => 1440878274,
+    'timestamp' => 1440889133,
     'active' => '1',
     'href' => 'https://insight.acquia.com/node/uuid/dd88cf6c-cb7c-4357-807d-35f510468c76/dashboard',
     'uuid' => 'dd88cf6c-cb7c-4357-807d-35f510468c76',
@@ -336,14 +336,14 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'chosen_disable_search_threshold';
-  $strongarm->value = '1';
+  $strongarm->value = '15';
   $export['chosen_disable_search_threshold'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'chosen_jquery_selector';
-  $strongarm->value = 'select:visible';
+  $strongarm->value = 'select';
   $export['chosen_jquery_selector'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -420,7 +420,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'cron_last';
-  $strongarm->value = 1440878271;
+  $strongarm->value = 1440889086;
   $export['cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -443,21 +443,30 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'bc_theme_settings_feature' => array(
-      'variable' => '3f75d40b69465776f2051edd7397d6ea',
+      'variable' => '60f5c761190c20f051d099cad62b390e',
     ),
     'bc_site_settings_feature' => array(
-      'variable' => 'ad9fb740e030f128ac69efff105e2cd7',
+      'variable' => '214360313f0616063b1d873d852187e5',
       'dependencies' => 'e410ca96d90029817c7bb9c7cb1f7ea4',
     ),
     'bc_block_settings_feature' => array(
-      'fe_block_settings' => 'ddfbc424a22646bdd152cedbfe334bb7',
-      'dependencies' => 'a8c1f1666af6fe91603443d871e9b074',
+      'fe_block_settings' => '11bb9b005b8361653a1d1fcccf70e2ce',
+      'dependencies' => 'badcfd1dc661c2fac29c8f8ba4e42d5c',
       'context' => '74c76ce06bbaf0773f3d57ad3c62c5ec',
     ),
     'bc_menu_feature' => array(
       'menu_custom' => '705cdd1f18857db77fed06e3b2a121cc',
       'dependencies' => 'ce43b2cc540f90d9ef38740c8f0b0f83',
       'menu_links' => 'acd093a6b4aa03ae48b8cf9308de5497',
+    ),
+    'bc_presentation_feature' => array(
+      'fe_block_settings' => '2fa61006bfdb89fb43e33c30070a0a0a',
+      'field_base' => '9160edb2f2e4e029a1a57862f42b7b98',
+      'field_instance' => '76a55fd6a9c4ee4aa847f3cc42da34cb',
+      'variable' => 'd235f9ee82c1eaac45814ea77c32ed8e',
+      'dependencies' => '52f564115249375d9c37ff1f798d8fa2',
+      'bean_type' => '0c145e4d8dfd5e08b4c368904eb96001',
+      'image' => 'e51c6c9647d02c0b62803d2f853ba26b',
     ),
   );
   $export['features_codecache'] = $strongarm;
