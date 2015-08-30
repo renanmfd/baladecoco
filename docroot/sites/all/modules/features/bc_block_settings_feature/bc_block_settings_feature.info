@@ -12,6 +12,7 @@ dependencies[] = menu
 dependencies[] = search
 dependencies[] = shortcut
 dependencies[] = statistics
+dependencies[] = views
 features[context][] = general-block-context
 features[ctools][] = context:context:3
 features[fe_block_settings][] = bc_blocks-bc_copyright
