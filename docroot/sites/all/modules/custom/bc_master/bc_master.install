@@ -65,7 +65,8 @@ function bc_master_update_7102() {
 }
 
 /**
- * Enable media, mediafield and bc_blocks modules.
+ * Enable media, mediafield, bc_blocks, bc_menu_feature and file_entity 
+ * modules.
  */
 function bc_master_update_7103() {
   module_enable(array(
@@ -78,14 +79,42 @@ function bc_master_update_7103() {
 }
 
 /**
- * Enable media, mediafield and bc_blocks modules.
+ * Enable context, uuid_features, bc_menu_feature, chosen, block_class, 
+ * pathauto and revert bc_block_settings_feature.
  */
 function bc_master_update_7104() {
   module_enable(array(
+    'context',
+    'context_ui',
+    'context_layout',
     'uuid_features',
     'bc_menu_feature',
     'chosen',
     'block_class',
     'pathauto',
+    'imagefield_crop',
+  ));
+  features_revert(array(
+    'bc_block_settings_feature',
+    'bc_site_settings_feature'
+  ));
+}
+
+/**
+ * Enable libraries, media_crop, wysiwyg, entitycache, googleanalytics, 
+ * imagecache_actions, imagecache_coloractions, bean, 
+ * image_url_formatter modules.
+ */
+function bc_master_update_7105() {
+  module_enable(array(
+    'libraries',
+    'media_crop',
+    'wysiwyg',
+    'entitycache',
+    'googleanalytics',
+    'imagecache_actions',
+    'imagecache_coloractions',
+    'bean',
+    'image_url_formatter',
   ));
 }
