@@ -2,24 +2,18 @@
 
    Drupal.behaviors.presentation_adaptative_image = {
     attach: function (context, settings) {
-      var breakpoints = {'mobile': 0, 'mobile-landscape': 480, 'tablet': 768, 'desktop': 1024, 'desktop-wide': 1280, 'desktop-superwide': 1440},
-        width = window.innerWidth,
-        result = '',
+      // PRESENTATION - Adaptative image load on presentation region.
+      var result = null,
         element = null,
         src = '',
         image = document.querySelector('.image-wrapper .active');
-      if (width > breakpoints['desktop-superwide']) result = 'desktop-superwide';
-      else if (width > breakpoints['desktop-wide']) result = 'desktop-wide';
-      else if (width > breakpoints['desktop']) result = 'desktop';
-      else if (width > breakpoints['tablet']) result = 'tablet';
-      else if (width > breakpoints['mobile-landscape']) result = 'mobile-landscape';
-      else if (width > breakpoints['mobile']) result = 'mobile';
+      result = detectBreakpoint();
       element = document.querySelector('.images-holder .' + result);
       if (element) {
         src = element.getAttribute('data-src');
         image.style.display = 'none';
         image.setAttribute('src', src);
-        $(image).fadeIn(3000);
+        $(image).fadeIn(2000);
       }
     }
   };
@@ -84,6 +78,14 @@
     }
   };
   
+  Drupal.behaviors.cart_behaviors = {
+    attach: function (context, settings) {
+      /*$('.flexslider').flexslider({
+        animation: "slide"
+      });*/
+    }
+  };
+  
   /**
    * Function to equalize height of .review-teaser's on homepage.
    * This is based on screen size, to differantiate how many containers
@@ -117,14 +119,23 @@
     else {
        $('.review-teaser').height('');
     }
-  }
-  
-  Drupal.behaviors.cart_behaviors = {
-    attach: function (context, settings) {
-      /*$('.flexslider').flexslider({
-        animation: "slide"
-      });*/
-    }
+  };
+
+  /**
+   * Function that detect witch breakpoint the window is in.
+   * Used on presentation adaptative images.
+   */
+  function detectBreakpoint() {
+    var breakpoints = {'mobile': 0, 'mobile-landscape': 480, 'tablet': 768, 'desktop': 1024, 'desktop-wide': 1280, 'desktop-superwide': 1440},
+      width = window.innerWidth,
+      result = '';
+    if (width > breakpoints['desktop-superwide']) result = 'desktop-superwide';
+    else if (width > breakpoints['desktop-wide']) result = 'desktop-wide';
+    else if (width > breakpoints['desktop']) result = 'desktop';
+    else if (width > breakpoints['tablet']) result = 'tablet';
+    else if (width > breakpoints['mobile-landscape']) result = 'mobile-landscape';
+    else if (width > breakpoints['mobile']) result = 'mobile';
+    return result;
   };
 
 }(this, this.document, this.jQuery));

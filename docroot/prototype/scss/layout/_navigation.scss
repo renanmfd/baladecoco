@@ -56,6 +56,11 @@
         &:hover {
           color: $header-navigation-cl-hover;
         }
+        
+        &.active {
+          pointer-events: none;
+          color: $header-navigation-cl-active;
+        }
       }
       
       .icon {
