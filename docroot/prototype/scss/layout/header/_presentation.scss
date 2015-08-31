@@ -1,9 +1,7 @@
 #presentation {
   display: block;
   position: relative;
-  min-height: 200px;
-  @include padding (40px 0 45px 0);
-  margin-top: -40px;
+  height: 240px;
   background-color: $white;
   overflow: hidden;
   text-align: center;
@@ -14,8 +12,10 @@
     display: block;
     width: 100%;
   }
-  a.logo {
-    display: inline-block;
+  #block-bc-blocks-bc-pres-logo {
+    display: block;
+    width: 150px;
+    margin: 0 auto;
   }
   > div {
     position: relative;
@@ -23,36 +23,18 @@
   }
   
   // style
-  
-  // Prototype only
-  .hero-wrapper {
+
+  .hero-wrapper,
+  .region-presentation {
+    width: 100%;
+    height: 240px;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
     overflow: hidden;
     background-color: #fff;
     z-index: 1;
-    
-    img {
-      position: absolute;
-      top: -100px;
-      left: 0;
-      width: 100%;
-      min-width: 800px;
-      overflow: hidden;
-      opacity: 0.7;
-    }
-  }
-  // End prototype only
-  
-  #block-views-presentation-block {
-    width: 100%;
-    height: 240px;
-    overflow: hidden;
     
     .image-wrapper {
       opacity: 0.7;
@@ -68,8 +50,6 @@
   }
   
   .logo {
-    margin-top: 20px;
-    margin-bottom: 10px;
     text-align: center;
     opacity: 1;
     
@@ -81,7 +61,7 @@
       height: 150px;
       
       * {
-        //@include transition (all, 0.3s, ease-in-out);
+        @include transition (all, 0.2s, ease-in-out);
       }
     }
     &:hover {
@@ -94,12 +74,13 @@
     }
   }
   h2.slogan {
-    margin-top: 10px;
+    margin-top: 0;
     margin-bottom: 0;
     @include font ($bc-font1, $font-title, $font-normal);
     color: $header-presentation-slogan-cl;
     text-align: center;
     text-transform: none;
+    white-space: nowrap;
     border: none;
     cursor: default;
     opacity: 0.9;

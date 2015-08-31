@@ -50,6 +50,12 @@ function bc_block_settings_feature_context_default_contexts() {
           'region' => 'presentation',
           'weight' => '1',
         ),
+        'bc_blocks-bc_presentation_logo' => array(
+          'module' => 'bc_blocks',
+          'delta' => 'bc_presentation_logo',
+          'region' => 'pres_top',
+          'weight' => '-10',
+        ),
         'system-main-menu' => array(
           'module' => 'system',
           'delta' => 'main-menu',
