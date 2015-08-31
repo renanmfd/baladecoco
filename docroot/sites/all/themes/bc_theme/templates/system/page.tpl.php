@@ -87,8 +87,12 @@
 
     <!-- Presentation -->
     <section id="presentation">
-      <h3 class="hidden"><?php print t('Presentation'); ?></h3>
       <?php print render($page['presentation']);?>
+      <div class="container">
+        <h2 class="slogan"><?php print $site_slogan; ?></h2>
+        <?php print drupal_render($pres_logo); ?>
+        <h1 class="page-title"><?php print ($is_front)? t('Home') : $title; ?></h1>
+      </div>
     </section>
     <!-- /Presentation -->
 

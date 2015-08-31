@@ -2049,10 +2049,7 @@ h3 {
 #presentation {
   display: block;
   position: relative;
-  min-height: 200px;
-  padding: 40px 0 45px 0;
-  padding: 2.5rem 0 2.8125rem 0;
-  margin-top: -40px;
+  height: 240px;
   background-color: white;
   overflow: hidden;
   text-align: center;
@@ -2062,43 +2059,33 @@ h3 {
   display: block;
   width: 100%;
 }
-#presentation a.logo {
-  display: inline-block;
+#presentation #block-bc-blocks-bc-pres-logo {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
 }
 #presentation > div {
   position: relative;
   z-index: 2;
 }
-#presentation .hero-wrapper {
+#presentation .hero-wrapper,
+#presentation .region-presentation {
+  width: 100%;
+  height: 240px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
   background-color: #fff;
   z-index: 1;
 }
-#presentation .hero-wrapper img {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  width: 100%;
-  min-width: 800px;
-  overflow: hidden;
+#presentation .hero-wrapper .image-wrapper,
+#presentation .region-presentation .image-wrapper {
   opacity: 0.7;
 }
-#presentation #block-views-presentation-block {
-  width: 100%;
-  height: 240px;
-  overflow: hidden;
-}
-#presentation #block-views-presentation-block .image-wrapper {
-  opacity: 0.7;
-}
-#presentation #block-views-presentation-block img.active {
+#presentation .hero-wrapper img.active,
+#presentation .region-presentation img.active {
   position: relative;
   width: auto;
   max-width: none;
@@ -2106,8 +2093,6 @@ h3 {
   top: -20px;
 }
 #presentation .logo {
-  margin-top: 20px;
-  margin-bottom: 10px;
   text-align: center;
   opacity: 1;
 }
@@ -2120,6 +2105,10 @@ h3 {
   width: 150px;
   height: 150px;
 }
+#presentation .logo svg * {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
 #presentation .logo:hover #mb_girl *, #presentation .logo:hover #mb_frame * {
   fill: #420464;
 }
@@ -2127,7 +2116,7 @@ h3 {
   stroke: #420464 !important;
 }
 #presentation h2.slogan {
-  margin-top: 10px;
+  margin-top: 0;
   margin-bottom: 0;
   font-family: "Playfair Display", serif;
   font-size: 24px;
@@ -2136,6 +2125,7 @@ h3 {
   color: #420464;
   text-align: center;
   text-transform: none;
+  white-space: nowrap;
   border: none;
   cursor: default;
   opacity: 0.9;
@@ -2506,8 +2496,7 @@ nav:after, section:after {
   position: relative;
   width: 100%;
   background-color: #420464;
-  margin-top: -45px;
-  z-index: 50;
+  z-index: 998;
 }
 #navigation .menu-wrapper h3 {
   display: inline-block !important;
@@ -2569,6 +2558,10 @@ nav:after, section:after {
 }
 #navigation ul.main-menu li a:hover {
   color: #FFAD5F;
+}
+#navigation ul.main-menu li a.active {
+  pointer-events: none;
+  color: #8E8Ef5;
 }
 #navigation ul.main-menu li .icon {
   display: inline-block;

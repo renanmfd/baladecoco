@@ -21,6 +21,10 @@ function bc_blocks_block_info() {
     'info' => t('Logo'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['bc_pres_logo'] = array(
+    'info' => t('Presentation Logo'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -115,6 +119,49 @@ function bc_blocks_block_configure($delta = '') {
       ),
     );
   }
+  elseif ($delta == 'bc_pres_logo') {
+    $form['bc_blocks_pres_logo_image'] = array(
+      '#type' => 'media',
+      '#tree' => TRUE,
+      '#input' => TRUE,
+      '#field_name' => 'media',
+      '#title' => t('Logo Image'),
+      '#description' => t('Allowed formats: PNG, JPG, SVG, GIF.'),
+      '#default_value' => variable_get('bc_blocks_pres_logo_image', 0),
+      '#media_options' => array(
+        'global' => array(
+          'file_extensions' => 'png jpg jpeg svg gif',
+          'max_filesize' => '5 MB',
+          'file_directory' => 'logo/',
+          'types' => array('image'),
+          'enabledPlugins' => array(
+            'upload' => 'upload',
+          ),
+        ),
+      ),
+      '#required' => TRUE,
+    );
+    $form['bc_blocks_pres_logo_fallback'] = array(
+      '#type' => 'media',
+      '#tree' => TRUE,
+      '#input' => TRUE,
+      '#field_name' => 'media',
+      '#title' => t('Logo Fallback'),
+      '#description' => t('Allowed formats: PNG, JPG.'),
+      '#default_value' => variable_get('bc_blocks_pres_logo_fallback', 0),
+      '#media_options' => array(
+        'global' => array(
+          'file_extensions' => 'png jpg jpeg',
+          'max_filesize' => '5 MB',
+          'file_directory' => 'logo/',
+          'types' => array('image'),
+          'enabledPlugins' => array(
+            'upload' => 'upload',
+          ),
+        ),
+      ),
+    );
+  }
   return $form;
 }
 
@@ -133,6 +180,10 @@ function bc_blocks_block_save($delta = '', $edit = array()) {
   elseif ($delta == 'bc_logo') {
     variable_set('bc_blocks_logo_image', $edit['bc_blocks_logo_image']);
     variable_set('bc_blocks_logo_fallback', $edit['bc_blocks_logo_fallback']);
+  }
+  elseif ($delta == 'bc_pres_logo') {
+    variable_set('bc_blocks_pres_logo_image', $edit['bc_blocks_pres_logo_image']);
+    variable_set('bc_blocks_pres_logo_fallback', $edit['bc_blocks_pres_logo_fallback']);
   }
 }
 
@@ -181,7 +232,11 @@ function bc_blocks_block_view($delta = '') {
         // If the file is a SVG, open it's content, else theme image.
         if (strpos($image_file->filemime, 'svg')) {
           $image_handle = fopen($image_file->uri, 'r');
-          $image_content = fread($image_handle, filesize($image_file->uri));
+          $image_content = '';
+          while (!feof($image_handle)) {
+            $image_content .= fread($image_handle, 8000);
+          }
+          fclose($image_handle);
         }
         else {
           $image = image_load($image_file->uri);
@@ -209,6 +264,55 @@ function bc_blocks_block_view($delta = '') {
         0 => array(
           '#markup' => $fb_content,
           '#prefix' => '<a href="' . url('<front>') . '">'
+        ),
+        1 => array(
+          '#markup' => $image_content,
+          '#suffix' => '</a>'
+        ),
+      );
+      break;
+
+    case 'bc_pres_logo':
+      // Handle main logo image.
+      $image_fid = variable_get('bc_blocks_pres_logo_image', 0);
+      $image_content = '';
+      if ($image_fid > 0) {
+        $image_file = file_load($image_fid);
+        // If the file is a SVG, open it's content, else theme image.
+        if (strpos($image_file->filemime, 'svg')) {
+          $image_handle = fopen($image_file->uri, 'r');
+          $image_content = '';
+          while (!feof($image_handle)) {
+            $image_content .= fread($image_handle, 8000);
+          }
+          fclose($image_handle);
+        }
+        else {
+          $image = image_load($image_file->uri);
+          $image_info = array(
+            '#theme' => 'image',
+            '#alt' => variable_get('site_name', 'Logo'),
+            '#path' => $image->source,
+            '#width' => $image->info['width'],
+            '#height' => $image->info['height'],
+          );
+          $image_content = drupal_render($image_info);
+        }
+      }
+      // Handle fallback image (optional).
+      $fb_fid = variable_get('bc_blocks_pres_logo_fallback', 0);
+      $fb_content = '';
+      if ($fb_fid > 0) {
+        $fb_file = file_load($fb_fid);
+        $fb_url = file_create_url($fb_file->uri);
+        $fb_content = '<img data-src="' . $fb_url . '" src="" class="svg-fallback"/>';
+      }
+      // Block build.
+      $block['subject'] = '<none>';
+      $block['content'] = array(
+        0 => array(
+          '#markup' => $fb_content,
+          '#prefix' => '<a href="' . url('<front>') . '" class="logo">'
         ),
         1 => array(
           '#markup' => $image_content,

@@ -28,10 +28,10 @@ function bc_presentation_feature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'seven' => array(
+      'bc_theme' => array(
         'region' => '',
         'status' => 0,
-        'theme' => 'seven',
+        'theme' => 'bc_theme',
         'weight' => 0,
       ),
     ),

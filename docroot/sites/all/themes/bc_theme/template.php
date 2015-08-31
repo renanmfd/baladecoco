@@ -6,6 +6,16 @@
  */
 
 /**
+ * 
+ */
+function bc_theme_preprocess_page(&$vars) {
+  // Render logo block for presentation region.
+  //$vars['pres_logo'] = module_invoke('bc_blocks', 'block_view', 'bc_pres_logo');
+  $block = block_load('bc_blocks', 'bc_pres_logo');
+  $vars['pres_logo'] = _block_get_renderable_array(_block_render_blocks(array($block)));
+}
+
+/**
  * Implements HOOK_menu_tree().
  */
 function bc_theme_menu_tree($vars) {

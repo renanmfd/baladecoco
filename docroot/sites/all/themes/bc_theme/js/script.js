@@ -13,7 +13,7 @@
         src = element.getAttribute('data-src');
         image.style.display = 'none';
         image.setAttribute('src', src);
-        $(image).fadeIn(3000);
+        $(image).fadeIn(2000);
       }
     }
   };
