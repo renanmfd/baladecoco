@@ -7,10 +7,12 @@
   
   // Layout ============================================ //
   .site-name {
-    @include span(1);
+    float: left;
+    width: auto;
+    max-width: 100px;
     
     @include susy-breakpoint($tablet, $susy_tablet) {
-      @include span(2 of 8);
+      max-width: span(2 of 8);
     }
   }
   nav.menu-wrapper {

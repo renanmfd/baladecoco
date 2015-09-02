@@ -4,15 +4,65 @@
  * @file
  * template.php
  */
+ 
+/**
+ * Implements HOOK_preprocess_html().
+ */
+function bc_theme_preprocess_html(&$vars) {
+  // Google Fonts font-faces css file.
+  drupal_add_css(
+    'https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700|Open+Sans:400,300,700,400italic',
+    array(
+      'type' => 'external',
+      'group' => CSS_THEME,
+    )
+  );
+}
 
 /**
- * 
+ * Implements HOOK_preprocess_page().
  */
 function bc_theme_preprocess_page(&$vars) {
   // Render logo block for presentation region.
-  //$vars['pres_logo'] = module_invoke('bc_blocks', 'block_view', 'bc_pres_logo');
   $block = block_load('bc_blocks', 'bc_pres_logo');
   $vars['pres_logo'] = _block_get_renderable_array(_block_render_blocks(array($block)));
+
+  // Build Mobile menu, copying some content from other regions.
+  $page = $vars['page'];
+  $elements = array(
+    'system_main-menu' => array(
+      'region' => 'navigation',
+      'weight' => 1,
+    ),
+    'menu_menu-quick-links' => array(
+      'region' => 'topbar',
+      'weight' => 2,
+    ),
+    'bc_blocks_bc_logo' => array(
+      'region' => 'topbar',
+      'weight' => 0,
+    ),
+  );
+  foreach ($elements as $element => $config) {
+    $region = $config['region'];
+    $mobile_menu[$element] = $page[$region][$element];
+    $mobile_menu[$element]['#weight'] = $config['weight'];
+  }
+  $mobile_menu['#sorted'] = TRUE;
+  $mobile_menu['#theme_wrappers'][] = 'region';
+  $mobile_menu['#region'] = 'mobile_menu';
+  $vars['page']['mobile_menu'] = $mobile_menu;
+}
+
+/**
+ * Implements HOOK_preprocess_panels_pane().
+ */
+function bc_theme_preprocess_panels_pane(&$vars) {
+  // Add correct heading and class to fontpage panels.
+  if ($vars['is_front']) {
+    $vars['title_heading'] = 'h3';
+    $vars['title_attributes_array']['class'][] = 'section-title';
+  }
 }
 
 /**

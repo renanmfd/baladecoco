@@ -33,3 +33,10 @@ stylesheets[all][] = css/styles.css
 ;;;;;;;;;;;;;;;;;;;;;
  
 scripts[] = js/script.js
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Panels layout
+;;;;;;;;;;;;;;;;;;;;;
+
+plugins[panels][layouts] = layouts

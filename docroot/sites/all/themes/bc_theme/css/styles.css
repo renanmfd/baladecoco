@@ -151,7 +151,7 @@ html > object {
 }
 
 h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 20px;
   font-size: 1.25rem;
   font-weight: 200;
@@ -850,7 +850,7 @@ quotes {
   position: relative;
   padding: 10px 30px;
   padding: 0.625rem 1.875rem;
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 16px;
   font-size: 1rem;
   font-weight: 600;
@@ -907,7 +907,7 @@ quotes:after {
 }
 
 .text {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 16px;
   font-size: 1rem;
   color: black;
@@ -1363,7 +1363,7 @@ h3 {
 
 .tpd-close-icon {
   float: left;
-  font-family: "Playfair Display", serif, "Arial", "monospace";
+  font-family: "Roboto Slab", serif, "Arial", "monospace";
   font-size: 28px;
   font-style: normal;
   font-weight: normal;
@@ -1924,15 +1924,13 @@ h3 {
   z-index: 49;
 }
 #topbar .site-name {
-  width: 21.05263%;
   float: left;
-  margin-right: 5.26316%;
+  width: auto;
+  max-width: 100px;
 }
 @media (min-width: 48em) {
   #topbar .site-name {
-    width: 23.07692%;
-    float: left;
-    margin-right: 2.5641%;
+    max-width: 23.07692%;
   }
 }
 #topbar nav.menu-wrapper {
@@ -2118,7 +2116,7 @@ h3 {
 #presentation h2.slogan {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 24px;
   font-size: 1.5rem;
   font-weight: 400;
@@ -2151,7 +2149,7 @@ h1.page-title {
   padding-top: 5px;
   padding-bottom: 5px;
   border-top: 1px solid #29023F;
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 24px;
   font-size: 1.5rem;
   font-weight: 600;
@@ -2229,6 +2227,10 @@ body.mobile-menu-open #mobile-menu {
 }
 #mobile-menu .menu-wrapper .main-menu li {
   padding: 5px 0;
+  margin: 0;
+  list-style: none;
+  list-style-image: none;
+  list-style-type: none;
 }
 #mobile-menu .menu-wrapper .main-menu li a {
   display: block;
@@ -2418,7 +2420,7 @@ body.mobile-menu-open #mobile-menu {
   zoom: 1;
 }
 html {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-weight: 400;
   background-color: #e6e1eb;
   color: #29023F;
@@ -2711,7 +2713,7 @@ nav:after, section:after {
   display: block;
   padding: 5px 10px;
   padding: 0.3125rem 0.625rem;
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 20px;
   font-size: 1.25rem;
   font-weight: 400;
@@ -2959,7 +2961,7 @@ nav:after, section:after {
   vertical-align: top;
   width: calc(100% - 60px);
   padding-left: 0.625rem;
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 13px;
   font-size: 0.8125rem;
   font-weight: 400;
@@ -2972,7 +2974,7 @@ nav:after, section:after {
   margin-right: 0;
 }
 .cart-table__total {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 16px;
   font-size: 1rem;
   font-weight: 400;
@@ -3040,7 +3042,7 @@ nav:after, section:after {
   font-weight: 600;
 }
 .cart-table__total .shipping-total-price .value b {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 16px;
   font-size: 1rem;
   font-weight: 400;
@@ -3141,7 +3143,7 @@ nav:after, section:after {
   font-weight: 600;
 }
 .cart-item__quantity__unit-price b {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 13px;
   font-size: 0.8125rem;
   font-weight: 400;
@@ -3203,13 +3205,13 @@ nav:after, section:after {
   font-weight: 600;
 }
 .shipping-price__info__currency {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 16px;
   font-size: 1rem;
   font-weight: 400;
 }
 .shipping-price__info__locate {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 13px;
   font-size: 0.8125rem;
   font-weight: 400;
@@ -3426,7 +3428,7 @@ nav:after, section:after {
 }
 .baladecoco-reviews-block .review-info {
   margin-left: 0px;
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 13px;
   font-size: 0.8125rem;
   font-weight: 400;
@@ -3870,7 +3872,7 @@ nav:after, section:after {
   display: block;
   height: 3.3125rem;
   margin-bottom: 0.625rem;
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 20px;
   font-size: 1.25rem;
   font-weight: 400;
@@ -3902,7 +3904,7 @@ nav:after, section:after {
   }
 }
 .slide-item__body__price .currency {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 13px;
   font-size: 0.8125rem;
   font-weight: 400;
