@@ -117,6 +117,8 @@
       </section>
       <!-- /Messages -->
     <?php endif; ?>
+    
+    <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
 
     <?php if (!empty($page['help'])): ?>
       <!-- Help -->
