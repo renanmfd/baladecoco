@@ -119,6 +119,11 @@ $form-border-radius: 8px;
       b:before, b:after {
         color: $darkpurple;
       }
+      
+      b {
+        background: none;
+        background-image: none;
+      }
     }
     
     .chosen-drop {
@@ -180,5 +185,35 @@ input.form-submit {
   &:hover {
     color: $darkpurple;
     background-color: $lightorange;
+  }
+}
+
+// RATING STARS
+.starrating {
+  @include clearfix;
+
+  .star1-on, .star-off {
+    background: none;
+    background-image: none;
+    margin-top: 0;
+    height: auto;
+    width: auto;
+    
+    &:before {
+      @extend .icon-star-full;
+      @extend %icons;
+    }
+    
+    &:before {
+      @include font-size ($font-large);
+    }
+  }
+  
+  .star1-on:before {
+    color: $star;
+  }
+  
+  .star-off:before {
+    color: $lightgray;
   }
 }
