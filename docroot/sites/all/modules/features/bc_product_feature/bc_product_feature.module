@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the bc_product_feature feature.
+ */
+
+include_once 'bc_product_feature.features.inc';
