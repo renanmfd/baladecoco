@@ -4,7 +4,7 @@
  * @file
  * template.php
  */
- 
+
 /**
  * Implements HOOK_preprocess_html().
  */
@@ -52,6 +52,99 @@ function bc_theme_preprocess_page(&$vars) {
   $mobile_menu['#theme_wrappers'][] = 'region';
   $mobile_menu['#region'] = 'mobile_menu';
   $vars['page']['mobile_menu'] = $mobile_menu;
+}
+
+/**
+ * Implements HOOK_preprocess_node().
+ */
+function bc_theme_preprocess_node(&$vars) {
+  $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
+  $vars['classes_array'][] = drupal_html_class('node-' . $vars['type'] . '-' . $vars['view_mode']);
+  // Node PRODUCT
+  if ($vars['type'] == 'product') {
+    // View Mode TEASER
+    if ($vars['view_mode'] == 'teaser') {
+      _bc_theme_preprocess_node_product_teaser($vars);
+    }
+  }
+  // Node REVIEW
+  elseif ($vars['type'] == 'review') {
+    // View Mode TEASER
+    if ($vars['view_mode'] == 'teaser') {
+      _bc_theme_preprocess_node_review_teaser($vars);
+    }
+    // View Mode GROUP PAGE
+    if ($vars['view_mode'] == 'group_page') {
+      _bc_theme_preprocess_node_review_group_page($vars);
+    }
+  }
+  //dpm($vars);
+}
+
+/**
+ * Preprocess variables for node Product on teaser view mode.
+ * @see bc_theme_preprocess_node()
+ */
+function _bc_theme_preprocess_node_product_teaser(&$vars) {
+  // Image - Get only first image from content (with style crop).
+  $vars['image'] = $vars['content']['field_product_image'][0];
+  // Price - Get raw value from field.
+  $vars['price'] = array(
+    '#markup' => $vars['field_product_price'][0]['value'],
+  );
+  // Taxonomy Fields - Build render array.
+  $fields = array(
+    'field_product_type' => 'product_type',
+    'field_bala_type' => 'bala_type',
+    'field_stuffed_flavour' => 'stuffed_flavour',
+    'field_bala_flavour' => 'bala_flavour',
+  );
+  foreach ($fields as $field => $name) {
+    $taxonomy = (isset($vars[$field][0]))? $vars[$field][0]: NULL;
+    if ($taxonomy == NULL) continue;
+    if (!isset($taxonomy['texonomy_term'])) {
+      $taxonomy['texonomy_term'] = taxonomy_term_load($taxonomy['tid']);
+    }
+    $term = $taxonomy['texonomy_term'];
+    $vars[$name] = array(
+      '#markup' => $term->name,
+      'tid' => $term->tid,
+    );
+  }
+  // Title - Add class to hide it.
+  $vars['title_attributes_array']['class'][] = 'hidden';
+}
+
+/**
+ * Preprocess variables for node Review on teaser view mode.
+ * @see bc_theme_preprocess_node()
+ */
+function _bc_theme_preprocess_node_review_teaser(&$vars) {
+  // Title - Add class to hide it.
+  $vars['title_attributes_array']['class'][] = 'hidden';
+  // User
+  $vars['user'] = user_load($vars['uid']);
+  $user_name = field_get_items('user', $vars['user'], 'field_user_name', NULL);
+  $vars['author_name'] = $user_name[0]['safe_value'];
+  // Data
+  $vars['date'] = date('M/Y', $vars['created']);
+  // Location
+  $location = field_get_items('user', $vars['user'], 'field_user_location', 'teaser', NULL);
+  if ($location) {
+    $vars['location'] = check_plain($location[0]['city']) . ' ,' . check_plain($location[0]['province']);
+  }
+  else {
+    $vars['location'] = FALSE;
+  }
+}
+
+/**
+ * Preprocess variables for node Review on group_page view mode.
+ * @see bc_theme_preprocess_node()
+ */
+function _bc_theme_preprocess_node_review_group_page(&$vars) {
+  $vars['date'] = date('M/Y', $vars['created']);
+  //dpm($vars);
 }
 
 /**
