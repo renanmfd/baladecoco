@@ -157,3 +157,58 @@ function bc_master_update_7108() {
   ));
 }
 
+/**
+ * Set new admin theme, RUBIK.
+ */
+function bc_master_update_7119() {
+  variable_set('admin_theme', 'rubik'); 
+}
+
+/**
+ * User modules enable.
+ */
+function bc_master_update_7110() {
+  module_enable(array(
+    'variable',
+    'email',
+    'email_registration',
+    'location',
+    'location_cck',
+    'page_manager',
+    'panels',
+    'hybridauth', 
+    'user_pages',
+  ));
+}
+
+/**
+ * Product content type modules enable.
+ */
+function bc_master_update_7111() {
+  module_enable(array(
+    'conditional_fields',
+    'entityreference',
+    'ds',
+    'panelizer',
+  );
+  module_enable(array(
+    'bc_product_feature',
+  ));
+  features_revert(array(
+    'bc_block_settings_feature',
+    'bc_site_settings_feature',
+    'bc_theme_settings_feature',
+  ));
+}
+
+/**
+ * Homepage and other modules.
+ *//*
+function bc_master_update_7112() {
+  module_enable(array(
+    'page_manager',
+    'panels',
+  ));
+}*/
+
+

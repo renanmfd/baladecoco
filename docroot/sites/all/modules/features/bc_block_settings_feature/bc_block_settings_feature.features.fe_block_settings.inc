@@ -255,6 +255,33 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['hybridauth-hybridauth'] = array(
+    'cache' => 8,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'hybridauth',
+    'module' => 'hybridauth',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['menu-devel'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -816,6 +843,60 @@ function bc_block_settings_feature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bc_theme',
         'weight' => 11,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-4d82c813e15c15066878df9cc8172b27'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => '4d82c813e15c15066878df9cc8172b27',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-review_frontpage-review_block'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'review_frontpage-review_block',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
       ),
     ),
     'title' => '',

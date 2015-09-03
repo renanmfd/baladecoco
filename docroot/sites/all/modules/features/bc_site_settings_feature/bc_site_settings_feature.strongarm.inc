@@ -28,22 +28,15 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'acquia_spi_boot_last';
-  $strongarm->value = 1440989558;
+  $strongarm->value = 1441311563;
   $export['acquia_spi_boot_last'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'acquia_spi_cron_last';
-  $strongarm->value = 1440978045;
+  $strongarm->value = 1441245934;
   $export['acquia_spi_cron_last'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'acquia_spi_def_timestamp';
-  $strongarm->value = '1374783288';
-  $export['acquia_spi_def_timestamp'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -213,7 +206,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'acquia_spi_module_rebuild';
-  $strongarm->value = 1440978045;
+  $strongarm->value = 1441245934;
   $export['acquia_spi_module_rebuild'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -221,7 +214,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'acquia_subscription_data';
   $strongarm->value = array(
-    'timestamp' => 1440978093,
+    'timestamp' => 1441245936,
     'active' => '1',
     'href' => 'https://insight.acquia.com/node/uuid/dd88cf6c-cb7c-4357-807d-35f510468c76/dashboard',
     'uuid' => 'dd88cf6c-cb7c-4357-807d-35f510468c76',
@@ -266,6 +259,20 @@ function bc_site_settings_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'additional_settings__active_tab_product';
+  $strongarm->value = 'edit-menu';
+  $export['additional_settings__active_tab_product'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'additional_settings__active_tab_review';
+  $strongarm->value = 'edit-menu';
+  $export['additional_settings__active_tab_review'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'admin_menu_cache_client';
   $strongarm->value = 1;
   $export['admin_menu_cache_client'] = $strongarm;
@@ -286,6 +293,13 @@ function bc_site_settings_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'admin_menu_display';
+  $strongarm->value = 'plid';
+  $export['admin_menu_display'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'admin_menu_margin_top';
   $strongarm->value = 1;
   $export['admin_menu_margin_top'] = $strongarm;
@@ -296,6 +310,13 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->name = 'admin_menu_position_fixed';
   $strongarm->value = 1;
   $export['admin_menu_position_fixed'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'admin_menu_show_all';
+  $strongarm->value = 0;
+  $export['admin_menu_show_all'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -324,6 +345,27 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->name = 'advanced__active_tab';
   $strongarm->value = 'edit-plugins';
   $export['advanced__active_tab'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'anonymous';
+  $strongarm->value = 'Visitor';
+  $export['anonymous'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'array_filter';
+  $strongarm->value = TRUE;
+  $export['array_filter'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'cache_class_cache_ctools_css';
+  $strongarm->value = 'CToolsCssCache';
+  $export['cache_class_cache_ctools_css'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -412,16 +454,160 @@ function bc_site_settings_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'cron_key';
-  $strongarm->value = 'NSuXRo0eyYbIub6W1cPLtoy0kyNHvI6NbVTU_jiKosg';
-  $export['cron_key'] = $strongarm;
+  $strongarm->name = 'context_block_rebuild_needed';
+  $strongarm->value = TRUE;
+  $export['context_block_rebuild_needed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'cron_last';
-  $strongarm->value = 1440978086;
-  $export['cron_last'] = $strongarm;
+  $strongarm->name = 'css_js_query_string';
+  $strongarm->value = 'nu4beh';
+  $export['css_js_query_string'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ctools_last_cron';
+  $strongarm->value = 1441245963;
+  $export['ctools_last_cron'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_default_timezone';
+  $strongarm->value = 'America/Sao_Paulo';
+  $export['date_default_timezone'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'default_nodes_main';
+  $strongarm->value = '10';
+  $export['default_nodes_main'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'default_page_manager_pages';
+  $strongarm->value = array(
+    'home' => TRUE,
+  );
+  $export['default_page_manager_pages'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_api_url';
+  $strongarm->value = 'api.drupal.org';
+  $export['devel_api_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_error_handlers';
+  $strongarm->value = array(
+    1 => '1',
+  );
+  $export['devel_error_handlers'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_execution';
+  $strongarm->value = '5';
+  $export['devel_execution'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_krumo_skin';
+  $strongarm->value = 'blue';
+  $export['devel_krumo_skin'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_memory';
+  $strongarm->value = 0;
+  $export['devel_memory'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_page_alter';
+  $strongarm->value = 0;
+  $export['devel_page_alter'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_query_display';
+  $strongarm->value = 0;
+  $export['devel_query_display'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_query_sort';
+  $strongarm->value = '0';
+  $export['devel_query_sort'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_raw_names';
+  $strongarm->value = 0;
+  $export['devel_raw_names'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_rebuild_theme_registry';
+  $strongarm->value = 1;
+  $export['devel_rebuild_theme_registry'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_redirect_page';
+  $strongarm->value = 0;
+  $export['devel_redirect_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_use_uncompressed_jquery';
+  $strongarm->value = 0;
+  $export['devel_use_uncompressed_jquery'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_xhprof_directory';
+  $strongarm->value = '';
+  $export['devel_xhprof_directory'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_xhprof_enabled';
+  $strongarm->value = FALSE;
+  $export['devel_xhprof_enabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devel_xhprof_url';
+  $strongarm->value = '';
+  $export['devel_xhprof_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'dev_timer';
+  $strongarm->value = 0;
+  $export['dev_timer'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -440,19 +626,90 @@ function bc_site_settings_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'email__active_tab';
+  $strongarm->value = 'edit-email-admin-created';
+  $export['email__active_tab'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'entitycache_enabled';
+  $strongarm->value = TRUE;
+  $export['entitycache_enabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'entityreference:base-tables';
+  $strongarm->value = array(
+    'bean' => array(
+      0 => 'bean',
+      1 => 'bid',
+    ),
+    'comment' => array(
+      0 => 'comment',
+      1 => 'cid',
+    ),
+    'node' => array(
+      0 => 'node',
+      1 => 'nid',
+    ),
+    'file' => array(
+      0 => 'file_managed',
+      1 => 'fid',
+    ),
+    'taxonomy_term' => array(
+      0 => 'taxonomy_term_data',
+      1 => 'tid',
+    ),
+    'taxonomy_vocabulary' => array(
+      0 => 'taxonomy_vocabulary',
+      1 => 'vid',
+    ),
+    'user' => array(
+      0 => 'users',
+      1 => 'uid',
+    ),
+    'wysiwyg_profile' => array(
+      0 => 'wysiwyg',
+      1 => 'format',
+    ),
+  );
+  $export['entityreference:base-tables'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'entity_cache_tables_created';
+  $strongarm->value = '';
+  $export['entity_cache_tables_created'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'entity_view_modes';
+  $strongarm->value = array(
+    'bean' => array(),
+    'file' => array(),
+  );
+  $export['entity_view_modes'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'bc_theme_settings_feature' => array(
-      'variable' => '975c97949b590bed1279f67b5cb5d6bd',
+      'variable' => 'bcca02b85a07a1d53a62746935429bfb',
     ),
     'bc_site_settings_feature' => array(
-      'variable' => '8e417c8582060aea5711ab5064bb9ae4',
+      'variable' => 'eaf1464955e2bd37b2ea0fac4aeba8ac',
       'dependencies' => 'e410ca96d90029817c7bb9c7cb1f7ea4',
     ),
     'bc_block_settings_feature' => array(
-      'fe_block_settings' => '6d2ac8267ec4773b1c7ce704f8512d07',
-      'dependencies' => 'badcfd1dc661c2fac29c8f8ba4e42d5c',
-      'context' => '19d95967f707e0f7ae6f1a49637a2a50',
+      'fe_block_settings' => '842471d54a8a39cce04bebe113b450b1',
+      'dependencies' => 'fd5ec2ec85ba4832767a6a372b144094',
+      'context' => '9e5527ce2c050cdc5ed1c3b4582f9698',
     ),
     'bc_menu_feature' => array(
       'menu_custom' => '705cdd1f18857db77fed06e3b2a121cc',
@@ -468,6 +725,20 @@ function bc_site_settings_feature_strongarm() {
       'bean_type' => '0c145e4d8dfd5e08b4c368904eb96001',
       'image' => 'e51c6c9647d02c0b62803d2f853ba26b',
       'views_view' => '15e983a177a17839eab4988be2c3bb95',
+    ),
+    'bc_product_feature' => array(
+      'fe_block_settings' => '22c83c95f2940a94f0298de30c4d3b4c',
+      'node' => '911ce45184640ea5cb013ba5cab14898',
+      'variable' => '4e4589b0d659620cc262164ef8ca7d04',
+      'uuid_term' => 'b2d3e1a5d8b2fc87841c19fbaa3467f4',
+      'field_base' => 'e388996b6d972d12b2af9d2ee5218a92',
+      'field_instance' => '9ce96091b3af511fe58d2a23880ebf90',
+      'taxonomy' => '1c9237965da67e601a8f86a023dedb14',
+      'conditional_fields' => '748dcbcb7743eea6a9108f26ff75c7b6',
+      'dependencies' => '5dfb473863f822ff2ea818bd85224f28',
+      'image' => '51e666214b14645f8344f087f3948470',
+      'views_view' => '4a4df842021e0b7fb58759cc2237b5a1',
+      'ds_view_modes' => '342c538cd10b129d5399ca8fdf616722',
     ),
   );
   $export['features_codecache'] = $strongarm;
@@ -611,6 +882,289 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->name = 'install_time';
   $strongarm->value = 1439869262;
   $export['install_time'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'maintenance_mode';
+  $strongarm->value = FALSE;
+  $export['maintenance_mode'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_backgroundcolor';
+  $strongarm->value = '#000000';
+  $export['media_backgroundcolor'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_dialogclass';
+  $strongarm->value = 'media-wrapper';
+  $export['media_dialogclass'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_draggable';
+  $strongarm->value = '0';
+  $export['media_draggable'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_height';
+  $strongarm->value = '280';
+  $export['media_height'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_icon_base_directory';
+  $strongarm->value = 'public://media-icons';
+  $export['media_icon_base_directory'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_minwidth';
+  $strongarm->value = '400';
+  $export['media_minwidth'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_modal';
+  $strongarm->value = '1';
+  $export['media_modal'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_opacity';
+  $strongarm->value = '0.4';
+  $export['media_opacity'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_position';
+  $strongarm->value = 'center';
+  $export['media_position'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_resizable';
+  $strongarm->value = '0';
+  $export['media_resizable'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_width';
+  $strongarm->value = '670';
+  $export['media_width'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_zindex';
+  $strongarm->value = '10000';
+  $export['media_zindex'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_default_active_menus';
+  $strongarm->value = array(
+    0 => 'menu-balas-de-coco',
+    1 => 'devel',
+    2 => 'menu-empresa',
+    3 => 'features',
+    4 => 'main-menu',
+    5 => 'management',
+    6 => 'navigation',
+    7 => 'menu-quick-links',
+    8 => 'menu-suporte',
+    10 => 'user-menu',
+  );
+  $export['menu_default_active_menus'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_expanded';
+  $strongarm->value = array();
+  $export['menu_expanded'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_masks';
+  $strongarm->value = array(
+    0 => 501,
+    1 => 493,
+    2 => 485,
+    3 => 253,
+    4 => 250,
+    5 => 247,
+    6 => 246,
+    7 => 245,
+    8 => 243,
+    9 => 242,
+    10 => 237,
+    11 => 127,
+    12 => 126,
+    13 => 125,
+    14 => 124,
+    15 => 123,
+    16 => 122,
+    17 => 121,
+    18 => 119,
+    19 => 118,
+    20 => 117,
+    21 => 63,
+    22 => 62,
+    23 => 61,
+    24 => 60,
+    25 => 59,
+    26 => 58,
+    27 => 56,
+    28 => 55,
+    29 => 48,
+    30 => 44,
+    31 => 31,
+    32 => 30,
+    33 => 29,
+    34 => 28,
+    35 => 27,
+    36 => 24,
+    37 => 23,
+    38 => 21,
+    39 => 15,
+    40 => 14,
+    41 => 13,
+    42 => 12,
+    43 => 11,
+    44 => 10,
+    45 => 8,
+    46 => 7,
+    47 => 6,
+    48 => 5,
+    49 => 3,
+    50 => 2,
+    51 => 1,
+  );
+  $export['menu_masks'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_review';
+  $strongarm->value = array();
+  $export['menu_options_review'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_review';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_review'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'module_filter_recent_modules';
+  $strongarm->value = array(
+    'epsacrop' => 1440888901,
+    'admin_menu_toolbar' => 1440888901,
+    'imagecache_coloractions' => 1440912435,
+    'imagecache_customactions' => 1440912772,
+    'imagecache_canvasactions' => 1440913846,
+    'entity_view_mode' => 1440915866,
+    'email' => 1440993060,
+    'location_cck' => 1440993322,
+    'location' => 1440993322,
+    'location_user' => 1440994856,
+    'location_taxonomize_location' => 1440998886,
+    'location_taxonomy' => 1440998886,
+    'location_taxonomize' => 1440998913,
+    'page_manager' => 1441054513,
+    'panels' => 1441057129,
+    'bc_user' => 1441088990,
+    'fboauth' => 1441091739,
+    'panelizer' => 1441215848,
+  );
+  $export['module_filter_recent_modules'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_admin_theme';
+  $strongarm->value = 1;
+  $export['node_admin_theme'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_cron_last';
+  $strongarm->value = '1441244951';
+  $export['node_cron_last'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_page';
+  $strongarm->value = array(
+    0 => 'status',
+  );
+  $export['node_options_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_review';
+  $strongarm->value = array(
+    0 => 'revision',
+  );
+  $export['node_options_review'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_review';
+  $strongarm->value = '0';
+  $export['node_preview_review'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_page';
+  $strongarm->value = FALSE;
+  $export['node_submitted_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_review';
+  $strongarm->value = 1;
+  $export['node_submitted_review'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'page_manager_node_view_disabled';
+  $strongarm->value = FALSE;
+  $export['page_manager_node_view_disabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'page_manager_user_view_disabled';
+  $strongarm->value = FALSE;
+  $export['page_manager_user_view_disabled'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -969,6 +1523,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->value = array(
     'file' => TRUE,
     'node' => TRUE,
+    'taxonomy' => TRUE,
     'user' => TRUE,
   );
   $export['path_alias_whitelist'] = $strongarm;
@@ -1026,7 +1581,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_frontpage';
-  $strongarm->value = 'node';
+  $strongarm->value = 'home';
   $export['site_frontpage'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1067,23 +1622,9 @@ function bc_site_settings_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'statistics_day_timestamp';
-  $strongarm->value = 1440978045;
-  $export['statistics_day_timestamp'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'statistics_enable_access_log';
   $strongarm->value = 1;
   $export['statistics_enable_access_log'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'statistics_flush_accesslog_timer';
-  $strongarm->value = '0';
-  $export['statistics_flush_accesslog_timer'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1096,7 +1637,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_pictures';
-  $strongarm->value = '1';
+  $strongarm->value = 0;
   $export['user_pictures'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1124,7 +1665,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_register';
-  $strongarm->value = 2;
+  $strongarm->value = '1';
   $export['user_register'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1192,6 +1733,22 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->name = 'uuid_features_vocabulary_terms';
   $strongarm->value = 1;
   $export['uuid_features_vocabulary_terms'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'views_block_hashes';
+  $strongarm->value = array(
+    '4d82c813e15c15066878df9cc8172b27' => 'clone_of_product_frontpage-balas_block',
+  );
+  $export['views_block_hashes'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'vtabs__active_tab';
+  $strongarm->value = 'edit-fset-other';
+  $export['vtabs__active_tab'] = $strongarm;
 
   return $export;
 }
