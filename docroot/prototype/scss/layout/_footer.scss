@@ -13,7 +13,7 @@
   
   .menu-wrapper {
     width: 100%;
-    max-width: 250px;
+    max-width: 260px;
     margin: 0 auto 20px auto;
     
     @include susy-breakpoint($mobile-landscape $tablet, $susy_tablet) {
@@ -52,7 +52,7 @@
     }
     
     a {
-      @include font ($bc-font2, $font-default, $font-normal);
+      @include font ($bc-font1, $font-default, $font-normal);
       color: $footer-menu-link-cl;
       
       &:hover {
