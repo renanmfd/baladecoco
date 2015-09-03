@@ -160,7 +160,7 @@ function bc_master_update_7108() {
 /**
  * Set new admin theme, RUBIK.
  */
-function bc_master_update_7119() {
+function bc_master_update_7109() {
   variable_set('admin_theme', 'rubik'); 
 }
 
