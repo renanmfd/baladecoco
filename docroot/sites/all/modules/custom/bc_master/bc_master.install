@@ -190,7 +190,7 @@ function bc_master_update_7111() {
     'entityreference',
     'ds',
     'panelizer',
-  );
+  ));
   module_enable(array(
     'bc_product_feature',
   ));
