@@ -217,6 +217,7 @@ function bc_master_update_7112() {
 function bc_master_update_7113() {
   module_enable(array(
     'bc_review_feature',
+    'bc_user',
   ));
 }
 
