@@ -203,12 +203,20 @@ function bc_master_update_7111() {
 
 /**
  * Homepage and other modules.
- *//*
+ */
 function bc_master_update_7112() {
   module_enable(array(
     'page_manager',
     'panels',
   ));
-}*/
+}
 
+/**
+ * Enable features bc_review_feature.
+ */
+function bc_master_update_7108() {
+  module_enable(array(
+    'bc_review_feature',
+  ));
+}
 

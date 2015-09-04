@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the bc_review_feature feature.
+ */
+
+include_once 'bc_review_feature.features.inc';
