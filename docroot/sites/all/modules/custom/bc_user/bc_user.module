@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Module file for bc_user module.
+ */
+ 
+/**
+ * Implements HOOK_theme().
+ */
+function bc_user_theme() {
+  $items = array();
+
+  $items['user_login'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('module', 'bc_user') . '/templates',
+    'template' => 'bc-user--login',
+    'preprocess functions' => array(
+      '_bc_user_forms',
+      '_bc_user_preprocess_user_login'
+    ),
+  );
+
+  $items['user_register_form'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('module', 'bc_user') . '/templates',
+    'template' => 'bc-user--register-form',
+    'preprocess functions' => array(
+      '_bc_user_forms',
+      '_bc_user_preprocess_user_register_form'
+    ),
+  );
+
+  $items['user_pass'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('module', 'bc_user') . '/templates',
+    'template' => 'bc-user--pass',
+    'preprocess functions' => array(
+      '_bc_user_forms',
+      '_bc_user_preprocess_user_pass'
+    ),
+  );
+
+  return $items;
+}
+
+/**
+ * Preprocess for all user forms on theme.
+ */
+function _bc_user_forms(&$vars) {
+  $vars['classes_array'][] = 'user-form';
+  $vars['attributes_array'] = array();
+  $vars['title_attributes_array'] = array();
+  $vars['content_attributes_array'] = array();
+}
+
+/**
+ * Preprocess for user_login theme.
+ */
+function _bc_user_preprocess_user_login(&$vars) {
+  $vars['classes_array'][] = 'user-login';
+  $vars['intro_text'] = t('This is my awesome login form');
+}
+
+/**
+ * Preprocess for user_register_form theme.
+ */
+function _bc_user_preprocess_user_register_form(&$vars) {
+  $vars['classes_array'][] = 'user-register';
+  $vars['intro_text'] = t('This is my super awesome reg form');
+}
+
+/**
+ * Preprocess for user_pass theme.
+ */
+function _bc_user_preprocess_user_pass(&$vars) {
+  $vars['classes_array'][] = 'user-pass';
+  $vars['intro_text'] = t('This is my super awesome request new password form');
+}
