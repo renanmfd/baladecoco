@@ -219,6 +219,7 @@ function bc_master_update_7113() {
     'bc_review_feature',
     'bc_permission_feature',
     'bc_user',
+    'bc_user_feature',
   ));
 }
 
