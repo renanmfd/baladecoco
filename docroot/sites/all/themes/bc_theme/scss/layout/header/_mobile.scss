@@ -1,0 +1,151 @@
+body {
+  position: relative;
+  left: 0;
+  @include transition (left, 0.3s, ease-in-out);
+  
+  &.mobile-menu-open {
+    left: -250px;
+    
+    #navigation nav h3 {
+      opacity: 0.7;
+    }
+  }
+}
+
+#mobile-menu {
+  right: -250px;
+  overflow-y: auto;
+  
+  @include transition (right, 0.3s, ease-in-out);
+  
+  body.mobile-menu-open & {
+    right: 0;
+  }
+}
+
+#mobile-menu {
+  display: block;
+  position: fixed;
+  width: 250px;
+  max-width: 80%;
+  top: 0;
+  bottom: 0;
+  @include padding (30px);
+  background-image: url('../images/texture/labyrinth-beige.jpg');
+  background-size: 70px;
+  background-color: $header-mobile-bg;
+  border-left: 2px solid $header-mobile-border;
+  z-index: 1001;
+  
+  .site-name {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: auto;
+    
+    svg {
+      width: 80px;
+      height: auto;
+      background-color: $white;
+      
+      #mb_text * {
+        fill: $purple !important;
+      }
+
+      #mb_frame * {
+        stroke: $purple !important;
+      }
+    }
+  }
+  
+  .bala-teaser-1 {
+    padding-left: 90px;
+    margin-top: -45px;
+  }
+  
+  .menu-wrapper {
+    margin-top: 15px;
+    padding: 15px 0;
+    
+    .main-menu {
+      padding: 10px 20px;
+      border: 1px solid $lightorange;
+      border-radius: 15px;
+      background-color: $white;
+      text-align: left;
+      
+      li {
+        padding: 5px 0;
+        margin: 0;
+        list-style: none;
+        list-style-image: none;
+        list-style-type: none;
+      }
+      
+      li a {
+        display: block;
+      }
+      
+      .icon {
+        display: inline-block;
+        width: 20px;
+        margin-right: 20px;
+        @include font-size ($font-large);
+      }
+      
+      .title {
+        float: right;
+        @include font-size ($font-default);
+        text-transform: uppercase;
+        
+        &:first-letter {
+          @include font-size ($font-large);
+        }
+      }
+    }
+    
+    .topbar-menu {
+      padding-right: 20px;
+      border-right: 3px solid $orange;
+      text-align: right;
+      
+      li {
+        padding: 5px 0;
+        @include font-size ($font-default);
+        
+        &:first-child {
+          padding-top: 0;
+        }
+        
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+  
+  .close-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: $white;
+    border-radius: 100%;
+    
+    a {
+      display: block;
+      width: $font-title;
+      height: $font-title;
+      color: transparent;
+      
+      &:before {
+        font-size: $font-title;
+        color: $orange;
+      }
+        
+      &:hover {
+        &:before {
+          color: $darkorange;
+        }
+      }
+    }
+  }
+}

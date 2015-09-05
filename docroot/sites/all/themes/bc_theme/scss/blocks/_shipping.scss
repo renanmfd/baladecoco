@@ -1,0 +1,65 @@
+.shipping-calc {
+
+  &__form {
+    max-width: none;
+    margin: 0;
+    
+    > div {
+      text-align: right;
+    }
+  
+    .form-type-textfield {
+      display: inline-block;
+      vertical-align: top;
+      width: rem(100px);
+      padding: 0;
+      
+      input {
+        border-radius: 0;
+        @include padding (5px 10px);
+        
+        &:focus {
+          bordercolor: $lightblue;
+        }
+      }
+    }
+
+    .form-submit {
+      display: inline-block;
+      vertical-align: top;
+      width: rem(45px);
+      min-width: 0;
+      float: none;
+      margin-left: rem(5px);
+      @include padding (6px 2px);
+      border: none;
+      border-radius: rem(5px);
+      background-color: $lightblue;
+
+      &:hover {
+        background-color: $blue;
+        color: $white;
+      }
+    }
+  }
+
+  &__bottom {
+    display: block;
+    float: right;
+    margin-right: rem(55px);
+    margin-top: rem(10px);
+    @include font-size (13px);
+    color: $orange;
+    text-decoration: underline;
+
+    &:hover {
+      color: $darkorange;
+      text-decoration: underline;
+    }
+
+    span {
+      display: block;
+      padding-top: rem(5px);
+    }
+  }
+}

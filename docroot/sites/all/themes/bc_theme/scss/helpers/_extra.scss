@@ -1,0 +1,20 @@
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.visible {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.vertical-center {
+  display: table;
+  width: 100%;
+  height: 100%;
+  
+  > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}

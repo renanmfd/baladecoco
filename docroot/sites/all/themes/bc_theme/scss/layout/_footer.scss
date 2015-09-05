@@ -1,0 +1,112 @@
+#footer {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: $footer-bg;
+  @include padding (80px 20px 40px 20px);
+  
+  .container {
+    @include susy-breakpoint($desktop, $susy_desktop) {
+      text-align: center;
+    }
+  }
+  
+  .menu-wrapper {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto 20px auto;
+    
+    @include susy-breakpoint($mobile-landscape $tablet, $susy_tablet) {
+      @include span(3 of 6);
+      max-width: none;
+      
+      &:nth-child(2n) {
+        @include last;
+      }
+    }
+    
+    @include susy-breakpoint($tablet $desktop, $susy_tablet) {
+      @include span(2 of 6);
+      
+      &:nth-child(3n) {
+        @include last;
+      }
+    }
+    
+    @include susy-breakpoint($desktop, $susy_desktop) {
+      display: inline-block;
+      vertical-align: top;
+      width: 200px;
+      margin: 0 20px;
+      float: none !important;
+      text-align: left;
+    }
+    
+    h3 {
+      @include font ($bc-font2, $font-title, $font-light);
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid $footer-menu-title-cl;
+      color: $footer-menu-title-cl;
+    }
+    
+    a {
+      @include font ($bc-font1, $font-default, $font-normal);
+      color: $footer-menu-link-cl;
+      
+      &:hover {
+        color: $footer-menu-link-cl-hover;
+      }
+    }
+    
+    ul li {
+      @include padding (5px 10px 5px 0);
+    }
+  }
+}
+
+#bottom {
+  background-color: $bottom-bg;
+  @include padding (10px);
+  
+  .copyright {
+    float: right;
+    
+    span {
+      color: $bottom-cl;
+      font-size: $font-medium;
+    }
+  }
+}
+
+.baladecoco-certificate {
+  display: block;
+  float: left;
+  clear: both;
+  margin: 30px 20px 0 0;
+  
+  .certificate-image {
+    display: block;
+    font-family: arial;
+    font-size: $font-small;
+    color: #212121;
+    text-decoration: none;
+    
+    img {
+      margin: 0 auto;
+    }
+  }
+  .certificate-name {
+    a {
+      display: block;
+      width: 100%;
+      color: $white;
+      font-family: arial;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+      font-size: $font-medium;
+    }
+  }
+}

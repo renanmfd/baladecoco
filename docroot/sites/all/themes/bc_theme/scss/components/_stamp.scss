@@ -1,0 +1,14 @@
+.stamp {
+  background-repeat: no-repeat;
+  background-position: -20px -20px;
+  width: 160px;
+  height: 160px;
+
+  &.stamp-white {
+    background-image: url('../images/stamp/stamp_white.png');
+  }
+  
+  &.stamp-black {
+    background-image: url('../images/stamp/stamp_black.png');
+  }
+}

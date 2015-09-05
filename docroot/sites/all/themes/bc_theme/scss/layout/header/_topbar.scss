@@ -1,0 +1,125 @@
+#topbar {
+  display: block;
+  position: relative;
+  background-color: $header-topbar-bg;
+  border-bottom: 1px solid darken($header-topbar-bg, 20%);
+  z-index: 49;
+  
+  // Layout ============================================ //
+  .site-name {
+    float: left;
+    width: auto;
+    max-width: 100px;
+    
+    @include susy-breakpoint($tablet, $susy_tablet) {
+      max-width: span(2 of 8);
+    }
+  }
+  nav.menu-wrapper {
+    position: relative;
+    @include span(3);
+    @include last;
+    
+    &:first-of-type {
+      display: none;
+    }
+    @include susy-breakpoint($tablet, $susy_tablet) {
+      width: auto;
+      float: right;
+      
+      &:first-of-type {
+        display: block;
+      }
+    }
+  }
+  ul.menu li {
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  // Style ============================================= //
+  nav.menu-wrapper {
+    &:first-of-type {
+      margin-left: 20px;
+      padding-left: 20px;
+      
+      @include susy-breakpoint($tablet, $susy_tablet) {
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          width: 1px;
+          height: 26px;
+          margin: 7px 0;
+          background-color: $header-topbar-cl;
+        }
+      }
+    }
+  }
+  .site-name {
+    height: 40px;
+
+    #mb_text * {
+      fill: $header-topbar-sitename-cl !important;
+      transition: fill 0.2s ease-in-out;
+    }
+    #mb_frame * {
+      stroke: $header-topbar-sitename-cl !important;
+      transition: stroke 0.2s ease-in-out;
+    }
+    &:hover {
+      #mb_text * {
+        fill: $header-topbar-sitename-cl-hover !important;
+      }
+      #mb_frame * {
+        stroke: $header-topbar-sitename-cl-hover !important;
+      }
+    }
+  }
+  ul.menu {
+    font-size: 1px;
+    text-align: right;
+    
+    @include susy-breakpoint($tablet, $susy_tablet) {
+      &.user-menu { text-align: right; }
+      &.topbar-menu { text-align: left; }
+    }
+    
+    li {
+      @include padding (0 10px);
+
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; }
+      a {
+        display: block;
+        @include font ($bc_font2, $font-medium, $font-normal);
+        line-height: 40px;
+        color: $header-topbar-cl;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+          color: $header-topbar-cl-hover;
+        }
+      }
+    }
+  }
+
+  .user-menu a {
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    font-weight: $font-bold;
+    
+    .icon, .title {
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -4px;
+    }
+    
+    .icon {
+      margin-right: 5px;
+      margin-top: 0;
+      font-size: $font-default;
+    }
+  }
+}

@@ -1,0 +1,105 @@
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  width: auto;
+  padding: rem(10px);
+  border: 1px solid $coal;
+  border-radius: rem(5px);
+  background-color: $lightgray;
+  color: $coal;
+  overflow: hidden;
+  
+  &:hover {
+    background-color: $orange;
+    color: $white;
+    border-color: $lightorange;
+  }
+}
+
+.btn-more-products {
+  background-color: $lightblue;
+  color: $white;
+  border: none;
+  font-size: $font-medium;
+  font-weight: $font-bold;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all .2s ease-in-out;
+  
+  &:hover {
+    background-color: $blue;
+    color: $white;
+    border-color: $darkblue;
+    
+    span {
+      color: $blue;
+    }
+  }
+  
+  span {
+    display: block;
+    width: rem(30px);
+    height: rem(30px);
+    margin: rem(5px) auto;
+    background-color: $white;
+    color: $lightblue;
+    border-radius: 100%;
+    line-height: rem(30px);
+    text-align: center;
+    transition: color .2s ease-in-out;
+  }
+}
+
+.btn-cart-item {
+  @include padding(5px 0 0 0);
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  color: $orange;
+  @include font-size ($font-medium);
+  text-decoration: underline;
+  
+  &:hover {
+    background-color: transparent;
+    color: $darkorange;
+    text-decoration: underline;
+  }
+}
+
+.btn-add-to-cart {
+  display: block;
+  width: rem(120px);
+  margin-left: auto;
+  border-radius: rem(5px);
+  border: none;
+  background-color: $orange;
+  @include font ($bc-font2, $font-default, $font-bold);
+  text-align: center;
+  color: $white;
+  transition: all .2s ease-in-out;
+  
+  &:hover {
+    background-color: $darkorange;
+    color: $white;
+  }
+}
+
+.btn-checkout-next {
+  display: block;
+  width: rem(140px);
+  border: none;
+  border-radius: rem(5px);
+  background-color: $green;
+  @include font ($bc-font2, $font-default, $font-bold);
+  text-transform: uppercase;
+  text-align: center;
+  color: $white;
+  text-shadow: 1px 1px 1px $black;
+  transition: all .2s ease-in-out;
+  
+  &:hover {
+    background-color: $darkgreen;
+    border-color: transparent;
+    color: $white;
+  }
+}

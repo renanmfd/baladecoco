@@ -1,0 +1,19 @@
+h2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 5px;
+  @include font ($bc-font2, $font-large, $font-normal);
+  text-transform: uppercase;
+  color: $purple;
+  border-bottom: 1px solid $darkpurple;
+  
+  a:hover{
+    color: $darkpurple;
+  }
+}
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  @include font ($bc-font2, $font-large, $font-normal);
+}
