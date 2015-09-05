@@ -1,0 +1,22 @@
+//Clearfix
+%clearfix {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+%hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+%visible {
+  display: block !important;
+  visibility: visible !important;
+}

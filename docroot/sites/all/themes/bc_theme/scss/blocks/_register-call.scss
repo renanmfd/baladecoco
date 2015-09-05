@@ -1,0 +1,65 @@
+.baladecoco-register-call {
+  min-height: 300px;
+  text-align: center;
+  
+  .background-wrapper {
+    background-color: $white;
+    
+    img {
+      opacity: 0.3;
+    }
+  }
+  .section-title {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    font-weight: $font-bold;
+    color: $blue;
+    border-width: 3px;
+    border-color: $blue;
+  }
+  .call-wrapper {
+    .stamp {
+      display: none;
+      position: absolute;
+      right: calc(50% - 250px);
+      bottom: -90px;
+      background-size: 100%;
+      
+      @include susy-breakpoint($mobile-landscape, $susy) {
+        display: block;
+      }
+      @include susy-breakpoint($tablet, $susy_tablet) {
+        background-size: auto;
+        right: calc(50% - 320px);
+        bottom: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    
+    a {
+      color: $orange;
+      text-decoration: underline;
+      
+      &:hover {
+        color: $darkorange;
+      }
+    }
+    
+    span {
+      display: block;
+      @include padding (10px 0);
+      @include font ($bc-font2, $font-large, $font-bold);
+      text-transform: uppercase;
+      text-shadow: 1px 1px $white, -1px -1px $darkorange;
+      text-align: center;
+    }
+    
+    p {
+      @include font ($bc-font2, $font-default, $font-normal);
+    }
+  }
+}

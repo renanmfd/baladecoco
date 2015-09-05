@@ -1,0 +1,47 @@
+//FONTS
+
+//@include font-face($style-name, $file, $family, $category);
+@include font-face('icomoon', '../../../fonts/icomoon', 'icomoon', 'serif');
+
+// FONT FAMILY
+$bc-font1: 'Roboto Slab', serif;
+$bc-font2: 'Open Sans', sans-serif;
+
+// FONT SIZES
+$base-font-size: 16px;
+
+$font-small: 10px;
+$font-medium: 13px;
+$font-default: 16px;
+$font-large: 20px;
+$font-title: 24px;
+$font-xlarge: 32px;
+
+// FONT WEIGHT
+$font-light: 200;
+$font-normal: 400;
+$font-semibold: 500;
+$font-bold: 600;
+
+// FONT MIXINGS
+@mixin font ($family, $size:'16px', $weight:'normal') {
+  font-family: $family;
+  font-size: $size;
+  font-size: rem($size);
+  font-weight: $weight;
+}
+
+@mixin font-size ($size) {
+  font-size: $size;
+  font-size: rem($size);
+}
+
+@mixin padding ($pad) {
+  padding: $pad;
+  padding: rem($pad);
+}
+
+@mixin padding ($pad) {
+  padding: $pad;
+  padding: rem($pad);
+}

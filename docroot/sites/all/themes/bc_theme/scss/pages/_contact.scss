@@ -1,0 +1,77 @@
+/* section */#contact-page {
+  max-width: 900px;
+  margin: 0 auto;
+
+  h2 {
+    color: $blue;
+    border-color: $darkblue;
+  }
+  .prev-contact ul {
+    display: block;
+    margin: 20px 0;
+    @include clearfix;
+    
+    li {
+      @include susy-breakpoint($tablet, $susy_tablet) {
+        @include span(2 of 6);
+        
+        &:last-child {
+          @include last;
+        }
+      }
+    }
+    
+    h3 {
+      color: $blue;
+    }
+    
+    p {
+      margin-left: 30px;
+    }
+    
+    .contact-link {
+      display: block;
+      width: 200px;
+      margin: 10px auto;
+      padding: 10px;
+      background-color: $white;
+      @include font ($bc-font2, $font-default, $font-normal);
+      color: $purple;
+      text-align: center;
+      border: 1px solid;
+      border-radius: 5px;
+    }
+    
+    a.contact-link:hover {
+      color: $orange;
+    }
+    
+    .icon {
+      margin-right: 10px;
+      color: $darkblue;
+    }
+  }
+  
+  .client-name {
+    color: $orange;
+  }
+}
+
+/* section */#mail-message {
+  background-color: $white;
+}
+
+/* form */#message-form {
+  margin-top: 40px;
+  padding: 20px;
+  background-image: none;
+  background-color: transparent;
+  
+  legend {
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid $darkpurple;
+  }
+}

@@ -1,0 +1,95 @@
+.cart-wrapper {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 9999;
+  
+  #navigation & {
+    left: 25px;
+    right: initial;
+    
+    @include susy-breakpoint($tablet, $susy_tablet) {
+      display: none;
+    }
+    
+    span {
+      color: $white;
+    }
+  }
+  
+  #presentation & {
+    display: none;
+    text-align: center;
+    
+    @include susy-breakpoint($tablet, $susy_tablet) {
+      display: block;
+    }
+    
+    span {
+      display: block;
+    }
+    
+    .icon:before {
+      font-size: 40px;
+    }
+    
+    .title {
+      height: auto;
+      line-height: 25px;
+    }
+    
+    a {
+      display: block;
+      padding: 10px;
+      color: $darkorange;
+      border-color: $darkorange;
+      border: 1px solid;
+      border-radius: 15px;
+      background-color: rgba(255, 255, 255, 0.4);
+      transition: all 0.3s ease-in-out;
+      
+      &:hover {
+        color: $orange;
+        border-color: $orange;
+        
+        span {
+          color: $orange;
+        }
+      }
+    }
+  }
+  
+  .icon-cart {
+    line-height: 45px;
+    margin-right: 5px;
+
+    &:before {
+      font-size: $font-title;
+    }
+  }
+  
+  .title {
+    @include font ($bc-font2, $font-default, $font-normal);
+    text-transform: uppercase;
+  }
+  
+  a {
+    display: block;
+  
+    span {
+      display: inline-block;
+      vertical-align: top;
+      height: 40px;
+      line-height: 40px;
+      
+      b {
+        font-weight: $font-normal;
+      }
+    }
+    
+    &:hover span {
+      color: $lightorange !important;
+    }
+  }
+}

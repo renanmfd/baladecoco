@@ -1,0 +1,120 @@
+#baladecoco-reviews {
+  background-color: $review-bg;
+  
+  .section-title {
+    color: $review-title-cl;
+    border-color: $review-title-cl;
+    
+    a {
+      color: $review-title-cl;
+    }
+    
+    &:hover {
+      border-color: $purple;
+      
+      a {
+        color: $purple;
+      }
+    }
+  }
+  .reviews-wrapper {
+    @include clearfix;
+  }
+  .review {
+    margin-bottom: rem(30px);
+    margin-left: rem(30px);
+    padding-left: rem(20px);
+    border-left: 2px solid transparentize($review-content-cl, 0.7);
+    
+    @include susy-breakpoint($tablet-only, $susy_tablet) {
+      @include span(4);
+      margin-left: 0;
+      
+      &:nth-child(2n) {
+        @include last;
+      }
+      &:nth-child(2n+1) {
+        clear: left;
+      }
+    }
+    @include susy-breakpoint($desktop, $susy_desktop) {
+      @include span(3);
+      margin-left: 0;
+      
+      &:nth-child(4n) {
+        @include last;
+      }
+      &:nth-child(4n+1) {
+        clear: left;
+      }
+    }
+  }
+  
+  .more-link {
+    text-align: center;
+  }
+}
+
+.node-review-teaser {
+  .review-body p {
+    line-height: rem(25px);
+    letter-spacing: 0.05rem;
+    color: $review-content-cl;
+    text-align: center;
+  }
+  
+  .review-info {
+    margin-left: 0;
+    @include font ($bc-font1, $font-medium, $font-normal);
+    color: $review-info-cl;
+    
+    .name {
+      @include font ($bc-font2, $font-medium, $font-bold);
+    }
+    .city {
+      font-style: italic;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+  }
+  
+  > a {
+    display: block;
+    transition: color 0.3s ease-in-out;
+    
+    &:hover {
+      color: $darkorange;
+    }
+  }
+  
+  .main-info {
+    padding: 15px;
+    padding: 0.9375rem;
+    border: 1px solid #c3c3c3;
+    border-bottom-left-radius: 0.125rem;
+    border-bottom-right-radius: 0.125rem;
+  }
+
+  .post-info {
+    padding: 15px;
+    padding: 0.9375rem;
+    border: 1px solid #c3c3c3;
+    border-bottom: 0;
+    border-top-left-radius: 0.125rem;
+    border-top-right-radius: 0.125rem;
+  }
+
+  h2 {
+    margin: 0;
+    border: none;
+    
+    a {
+      color: $blue;
+      
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+
+}
