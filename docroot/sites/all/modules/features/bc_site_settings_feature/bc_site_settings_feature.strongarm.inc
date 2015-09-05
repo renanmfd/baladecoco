@@ -28,14 +28,14 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'acquia_spi_boot_last';
-  $strongarm->value = 1441311563;
+  $strongarm->value = 1441421456;
   $export['acquia_spi_boot_last'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'acquia_spi_cron_last';
-  $strongarm->value = 1441245934;
+  $strongarm->value = 1441390333;
   $export['acquia_spi_cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -206,7 +206,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'acquia_spi_module_rebuild';
-  $strongarm->value = 1441245934;
+  $strongarm->value = 1441390333;
   $export['acquia_spi_module_rebuild'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -214,7 +214,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'acquia_subscription_data';
   $strongarm->value = array(
-    'timestamp' => 1441245936,
+    'timestamp' => 1441390342,
     'active' => '1',
     'href' => 'https://insight.acquia.com/node/uuid/dd88cf6c-cb7c-4357-807d-35f510468c76/dashboard',
     'uuid' => 'dd88cf6c-cb7c-4357-807d-35f510468c76',
@@ -454,6 +454,13 @@ function bc_site_settings_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_page';
+  $strongarm->value = 0;
+  $export['comment_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'context_block_rebuild_needed';
   $strongarm->value = TRUE;
   $export['context_block_rebuild_needed'] = $strongarm;
@@ -462,14 +469,14 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'css_js_query_string';
-  $strongarm->value = 'nu4beh';
+  $strongarm->value = 'nu6k37';
   $export['css_js_query_string'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ctools_last_cron';
-  $strongarm->value = 1441245963;
+  $strongarm->value = 1441390364;
   $export['ctools_last_cron'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -700,7 +707,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->name = 'features_codecache';
   $strongarm->value = array(
     'bc_theme_settings_feature' => array(
-      'variable' => 'bcca02b85a07a1d53a62746935429bfb',
+      'variable' => '247d7572a45f6f29620d60b182071719',
     ),
     'bc_site_settings_feature' => array(
       'variable' => 'eaf1464955e2bd37b2ea0fac4aeba8ac',
@@ -708,8 +715,10 @@ function bc_site_settings_feature_strongarm() {
     ),
     'bc_block_settings_feature' => array(
       'fe_block_settings' => '842471d54a8a39cce04bebe113b450b1',
-      'dependencies' => 'fd5ec2ec85ba4832767a6a372b144094',
+      'dependencies' => '2f576de26d724a9bd2fe1d55316ad7bd',
       'context' => '9e5527ce2c050cdc5ed1c3b4582f9698',
+      'page_manager_handlers' => 'cd9ea83306db8a3ed3e34de77d2b60a0',
+      'page_manager_pages' => 'd1937d09ab24f074558404a65fdd3db3',
     ),
     'bc_menu_feature' => array(
       'menu_custom' => '705cdd1f18857db77fed06e3b2a121cc',
@@ -740,6 +749,25 @@ function bc_site_settings_feature_strongarm() {
       'views_view' => '4a4df842021e0b7fb58759cc2237b5a1',
       'ds_view_modes' => '342c538cd10b129d5399ca8fdf616722',
     ),
+    'bc_review_feature' => array(
+      'node' => 'af12c1b205eb52f999bb742c01879d80',
+      'variable' => '32b253d3511967ba831a59f4b462ad0c',
+      'field_base' => 'e18cf239dbd66028053b841921e079ee',
+      'field_instance' => '74f129eb81ecb33ee989d51e18f22a51',
+      'dependencies' => '43b64d75ef025c913542be2db059fc27',
+      'views_view' => '263ea0e4383e6f78108d25e0aaeec151',
+    ),
+    'bc_permission_feature' => array(
+      'user_permission' => '804430b3337fdddcdcbaf7ae92d3d4c4',
+      'dependencies' => '6d096f66e10edeec83141350e310f645',
+    ),
+    'bc_user_feature' => array(
+      'variable' => '6d93bc4671356379857bf24a984d2cc3',
+      'field_base' => '1f5ef561ddae8084dcf20bca34c5a4ca',
+      'field_instance' => '1c0e5a0523c07692f967ca2abe097121',
+      'user_role' => '122ef70d7ea5334ffd922641f2858371',
+      'dependencies' => '67189b62a4db8094508a4720e965d47e',
+    ),
   );
   $export['features_codecache'] = $strongarm;
 
@@ -763,6 +791,84 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->name = 'features_semaphore';
   $strongarm->value = array();
   $export['features_semaphore'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_file__audio';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_file__audio'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_file__document';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_file__document'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_file__image';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_file__image'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_file__video';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_file__video'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_user__user';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(
+        'googleanalytics' => array(
+          'weight' => '7',
+        ),
+        'metatags' => array(
+          'weight' => '6',
+        ),
+        'account' => array(
+          'weight' => '0',
+        ),
+        'timezone' => array(
+          'weight' => '5',
+        ),
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_user__user'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1076,6 +1182,118 @@ function bc_site_settings_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_comment';
+  $strongarm->value = FALSE;
+  $export['metatag_enable_comment'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_node';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_node'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_node__article';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_node__article'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_node__page';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_node__page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_node__product';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_node__product'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_node__review';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_node__review'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_taxonomy_term';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_taxonomy_term'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_taxonomy_term__bala_type';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_taxonomy_term__bala_type'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_taxonomy_term__flavours';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_taxonomy_term__flavours'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_taxonomy_term__product_type';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_taxonomy_term__product_type'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_taxonomy_term__states';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_taxonomy_term__states'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_taxonomy_term__tags';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_taxonomy_term__tags'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_user';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_user'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_user__user';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_user__user'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_has_revision_id';
+  $strongarm->value = TRUE;
+  $export['metatag_has_revision_id'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_schema_installed';
+  $strongarm->value = TRUE;
+  $export['metatag_schema_installed'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'module_filter_recent_modules';
   $strongarm->value = array(
     'epsacrop' => 1440888901,
@@ -1096,6 +1314,11 @@ function bc_site_settings_feature_strongarm() {
     'bc_user' => 1441088990,
     'fboauth' => 1441091739,
     'panelizer' => 1441215848,
+    'node_export' => 1441391864,
+    'overlay' => 1441393341,
+    'bc_review_feature' => 1441395544,
+    'bc_permission_feature' => 1441416499,
+    'bc_user_feature' => 1441416499,
   );
   $export['module_filter_recent_modules'] = $strongarm;
 
@@ -1110,7 +1333,7 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_cron_last';
-  $strongarm->value = '1441244951';
+  $strongarm->value = '1441246941';
   $export['node_cron_last'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1165,6 +1388,838 @@ function bc_site_settings_feature_strongarm() {
   $strongarm->name = 'page_manager_user_view_disabled';
   $strongarm->value = FALSE;
   $export['page_manager_user_view_disabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_bean_presentation';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(),
+  );
+  $export['panelizer_defaults_bean_presentation'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_file_audio';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'teaser' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'preview' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_file_audio'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_file_document';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'teaser' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'preview' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_file_document'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_file_image';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'teaser' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'preview' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_file_image'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_file_video';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'teaser' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'preview' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_file_video'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_node_article';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'teaser' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_node_article'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_node_page';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'teaser' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_node_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_node_product';
+  $strongarm->value = array(
+    'status' => 1,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 1,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'teaser' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_node_product'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_node_review';
+  $strongarm->value = array(
+    'status' => 1,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 1,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'full' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'teaser' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'group_page' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_node_review'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_taxonomy_term_bala_type';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_taxonomy_term_bala_type'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_taxonomy_term_flavours';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_taxonomy_term_flavours'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_taxonomy_term_product_type';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_taxonomy_term_product_type'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_taxonomy_term_states';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_taxonomy_term_states'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_taxonomy_term_tags';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_taxonomy_term_tags'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_defaults_user_user';
+  $strongarm->value = array(
+    'status' => 0,
+    'view modes' => array(
+      'page_manager' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+      'default' => array(
+        'status' => 0,
+        'default' => 0,
+        'choice' => 0,
+      ),
+    ),
+  );
+  $export['panelizer_defaults_user_user'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_node:product_allowed_layouts';
+  $strongarm->value = 'O:22:"panels_allowed_layouts":4:{s:9:"allow_new";b:1;s:11:"module_name";s:22:"panelizer_node:product";s:23:"allowed_layout_settings";a:11:{s:8:"flexible";b:1;s:6:"twocol";b:1;s:25:"threecol_25_50_25_stacked";b:1;s:14:"twocol_stacked";b:1;s:25:"threecol_33_34_33_stacked";b:1;s:17:"threecol_33_34_33";b:1;s:17:"threecol_25_50_25";b:1;s:6:"onecol";b:1;s:13:"twocol_bricks";b:1;s:8:"homepage";b:1;s:10:"user_login";b:1;}s:10:"form_state";N;}';
+  $export['panelizer_node:product_allowed_layouts'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_node:product_allowed_layouts_default';
+  $strongarm->value = 0;
+  $export['panelizer_node:product_allowed_layouts_default'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_node:product_allowed_types';
+  $strongarm->value = array(
+    'node-node' => 'node-node',
+    'search_result-search_result' => 'search_result-search_result',
+    'search_form-search_form' => 'search_form-search_form',
+    'user_profile-user_profile' => 'user_profile-user_profile',
+    'user_picture-user_picture' => 'user_picture-user_picture',
+    'user_links-user_links' => 'user_links-user_links',
+    'user_signature-user_signature' => 'user_signature-user_signature',
+    'vocabulary_terms-vocabulary_terms' => 'vocabulary_terms-vocabulary_terms',
+    'node_form_path-node_form_path' => 'node_form_path-node_form_path',
+    'node_form_publishing-node_form_publishing' => 'node_form_publishing-node_form_publishing',
+    'node_form_menu-node_form_menu' => 'node_form_menu-node_form_menu',
+    'node_form_buttons-node_form_buttons' => 'node_form_buttons-node_form_buttons',
+    'node_form_author-node_form_author' => 'node_form_author-node_form_author',
+    'node_form_language-node_form_language' => 'node_form_language-node_form_language',
+    'node_form_log-node_form_log' => 'node_form_log-node_form_log',
+    'node_form_title-node_form_title' => 'node_form_title-node_form_title',
+    'node_form_comment-node_form_comment' => 'node_form_comment-node_form_comment',
+    'comment_reply_form-comment_reply_form' => 'comment_reply_form-comment_reply_form',
+    'comment_created-comment_created' => 'comment_created-comment_created',
+    'comment_links-comment_links' => 'comment_links-comment_links',
+    'form-form' => 'form-form',
+    'page_actions-page_actions' => 'page_actions-page_actions',
+    'page_logo-page_logo' => 'page_logo-page_logo',
+    'page_tabs-page_tabs' => 'page_tabs-page_tabs',
+    'page_breadcrumb-page_breadcrumb' => 'page_breadcrumb-page_breadcrumb',
+    'page_secondary_links-page_secondary_links' => 'page_secondary_links-page_secondary_links',
+    'page_messages-page_messages' => 'page_messages-page_messages',
+    'page_help-page_help' => 'page_help-page_help',
+    'page_slogan-page_slogan' => 'page_slogan-page_slogan',
+    'page_primary_links-page_primary_links' => 'page_primary_links-page_primary_links',
+    'page_feed_icons-page_feed_icons' => 'page_feed_icons-page_feed_icons',
+    'page_title-page_title' => 'page_title-page_title',
+    'page_site_name-page_site_name' => 'page_site_name-page_site_name',
+    'term_description-term_description' => 'term_description-term_description',
+    'term_list-term_list' => 'term_list-term_list',
+    'term_name-term_name' => 'term_name-term_name',
+    'node_terms-node_terms' => 'node_terms-node_terms',
+    'node_body-node_body' => 'node_body-node_body',
+    'node_author-node_author' => 'node_author-node_author',
+    'node_created-node_created' => 'node_created-node_created',
+    'node_comment_form-node_comment_form' => 'node_comment_form-node_comment_form',
+    'node_links-node_links' => 'node_links-node_links',
+    'node_comment_wrapper-node_comment_wrapper' => 'node_comment_wrapper-node_comment_wrapper',
+    'node_title-node_title' => 'node_title-node_title',
+    'node_content-node_content' => 'node_content-node_content',
+    'node_comments-node_comments' => 'node_comments-node_comments',
+    'node_type_desc-node_type_desc' => 'node_type_desc-node_type_desc',
+    'node_updated-node_updated' => 'node_updated-node_updated',
+    'node_attachments-node_attachments' => 'node_attachments-node_attachments',
+    'file_display-file_display' => 'file_display-file_display',
+    'file_content-file_content' => 'file_content-file_content',
+    'node_form_metatags-node_form_metatags' => 'node_form_metatags-node_form_metatags',
+    'user_password_form-user_password_form' => 'user_password_form-user_password_form',
+    'user_login_form-user_login_form' => 'user_login_form-user_login_form',
+    'user_register_form-user_register_form' => 'user_register_form-user_register_form',
+    'dsc-dsc' => 'dsc-dsc',
+    'panelizer_form_default-panelizer_form_default' => 'panelizer_form_default-panelizer_form_default',
+    'custom-custom' => 'custom-custom',
+    'block-bc_blocks-bc_ssl' => 'block-bc_blocks-bc_ssl',
+    'block-bc_blocks-bc_copyright' => 'block-bc_blocks-bc_copyright',
+    'block-bc_blocks-bc_logo' => 'block-bc_blocks-bc_logo',
+    'block-bc_blocks-bc_pres_logo' => 'block-bc_blocks-bc_pres_logo',
+    'block-bean-bala-de-abacaxi' => 'block-bean-bala-de-abacaxi',
+    'block-bean-bala-de-maracuja' => 'block-bean-bala-de-maracuja',
+    'block-comment-recent' => 'block-comment-recent',
+    'block-context_ui-editor' => 'block-context_ui-editor',
+    'block-context_ui-devel' => 'block-context_ui-devel',
+    'block-hybridauth-hybridauth' => 'block-hybridauth-hybridauth',
+    'block-menu-menu-balas-de-coco' => 'block-menu-menu-balas-de-coco',
+    'block-menu-devel' => 'block-menu-devel',
+    'block-menu-menu-empresa' => 'block-menu-menu-empresa',
+    'block-menu-features' => 'block-menu-features',
+    'block-menu-menu-quick-links' => 'block-menu-menu-quick-links',
+    'block-menu-menu-suporte' => 'block-menu-menu-suporte',
+    'block-node-syndicate' => 'block-node-syndicate',
+    'block-node-recent' => 'block-node-recent',
+    'block-search-form' => 'block-search-form',
+    'block-shortcut-shortcuts' => 'block-shortcut-shortcuts',
+    'block-statistics-popular' => 'block-statistics-popular',
+    'block-system-powered-by' => 'block-system-powered-by',
+    'block-system-help' => 'block-system-help',
+    'block-system-navigation' => 'block-system-navigation',
+    'block-system-management' => 'block-system-management',
+    'block-system-user-menu' => 'block-system-user-menu',
+    'block-system-main-menu' => 'block-system-main-menu',
+    'block-user-login' => 'block-user-login',
+    'block-user-new' => 'block-user-new',
+    'block-user-online' => 'block-user-online',
+    'block-views-presentation-block' => 'block-views-presentation-block',
+    'block-views-product_frontpage-balas_block' => 'block-views-product_frontpage-balas_block',
+    'block-views-review_frontpage-review_block' => 'block-views-review_frontpage-review_block',
+    'block-views-4d82c813e15c15066878df9cc8172b27' => 'block-views-4d82c813e15c15066878df9cc8172b27',
+    'block-devel-execute_php' => 'block-devel-execute_php',
+    'block-devel-switch_user' => 'block-devel-switch_user',
+    'entity_form_field-bean:field_presentation_image' => 'entity_form_field-bean:field_presentation_image',
+    'entity_form_field-comment:comment_body' => 'entity_form_field-comment:comment_body',
+    'entity_form_field-node:body' => 'entity_form_field-node:body',
+    'entity_form_field-node:field_tags' => 'entity_form_field-node:field_tags',
+    'entity_form_field-node:field_image' => 'entity_form_field-node:field_image',
+    'entity_form_field-node:field_product_type' => 'entity_form_field-node:field_product_type',
+    'entity_form_field-node:field_bala_type' => 'entity_form_field-node:field_bala_type',
+    'entity_form_field-node:field_stuffed_flavour' => 'entity_form_field-node:field_stuffed_flavour',
+    'entity_form_field-node:field_bala_flavour' => 'entity_form_field-node:field_bala_flavour',
+    'entity_form_field-node:field_product_image' => 'entity_form_field-node:field_product_image',
+    'entity_form_field-node:field_product_price' => 'entity_form_field-node:field_product_price',
+    'entity_form_field-node:field_product_promotion' => 'entity_form_field-node:field_product_promotion',
+    'entity_form_field-node:field_review_rating' => 'entity_form_field-node:field_review_rating',
+    'entity_form_field-file:field_file_image_alt_text' => 'entity_form_field-file:field_file_image_alt_text',
+    'entity_form_field-file:field_file_image_title_text' => 'entity_form_field-file:field_file_image_title_text',
+    'entity_form_field-user:field_user_name' => 'entity_form_field-user:field_user_name',
+    'entity_form_field-user:field_user_phone' => 'entity_form_field-user:field_user_phone',
+    'entity_form_field-user:field_user_location' => 'entity_form_field-user:field_user_location',
+    'entity_form_field-user:field_user_document' => 'entity_form_field-user:field_user_document',
+    'entity_field-bean:field_presentation_image' => 'entity_field-bean:field_presentation_image',
+    'entity_field-comment:comment_body' => 'entity_field-comment:comment_body',
+    'entity_field-node:body' => 'entity_field-node:body',
+    'entity_field-node:field_tags' => 'entity_field-node:field_tags',
+    'entity_field-node:field_image' => 'entity_field-node:field_image',
+    'entity_field-node:field_product_type' => 'entity_field-node:field_product_type',
+    'entity_field-node:field_bala_type' => 'entity_field-node:field_bala_type',
+    'entity_field-node:field_stuffed_flavour' => 'entity_field-node:field_stuffed_flavour',
+    'entity_field-node:field_bala_flavour' => 'entity_field-node:field_bala_flavour',
+    'entity_field-node:field_product_image' => 'entity_field-node:field_product_image',
+    'entity_field-node:field_product_price' => 'entity_field-node:field_product_price',
+    'entity_field-node:field_product_promotion' => 'entity_field-node:field_product_promotion',
+    'entity_field-node:field_review_rating' => 'entity_field-node:field_review_rating',
+    'entity_field-file:field_file_image_alt_text' => 'entity_field-file:field_file_image_alt_text',
+    'entity_field-file:field_file_image_title_text' => 'entity_field-file:field_file_image_title_text',
+    'entity_field-user:field_user_name' => 'entity_field-user:field_user_name',
+    'entity_field-user:field_user_phone' => 'entity_field-user:field_user_phone',
+    'entity_field-user:field_user_location' => 'entity_field-user:field_user_location',
+    'entity_field-user:field_user_document' => 'entity_field-user:field_user_document',
+    'entity_field_extra-bean:title' => 'entity_field_extra-bean:title',
+    'entity_field_extra-file:file' => 'entity_field_extra-file:file',
+    'entity_field_extra-taxonomy_term:description' => 'entity_field_extra-taxonomy_term:description',
+    'entity_field_extra-user:hybridauth_identities' => 'entity_field_extra-user:hybridauth_identities',
+    'entity_field_extra-user:summary' => 'entity_field_extra-user:summary',
+    'token-node:source' => 'token-node:source',
+    'token-node:log' => 'token-node:log',
+    'token-node:content-type' => 'token-node:content-type',
+    'token-node:comment-count' => 'token-node:comment-count',
+    'token-node:comment-count-new' => 'token-node:comment-count-new',
+    'token-node:location' => 'token-node:location',
+    'token-node:field_user_location' => 'token-node:field_user_location',
+    'token-node:menu-link' => 'token-node:menu-link',
+    'token-node:metatag' => 'token-node:metatag',
+    'token-node:nid' => 'token-node:nid',
+    'token-node:vid' => 'token-node:vid',
+    'token-node:title' => 'token-node:title',
+    'token-node:body' => 'token-node:body',
+    'token-node:summary' => 'token-node:summary',
+    'token-node:language' => 'token-node:language',
+    'token-node:url' => 'token-node:url',
+    'token-node:edit-url' => 'token-node:edit-url',
+    'token-node:created' => 'token-node:created',
+    'token-node:changed' => 'token-node:changed',
+    'token-node:author' => 'token-node:author',
+    'token-node:total-count' => 'token-node:total-count',
+    'token-node:day-count' => 'token-node:day-count',
+    'token-node:last-view' => 'token-node:last-view',
+    'token-node:uuid' => 'token-node:uuid',
+    'token-node:vuuid' => 'token-node:vuuid',
+    'token-node:original' => 'token-node:original',
+    'token-node:field_tags' => 'token-node:field_tags',
+    'token-node:field_image' => 'token-node:field_image',
+    'token-node:field_product_type' => 'token-node:field_product_type',
+    'token-node:field_bala_type' => 'token-node:field_bala_type',
+    'token-node:field_stuffed_flavour' => 'token-node:field_stuffed_flavour',
+    'token-node:field_bala_flavour' => 'token-node:field_bala_flavour',
+    'token-node:field_product_image' => 'token-node:field_product_image',
+    'token-node:field_product_price' => 'token-node:field_product_price',
+    'token-node:field_product_promotion' => 'token-node:field_product_promotion',
+    'token-node:field_review_rating' => 'token-node:field_review_rating',
+    'token-content-type:name' => 'token-content-type:name',
+    'token-content-type:machine-name' => 'token-content-type:machine-name',
+    'token-content-type:description' => 'token-content-type:description',
+    'token-content-type:node-count' => 'token-content-type:node-count',
+    'token-content-type:edit-url' => 'token-content-type:edit-url',
+    'token-term:edit-url' => 'token-term:edit-url',
+    'token-term:parents' => 'token-term:parents',
+    'token-term:root' => 'token-term:root',
+    'token-term:metatag' => 'token-term:metatag',
+    'token-term:tid' => 'token-term:tid',
+    'token-term:name' => 'token-term:name',
+    'token-term:description' => 'token-term:description',
+    'token-term:node-count' => 'token-term:node-count',
+    'token-term:url' => 'token-term:url',
+    'token-term:vocabulary' => 'token-term:vocabulary',
+    'token-term:parent' => 'token-term:parent',
+    'token-term:uuid' => 'token-term:uuid',
+    'token-term:original' => 'token-term:original',
+    'token-vocabulary:machine-name' => 'token-vocabulary:machine-name',
+    'token-vocabulary:edit-url' => 'token-vocabulary:edit-url',
+    'token-vocabulary:vid' => 'token-vocabulary:vid',
+    'token-vocabulary:name' => 'token-vocabulary:name',
+    'token-vocabulary:description' => 'token-vocabulary:description',
+    'token-vocabulary:node-count' => 'token-vocabulary:node-count',
+    'token-vocabulary:term-count' => 'token-vocabulary:term-count',
+    'token-vocabulary:original' => 'token-vocabulary:original',
+    'token-file:basename' => 'token-file:basename',
+    'token-file:extension' => 'token-file:extension',
+    'token-file:size-raw' => 'token-file:size-raw',
+    'token-file:type' => 'token-file:type',
+    'token-file:download-url' => 'token-file:download-url',
+    'token-file:fid' => 'token-file:fid',
+    'token-file:name' => 'token-file:name',
+    'token-file:path' => 'token-file:path',
+    'token-file:mime' => 'token-file:mime',
+    'token-file:size' => 'token-file:size',
+    'token-file:url' => 'token-file:url',
+    'token-file:timestamp' => 'token-file:timestamp',
+    'token-file:owner' => 'token-file:owner',
+    'token-file:uuid' => 'token-file:uuid',
+    'token-file:original' => 'token-file:original',
+    'token-file:field_file_image_alt_text' => 'token-file:field_file_image_alt_text',
+    'token-file:field_file_image_title_text' => 'token-file:field_file_image_title_text',
+    'token-user:cancel-url' => 'token-user:cancel-url',
+    'token-user:one-time-login-url' => 'token-user:one-time-login-url',
+    'token-user:roles' => 'token-user:roles',
+    'token-user:role-names' => 'token-user:role-names',
+    'token-user:role-ids' => 'token-user:role-ids',
+    'token-user:hybridauth' => 'token-user:hybridauth',
+    'token-user:location' => 'token-user:location',
+    'token-user:uid' => 'token-user:uid',
+    'token-user:name' => 'token-user:name',
+    'token-user:mail' => 'token-user:mail',
+    'token-user:url' => 'token-user:url',
+    'token-user:edit-url' => 'token-user:edit-url',
+    'token-user:last-login' => 'token-user:last-login',
+    'token-user:created' => 'token-user:created',
+    'token-user:uuid' => 'token-user:uuid',
+    'token-user:original' => 'token-user:original',
+    'token-user:field_user_name' => 'token-user:field_user_name',
+    'token-user:field_user_phone' => 'token-user:field_user_phone',
+    'token-user:field_user_location' => 'token-user:field_user_location',
+    'token-user:field_user_document' => 'token-user:field_user_document',
+    'token-current-user:ip-address' => 'token-current-user:ip-address',
+    'token-menu-link:mlid' => 'token-menu-link:mlid',
+    'token-menu-link:title' => 'token-menu-link:title',
+    'token-menu-link:url' => 'token-menu-link:url',
+    'token-menu-link:parent' => 'token-menu-link:parent',
+    'token-menu-link:parents' => 'token-menu-link:parents',
+    'token-menu-link:root' => 'token-menu-link:root',
+    'token-menu-link:menu' => 'token-menu-link:menu',
+    'token-menu-link:edit-url' => 'token-menu-link:edit-url',
+    'token-current-page:title' => 'token-current-page:title',
+    'token-current-page:url' => 'token-current-page:url',
+    'token-current-page:page-number' => 'token-current-page:page-number',
+    'token-current-page:query' => 'token-current-page:query',
+    'token-url:path' => 'token-url:path',
+    'token-url:relative' => 'token-url:relative',
+    'token-url:absolute' => 'token-url:absolute',
+    'token-url:brief' => 'token-url:brief',
+    'token-url:unaliased' => 'token-url:unaliased',
+    'token-url:args' => 'token-url:args',
+    'token-array:first' => 'token-array:first',
+    'token-array:last' => 'token-array:last',
+    'token-array:count' => 'token-array:count',
+    'token-array:reversed' => 'token-array:reversed',
+    'token-array:keys' => 'token-array:keys',
+    'token-array:join' => 'token-array:join',
+    'token-array:value' => 'token-array:value',
+    'token-array:join-path' => 'token-array:join-path',
+    'token-random:number' => 'token-random:number',
+    'token-random:hash' => 'token-random:hash',
+    'token-comment:cid' => 'token-comment:cid',
+    'token-comment:hostname' => 'token-comment:hostname',
+    'token-comment:name' => 'token-comment:name',
+    'token-comment:mail' => 'token-comment:mail',
+    'token-comment:homepage' => 'token-comment:homepage',
+    'token-comment:title' => 'token-comment:title',
+    'token-comment:body' => 'token-comment:body',
+    'token-comment:url' => 'token-comment:url',
+    'token-comment:edit-url' => 'token-comment:edit-url',
+    'token-comment:created' => 'token-comment:created',
+    'token-comment:changed' => 'token-comment:changed',
+    'token-comment:parent' => 'token-comment:parent',
+    'token-comment:node' => 'token-comment:node',
+    'token-comment:author' => 'token-comment:author',
+    'token-comment:uuid' => 'token-comment:uuid',
+    'token-comment:original' => 'token-comment:original',
+    'token-file-type:name' => 'token-file-type:name',
+    'token-file-type:machine-name' => 'token-file-type:machine-name',
+    'token-file-type:count' => 'token-file-type:count',
+    'token-file-type:edit-url' => 'token-file-type:edit-url',
+    'token-hybridauth:provider' => 'token-hybridauth:provider',
+    'token-hybridauth:identifier' => 'token-hybridauth:identifier',
+    'token-hybridauth:profileURL' => 'token-hybridauth:profileURL',
+    'token-hybridauth:webSiteURL' => 'token-hybridauth:webSiteURL',
+    'token-hybridauth:photoURL' => 'token-hybridauth:photoURL',
+    'token-hybridauth:displayName' => 'token-hybridauth:displayName',
+    'token-hybridauth:description' => 'token-hybridauth:description',
+    'token-hybridauth:firstName' => 'token-hybridauth:firstName',
+    'token-hybridauth:lastName' => 'token-hybridauth:lastName',
+    'token-hybridauth:gender' => 'token-hybridauth:gender',
+    'token-hybridauth:language' => 'token-hybridauth:language',
+    'token-hybridauth:age' => 'token-hybridauth:age',
+    'token-hybridauth:birthDay' => 'token-hybridauth:birthDay',
+    'token-hybridauth:birthMonth' => 'token-hybridauth:birthMonth',
+    'token-hybridauth:birthYear' => 'token-hybridauth:birthYear',
+    'token-hybridauth:email' => 'token-hybridauth:email',
+    'token-hybridauth:emailVerified' => 'token-hybridauth:emailVerified',
+    'token-hybridauth:phone' => 'token-hybridauth:phone',
+    'token-hybridauth:address' => 'token-hybridauth:address',
+    'token-hybridauth:country' => 'token-hybridauth:country',
+    'token-hybridauth:region' => 'token-hybridauth:region',
+    'token-hybridauth:city' => 'token-hybridauth:city',
+    'token-hybridauth:zip' => 'token-hybridauth:zip',
+    'token-location:name' => 'token-location:name',
+    'token-location:street' => 'token-location:street',
+    'token-location:additional' => 'token-location:additional',
+    'token-location:city' => 'token-location:city',
+    'token-location:province' => 'token-location:province',
+    'token-location:province_name' => 'token-location:province_name',
+    'token-location:postal_code' => 'token-location:postal_code',
+    'token-location:latitude' => 'token-location:latitude',
+    'token-location:longitude' => 'token-location:longitude',
+    'token-location:country' => 'token-location:country',
+    'token-location:country_name' => 'token-location:country_name',
+    'token-field_user_location:name:?' => 'token-field_user_location:name:?',
+    'token-field_user_location:street:?' => 'token-field_user_location:street:?',
+    'token-field_user_location:additional:?' => 'token-field_user_location:additional:?',
+    'token-field_user_location:city:?' => 'token-field_user_location:city:?',
+    'token-field_user_location:province:?' => 'token-field_user_location:province:?',
+    'token-field_user_location:postal_code:?' => 'token-field_user_location:postal_code:?',
+    'token-field_user_location:country:?' => 'token-field_user_location:country:?',
+    'token-field_user_location:locpick:?' => 'token-field_user_location:locpick:?',
+    'token-field_user_location:province_name:?' => 'token-field_user_location:province_name:?',
+    'token-field_user_location:country_name:?' => 'token-field_user_location:country_name:?',
+    'token-field_user_location:map_link:?' => 'token-field_user_location:map_link:?',
+    'token-field_user_location:coords:?' => 'token-field_user_location:coords:?',
+    'token-menu:name' => 'token-menu:name',
+    'token-menu:machine-name' => 'token-menu:machine-name',
+    'token-menu:description' => 'token-menu:description',
+    'token-menu:menu-link-count' => 'token-menu:menu-link-count',
+    'token-menu:edit-url' => 'token-menu:edit-url',
+    'token-metatag:title' => 'token-metatag:title',
+    'token-metatag:description' => 'token-metatag:description',
+    'token-metatag:abstract' => 'token-metatag:abstract',
+    'token-metatag:keywords' => 'token-metatag:keywords',
+    'token-metatag:robots' => 'token-metatag:robots',
+    'token-metatag:news_keywords' => 'token-metatag:news_keywords',
+    'token-metatag:standout' => 'token-metatag:standout',
+    'token-metatag:rating' => 'token-metatag:rating',
+    'token-metatag:referrer' => 'token-metatag:referrer',
+    'token-metatag:generator' => 'token-metatag:generator',
+    'token-metatag:rights' => 'token-metatag:rights',
+    'token-metatag:image_src' => 'token-metatag:image_src',
+    'token-metatag:canonical' => 'token-metatag:canonical',
+    'token-metatag:shortlink' => 'token-metatag:shortlink',
+    'token-metatag:publisher' => 'token-metatag:publisher',
+    'token-metatag:author' => 'token-metatag:author',
+    'token-metatag:original-source' => 'token-metatag:original-source',
+    'token-metatag:prev' => 'token-metatag:prev',
+    'token-metatag:next' => 'token-metatag:next',
+    'token-metatag:revisit-after' => 'token-metatag:revisit-after',
+    'token-metatag:content-language' => 'token-metatag:content-language',
+    'token-metatag:geo.position' => 'token-metatag:geo.position',
+    'token-metatag:geo.placename' => 'token-metatag:geo.placename',
+    'token-metatag:geo.region' => 'token-metatag:geo.region',
+    'token-metatag:icbm' => 'token-metatag:icbm',
+    'token-metatag:refresh' => 'token-metatag:refresh',
+    'token-metatag:fb:admins' => 'token-metatag:fb:admins',
+    'token-metatag:fb:app_id' => 'token-metatag:fb:app_id',
+    'token-metatag:shortcut icon' => 'token-metatag:shortcut icon',
+    'token-metatag:icon_any' => 'token-metatag:icon_any',
+    'token-metatag:icon_16x16' => 'token-metatag:icon_16x16',
+    'token-metatag:icon_32x32' => 'token-metatag:icon_32x32',
+    'token-metatag:icon_96x96' => 'token-metatag:icon_96x96',
+    'token-metatag:icon_192x192' => 'token-metatag:icon_192x192',
+    'token-metatag:apple-touch-icon' => 'token-metatag:apple-touch-icon',
+    'token-metatag:apple-touch-icon_72x72' => 'token-metatag:apple-touch-icon_72x72',
+    'token-metatag:apple-touch-icon_76x76' => 'token-metatag:apple-touch-icon_76x76',
+    'token-metatag:apple-touch-icon_114x114' => 'token-metatag:apple-touch-icon_114x114',
+    'token-metatag:apple-touch-icon_120x120' => 'token-metatag:apple-touch-icon_120x120',
+    'token-metatag:apple-touch-icon_144x144' => 'token-metatag:apple-touch-icon_144x144',
+    'token-metatag:apple-touch-icon_152x152' => 'token-metatag:apple-touch-icon_152x152',
+    'token-metatag:apple-touch-icon_180x180' => 'token-metatag:apple-touch-icon_180x180',
+    'token-metatag:apple-touch-icon-precomposed' => 'token-metatag:apple-touch-icon-precomposed',
+    'token-metatag:apple-touch-icon-precomposed_72x72' => 'token-metatag:apple-touch-icon-precomposed_72x72',
+    'token-metatag:apple-touch-icon-precomposed_76x76' => 'token-metatag:apple-touch-icon-precomposed_76x76',
+    'token-metatag:apple-touch-icon-precomposed_114x114' => 'token-metatag:apple-touch-icon-precomposed_114x114',
+    'token-metatag:apple-touch-icon-precomposed_120x120' => 'token-metatag:apple-touch-icon-precomposed_120x120',
+    'token-metatag:apple-touch-icon-precomposed_144x144' => 'token-metatag:apple-touch-icon-precomposed_144x144',
+    'token-metatag:apple-touch-icon-precomposed_152x152' => 'token-metatag:apple-touch-icon-precomposed_152x152',
+    'token-metatag:apple-touch-icon-precomposed_180x180' => 'token-metatag:apple-touch-icon-precomposed_180x180',
+    'token-metatag:google-site-verification' => 'token-metatag:google-site-verification',
+    'token-metatag:p:domain_verify' => 'token-metatag:p:domain_verify',
+    'token-metatag:msvalidate.01' => 'token-metatag:msvalidate.01',
+    'token-metatag:yandex-verification' => 'token-metatag:yandex-verification',
+    'token-site:name' => 'token-site:name',
+    'token-site:slogan' => 'token-site:slogan',
+    'token-site:mail' => 'token-site:mail',
+    'token-site:url' => 'token-site:url',
+    'token-site:url-brief' => 'token-site:url-brief',
+    'token-site:login-url' => 'token-site:login-url',
+    'token-date:short' => 'token-date:short',
+    'token-date:medium' => 'token-date:medium',
+    'token-date:long' => 'token-date:long',
+    'token-date:custom' => 'token-date:custom',
+    'token-date:since' => 'token-date:since',
+    'token-date:raw' => 'token-date:raw',
+    'token-view:name' => 'token-view:name',
+    'token-view:description' => 'token-view:description',
+    'token-view:machine-name' => 'token-view:machine-name',
+    'token-view:title' => 'token-view:title',
+    'token-view:url' => 'token-view:url',
+    'entity_view-bean' => 'entity_view-bean',
+    'entity_view-comment' => 'entity_view-comment',
+    'entity_view-node' => 'entity_view-node',
+    'entity_view-file' => 'entity_view-file',
+    'entity_view-taxonomy_term' => 'entity_view-taxonomy_term',
+    'entity_view-user' => 'entity_view-user',
+  );
+  $export['panelizer_node:product_allowed_types'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_node:product_allowed_types_default';
+  $strongarm->value = 0;
+  $export['panelizer_node:product_allowed_types_default'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panelizer_node:product_default';
+  $strongarm->value = array(
+    'custom' => 'custom',
+    'block' => 'block',
+    'entity_form_field' => 'entity_form_field',
+    'entity_field' => 'entity_field',
+    'entity_field_extra' => 'entity_field_extra',
+    'token' => 'token',
+    'entity_view' => 'entity_view',
+    'other' => 'other',
+  );
+  $export['panelizer_node:product_default'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1527,6 +2582,20 @@ function bc_site_settings_feature_strongarm() {
     'user' => TRUE,
   );
   $export['path_alias_whitelist'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'save_continue_product';
+  $strongarm->value = 'Save and add fields';
+  $export['save_continue_product'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'save_continue_review';
+  $strongarm->value = 'Save and add fields';
+  $export['save_continue_review'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
