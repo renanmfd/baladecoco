@@ -10,13 +10,17 @@
  */
 function bc_theme_preprocess_html(&$vars) {
   // Google Fonts font-faces css file.
-  drupal_add_css(
-    'https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700|Open+Sans:400,300,700,400italic',
-    array(
-      'type' => 'external',
-      'group' => CSS_THEME,
-    )
-  );
+  drupal_add_html_head(array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'rel' => 'stylesheet',
+      'type' => 'text/css',
+      'href' => 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700|Open+Sans:400,300,700,400italic',
+      'async' => 'true',
+    ),
+    '#weight' => 999,
+  ), 'google-fonts');
 }
 
 /**
