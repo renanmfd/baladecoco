@@ -223,6 +223,7 @@ function bc_master_update_7113() {
   ));
   feature_revert(array(
     'bc_theme_settings_feature',
+    'bc_site_settings_feature',
   ));
 }
 
