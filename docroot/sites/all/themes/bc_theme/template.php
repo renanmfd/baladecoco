@@ -21,6 +21,21 @@ function bc_theme_preprocess_html(&$vars) {
     ),
     '#weight' => 999,
   ), 'google-fonts');
+  
+  // Configuring screen Viewport and default zoom.
+  drupal_add_html_head(array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1',
+    ),
+  ), 'screen-viewport');
+  
+  // Add favicons to the size.
+  $vars['favicons'] = theme('favicons', array(
+    'theme_path' => drupal_get_path('theme', 'bc_theme'),
+  ));
 }
 
 /**
@@ -134,8 +149,11 @@ function _bc_theme_preprocess_node_review_teaser(&$vars) {
   $vars['date'] = date('M/Y', $vars['created']);
   // Location
   $location = field_get_items('user', $vars['user'], 'field_user_location', 'teaser', NULL);
-  if ($location) {
-    $vars['location'] = check_plain($location[0]['city']) . ' ,' . check_plain($location[0]['province']);
+  if (!empty($location[0]['city'])) {
+    $vars['location'] = check_plain($location[0]['city']);
+    if (!empty($location[0]['province'])) {
+      $vars['location'] .= ', ' . check_plain($location[0]['province']);
+    }
   }
   else {
     $vars['location'] = FALSE;
@@ -211,6 +229,10 @@ function bc_theme_theme($existing, $type, $theme, $path) {
     'presentation_fallback' => array(
       'variables' => array('fallback' => NULL, 'alt' => ''),
       'template' => 'templates/block/bc--presentation--fallback'
+    ),
+    'favicons' => array(
+      'variables' => array('theme_path' => ''),
+      'template' => 'templates/block/bc--favicons'
     ),
   );
 }
