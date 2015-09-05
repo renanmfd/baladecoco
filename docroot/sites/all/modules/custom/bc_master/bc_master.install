@@ -221,5 +221,8 @@ function bc_master_update_7113() {
     'bc_user',
     'bc_user_feature',
   ));
+  feature_revert(array(
+    'bc_theme_settings_feature',
+  ));
 }
 

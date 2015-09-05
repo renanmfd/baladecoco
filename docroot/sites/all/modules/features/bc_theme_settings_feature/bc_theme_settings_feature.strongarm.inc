@@ -260,6 +260,21 @@ function bc_theme_settings_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'theme_rubik_settings';
+  $strongarm->value = array(
+    'toggle_secondary_menu' => 1,
+    'rubik_show_branding' => 1,
+    'rubik_inline_field_descriptions' => 0,
+    'rubik_disable_sticky_sidebar' => 0,
+    'rubik_disable_sidebar_in_form' => 0,
+    'rubik_sidebar_field_ui' => 0,
+    'jquery_update_jquery_version' => 'default',
+  );
+  $export['theme_rubik_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'theme_seven_settings';
   $strongarm->value = array(
     'default_logo' => 0,
