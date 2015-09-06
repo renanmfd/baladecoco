@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Empty file. All code to be plased to baladecoco_master.install.
+ * Main file for bc_blocks module.
  */
 
 /**
@@ -365,4 +365,3 @@ function bc_blocks_image_default_styles() {
 
   return $styles;
 }
-

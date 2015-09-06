@@ -48,6 +48,7 @@
 
 <head profile="<?php print $grddl_profile; ?>">
   <?php print $head; ?>
+  <?php print $favicons; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
 </head>
