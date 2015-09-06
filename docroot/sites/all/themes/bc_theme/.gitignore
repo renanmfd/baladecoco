@@ -7,10 +7,6 @@ logs
 .npm/node_modules
 .npm/bower_components/
 
-# Ignore SASS source maps
-*.css.map
-css/styles.css
-
 # Runtime data
 pids
 *.pid
