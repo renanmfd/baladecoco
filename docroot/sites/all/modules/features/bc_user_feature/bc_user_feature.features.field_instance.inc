@@ -80,7 +80,7 @@ function bc_user_feature_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Enter your full name.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -146,6 +146,7 @@ function bc_user_feature_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Document');
+  t('Enter your full name.');
   t('Location');
   t('Name');
   t('Phone');
