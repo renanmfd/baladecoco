@@ -8,10 +8,12 @@
  */
 ?>
 
-<?php if (!$is_front): ?>
+<?php /*if (!$is_front): ?>
   <div class="container">
-<?php endif; ?>
+<?php endif;*/ ?>
+<div id="main-content-wrapper">
   <?php print $content ?>
-<?php if (!$is_front): ?>
+</div>
+<?php /*if (!$is_front): ?>
   </div> 
-<?php endif; ?>
+<?php endif;*/ ?>

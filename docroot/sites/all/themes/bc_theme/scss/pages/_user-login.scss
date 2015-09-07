@@ -1,0 +1,539 @@
+.page-user-login,
+.page-user-password,
+.page-user-register {
+  .tabs {
+    display: none;
+  }
+}
+
+.panel-user_login {
+  > .container {
+    @include susy-breakpoint(0 $tablet, $susy_tablet) {
+      margin: 0; 
+    }
+  }
+  .panel-region {
+    display: block;
+    padding: rem(20px 0);
+   
+    &.top {
+      
+    }
+    
+    &.left {
+      background-color: $lightergray;
+      border-bottom: 1px solid $darkblue;
+    }
+    
+    &.right {
+      background-color: $white;
+    }
+    
+    &.bottom {
+      
+    }
+  }
+}
+
+.hybridauth-widget-wrapper {
+  h3 {
+    margin: 0;
+    margin-bottom: rem(20px);
+    text-align: center;
+    color: $darkblue;
+  }
+  
+  ul.hybridauth-widget {
+    
+    li {
+      display: block;
+      width: rem(250px);
+      margin: 0 auto;
+      margin-bottom: rem(20px);
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+    a {
+      display: block;
+      overflow: hidden;
+    }
+  }
+}
+
+.hybridauth-icon.big-icon {
+  display: inline-block;
+  position: relative;
+  width: rem(250px);
+  height: rem(50px);
+  float: none;
+  background: none;
+  background-image: none;
+  border: 1px solid;
+  border-radius: rem(5px);
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+
+  &.facebook {
+    background-color: $facebook1;
+    border-color: $facebook2;
+
+    .icon {
+      border-right: 1px solid $facebook2;
+
+      &:before {
+        margin-top: rem(3px);
+      }
+    }
+  }
+
+  &.google {
+    background-color: $google1;
+    border-color: $google2;
+
+    .icon {
+      border-right: 1px solid $google2;
+
+      &:before {
+        margin-top: rem(8px);
+      }
+    }
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  span {
+    display: block;
+    padding-left: rem(60px);
+    height: 100%;
+    @include font ($bc-font1, $font-default, $font-normal);
+    line-height: rem(45px);
+    color: $white;
+
+    &.icon {
+      width: rem(50px);
+      height: rem(50px);
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding-left: 0;
+      text-align: center;
+
+      &:before {
+        display: block;
+        @include font-size (34px);
+      }
+    }
+  }
+}
+
+.user-form-header {
+  font-size: 0;
+  background-color: $user-form-color;
+  
+  .link {
+    display: inline-block;
+    vertical-align: top;
+    width: 33.33%;
+    height: rem(100px);
+    
+    a {
+      display: table;
+      width: 100%;
+      height: 100%;
+      background-color: $user-form-color;
+      border: 1px solid transparent;
+      text-align: center;
+      transition: background-color 0.3s ease-in-out;
+      
+      &:hover {
+        background-color: $user-form-color-hover;
+        border-color: $user-form-color;
+      }
+      
+      &.active {
+        background-color: $user-form-color-active;
+        pointer-events: none;
+      }
+      
+      span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      
+      .icon:before {
+        @include font-size (40px);
+        color: $white;
+      }
+    }
+    
+    &:nth-child(2) {
+      border-left: 1px solid rgba(255, 255, 255, 0.3);
+      border-right: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.user-form-bottom {
+  margin: rem(20px 0);
+  
+  li {
+    padding: rem(5px 0);
+    
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+form[id|="user"] {
+  display: block;
+  vertical-align: top;
+  padding: 0;
+  max-width: rem(400px);
+  margin: rem(40px) auto;
+  clear: both;
+  
+  h2.user-login-header {
+    margin: rem(0 0 20px 0);
+    @include font-size ($font-large);
+    color: $white;
+    text-align: center;
+    text-transform: none;
+    border: none;
+  }
+  
+  .user-form {
+    padding: rem(40px);
+    background-color: $user-form-background;
+    border-bottom: 10px solid $user-form-color;
+  }
+  
+  .form-item {
+    position: relative;
+    padding: 0;
+    margin: rem(20px 0);
+    font-size: 0;
+    
+    label {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      width: rem(45px);
+      height: rem(45px);
+      margin: 0;
+      color: transparent;
+      background-color: $user-form-color;
+      border-top-left-radius: rem(5px);
+      border-bottom-left-radius: rem(5px);
+      
+      &:before {
+        content: "\e9d9";
+        @extend %icons;
+        display: block;
+        margin: rem(13px 5px);
+        text-align: center;
+        color: $white;
+      }
+      
+      .form-required {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: rem(3px);
+        color: $white;
+      }
+    }
+    
+    input {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - 45px);
+      height: rem(45px);
+      @include padding (10px);
+      padding-right: rem(30px);
+      @include font-size ($font-default);
+      line-height: rem(23px);
+      background-color: $white;
+      border: none;
+      border-radius: rem(5px);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      
+      &:focus {
+        outline: 1px solid $user-form-color;
+        box-shadow: none;
+        
+        & + .form-validation-text {
+          display: block;
+        }
+      }
+      
+      &::-webkit-input-placeholder {
+        @include font ($bc-font2, $font-default, $font-bold);
+        font-style: normal;
+        color: $lightgray;
+        letter-spacing: 0;
+        animation-delay: 0.01s; // to prevent puting all together
+      }
+      
+      &::-moz-placeholder {
+        @include font ($bc-font2, $font-default, $font-bold);
+        font-style: normal;
+        color: $lightgray;
+        letter-spacing: 0;
+        animation-delay: 0.02s;
+      }
+      
+      &:-moz-placeholder {
+        @include font ($bc-font2, $font-default, $font-bold);
+        font-style: normal;
+        color: $lightgray;
+        letter-spacing: 0;
+        animation-delay: 0.03s;
+      }
+      
+      &::-ms-input-placeholder {
+        @include font ($bc-font2, $font-default, $font-bold);
+        font-style: normal;
+        color: $lightgray;
+        letter-spacing: 0;
+        animation-delay: 0.04s;
+      }
+    }
+    
+    .description {
+      display: none;
+    }
+  }
+  
+  .form-item-name,
+  .form-item-mail {
+    label:before{
+      content: "\e945"; // icon-envelop
+    }
+  }
+  
+  .field-name-field-user-name {
+    label:before {
+      content: "\e971"; // icon-user
+    }
+  }
+  
+  .form-item-pass {
+    label:before{
+      content: "\e98f"; // icon-lock
+      padding-left: rem(4px);
+    }
+    
+    input {
+      letter-spacing: rem(4px);
+    }
+    
+    .password-strength {
+      display: none;
+    }
+  }
+  
+  .form-item-remember-me {
+    position: relative;
+    
+    input {
+      height: 0;
+      width: 0;
+      margin: 0;
+      padding: 0;
+      visibility: hidden;
+    }
+    
+    label {
+      width: auto;
+      height: rem(30px);
+      padding-left: rem(30px);
+      background-color: transparent;
+      line-height: rem(28px);
+      color: $white;
+      cursor: pointer;
+      
+      &:before {
+        content: "\ea53"; // icon-checkbox-unchecked
+        width: rem(30px);
+        height: rem(30px);
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: $user-form-color;
+        text-align: left;
+        line-height: rem(28px);
+      }
+    }
+    
+    input:checked + label:before {
+      content: "\ea52"; // icon-checkbox-checked
+    }
+  }
+  
+  .form-type-password-confirm {
+    .form-item {
+      display: block;
+      width: 100%;
+    }
+    
+    input {
+      margin-bottom: 0;
+    }
+    
+    .password-suggestions {
+      display: block;
+      position: relative;
+      width: 100%;
+      padding-left: rem(55px);
+      @include font ($bc-font1, $font-medium, $font-normal);
+      background-color: $white;
+      border: none;
+      border-radius: rem(5px);
+      overflow: hidden;
+      
+      &:before {
+        content: "\ea08";
+        @extend %icons;
+        display: block;
+        width: rem(45px);
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $user-form-color;
+        @include font-size ($font-default);
+        line-height: rem(42px);
+        text-align: center;
+        color: $white;
+      }
+      
+      ul {
+        padding: rem(10px 0 5px 0);
+        list-style: circle;
+        list-style-type: circle;
+        
+        li {
+          margin-left: rem(20px);
+        }
+      }
+      
+      .password-strength {
+        display: block;
+        width: 100%;
+        margin: 0;
+        @include font-size ($font-default);
+        
+        &-title {
+
+        }
+        
+        .password-indicator {
+          height: rem(15px);
+        }
+      }
+    }
+    
+    div.password-confirm {
+      width: rem(30px);
+      height: rem(45px);
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 0;
+      text-align: center;
+      
+      span {
+        &:before {
+          content: "\ea10";
+          @extend %icons;
+          @include font-size ($font-default);
+          line-height: rem(45px);
+          color: $green;
+        }
+        
+        &.error:before {
+          content: "\ea0f";
+          color: $red;
+        }
+      }
+    }
+  }
+  
+  .form-validation-text {
+    display: none;
+    position: absolute;
+    left: rem(55px);
+    bottom: 0;
+    @include font ($bc-font1, $font-small, $font-normal);
+    color: transparent;
+  }
+  .form-not-valid .form-validation-text {
+    color: $red;
+  }
+  .form-valid .form-validation-text {
+    color: $darkgreen;
+  }
+  
+  .form-validation-icon {
+    width: rem(30px);
+    height: rem(45px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    
+    .icon:before {
+      display: none;
+      @include font-size ($font-default);
+      color: transparent;
+      line-height: rem(44px);
+    }
+  }
+  .form-not-valid .form-validation-icon .icon-cross:before {
+    display: block;
+    color: $red;
+  }
+  .form-valid .form-validation-icon .icon-checkmark:before {
+    display: block;
+    color: $green;
+  }
+  
+  .form-actions {
+    margin: rem(20px 0 0 0);
+    
+    .required-text {
+      @include font-size ($font-medium);
+      color: $white;
+    }
+    
+    input.form-submit {
+      display: block;
+      width: 100%;
+      height: rem(45px);
+      float: none;
+      border: 1px solid transparent;
+      border-radius: rem(5px);
+      background-color: $user-form-color;
+      @include font ($bc-font2, $font-default, $font-bold);
+      text-transform: uppercase;
+      color: $white;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      
+      &:hover {
+        color: $white;
+        background-color: $user-form-color-hover;
+        border-color: $user-form-color;
+      }
+    }
+  }
+}

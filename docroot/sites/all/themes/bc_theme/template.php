@@ -97,7 +97,6 @@ function bc_theme_preprocess_node(&$vars) {
       _bc_theme_preprocess_node_review_group_page($vars);
     }
   }
-  //dpm($vars);
 }
 
 /**
@@ -166,7 +165,6 @@ function _bc_theme_preprocess_node_review_teaser(&$vars) {
  */
 function _bc_theme_preprocess_node_review_group_page(&$vars) {
   $vars['date'] = date('M/Y', $vars['created']);
-  //dpm($vars);
 }
 
 /**
@@ -257,5 +255,24 @@ function bc_theme_views_post_render(&$view, &$output, &$cache) {
       'fallback' => $fb_image,
       'alt' => $alt,
     ));
+  }
+}
+
+/**
+ * Implements HOOK_preprocess_HOOK() for hybridauth.
+ */
+function bc_theme_preprocess_hybridauth_provider_icon(&$vars) {
+  $providers = array(
+    'Facebook' => 'icon-facebook3',
+    'Google' => 'icon-google',
+  );
+  $vars['icon'] = isset($providers[$vars['provider_id']])? $providers[$vars['provider_id']] : '';
+
+  $paths = array('user/login', 'user/register', 'user/password');
+  if (in_array($_GET['q'], $paths)) {
+    $vars['icon_pack_classes'] .= ' big-icon'; 
+  }
+  else {
+    $vars['icon_pack_classes'] .= ' default';
   }
 }

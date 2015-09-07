@@ -4,7 +4,7 @@
  * @file
  * Module file for bc_user module.
  */
- 
+
 /**
  * Implements HOOK_theme().
  */
@@ -41,6 +41,15 @@ function bc_user_theme() {
     ),
   );
 
+  $items['user_form_header'] = array(
+    'path' => drupal_get_path('module', 'bc_user') . '/templates',
+    'template' => 'bc-user--header',
+    'variables' => array(
+      'url' => '',
+      'classes' => '',
+    ),
+  );
+
   return $items;
 }
 
@@ -48,10 +57,21 @@ function bc_user_theme() {
  * Preprocess for all user forms on theme.
  */
 function _bc_user_forms(&$vars) {
+  // Configuring form
   $vars['classes_array'][] = 'user-form';
+  $vars['form']['#attributes'] = array('class' => array('user-forms'));
   $vars['attributes_array'] = array();
   $vars['title_attributes_array'] = array();
   $vars['content_attributes_array'] = array();
+  // Add header links and icons for user forms.
+  $vars['form_header'] = theme('user_form_header', array(
+    'url' => $_GET['q'],
+    'classes' => 'form-header',
+  ));
+  // Add script for fields client-size validation.
+  drupal_add_js(drupal_get_path('theme', 'bc_theme') . '/js/validation.js');
+  // Add required fields text just bellow submit button.
+  $vars['form']['actions']['submit']['#suffix'] = '<span class="required-text">' . t('* Required fields.') . '</span>';
 }
 
 /**
@@ -59,7 +79,10 @@ function _bc_user_forms(&$vars) {
  */
 function _bc_user_preprocess_user_login(&$vars) {
   $vars['classes_array'][] = 'user-login';
-  $vars['intro_text'] = t('This is my awesome login form');
+  $vars['intro_text'] = t('Login');
+
+  $vars['form']['name']['#attributes']['placeholder'] = t('E-mail');
+  $vars['form']['pass']['#attributes']['placeholder'] = t('Password');
 }
 
 /**
@@ -67,7 +90,16 @@ function _bc_user_preprocess_user_login(&$vars) {
  */
 function _bc_user_preprocess_user_register_form(&$vars) {
   $vars['classes_array'][] = 'user-register';
-  $vars['intro_text'] = t('This is my super awesome reg form');
+  $vars['intro_text'] = t('Registration');
+
+  // Form placeholders
+  $vars['form']['account']['mail']['#attributes']['placeholder'] = t('E-mail');
+  $vars['form']['account']['pass']['pass1']['#attributes']['placeholder'] = t('Password');
+  $vars['form']['account']['pass']['pass2']['#attributes']['placeholder'] = t('Confirm password');
+  $vars['form']['field_user_name'][LANGUAGE_NONE][0]['value']['#attributes']['placeholder'] = t('Name');
+
+  // Disable autocomplete
+  $vars['form']['#attributes']['autocomplete'] = 'off';
 }
 
 /**
@@ -75,5 +107,7 @@ function _bc_user_preprocess_user_register_form(&$vars) {
  */
 function _bc_user_preprocess_user_pass(&$vars) {
   $vars['classes_array'][] = 'user-pass';
-  $vars['intro_text'] = t('This is my super awesome request new password form');
+  $vars['intro_text'] = t('Password recovery');
+
+  $vars['form']['name']['#attributes']['placeholder'] = t('E-mail');
 }

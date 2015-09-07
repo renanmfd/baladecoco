@@ -36,3 +36,7 @@ nav, section {
   // Disable in production mode;
   @include index-link;
 }
+
+#main-content {
+  background-color: $white;
+}
