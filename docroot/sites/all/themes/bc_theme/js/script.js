@@ -62,7 +62,7 @@
       });
       // BC Homepage - Reviews equilizer
       var equalizer = null;
-      $(document).ready(reviewTeaserEqualizer);
+      $(document).load(reviewTeaserEqualizer);
       $(window).on('resize', function(e) {
         clearTimeout(equalizer);
         equalizer = setTimeout(reviewTeaserEqualizer, 200);
@@ -89,21 +89,25 @@
     var screen = window.innerWidth;
     if (screen >= 768 && screen < 1024) {
       $('.review-teaser:nth-child(2n-1)').each(function(index) {
-        var current_height = $(this).height(),
-          next_height = $(this).next().height();
+        var current_height = $(this).find('.node-review').height(),
+            next_height = $(this).next().find('.node-review').height();
+        console.log('current = ' + current_height + ' / next = ' + next_height);
         if (current_height > next_height) {
+          $(this).height('');
           $(this).next().height(current_height);
         }
         else {
           $(this).height(next_height);
+          $(this).next().height('');
         }
       });
     }
     else if (screen >= 1024) {
       var bigger = 0;
       $('.review-teaser').each(function(index) {
-        if ($(this).height() > bigger) {
-          bigger = $(this).height();
+        var height = $(this).find('.node-review').height()
+        if (height > bigger) {
+          bigger = height;
         }
       });
       $('.review-teaser').height(bigger);

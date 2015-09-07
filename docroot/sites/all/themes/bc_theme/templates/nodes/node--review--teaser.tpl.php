@@ -21,9 +21,7 @@
 
     <div class="review-body-wrapper">
       <quotes>
-        <p>
-          <?php print render($content['body']); ?>
-        </p>
+        <?php print render($content['body']); ?>
       </quotes>
     </div>
 

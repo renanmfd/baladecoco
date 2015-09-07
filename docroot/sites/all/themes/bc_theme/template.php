@@ -97,7 +97,6 @@ function bc_theme_preprocess_node(&$vars) {
       _bc_theme_preprocess_node_review_group_page($vars);
     }
   }
-  //dpm($vars);
 }
 
 /**
@@ -166,7 +165,6 @@ function _bc_theme_preprocess_node_review_teaser(&$vars) {
  */
 function _bc_theme_preprocess_node_review_group_page(&$vars) {
   $vars['date'] = date('M/Y', $vars['created']);
-  //dpm($vars);
 }
 
 /**
