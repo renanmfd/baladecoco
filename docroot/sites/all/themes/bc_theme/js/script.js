@@ -40,6 +40,8 @@
     attach: function (context, settings) {
       // Add JS class to HTML tag
       $('html').addClass('js');
+      // Tooltip
+      $('[data-toggle="tooltip"]').tooltip({container: 'body'}); 
     }
   };
 

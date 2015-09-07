@@ -50,12 +50,10 @@
   }
   
   .logo {
+    display: block;
     text-align: center;
     opacity: 1;
     
-    @include susy-breakpoint($desktop, $susy_desktop) {
-      margin-top: -20px; 
-    }
     svg {
       width: 150px;
       height: 150px;

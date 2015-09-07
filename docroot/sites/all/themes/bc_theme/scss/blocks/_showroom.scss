@@ -161,6 +161,10 @@
   .bala-image-wrapper {
     background-color: $showroom-content-price-cl-hover;
     @include transition (all, 0.3s, ease-in-out);
+    
+    img {
+      pointer-events: none;
+    }
   }
   
   .show-more {

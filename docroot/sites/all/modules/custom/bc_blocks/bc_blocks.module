@@ -312,7 +312,7 @@ function bc_blocks_block_view($delta = '') {
       $block['content'] = array(
         0 => array(
           '#markup' => $fb_content,
-          '#prefix' => '<a href="' . url('<front>') . '" class="logo">'
+          '#prefix' => '<a href="' . url('<front>') . '" class="logo" data-toggle="tooltip" title="' . t('Menina das Balas: Main page') . '">'
         ),
         1 => array(
           '#markup' => $image_content,

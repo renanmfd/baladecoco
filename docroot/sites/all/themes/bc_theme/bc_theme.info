@@ -33,6 +33,7 @@ stylesheets[all][] = css/styles.css
 ;;;;;;;;;;;;;;;;;;;;;
  
 scripts[] = js/script.js
+scripts[] = js/vendor/bootstrap-tooltip.js
 
 
 ;;;;;;;;;;;;;;;;;;;;;
