@@ -228,3 +228,11 @@ function bc_master_update_7113() {
   ));
 }
 
+/**
+ * Enable modules user_registrationpassword, remember_me.
+ */
+function bc_master_update_7114() {
+  module_enable(array(
+    'remember_me',
+  ));
+}
