@@ -7,16 +7,23 @@ $purple3:       #8A20C4;
 $lightpurple:   #AD14FF;
 $lighterpurple: #F2DAFF;
 
-$darkorange:    #874200;
+$darkerorange:  #A57318;
+$darkorange:    #E89600;
 $orange:        #FF8C00;
 $lightorange:   #FFAD5F;
+$lighterorange: #FCC48F;
 
-$darkblue:      #050558;
+$darkerblue:    #050558;
+$darkblue:      #0505A3;
 $blue:          #0E0EED;
-$lightblue:     #8E8EF5;
+$lightblue:     #5A5AFD;
+$lighterblue:   #8E8EF5;
 
-$green:         #15EF15;
+$green:         #00FF00;
 $darkgreen:     #0B790B;
+
+$red:           #FF0000;
+$darkred:       #880000;
 
 $darkgray:      rgb(101, 98, 129);
 $gray:          rgb(183, 177, 232);
@@ -27,7 +34,11 @@ $black:         rgb(0, 0, 0);
 $white:         rgb(255, 255, 255);
 $coal:          rgb(44, 44, 44);
 
-$star:          rgb(235, 200, 0);
+$star:          #EBC800;
+$facebook1:     #3B5998;
+$facebook2:     #213E7B;
+$google1:       #F44336;
+$google2:       #F41808;
 
 // Theme specifics ========================== //
 $border:                          $gray;
@@ -90,3 +101,9 @@ $showroom-content-price-bg:       $purple;
 $showroom-content-price-cl:       $lighterpurple;
 $showroom-content-price-bg-hover: $darkblue;
 $showroom-content-price-cl-hover: $white;
+
+// User forms ============================== //
+$user-form-background:    $lighterblue;
+$user-form-color:         $darkblue;
+$user-form-color-active:  $darkerblue;
+$user-form-color-hover:   $lightblue;

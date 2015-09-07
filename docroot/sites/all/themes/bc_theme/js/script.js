@@ -1,6 +1,6 @@
-(function (window, document, $) {
+(function (window, document, $, Drupal) {
 
-   Drupal.behaviors.presentation_adaptative_image = {
+  Drupal.behaviors.presentation_adaptative_image = {
     attach: function (context, settings) {
       // PRESENTATION - Adaptative image load on presentation region.
       var result = null,
@@ -40,14 +40,6 @@
     attach: function (context, settings) {
       // Add JS class to HTML tag
       $('html').addClass('js');
-      // Tooltips
-      //Tipped.create('.simple-tooltip');
-      // Chosen
-      /*$('.chosen-select').chosen({
-        disable_search: true,
-        display_disabled_options: false,
-        display_selected_options: false,
-      });*/
     }
   };
 
@@ -119,23 +111,23 @@
     else {
        $('.review-teaser').height('');
     }
-  };
+  }
 
   /**
    * Function that detect witch breakpoint the window is in.
    * Used on presentation adaptative images.
    */
   function detectBreakpoint() {
-    var breakpoints = {'mobile': 0, 'mobile-landscape': 480, 'tablet': 768, 'desktop': 1024, 'desktop-wide': 1280, 'desktop-superwide': 1440},
+    var breakpoints = {mobile: 0, mobile_landscape: 480, tablet: 768, desktop: 1024, desktop_wide: 1280, desktop_superwide: 1440},
       width = window.innerWidth,
       result = '';
-    if (width > breakpoints['desktop-superwide']) result = 'desktop-superwide';
-    else if (width > breakpoints['desktop-wide']) result = 'desktop-wide';
-    else if (width > breakpoints['desktop']) result = 'desktop';
-    else if (width > breakpoints['tablet']) result = 'tablet';
-    else if (width > breakpoints['mobile-landscape']) result = 'mobile-landscape';
-    else if (width > breakpoints['mobile']) result = 'mobile';
+    if (width > breakpoints.desktop_superwide) result = 'desktop-superwide';
+    else if (width > breakpoints.desktop_wide) result = 'desktop-wide';
+    else if (width > breakpoints.desktop) result = 'desktop';
+    else if (width > breakpoints.tablet) result = 'tablet';
+    else if (width > breakpoints.mobile_landscape) result = 'mobile-landscape';
+    else if (width > breakpoints.mobile) result = 'mobile';
     return result;
-  };
+  }
 
-}(this, this.document, this.jQuery));
+}(this, this.document, this.jQuery, Drupal));

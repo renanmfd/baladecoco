@@ -15,6 +15,7 @@ var gulp = require('gulp'),
     scss: '../scss/**/*.scss',
     css: '../css',
     js: '../js/script.js',
+    validate: '../js/validation.js',
   },
   // URL for local website.
   myproxy = "local.baladecoco.com";
@@ -22,22 +23,35 @@ var gulp = require('gulp'),
 /**
  * Start the BrowserSync Static Server + Watch files
  */
-gulp.task('serve', ['sass', 'js'], function () {
+gulp.task('serve', ['sass', 'js', 'validate'], function () {
 
   browserSync({
     proxy: myproxy
   });
   
   gulp.watch(src.js,   ['js']);
+  gulp.watch(src.validate,   ['validate']);
   gulp.watch(src.scss, ['sass']);
   //gulp.watch(src.html, ['templates']);
 });
 
 /**
- * Process JS files.
+ * Process script.js file.
  */
 gulp.task('js', function() {
-  return gulp.src('../js/script.js')
+  return gulp.src(src.js)
+    .pipe(jshint())
+    .pipe(jshint.reporter(jshint_reporter))
+    .pipe(reload({
+      stream: true
+    }));
+});
+
+/**
+ * Process validation.js file.
+ */
+gulp.task('validate', function() {
+  return gulp.src(src.validate)
     .pipe(jshint())
     .pipe(jshint.reporter(jshint_reporter))
     .pipe(reload({

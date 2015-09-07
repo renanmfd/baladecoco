@@ -19,23 +19,15 @@
 
 // IMPORTANT. For updating the icon lib, replace the icons code below:
 
-.icon-left179:before {
-  content: "\e600";
+
+.icon-vimeo:before {
+  content: "\e606";
 }
-.icon-profile5:before {
-  content: "\e601";
+.icon-facebook:before {
+  content: "\e607";
 }
-.icon-quotes:before {
-  content: "\e602";
-}
-.icon-login15:before {
-  content: "\e603";
-}
-.icon-logout15:before {
-  content: "\e604";
-}
-.icon-plus:before {
-  content: "\e605";
+.icon-google-plus:before {
+  content: "\e608";
 }
 .icon-home3:before {
   content: "\e902";
@@ -43,17 +35,29 @@
 .icon-pencil:before {
   content: "\e905";
 }
+.icon-image:before {
+  content: "\e90d";
+}
 .icon-images:before {
   content: "\e90e";
 }
 .icon-camera:before {
   content: "\e90f";
 }
+.icon-play:before {
+  content: "\e912";
+}
+.icon-film:before {
+  content: "\e913";
+}
 .icon-video-camera:before {
   content: "\e914";
 }
 .icon-bullhorn:before {
   content: "\e91a";
+}
+.icon-file-text:before {
+  content: "\e922";
 }
 .icon-profile:before {
   content: "\e923";
@@ -73,8 +77,14 @@
 .icon-address-book:before {
   content: "\e944";
 }
+.icon-envelop:before {
+  content: "\e945";
+}
 .icon-location2:before {
   content: "\e948";
+}
+.icon-clock:before {
+  content: "\e94e";
 }
 .icon-clock2:before {
   content: "\e94f";
@@ -85,6 +95,9 @@
 .icon-printer:before {
   content: "\e954";
 }
+.icon-display:before {
+  content: "\e956";
+}
 .icon-mobile:before {
   content: "\e958";
 }
@@ -94,11 +107,41 @@
 .icon-tv:before {
   content: "\e95b";
 }
+.icon-floppy-disk:before {
+  content: "\e962";
+}
+.icon-database:before {
+  content: "\e964";
+}
+.icon-undo2:before {
+  content: "\e967";
+}
+.icon-redo2:before {
+  content: "\e968";
+}
+.icon-forward:before {
+  content: "\e969";
+}
+.icon-reply:before {
+  content: "\e96a";
+}
+.icon-bubble:before {
+  content: "\e96b";
+}
 .icon-bubbles2:before {
   content: "\e96d";
 }
-.icon-user-plus:before {
-  content: "\e973";
+.icon-user:before {
+  content: "\e971";
+}
+.icon-hour-glass:before {
+  content: "\e979";
+}
+.icon-spinner3:before {
+  content: "\e97c";
+}
+.icon-spinner9:before {
+  content: "\e982";
 }
 .icon-zoom-in:before {
   content: "\e987";
@@ -108,6 +151,12 @@
 }
 .icon-key:before {
   content: "\e98d";
+}
+.icon-lock:before {
+  content: "\e98f";
+}
+.icon-unlocked:before {
+  content: "\e990";
 }
 .icon-cog:before {
   content: "\e994";
@@ -130,8 +179,14 @@
 .icon-gift:before {
   content: "\e99f";
 }
+.icon-leaf:before {
+  content: "\e9a4";
+}
 .icon-fire:before {
   content: "\e9a9";
+}
+.icon-bin:before {
+  content: "\e9ac";
 }
 .icon-bin2:before {
   content: "\e9ad";
@@ -139,8 +194,14 @@
 .icon-truck:before {
   content: "\e9b0";
 }
+.icon-target:before {
+  content: "\e9b3";
+}
 .icon-shield:before {
   content: "\e9b4";
+}
+.icon-power:before {
+  content: "\e9b5";
 }
 .icon-earth:before {
   content: "\e9ca";
@@ -154,17 +215,35 @@
 .icon-eye:before {
   content: "\e9ce";
 }
+.icon-sun:before {
+  content: "\e9d4";
+}
+.icon-star-empty:before {
+  content: "\e9d7";
+}
 .icon-star-full:before {
   content: "\e9d9";
 }
 .icon-heart:before {
   content: "\e9da";
 }
+.icon-warning:before {
+  content: "\ea07";
+}
+.icon-notification:before {
+  content: "\ea08";
+}
+.icon-question:before {
+  content: "\ea09";
+}
 .icon-plus2:before {
   content: "\ea0a";
 }
 .icon-minus:before {
   content: "\ea0b";
+}
+.icon-info:before {
+  content: "\ea0c";
 }
 .icon-cancel-circle:before {
   content: "\ea0d";
@@ -217,8 +296,29 @@
 .icon-circle-left:before {
   content: "\ea44";
 }
+.icon-checkbox-checked:before {
+  content: "\ea52";
+}
+.icon-checkbox-unchecked:before {
+  content: "\ea53";
+}
+.icon-radio-checked:before {
+  content: "\ea54";
+}
+.icon-radio-checked2:before {
+  content: "\ea55";
+}
+.icon-radio-unchecked:before {
+  content: "\ea56";
+}
+.icon-google:before {
+  content: "\ea87";
+}
 .icon-google-plus2:before {
   content: "\ea89";
+}
+.icon-facebook3:before {
+  content: "\ea8c";
 }
 .icon-facebook2:before {
   content: "\ea8d";
@@ -238,6 +338,25 @@
 .icon-vimeo2:before {
   content: "\ea9d";
 }
+.icon-left179:before {
+  content: "\e600";
+}
+.icon-profile5:before {
+  content: "\e601";
+}
+.icon-quotes:before {
+  content: "\e602";
+}
+.icon-login15:before {
+  content: "\e603";
+}
+.icon-logout15:before {
+  content: "\e604";
+}
+.icon-plus:before {
+  content: "\e605";
+}
+
 
 // SVG ICONS
 
