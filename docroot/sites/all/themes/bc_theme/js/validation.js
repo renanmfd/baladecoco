@@ -8,31 +8,27 @@
    * @return array(valid:<TRUE/FALSE>,message:<ERROR_MSG>).
    */
   var validateEmail = function(email) {
-    var regExp = /^(?:(?:[\w`~!#$%^&*\-=+;:{}'|,?\/]+(?:(?:\.(?:"(?:\\?[\w`~!#$%^&*\-=+;:{}'|,?\/\.()<>\[\] @]|\\"|\\\\)*"|[\w`~!#$%^&*\-=+;:{}'|,?\/]+))*\.[\w`~!#$%^&*\-=+;:{}'|,?\/]+)?)|(?:"(?:\\?[\w`~!#$%^&*\-=+;:{}'|,?\/\.()<>\[\] @]|\\"|\\\\)+"))@(?:[a-zA-Z\d\-]+(?:\.[a-zA-Z\d\-]+)*|\[\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\])$/gm;
-    var valid = regExp.test(email),
+    var mail = email,
+        valid = false,
         message = '';
-    if (valid) {
-      message = Drupal.t('Valid email!');
+    if (/\s/.test(mail)) { // If contain spaces.
+      message = Drupal.t('Email cannot have spaces.');
     }
-    else {
-      if (/\s/.test(email)) { // If contain spaces.
-        message = Drupal.t('Email cannot have spaces.');
-      }
-      else if (!/@/.test(email)) { // If contain @ char.
-        message = Drupal.t('Email must have the @ character.');
-      }
-      else if (!/\w@\w/.test(email)) { // If not contain letters arround @ char.
-        message = Drupal.t('Email must have letters or numbers arround @ char.');
-      }
-      else if (!/@(\w+\.)+\w{2,4}$/.test(email)) { // If not contain valid top-level domain.
-        message = Drupal.t('Email must have a valid top-level domain.');
-      }
-      else if (/[\[\\\/\*\?\+\^\!\$\(\)\[\]\}\{\=\|:'"<>~#%&,]/.test(email)) { // If contain invalid chars.
-        message = Drupal.t('Email cannot have special characters.');
-      }
-      else { // Fallback check
-        message = Drupal.t('Please check your e-mail address for errors.');
-      }
+    else if (/[\[\\\/\*\?\+\^\!\$\(\)\[\]\}\{\=\|:'"<>~#%&,]/.test(mail)) { // If contain invalid chars.
+      message = Drupal.t('Email cannot have special characters.');
+    }
+    else if (!/@/.test(mail)) { // If don't contain @ char.
+      message = Drupal.t('Email must have the @ character.');
+    }
+    else if (!/\w@\w/.test(mail)) { // If not contain letters arround @ char.
+      message = Drupal.t('Email must have letters or numbers arround @ char.');
+    }
+    /*else if (!/@(\w+.)+\w{2,4}$/.test(mail)) { // If not contain valid top-level domain.
+      message = Drupal.t('Email must have a valid top-level domain.');
+    }*/
+    else { // Valid
+      valid = true;
+      message = Drupal.t('Please check your e-mail address for errors.');
     }
     return {valid: valid, message: message};
   };
@@ -73,7 +69,7 @@
     if (!/\w+\s\w+/.test(name)) { // If not contain two words.
       message = Drupal.t('Enter first and last names.');
     }
-    else if (/[\\\/\*\?\+\^\!\$\(\)\[\]\}\{\=\-:<>|#%]+/.test(name)) { // If contain invalid chars.
+    else if (/[\\\/\*\?\+\!\~\`\^\$\(\)\[\]\}\{\=\-:<>|#%]+/.test(name)) { // If contain invalid chars.
       message = Drupal.t('Name cannot have special chars.');
     }
     else {

@@ -571,7 +571,9 @@ function bc_menu_feature_menu_default_menu_links() {
     'options' => array(
       'alter' => TRUE,
       'identifier' => 'user-menu_login:user/login',
-      'attributes' => array(),
+      'attributes' => array(
+        'name' => 'Log to the site to post messages, reviews and buy products.',
+      ),
       'item_attributes' => array(
         'id' => 'icon icon-login15',
         'class' => '',
@@ -595,7 +597,9 @@ function bc_menu_feature_menu_default_menu_links() {
     'options' => array(
       'alter' => TRUE,
       'identifier' => 'user-menu_minha-conta:user',
-      'attributes' => array(),
+      'attributes' => array(
+        'name' => 'See and alter you account information.',
+      ),
       'item_attributes' => array(
         'id' => 'icon icon-profile',
         'class' => '',
@@ -643,7 +647,9 @@ function bc_menu_feature_menu_default_menu_links() {
     'options' => array(
       'alter' => TRUE,
       'identifier' => 'user-menu_sair:user/logout',
-      'attributes' => array(),
+      'attributes' => array(
+        'name' => 'Log off the site. See you next time!',
+      ),
       'item_attributes' => array(
         'id' => 'icon icon-cross',
         'class' => '',

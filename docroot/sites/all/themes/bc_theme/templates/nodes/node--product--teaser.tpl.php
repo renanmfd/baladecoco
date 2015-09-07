@@ -15,7 +15,7 @@
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 
-  <a href="<?php print $node_url; ?>" title="<?php print $title; ?>"<?php print $content_attributes; ?>>  
+  <a href="<?php print $node_url; ?>" title="<?php print $title; ?>"<?php print $content_attributes; ?> data-toggle="tooltip" data-placement="top">  
 
     <div class="bala-title-wrapper">
 

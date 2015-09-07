@@ -21,7 +21,7 @@ function bc_theme_preprocess_html(&$vars) {
     ),
     '#weight' => 999,
   ), 'google-fonts');
-  
+
   // Configuring screen Viewport and default zoom.
   drupal_add_html_head(array(
     '#type' => 'html_tag',
@@ -31,7 +31,7 @@ function bc_theme_preprocess_html(&$vars) {
       'content' => 'width=device-width, initial-scale=1',
     ),
   ), 'screen-viewport');
-  
+
   // Add favicons to the size.
   $vars['favicons'] = theme('favicons', array(
     'theme_path' => drupal_get_path('theme', 'bc_theme'),
@@ -200,6 +200,7 @@ function bc_theme_menu_link__main_menu($vars) {
     $sub_menu = drupal_render($element ['#below']);
   }
 
+  // Put icon on menu links that have id attribute set.
   $link = '';
   if (!empty($element['#attributes']['id'])) {
     $link = '<span class="' . $element['#attributes']['id'] . '"></span>';
@@ -208,6 +209,13 @@ function bc_theme_menu_link__main_menu($vars) {
 
   $element['#localized_options']['html'] = TRUE;
   $link .= '<span class="title">' . $element['#title'] . '</span>';
+
+  // Add tooltip for menu items that have name attribute set on link.
+  if (isset($element['#localized_options']['attributes']['name'])) {
+    $element['#localized_options']['attributes']['title'] = $element['#localized_options']['attributes']['name'];
+    $element['#localized_options']['attributes']['data-toggle'] = 'tooltip';
+    $element['#localized_options']['attributes']['data-placement'] = 'bottom';
+  }
   $output = l($link, $element ['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
@@ -270,9 +278,47 @@ function bc_theme_preprocess_hybridauth_provider_icon(&$vars) {
 
   $paths = array('user/login', 'user/register', 'user/password');
   if (in_array($_GET['q'], $paths)) {
-    $vars['icon_pack_classes'] .= ' big-icon'; 
+    $vars['icon_pack_classes'] .= ' big-icon';
   }
   else {
     $vars['icon_pack_classes'] .= ' default';
   }
+}
+
+/**
+ * Override theme_form_element_label() to support #attributes on label form elements.
+ */
+function bc_theme_form_element_label($variables) {
+  $element = $variables['element'];
+  // This is also used in the installer, pre-database setup.
+  $t = get_t();
+
+  // If title and required marker are both empty, output no label.
+  if ((!isset($element['#title']) || $element['#title'] === '') && empty($element['#required'])) {
+    return '';
+  }
+
+  // If the element is required, a required marker is appended to the label.
+  $required = !empty($element['#required']) ? theme('form_required_marker', array('element' => $element)) : '';
+
+  $title = filter_xss_admin($element['#title']);
+
+  // If there are attributes already, use them. If not, create empty array.
+  $attributes = isset($element['#label_attributes'])?$element['#label_attributes']:array();
+
+  // Style the label as class option to display inline with the element.
+  if ($element['#title_display'] == 'after') {
+    $attributes['class'] = 'option';
+  }
+  // Show label only to screen readers to avoid disruption in visual flows.
+  elseif ($element['#title_display'] == 'invisible') {
+    $attributes['class'] = 'element-invisible';
+  }
+
+  if (!empty($element['#id'])) {
+    $attributes['for'] = $element['#id'];
+  }
+
+  // The leading whitespace helps visually separate fields from inline labels.
+  return ' <label' . drupal_attributes($attributes) . '>' . $t('!title !required', array('!title' => $title, '!required' => $required)) . "</label>\n";
 }
