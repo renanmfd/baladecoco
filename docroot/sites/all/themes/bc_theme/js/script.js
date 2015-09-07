@@ -91,7 +91,6 @@
       $('.review-teaser:nth-child(2n-1)').each(function(index) {
         var current_height = $(this).find('.node-review').height(),
             next_height = $(this).next().find('.node-review').height();
-        console.log('current = ' + current_height + ' / next = ' + next_height);
         if (current_height > next_height) {
           $(this).height('');
           $(this).next().height(current_height);

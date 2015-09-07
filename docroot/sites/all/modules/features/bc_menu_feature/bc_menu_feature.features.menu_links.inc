@@ -562,21 +562,21 @@ function bc_menu_feature_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: user-menu_login:user
-  $menu_links['user-menu_login:user'] = array(
+  // Exported menu link: user-menu_login:user/login
+  $menu_links['user-menu_login:user/login'] = array(
     'menu_name' => 'user-menu',
-    'link_path' => 'user',
-    'router_path' => 'user',
+    'link_path' => 'user/login',
+    'router_path' => 'user/login',
     'link_title' => 'Login',
     'options' => array(
+      'alter' => TRUE,
+      'identifier' => 'user-menu_login:user/login',
       'attributes' => array(),
       'item_attributes' => array(
         'id' => 'icon icon-login15',
         'class' => '',
         'style' => '',
       ),
-      'alter' => TRUE,
-      'identifier' => 'user-menu_login:user',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -610,25 +610,25 @@ function bc_menu_feature_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: user-menu_registrar:http://google.com/
-  $menu_links['user-menu_registrar:http://google.com/'] = array(
+  // Exported menu link: user-menu_registrar:user/register
+  $menu_links['user-menu_registrar:user/register'] = array(
     'menu_name' => 'user-menu',
-    'link_path' => 'http://google.com/',
-    'router_path' => '',
+    'link_path' => 'user/register',
+    'router_path' => 'user/register',
     'link_title' => 'Registrar',
     'options' => array(
+      'alter' => TRUE,
+      'identifier' => 'user-menu_registrar:user/register',
       'attributes' => array(),
       'item_attributes' => array(
         'id' => 'icon icon-plus',
         'class' => '',
         'style' => '',
       ),
-      'alter' => TRUE,
-      'identifier' => 'user-menu_registrar:http://google.com/',
     ),
     'module' => 'menu',
     'hidden' => 0,
-    'external' => 1,
+    'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -47,

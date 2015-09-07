@@ -21,7 +21,7 @@ function bc_theme_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'jquery_update_compression_type';
-  $strongarm->value = 'none';
+  $strongarm->value = 'min';
   $export['jquery_update_compression_type'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -70,7 +70,7 @@ function bc_theme_settings_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'jquery_update__active_tab';
-  $strongarm->value = 'edit-themes';
+  $strongarm->value = 'edit-performance';
   $export['jquery_update__active_tab'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -235,14 +235,15 @@ function bc_theme_settings_feature_strongarm() {
     'toggle_logo' => 1,
     'toggle_name' => 1,
     'toggle_slogan' => 1,
-    'toggle_node_user_picture' => 0,
-    'toggle_comment_user_picture' => 0,
+    'toggle_node_user_picture' => 1,
+    'toggle_comment_user_picture' => 1,
     'toggle_comment_user_verification' => 0,
     'toggle_favicon' => 0,
-    'toggle_main_menu' => 1,
+    'toggle_main_menu' => 0,
     'toggle_secondary_menu' => 0,
     'default_logo' => 0,
-    'logo_path' => 'public://logo_no_word.png',
+    'logo_path' => 'profiles/acquia/AcquiaDrupalLogo.png',
+    'logo_upload' => '',
     'default_favicon' => 1,
     'favicon_path' => '',
     'favicon_upload' => '',
