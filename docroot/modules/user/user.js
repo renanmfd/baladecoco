@@ -24,7 +24,7 @@ Drupal.behaviors.password = {
       // Add the description box.
       var passwordMeter = '<div class="password-strength"><div class="password-strength-text" aria-live="assertive"></div><div class="password-strength-title">' + translate['strengthTitle'] + '</div><div class="password-indicator"><div class="indicator"></div></div></div>';
       $(confirmInput).parent().after('<div class="password-suggestions description"></div>');
-      $(innerWrapper).prepend(passwordMeter);
+      //$(innerWrapper).prepend(passwordMeter);
       var passwordDescription = $('div.password-suggestions', outerWrapper).hide();
 
       // Check the password strength.
@@ -35,7 +35,7 @@ Drupal.behaviors.password = {
 
         // Update the suggestions for how to improve the password.
         if (passwordDescription.html() != result.message) {
-          passwordDescription.html(result.message);
+          passwordDescription.html(passwordMeter + result.message);
         }
 
         // Only show the description box if there is a weakness in the password.
@@ -47,10 +47,10 @@ Drupal.behaviors.password = {
         }
 
         // Adjust the length of the strength indicator.
-        $(innerWrapper).find('.indicator').css('width', result.strength + '%');
+        $(outerWrapper).find('.indicator').css('width', result.strength + '%');
 
         // Update the strength indication text.
-        $(innerWrapper).find('.password-strength-text').html(result.indicatorText);
+        $(outerWrapper).find('.password-strength-text').html(result.indicatorText);
 
         passwordCheckMatch();
       };
