@@ -57,6 +57,7 @@
       }
     }
   }
+	
   .site-name {
     height: 40px;
 
@@ -64,6 +65,7 @@
       fill: $header-topbar-sitename-cl !important;
       transition: fill 0.2s ease-in-out;
     }
+	  
     #mb_frame * {
       stroke: $header-topbar-sitename-cl !important;
       transition: stroke 0.2s ease-in-out;
@@ -72,11 +74,17 @@
       #mb_text * {
         fill: $header-topbar-sitename-cl-hover !important;
       }
+		
       #mb_frame * {
         stroke: $header-topbar-sitename-cl-hover !important;
       }
     }
   }
+	
+  .svg-fallback {
+    display: none;
+  }
+
   ul.menu {
     font-size: 1px;
     text-align: right;

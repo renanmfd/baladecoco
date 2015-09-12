@@ -41,7 +41,7 @@
       // Add JS class to HTML tag
       $('html').addClass('js');
       // Tooltip
-      $('[data-toggle="tooltip"]').tooltip({container: 'body'}); 
+      $('[data-toggle="tooltip"]').tooltip({container: 'body', html: true}); 
     }
   };
 
@@ -106,7 +106,7 @@
     else if (screen >= 1024) {
       var bigger = 0;
       $('.review-teaser').each(function(index) {
-        var height = $(this).find('.node-review').height()
+        var height = $(this).find('.node-review').height();
         if (height > bigger) {
           bigger = height;
         }

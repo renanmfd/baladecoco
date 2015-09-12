@@ -32,6 +32,17 @@ function bc_theme_preprocess_html(&$vars) {
     ),
   ), 'screen-viewport');
 
+  // Force IE to render with the higher engine.
+  drupal_add_html_head(array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'http-equiv' => 'X-UA-Compatible',
+      'content' => 'IE=9; IE=8; IE=7; IE=EDGE',
+    ),
+    '#weight' => -9999,
+  ), 'ie-compatibility');
+
   // Add favicons to the size.
   $vars['favicons'] = theme('favicons', array(
     'theme_path' => drupal_get_path('theme', 'bc_theme'),
@@ -46,31 +57,8 @@ function bc_theme_preprocess_page(&$vars) {
   $block = block_load('bc_blocks', 'bc_pres_logo');
   $vars['pres_logo'] = _block_get_renderable_array(_block_render_blocks(array($block)));
 
-  // Build Mobile menu, copying some content from other regions.
-  $page = $vars['page'];
-  $elements = array(
-    'system_main-menu' => array(
-      'region' => 'navigation',
-      'weight' => 1,
-    ),
-    'menu_menu-quick-links' => array(
-      'region' => 'topbar',
-      'weight' => 2,
-    ),
-    'bc_blocks_bc_logo' => array(
-      'region' => 'topbar',
-      'weight' => 0,
-    ),
-  );
-  foreach ($elements as $element => $config) {
-    $region = $config['region'];
-    $mobile_menu[$element] = $page[$region][$element];
-    $mobile_menu[$element]['#weight'] = $config['weight'];
-  }
-  $mobile_menu['#sorted'] = TRUE;
-  $mobile_menu['#theme_wrappers'][] = 'region';
-  $mobile_menu['#region'] = 'mobile_menu';
-  $vars['page']['mobile_menu'] = $mobile_menu;
+  // Is moderator.
+  $vars['is_moderator'] = in_array('moderator', $vars['user']->roles);
 }
 
 /**
@@ -79,24 +67,44 @@ function bc_theme_preprocess_page(&$vars) {
 function bc_theme_preprocess_node(&$vars) {
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
   $vars['classes_array'][] = drupal_html_class('node-' . $vars['type'] . '-' . $vars['view_mode']);
+
   // Node PRODUCT
   if ($vars['type'] == 'product') {
+    // View Mode FULL
+    if ($vars['view_mode'] == 'full') {
+      _bc_theme_preprocess_node_product_full($vars);
+    }
+
     // View Mode TEASER
     if ($vars['view_mode'] == 'teaser') {
       _bc_theme_preprocess_node_product_teaser($vars);
     }
   }
+
   // Node REVIEW
   elseif ($vars['type'] == 'review') {
     // View Mode TEASER
     if ($vars['view_mode'] == 'teaser') {
       _bc_theme_preprocess_node_review_teaser($vars);
     }
+
     // View Mode GROUP PAGE
-    if ($vars['view_mode'] == 'group_page') {
+    else if ($vars['view_mode'] == 'group_page') {
       _bc_theme_preprocess_node_review_group_page($vars);
     }
   }
+}
+
+/**
+ * Preprocess variables for node Product on full view mode.
+ * @see bc_theme_preprocess_node()
+ */
+function _bc_theme_preprocess_node_product_full(&$vars) {
+  // Add flexslider js to Product node.
+  drupal_add_js(drupal_get_path('theme', 'bc_theme') . '/js/vendor/jquery.flexslider-min.js', 'file');
+
+  $vars['content']['field_product_image']['#theme'] = 'item_list';
+  dpm($vars);
 }
 
 /**
@@ -164,6 +172,34 @@ function _bc_theme_preprocess_node_review_teaser(&$vars) {
  * @see bc_theme_preprocess_node()
  */
 function _bc_theme_preprocess_node_review_group_page(&$vars) {
+  $account = user_load($vars['uid']);
+  // Get user name.
+  if (isset($account->field_user_name[LANGUAGE_NONE][0]['value'])) {
+    $name = check_plain($account->field_user_name[LANGUAGE_NONE][0]['value']);
+  }
+  else {
+    $name = check_plain($account->name);
+  }
+  // Format name as a link to profile with tooltip.
+  $first_name = explode(' ', $name)[0]; 
+  $options = array(
+    'attributes' => array(
+      'class' => array('username'),
+      'data-toggle' => 'tooltip',
+      'data-placement' => 'bottom',
+      'title' => t('Visit !name\'s profile.', array('!name' => $first_name)),
+    )
+  );
+  $vars['user_name'] = l($name, url('user/'.$account->uid), $options);
+  // Add read more link if the body content is too big.
+  if (strlen($vars['body'][0]['safe_value']) > 250) {
+    $opt = array('attributes' => array(
+      'data-toggle' => 'tooltip',
+      'title' => t('Click to see the full text.'),
+    ));
+    $vars['content']['body']['#suffix'] = '<span class="read-more">' . l(t('Read more'), url('node/' . $vars['nid']), $opt) . '</span>';
+  }
+  // Format created date.
   $vars['date'] = date('M/Y', $vars['created']);
 }
 
@@ -175,6 +211,12 @@ function bc_theme_preprocess_panels_pane(&$vars) {
   if ($vars['is_front']) {
     $vars['title_heading'] = 'h3';
     $vars['title_attributes_array']['class'][] = 'section-title';
+  }
+
+  // Add theme wrapper for Mobile Menu section menus.
+  if ($vars['pane']->panel == 'main_menu' or $vars['pane']->panel == 'quick_menu') {
+    $vars['content']['#prefix'] = '<nav class="menu-wrapper">';
+    $vars['content']['#suffix'] = '</nav>';
   }
 }
 
@@ -304,7 +346,11 @@ function bc_theme_form_element_label($variables) {
   $title = filter_xss_admin($element['#title']);
 
   // If there are attributes already, use them. If not, create empty array.
-  $attributes = isset($element['#label_attributes'])?$element['#label_attributes']:array();
+  $attributes = isset($element['#label_attributes'])?$element['#label_attributes'] : array();
+  $attributes['title'] = isset($element['#description'])? strip_tags($element['#description']) : t('No description');
+  if (isset($element['#required']) and $element['#required']) $attributes['title'] .= ' ' . t('(required)');
+  $attributes['data-toggle'] = 'tooltip';
+  $attributes['data-placement'] = 'left';
 
   // Style the label as class option to display inline with the element.
   if ($element['#title_display'] == 'after') {
@@ -321,4 +367,18 @@ function bc_theme_form_element_label($variables) {
 
   // The leading whitespace helps visually separate fields from inline labels.
   return ' <label' . drupal_attributes($attributes) . '>' . $t('!title !required', array('!title' => $title, '!required' => $required)) . "</label>\n";
+}
+
+/**
+ * Implements HOOK_form_alter().
+ */
+function bc_theme_form_alter(&$form, &$form_state, $form_id) {
+  // Reviews page exposed form - add tooltip to labels.
+  if (isset($form_state['view']) and $form_state['view']->current_display == 'review_page') {
+    $form['sort_by']['#description'] = t('Choose one way to sort the results.');
+    _bc_user_form_label_tooltip($form['sort_by'], 'bottom');
+    $form['sort_order']['#description'] = t('Ascendent or descent sorting.');
+    _bc_user_form_label_tooltip($form['sort_order'], 'bottom');
+  }
+  //dpm(array($form, $form_state, $form_id));
 }

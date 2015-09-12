@@ -84,15 +84,8 @@ function _bc_user_preprocess_user_login(&$vars) {
   $vars['classes_array'][] = 'user-login';
   $vars['intro_text'] = t('Login');
 
-  // Form placeholders
-  $vars['form']['name']['#attributes']['placeholder'] = t('E-mail');
-  $vars['form']['pass']['#attributes']['placeholder'] = t('Password');
-
   // Tooltip
-  _bc_user_form_label_tooltip($vars['form']['name']);
-  _bc_user_form_label_tooltip($vars['form']['pass']);
   $vars['form']['remember_me']['#description'] = t('Keep you logged in this computer and browser.');
-  _bc_user_form_label_tooltip($vars['form']['remember_me']);
 }
 
 /**
@@ -102,19 +95,9 @@ function _bc_user_preprocess_user_register_form(&$vars) {
   $vars['classes_array'][] = 'user-register';
   $vars['intro_text'] = t('Registration');
 
-  // Form placeholders
-  $vars['form']['account']['mail']['#attributes']['placeholder'] = t('E-mail');
-  $vars['form']['account']['pass']['pass1']['#attributes']['placeholder'] = t('Password');
-  $vars['form']['account']['pass']['pass2']['#attributes']['placeholder'] = t('Confirm password');
-  $vars['form']['field_user_name'][LANGUAGE_NONE][0]['value']['#attributes']['placeholder'] = t('Name');
-
   // Tooltip
-  _bc_user_form_label_tooltip($vars['form']['account']['mail']);
   $vars['form']['account']['pass']['pass1']['#description'] = t('Enter a secure password.');
-  _bc_user_form_label_tooltip($vars['form']['account']['pass']['pass1']);
   $vars['form']['account']['pass']['pass2']['#description'] = t('Confirm your password.');
-  _bc_user_form_label_tooltip($vars['form']['account']['pass']['pass2']);
-  _bc_user_form_label_tooltip($vars['form']['field_user_name'][LANGUAGE_NONE][0]['value']);
 }
 
 /**
@@ -124,23 +107,38 @@ function _bc_user_preprocess_user_pass(&$vars) {
   $vars['classes_array'][] = 'user-pass';
   $vars['intro_text'] = t('Password recovery');
 
-  // Form placeholder
-  $vars['form']['name']['#attributes']['placeholder'] = t('E-mail');
-
   // Tooltip
   $vars['form']['name']['#description'] = t('Enter your e-mail address. We will send you a link to reset your password.');
-  _bc_user_form_label_tooltip($vars['form']['name']);
-  dpm($vars);
 }
 
 /**
  * Helper function to add tooltips to labels.
  */
-function _bc_user_form_label_tooltip(&$form_element) {
+function _bc_user_form_label_tooltip(&$form_element, $placement = 'left') {
   $desc = isset($form_element['#description'])? $form_element['#description']: '';
   $form_element['#label_attributes'] = array(
     'data-toggle' => 'tooltip',
-    'data-placement' => 'left',
+    'data-placement' => $placement,
     'title' => $desc,
   );
+}
+
+/**
+ * Implements HOOK_form_FORMID_alter().
+ */
+function bc_user_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
+  $form['picture']['#weight'] = 9;
+  $form['field_address']['#weight'] = 10;
+  $form['field_address'][LANGUAGE_NONE][0]['locality_block']['#weight'] = -999;
+  $form['field_address'][LANGUAGE_NONE][0]['country']['#weight'] = 999;
+  $form['field_address'][LANGUAGE_NONE][0]['locality_block']['postal_code']['#weight'] = -999; // cep
+  $form['field_address'][LANGUAGE_NONE][0]['locality_block']['administrative_area']['#weight'] = -990; // state
+  $form['field_address'][LANGUAGE_NONE][0]['locality_block']['locality']['#weight'] = -980; // city
+  $form['field_address'][LANGUAGE_NONE][0]['locality_block']['dependent_locality']['#weight'] = -970; // bairro
+  $form['actions']['submit']['#suffix'] = '<span class="required-text">' . t('* Required fields.') . '</span>';
+  $form['header'] = array(
+    '#markup' => '<div class="form-header"><span>' . t('Profile edit') . '</span></div>',
+    '#weight' => -9999,
+  );
+  dpm($form);
 }
