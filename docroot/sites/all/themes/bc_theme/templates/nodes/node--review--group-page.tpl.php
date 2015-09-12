@@ -13,21 +13,30 @@
 
   <div class="review post-info">
     <div class="review-wrapper">
-      <span><?php print $name; ?></span>
-      <span><?php print $date; ?></span>
+
+      <div class="icon-wrapper">
+        <span class="icon icon-bullhorn"></span>
+      </div>
+
+      <?php print render($content['field_review_rating']); ?>
+
+      <div class="creation-info">
+        <p><?php print t('Posted by !name at !date', array('!name' => $user_name, '!date' => $date)); ?></p>
+      </div>
+
     </div>
   </div>
 
   <div class="review main-info">
     <div class="review-wrapper">
+
       <?php if (!$page): ?>
         <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
-      
-      <?php print render($content['field_review_rating']); ?>
 
       <?php print render($content['body']); ?>
+
     </div>
   </div>
 

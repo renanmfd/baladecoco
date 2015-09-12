@@ -1,0 +1,42 @@
+.page-user-edit {
+  form {
+    padding: rem(20px);
+    background-color: $form-background;
+    border-top: 10px solid $form-color;
+    border-bottom: 10px solid $form-color;
+  }
+  
+  #edit-timezone {
+    display: none;
+  }
+  
+  .field-type-addressfield {  
+    .locality-block .clearfix,
+    .addressfield-container-inline:after {
+      display: none;
+    }
+    
+    legend {
+      background-color: $form-color;
+      
+      span {
+        color: $white;
+      }
+    }
+    
+    .fieldset-wrapper {
+      label {
+        display: none;
+      }
+      
+      .chosen-container,
+      .chosen-single,
+      input {
+        width: 100% !important;
+        border-radius: $form-border-radius;
+      }
+    }
+  }
+}
+
+

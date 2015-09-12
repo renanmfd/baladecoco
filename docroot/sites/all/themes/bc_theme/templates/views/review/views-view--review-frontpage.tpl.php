@@ -34,27 +34,33 @@
   <?php endif; ?>
   <?php print render($title_suffix); ?>
   <?php if ($header): ?>
-    <div class="view-header">
+    <div class="view-header container">
       <?php print $header; ?>
     </div>
   <?php endif; ?>
 
   <?php if ($exposed): ?>
-    <div class="view-filters">
+    <div class="view-filters container">
       <?php print $exposed; ?>
     </div>
   <?php endif; ?>
 
   <?php if ($attachment_before): ?>
-    <div class="attachment attachment-before">
+    <div class="attachment attachment-before container">
       <?php print $attachment_before; ?>
     </div>
   <?php endif; ?>
 
   <?php if ($rows): ?>
+    <?php if ($display_id != 'review_block'): ?>
+      <div class="container">
+        <?php print $rows; ?>
+      </div>
+    <?php else: ?>
       <?php print $rows; ?>
+    <?php endif; ?>
   <?php elseif ($empty): ?>
-    <div class="view-empty">
+    <div class="view-empty container">
       <?php print $empty; ?>
     </div>
   <?php endif; ?>
@@ -64,25 +70,25 @@
   <?php endif; ?>
 
   <?php if ($attachment_after): ?>
-    <div class="attachment attachment-after">
+    <div class="attachment attachment-after container">
       <?php print $attachment_after; ?>
     </div>
   <?php endif; ?>
 
   <?php if ($footer): ?>
-    <div class="view-footer">
+    <div class="view-footer container">
       <?php print $footer; ?>
     </div>
   <?php endif; ?>
 
   <?php if ($feed_icon): ?>
-    <div class="feed-icon">
+    <div class="feed-icon container">
       <?php print $feed_icon; ?>
     </div>
   <?php endif; ?>
 
 </div><?php /* class view */ ?>
 
-<?php if ($more): ?>
+<?php if ($more and $display_id == 'review_block'): ?>
   <?php print $more; ?>
 <?php endif; ?>

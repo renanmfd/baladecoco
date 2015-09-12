@@ -22,7 +22,7 @@
     
     &.left {
       border-bottom: rem(10px) solid $darkblue;
-      background-color: $user-form-background;
+      background-color: $form-background;
     }
     
     &.right {
@@ -171,7 +171,7 @@
 
 .user-form-header {
   font-size: 0;
-  background-color: $user-form-color;
+  background-color: $form-color;
   
   .link {
     display: inline-block;
@@ -183,18 +183,18 @@
       display: table;
       width: 100%;
       height: 100%;
-      background-color: $user-form-color;
+      background-color: $form-color;
       border: 1px solid transparent;
       text-align: center;
       transition: background-color 0.3s ease-in-out;
       
       &:hover {
-        background-color: $user-form-color-hover;
-        border-color: $user-form-color;
+        background-color: $form-color-hover;
+        border-color: $form-color;
       }
       
       &.active {
-        background-color: $user-form-color-active;
+        background-color: $form-color-active;
         pointer-events: none;
       }
       
@@ -228,349 +228,35 @@
   }
 }
 
-form[id|="user"] {
-  display: block;
-  vertical-align: top;
-  padding: 0;
-  max-width: rem(400px);
-  margin: rem(40px) auto;
-  clear: both;
-  
-  h2.user-login-header {
-    margin: rem(0 0 20px 0);
-    @include font-size ($font-large);
-    color: $white;
-    text-align: center;
-    text-transform: none;
-    border: none;
-  }
-  
-  .user-form {
-    padding: rem(40px);
-    background-color: $user-form-background;
-    border-bottom: 10px solid $user-form-color;
-  }
-  
-  .form-item {
-    position: relative;
+.page-user-login,
+.page-user-register,
+.page-user-password {
+  form {
+    display: block;
+    vertical-align: top;
     padding: 0;
-    margin: rem(20px 0);
-    font-size: 0;
-    
-    label {
-      display: inline-block;
-      vertical-align: top;
-      position: relative;
-      width: rem(45px);
-      height: rem(45px);
-      margin: 0;
-      color: transparent;
-      background-color: $user-form-color;
-      border-top-left-radius: rem(5px);
-      border-bottom-left-radius: rem(5px);
-      
-      &:before {
-        content: "\e9d9";
-        @extend %icons;
-        display: block;
-        margin: rem(13px 5px);
-        text-align: center;
-        color: $white;
-      }
-      
-      .form-required {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: rem(3px);
-        color: $white;
-      }
-    }
-    
-    input {
-      display: inline-block;
-      vertical-align: top;
-      width: calc(100% - 45px);
-      height: rem(45px);
-      @include padding (10px);
-      padding-right: rem(30px);
-      @include font-size ($font-default);
-      line-height: rem(23px);
-      background-color: $white;
-      border: none;
-      border-radius: rem(5px);
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      
-      &:focus {
-        outline: 1px solid $user-form-color;
-        box-shadow: none;
-        
-        & + .form-validation-text {
-          display: block;
-        }
-      }
-      
-      &::-webkit-input-placeholder {
-        @include font ($bc-font2, $font-default, $font-bold);
-        font-style: normal;
-        color: $lightgray;
-        letter-spacing: 0;
-        animation-delay: 0.01s; // to prevent puting all together
-      }
-      
-      &::-moz-placeholder {
-        @include font ($bc-font2, $font-default, $font-bold);
-        font-style: normal;
-        color: $lightgray;
-        letter-spacing: 0;
-        animation-delay: 0.02s;
-      }
-      
-      &:-moz-placeholder {
-        @include font ($bc-font2, $font-default, $font-bold);
-        font-style: normal;
-        color: $lightgray;
-        letter-spacing: 0;
-        animation-delay: 0.03s;
-      }
-      
-      &::-ms-input-placeholder {
-        @include font ($bc-font2, $font-default, $font-bold);
-        font-style: normal;
-        color: $lightgray;
-        letter-spacing: 0;
-        animation-delay: 0.04s;
-      }
-    }
-    
-    .description {
-      display: none;
-    }
-  }
-  
-  .form-item-name,
-  .form-item-mail {
-    label:before{
-      content: "\e945"; // icon-envelop
-    }
-  }
-  
-  .field-name-field-user-name {
-    label:before {
-      content: "\e971"; // icon-user
-    }
-  }
-  
-  .form-item-pass {
-    label:before{
-      content: "\e98f"; // icon-lock
-      padding-left: rem(4px);
-    }
-    
-    input {
-      letter-spacing: rem(4px);
-    }
-    
-    .password-strength {
-      display: none;
-    }
-  }
-  
-  .form-item-remember-me {
-    position: relative;
-    
-    input {
-      height: 0;
-      width: 0;
-      margin: 0;
-      padding: 0;
-      visibility: hidden;
-    }
-    
-    label {
-      width: auto;
-      height: rem(30px);
-      padding-left: rem(30px);
-      background-color: transparent;
-      line-height: rem(28px);
-      color: $white;
-      cursor: pointer;
-      
-      &:before {
-        content: "\ea53"; // icon-checkbox-unchecked
-        width: rem(30px);
-        height: rem(30px);
-        margin: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: $user-form-color;
-        text-align: left;
-        line-height: rem(28px);
-      }
-    }
-    
-    input:checked + label:before {
-      content: "\ea52"; // icon-checkbox-checked
-    }
-  }
-  
-  .form-type-password-confirm {
-    .form-item {
-      display: block;
-      width: 100%;
-    }
-    
-    input {
-      margin-bottom: 0;
-    }
-    
-    .password-suggestions {
-      display: block;
-      position: relative;
-      width: 100%;
-      padding-left: rem(55px);
-      @include font ($bc-font1, $font-medium, $font-normal);
-      background-color: $white;
-      border: none;
-      border-radius: rem(5px);
-      overflow: hidden;
-      
-      &:before {
-        content: "\ea08";
-        @extend %icons;
-        display: block;
-        width: rem(45px);
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: $user-form-color;
-        @include font-size ($font-default);
-        line-height: rem(42px);
-        text-align: center;
-        color: $white;
-      }
-      
-      ul {
-        padding: rem(10px 0 5px 0);
-        list-style: circle;
-        list-style-type: circle;
-        
-        li {
-          margin-left: rem(20px);
-        }
-      }
-      
-      .password-strength {
-        display: block;
-        width: 100%;
-        margin: 0;
-        @include font-size ($font-default);
-        
-        &-title {
+    max-width: rem(400px);
+    margin: rem(40px) auto;
+    clear: both;
 
-        }
-        
-        .password-indicator {
-          height: rem(15px);
-        }
-      }
-    }
-    
-    div.password-confirm {
-      width: rem(30px);
-      height: rem(45px);
-      position: absolute;
-      top: 0;
-      right: 0;
-      font-size: 0;
-      text-align: center;
-      
-      span {
-        &:before {
-          content: "\ea10";
-          @extend %icons;
-          @include font-size ($font-default);
-          line-height: rem(45px);
-          color: $green;
-        }
-        
-        &.error:before {
-          content: "\ea0f";
-          color: $red;
-        }
-      }
-    }
-  }
-  
-  .form-validation-text {
-    display: none;
-    position: absolute;
-    left: rem(55px);
-    bottom: 0;
-    @include font ($bc-font1, $font-small, $font-normal);
-    color: transparent;
-  }
-  .form-not-valid .form-validation-text {
-    color: $red;
-  }
-  .form-valid .form-validation-text {
-    color: $darkgreen;
-  }
-  
-  .form-validation-icon {
-    width: rem(30px);
-    height: rem(45px);
-    position: absolute;
-    top: 0;
-    right: 0;
-    text-align: center;
-    
-    .icon:before {
-      display: none;
-      @include font-size ($font-default);
-      color: transparent;
-      line-height: rem(44px);
-    }
-  }
-  .form-not-valid .form-validation-icon .icon-cross:before {
-    display: block;
-    color: $red;
-  }
-  .form-valid .form-validation-icon .icon-checkmark:before {
-    display: block;
-    color: $green;
-  }
-  
-  .form-actions {
-    margin: rem(20px 0 0 0);
-    
-    .required-text {
-      @include font-size ($font-medium);
+    h2.user-login-header {
+      margin: rem(0 0 20px 0);
+      @include font ($bc-font2, $font-large, $font-default);
       color: $white;
-    }
-    
-    input.form-submit {
-      display: block;
-      width: 100%;
-      height: rem(45px);
-      float: none;
-      border: 1px solid transparent;
-      border-radius: rem(5px);
-      background-color: $user-form-color;
-      @include font ($bc-font2, $font-default, $font-bold);
       text-transform: uppercase;
-      color: $white;
-      cursor: pointer;
-      transition: background-color 0.3s ease-in-out;
-      
-      &:hover {
-        color: $white;
-        background-color: $user-form-color-hover;
-        border-color: $user-form-color;
-      }
+      text-align: center;
+      text-transform: none;
+      border: none;
+    }
+
+    .user-form {
+      padding: rem(40px);
+      background-color: $form-background;
+      border-bottom: 10px solid $form-color;
+    }
+
+    .form-actions {
+      margin: rem(20px 0 0 0);
     }
   }
 }

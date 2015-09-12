@@ -14,7 +14,7 @@
 ?>
 <section class="panel panel-user_login" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
   <h3 class="hidden"><?php print t('User Login'); ?></h3>
-  <div class="container">
+  <div class="content">
     <?php if (!empty($content['top'])): ?>
       <div class="panel-region top clearfix">
         <div class="container">

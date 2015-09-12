@@ -48,17 +48,27 @@
       a {
         display: block;
         @include font ($bc_font2, $font-default, $font-light);
-        text-transform: uppercase;
-        color: $header-navigation-cl;
-        transition: color 0.2s ease-in-out;
         
-        &:hover {
+        span.title {
+          @include font ($bc_font2, $font-default, $font-light);
+          text-transform: uppercase;
+        }
+        
+        span {
+          color: $header-navigation-cl;
+          transition: color 0.2s ease-in-out;
+        }
+        
+        &:hover span {
           color: $header-navigation-cl-hover;
         }
         
         &.active {
           pointer-events: none;
-          color: $header-navigation-cl-active;
+          
+          span {
+            color: $header-navigation-cl-active;
+          }
         }
       }
       

@@ -8,7 +8,7 @@ $lightpurple:   #AD14FF;
 $lighterpurple: #F2DAFF;
 
 $darkerorange:  #A57318;
-$darkorange:    #E89600;
+$darkorange:    #D9900A;
 $orange:        #FF8C00;
 $lightorange:   #FFAD5F;
 $lighterorange: #FCC48F;
@@ -103,7 +103,13 @@ $showroom-content-price-bg-hover: $darkblue;
 $showroom-content-price-cl-hover: $white;
 
 // User forms ============================== //
-$user-form-background:    $lighterblue;
-$user-form-color:         $darkblue;
-$user-form-color-active:  $darkerblue;
-$user-form-color-hover:   $lightblue;
+$form-background:       $lighterblue;
+$form-color:            $darkblue;
+$form-color-active:     $darkerblue;
+$form-color-hover:      $lightblue;
+
+// Reviews page ============================ //
+$review-page-bg:          $purple2;
+$review-page-border:      $purple3;
+$review-page-form-bg:     $lightblue;
+$review-page-form-border: $blue;

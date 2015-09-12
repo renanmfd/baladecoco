@@ -1,0 +1,38 @@
+// LABEL ICONS ========================================== //
+.form-item-name,
+.form-item-mail {
+  label:before{
+    content: "\e945"; // icon-envelop
+  }
+}
+
+.field-name-field-user-name {
+  label:before {
+    content: "\e971"; // icon-user
+  }
+}
+
+.form-item-pass {
+  label:before{
+    content: "\e98f"; // icon-lock
+    padding-left: rem(4px);
+  }
+}
+
+.form-item-current-pass {
+  label:before{
+    content: "\e98d"; // icon-key
+  }
+}
+
+.form-item-field-user-phone-und-0-value {
+  label:before{
+    content: "\e942"; // icon-phone
+  }
+}
+
+.form-item-field-user-document-und-0-value {
+  label:before{
+    content: "\e944"; // icon-address-book
+  }
+}

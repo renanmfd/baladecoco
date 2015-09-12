@@ -87,6 +87,7 @@
 
     <!-- Presentation -->
     <section id="presentation">
+      <h3 class="hidden"><?php print t('Presentation'); ?></h3>
       <?php print render($page['presentation']);?>
       <div class="container">
         <h2 class="slogan"><?php print $site_slogan; ?></h2>
@@ -102,6 +103,15 @@
       <?php print render($page['navigation']);?>
     </section>
     <!-- /Navigation -->
+    
+    <!-- Management -->
+    <?php if ($is_admin or $is_moderator): ?>
+      <section id="management">
+        <h3 class="hidden"><?php print t('Management'); ?></h3>
+        <?php print render($page['management']);?>
+      </section>
+    <?php endif; ?>
+    <!-- /Management -->
 
   </header>
   <!-- /HEADER -->
@@ -157,12 +167,8 @@
 
   <!-- MOBILE MENU -->
   <section id="mobile-menu">
-
-    <div class="mobile-menu-wrapper clearfix">
-      <h3 class="hidden"><?php print t('Mobile Menu'); ?></h3>
-      <?php print render($page['mobile_menu']);?>
-    </section>
-
+    <h3 class="hidden"><?php print t('Mobile Menu'); ?></h3>
+    <?php print render($page['mobile_menu']);?>
   </section>
   <!-- /MOBILE MENU -->
 
