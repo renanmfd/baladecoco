@@ -19,6 +19,9 @@ define('CART_ITEM_ACTIVE', 1);
 
 define('CART_ITEM_SAVED', 2);
 
+// FEATURES.
+include_once 'bc_cart.features.inc';
+
 /**
  * Implements HOOK_permission().
  */
