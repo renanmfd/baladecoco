@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * @file
+ * Main file for bc_cupom module.
+ */
+
+/**
+ * Implements HOOK_schema().
+ */
+function bc_cupom_schema() {
+  $schema['cupom'] = array(
+    'description' => 'Cupom for purchasing products.',
+    'fields' => array(
+      'cpid' => array(
+        'description' => 'The primary identifier for a cupom.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'author' => array(
+        'description' => 'The uid of the author.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'title' => array(
+        'description' => 'The title of the cupom.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'code' => array(
+        'description' => 'The emcrypted code of the cupom.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'expiration' => array(
+        'description' => 'Timestamp of the expiration date of the cupom.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'created' => array(
+        'description' => 'Timestamp of when the cupom was created.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'uses' => array(
+        'description' => 'Number of times this cupom was used.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'quantity' => array(
+        'description' => 'Max number of times this cupom can be used.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'discount_type' => array(
+        'description' => 'Type of discount this cupom gives.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'discount' => array(
+        'description' => 'Value of the discount of the cupom, related to {discount_type}',
+        'type' => 'float',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'indexes' => array(
+      'cupom_created' => array('created'),
+    ),
+    'primary key' => array('cpid'),
+  );
+  return $schema;
+}

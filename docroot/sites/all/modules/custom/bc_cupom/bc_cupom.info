@@ -1,0 +1,7 @@
+name = BC Cupom
+core = 7.x
+package = Bala de Coco
+
+dependencies[] = bc_cart
+dependencies[] = date_api
+dependencies[] = date_popup

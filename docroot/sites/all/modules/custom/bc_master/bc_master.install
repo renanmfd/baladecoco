@@ -260,3 +260,12 @@ function bc_master_update_7115() {
     'bc_user_feature',
   ));
 }
+
+/**
+ * Enable bc_cupom.
+ */
+function bc_master_update_7116() {
+  module_enable(array(
+    'bc_cupom',
+  ));
+}

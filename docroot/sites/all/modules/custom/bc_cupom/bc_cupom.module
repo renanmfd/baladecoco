@@ -1,0 +1,338 @@
+<?php
+
+/**
+ * @file
+ * Main file for bc_cart module.
+ *
+ * TODO - Add conditions for CUPONS.
+ */
+
+define('BC_CUPOM_TIME_FORMAT', 'Y-m-d');
+
+/**
+ * Implements HOOK_cron().
+ */
+function bc_cupom_cron() {
+  // Delete Cupoms that expire more than 1 year ago.
+  // cupom_delete_expired(); // Dont delete for now.
+}
+
+/**
+ * Implements HOOK_permission().
+ */
+function bc_cupom_permission() {
+  $permissions = array(
+    'administer cupom' => array(
+      'title' => t('Administer cupom configurations'),
+      'description' => t('Allows changing cupom module settings.'),
+      'restrict access' => TRUE,
+    ),
+  );
+
+  return $permissions;
+}
+
+/**
+ * Implements HOOK_menu().
+ */
+function bc_cupom_menu() {
+  $items = array();
+
+  $items['admin/config/content/cupom'] = array(
+    'title' => 'Cupom',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('bc_cupom_config_form'),
+    'access arguments' => array('administer cupom'),
+    'file' => 'bc_cupom.admin.inc'
+  );
+
+  $items['admin/content/cupom'] = array(
+    'title' => 'Cupom',
+    'description' => 'View all cupons and perform admin tasks.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('bc_cupom_view_all'),
+    'access arguments' => array('administer cupom'),
+    'file' => 'bc_cupom.admin.inc',
+  );
+
+  $items['admin/content/cupom/view'] = array(
+    'title' => 'View',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'access arguments' => array('administer cupom'),
+    'weight' => -10
+  );
+
+  $items['admin/content/cupom/add'] = array(
+    'title' => 'Add',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('bc_cupom_add_cupom'),
+    'access arguments' => array('administer cupom'),
+    'file' => 'bc_cupom.admin.inc',
+  );
+
+  $items['admin/content/cupom/%/edit'] = array(
+    'title' => 'Edit',
+    'type' => MENU_CALLBACK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('bc_cupom_add_cupom', 3),
+    'access arguments' => array('administer cupom'),
+    'file' => 'bc_cupom.admin.inc',
+  );
+
+  $items['admin/content/cupom/%/delete'] = array(
+    'title' => 'Delete',
+    'type' => MENU_CALLBACK,
+    'page callback' => 'bc_cupom_delete_cupom',
+    'page arguments' => array(3),
+    'access arguments' => array('administer cupom'),
+    'file' => 'bc_cupom.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements HOOK_theme_registry_alter().
+ */
+function bc_cupom_theme_registry_alter(&$theme_registry) {
+  $theme_registry['cart_table_subtotal_row']['template'] = drupal_get_path('module', 'bc_cupom') . '/templates/cart-table--subtotal-cupom-row';
+  $theme_registry['cart_table_subtotal_row']['theme path'] = drupal_get_path('module', 'bc_cupom');
+  $theme_registry['cart_table_subtotal_row']['preprocess functions'][] = 'template_preprocess_cart_cupom';
+}
+
+/**
+ * See bc_cupom_theme_registry_alter().
+ */
+function template_preprocess_cart_cupom(&$vars) {
+  // Retrieve user cart.
+  $cart = cart_get();
+
+  // Get cupom apply/remove form.
+  $vars['cupom_form'] = drupal_get_form('bc_cupom_cupom_cart_form');
+
+  // Set variable with checks for cupom.
+  $vars['cupom_isset'] = isset($cart['cupom'])? TRUE : FALSE;
+
+  // If cupom is set.
+  if ($vars['cupom_isset']) {
+    $cupom = $cart['cupom'];
+    $total = cart_subtotal($cart);
+    $value = $cupom['discount'];
+
+    // Get discount value.
+    if ($cupom['discount_type'] == 0) { // Percentage.
+      $vars['discount'] = cart_format_money(($total * $value) / 100);
+      $vars['percetage'] = $value;
+      $vars['subtotal_cupom'] = cart_format_money($total - $vars['discount']);
+    }
+    else { // Value.
+      $vars['discount'] = cart_format_money($value);
+      $vars['percetage'] = number_format(($value / $total) * 100,1);
+      $vars['subtotal_cupom'] = cart_format_money($total - $value);
+    }
+  }
+}
+
+/**
+ * Cupom form for cart and its handler functions.
+ */
+function bc_cupom_cupom_cart_form($form, &$form_state) {
+  $cart = cart_get();
+  $cupom_isset = isset($cart['cupom'])? TRUE : FALSE;
+
+  // If no cupom, build form to add cupons, else just print the cupom.
+  if (!$cupom_isset) {
+    $form['cupom'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Cupom'),
+      '#description' => t('If you have a cupom number, enter it here to get discounts.'),
+      '#required' => TRUE,
+    );
+
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('OK'),
+    );
+  }
+  else {
+    $form['text'] = array(
+      '#type' => 'markup',
+      '#markup' => t('This cupom "!title" gives you !discount!type of discount. Good shopping!', array(
+        '!title' =>  $cart['cupom']['title'],
+        '!discount' =>  $cart['cupom']['discount'],
+        '!type' => ($cart['cupom']['discount_type'] == 0)? '%' : ' R$',
+      )),
+    );
+
+    $form['remove'] = array(
+      '#type' => 'submit',
+      '#value' => t('Remove Cupom'),
+      '#submit' => array('bc_cupom_cart_form_remove'),
+      '#validation' => array(),
+    );
+  }
+
+  return $form;
+}
+
+function bc_cupom_cart_form_remove($form, &$form_state) {
+  $cart = cart_get();
+  unset($cart['cupom']);
+  cart_save($cart);
+}
+
+function bc_cupom_cupom_cart_form_validate($form, &$form_state) {
+  if (isset($form['cupom'])) {
+    $code = $form_state['values']['cupom'];
+    if (!cupom_check($code)) {
+      form_set_error('cupom', t('Invalid or expired cupom code! Please enter a valid code.'));
+    }
+  }
+}
+
+function bc_cupom_cupom_cart_form_submit($form, &$form_state) {
+  $code = $form_state['values']['cupom'];
+  $cupom = cupom_get_code($code);
+  if (!$cupom) {
+    return;
+  }
+
+  $cart = cart_get();
+  $cart['cupom'] = $cupom;
+  cupom_add_usage($cupom['cpid']);
+  cart_save($cart);
+}
+
+/** ================================================================ **/
+/** ==                        CUPOM API                           == **/
+/** ================================================================ **/
+
+/**
+ * Create a Cupom on database.
+ */
+function cupom_create($title, $code, $expiration = 1, $quantity = 1, $type = 0, $value = 5) {
+  global $user;
+  if ($user->uid == 0) return;
+  // Encrypt code to save in DB.
+  $encrypted_code = cupom_code_encode($code);
+  // Inset new cupom into database.
+  $query = db_insert('cupom')
+    ->fields(array(
+      'author' => $user->uid,
+      'title' => $title,
+      'code' => $encrypted_code,
+      'expiration' => $expiration,
+      'created' => REQUEST_TIME,
+      'uses' => 0,
+      'quantity' => $quantity,
+      'discount_type' => $type,
+      'discount' => $value,
+    ))
+    ->execute();
+}
+
+/**
+ * Get Cupom on database.
+ */
+function cupom_get($cpid) {
+  $query = db_select('cupom', 'c')
+    ->fields('c')
+    ->condition('cpid', $cpid, '=');
+  $result = $query->execute()->fetchAssoc();
+  return $result;
+}
+
+/**
+ * Get Cupom on database.
+ */
+function cupom_update($cpid, $title, $expiration, $quantity, $type, $discount) {
+  $query = db_update('cupom')
+    ->fields(array(
+      'title' => $title,
+      'expiration' => $expiration,
+      'quantity' => $quantity,
+      'discount_type' => $type,
+      'discount' => $discount,
+    ))
+    ->condition('cpid', $cpid, '=')
+    ->execute();
+}
+
+/**
+ * Get Cupom on database.
+ */
+function cupom_add_usage($cpid) {
+  $query = db_update('cupom')
+    ->expression('uses', 'uses + :usage', array(':usage' => 1))
+    ->condition('cpid', $cpid, '=')
+    ->execute();
+}
+
+/**
+ * Delete Cupom from database.
+ */
+function cupom_delete($cpid) {
+  $query = db_delete('cupom')
+    ->condition('cpid', $cpid, '=')
+    ->execute();
+}
+
+/**
+ * Get ALL Cupom on database.
+ */
+function cupom_get_all($sort = 'created', $order = 'ASC') {
+  $query = db_select('cupom', 'c')
+    ->fields('c')
+    ->orderBy($sort, $order);
+  $result = $query->execute()->fetchAllAssoc('cpid');
+  return $result;
+}
+
+
+/**
+ * Get Cupom by code.
+ */
+function cupom_get_code($code) {
+  $encrypted_code = cupom_code_encode($code);
+  $query = db_select('cupom', 'c')
+    ->fields('c')
+    ->condition('code', $encrypted_code, '=');
+  $result = $query->execute()->fetchAssoc();
+  return $result;
+}
+
+/**
+ * Cupom check code.
+ */
+function cupom_check($code) {
+  $cupom = cupom_get_code($code);
+  // If cupom doesn't exist, is expired or exceded quantity.
+  return ($cupom == FALSE or $cupom['expiration'] < REQUEST_TIME or $cupom['uses'] >= $cupom['quantity'])? FALSE : TRUE;
+}
+
+/**
+ * Encode Cupom CODE.
+ */
+function cupom_code_encode($code) {
+  return md5(sha1($code));
+}
+
+/**
+ * Delete expired Cupom's.
+ */
+function cupom_delete_expired($days = 30) {
+  $query = db_delete('cupom')
+    ->condition('valid', (REQUEST_TIME - ($days*24*3600)), '<')
+    ->execute();
+}
+
+/**
+ * Get cupom type of discounts.
+ */
+function cupom_types() {
+  return array(
+    0 => t('Percentage'),
+    1 => t('Value'),
+  );
+}
