@@ -140,5 +140,4 @@ function bc_user_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
     '#markup' => '<div class="form-header"><span>' . t('Profile edit') . '</span></div>',
     '#weight' => -9999,
   );
-  dpm($form);
 }
