@@ -10,6 +10,7 @@
   
   .table {
     max-width: rem($tablet);
+    margin: 0 auto;
     
     @include susy-breakpoint($tablet, $susy_tablet) {
       border-left: rem(2px) solid $cart-title-bg;
@@ -203,6 +204,53 @@
   }
 }
 
+.subtotal {
+  height: auto !important;
+  background-color: $cart-title-bg !important;
+  @include clearfix;
+
+  &__value {
+    float: right;
+    @include padding (10px);
+    text-align: right;
+    
+    &__discount {
+      margin-bottom: rem(3px);
+      padding-bottom: rem(3px);
+      border-bottom: rem(2px) solid $white;
+    }
+    
+    &__nocupom,
+    &__discount {
+      span.value {
+        @include font-size ($font-large);
+      }
+    }
+
+    .label {
+      display: block;
+      @include font ($bc-font2, $font-default, $font-light);
+      text-align: right;
+      color: $white;
+    }
+    
+    .value {
+      @include font ($bc-font2, $font-title, $font-bold);
+      color: $white;
+    }
+    
+    .currency {
+      @include font ('serif', $font-default, $font-normal);
+      color: $white;
+    }
+  }
+  
+  &__cupom {
+    float: left;
+    padding-left: rem(10px);
+  }
+}
+
 // FORM QUANTITY ================== //
 form.quantity-form {
   margin: 0;
@@ -261,31 +309,41 @@ form.quantity-form {
   }
 }
 
-.subtotal {
-  height: auto !important;
-  background-color: $cart-title-bg !important;
-  @include clearfix;
-
-  &__value {
-    float: right;
-    @include padding (10px);
-    text-align: right;
-
-    .label {
-      display: block;
-      @include font ($bc-font2, $font-default, $font-light);
-      text-align: right;
-      color: $white;
-    }
+// FORM CUPOM
+#bc-cupom-cupom-cart-form {
+  max-width: rem(260px);
+  margin: rem(10px 0);
+  font-size: 0;
+  text-align: center;
+  
+  .form-item:first-child {
+    display: inline-block;
+    vertical-align: top;
+    width: rem(200px);
+    margin: 0;
     
-    .value {
-      @include font ($bc-font2, $font-title, $font-bold);
-      color: $white;
+    input {
+      padding-right: rem(10px);
+      @include font-size ($font-medium);
     }
+  }
+  
+  .form-submit {
+    display: inline-block;
+    vertical-align: top;
+    width: rem(50px);
+    margin-left: rem(10px);
     
-    .currency {
-      @include font ('serif', $font-default, $font-normal);
-      color: $white;
+    &.cupom-remove {
+      height: rem(30px);
+      width: rem(160px);
+      margin: 0;
+      margin-top: rem(10px);
     }
+  }
+  
+  p {
+    @include font ($bc-font1, $font-default, $font-normal);
+    color: $white;
   }
 }

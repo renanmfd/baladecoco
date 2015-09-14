@@ -351,7 +351,7 @@ function bc_theme_form_element_label($variables) {
   $attributes['title'] = isset($element['#description'])? strip_tags($element['#description']) : t('No description');
   if (isset($element['#required']) and $element['#required']) $attributes['title'] .= ' ' . t('(required)');
   $attributes['data-toggle'] = 'tooltip';
-  $attributes['data-placement'] = 'left';
+  $attributes['data-placement'] = 'auto left';
 
   // Style the label as class option to display inline with the element.
   if ($element['#title_display'] == 'after') {

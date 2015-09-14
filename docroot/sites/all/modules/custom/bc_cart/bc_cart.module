@@ -414,7 +414,7 @@ function template_preprocess_cart_table_row(&$vars, $hook) {
  */
 function template_preprocess_cart_table_subtotal_row(&$vars, $hook) {
   $cart = $vars['cart'];
-  $vars['subtotal'] = cart_subtotal($cart);
+  $vars['subtotal'] = cart_format_money(cart_subtotal($cart));
 }
 
 /**
@@ -636,7 +636,7 @@ function cart_subtotal($cart) {
     $quantity = $item['quantity'] / BC_CART_WEIGHT_UNIT;
     $subtotal += ($price * $quantity);
   }
-  return cart_format_money($subtotal);
+  return $subtotal;
 }
 
 
