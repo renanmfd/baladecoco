@@ -15,7 +15,7 @@ function bc_user_feature_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Enter you SSN. This information is confidential and protected, we will not make it available for general public.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -41,37 +41,6 @@ function bc_user_feature_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance: 'user-user-field_user_location'
-  $field_instances['user-user-field_user_location'] = array(
-    'bundle' => 'user',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'location_cck',
-        'settings' => array(),
-        'type' => 'location_default',
-        'weight' => 2,
-      ),
-    ),
-    'entity_type' => 'user',
-    'field_name' => 'field_user_location',
-    'label' => 'Location',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => 0,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'location_cck',
-      'settings' => array(),
-      'type' => 'location',
-      'weight' => 4,
     ),
   );
 
@@ -114,7 +83,7 @@ function bc_user_feature_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Enter you phone or cell-phone number. We will only call about your orders.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -146,8 +115,9 @@ function bc_user_feature_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Document');
+  t('Enter you SSN. This information is confidential and protected, we will not make it available for general public.');
+  t('Enter you phone or cell-phone number. We will only call about your orders.');
   t('Enter your full name.');
-  t('Location');
   t('Name');
   t('Phone');
 

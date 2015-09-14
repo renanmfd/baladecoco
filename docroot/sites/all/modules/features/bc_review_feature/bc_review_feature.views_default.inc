@@ -108,6 +108,12 @@ function bc_review_feature_views_default_views() {
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['title']['expose']['label'] = 'Title';
+  /* Sort criterion: Content: Rating (field_review_rating) */
+  $handler->display->display_options['sorts']['field_review_rating_value']['id'] = 'field_review_rating_value';
+  $handler->display->display_options['sorts']['field_review_rating_value']['table'] = 'field_data_field_review_rating';
+  $handler->display->display_options['sorts']['field_review_rating_value']['field'] = 'field_review_rating_value';
+  $handler->display->display_options['sorts']['field_review_rating_value']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['field_review_rating_value']['expose']['label'] = 'Stars';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -130,67 +136,6 @@ function bc_review_feature_views_default_views() {
   $handler->display->display_options['filters']['field_review_rating_value']['field'] = 'field_review_rating_value';
   $handler->display->display_options['filters']['field_review_rating_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_review_rating_value']['value']['value'] = '3';
-  /* Filter criterion: Stars */
-  $handler->display->display_options['filters']['field_review_rating_value_1']['id'] = 'field_review_rating_value_1';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['table'] = 'field_data_field_review_rating';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['field'] = 'field_review_rating_value';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['ui_name'] = 'Stars';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_review_rating_value_1']['expose']['operator_id'] = 'field_review_rating_value_1_op';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['expose']['label'] = 'Rating (field_review_rating)';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['expose']['operator'] = 'field_review_rating_value_1_op';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['expose']['identifier'] = 'field_review_rating_value_1';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['field_review_rating_value_1']['group_info']['label'] = 'Rating (field_review_rating)';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['group_info']['description'] = 'Stars rating filter.';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['group_info']['identifier'] = 'stars';
-  $handler->display->display_options['filters']['field_review_rating_value_1']['group_info']['group_items'] = array(
-    1 => array(
-      'title' => '1',
-      'operator' => '=',
-      'value' => array(
-        'value' => '1',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-    2 => array(
-      'title' => '2',
-      'operator' => '=',
-      'value' => array(
-        'value' => '2',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-    3 => array(
-      'title' => '3',
-      'operator' => '=',
-      'value' => array(
-        'value' => '3',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-    4 => array(
-      'title' => '4',
-      'operator' => '=',
-      'value' => array(
-        'value' => '4',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-    5 => array(
-      'title' => '5',
-      'operator' => '=',
-      'value' => array(
-        'value' => '5',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-  );
   $handler->display->display_options['path'] = 'reviews';
   $export['review_frontpage'] = $view;
 

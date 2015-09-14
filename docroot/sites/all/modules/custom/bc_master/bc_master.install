@@ -245,3 +245,18 @@ function bc_master_update_7114() {
   module_disable(array('location'));
   drupal_uninstall_modules(array('location'));
 }
+
+/**
+ * Revert several features.
+ */
+function bc_master_update_7115() {
+  features_revert(array(
+    'bc_block_settings_feature',
+    'bc_menu_feature',
+    'bc_permission_feature',
+    'bc_product_feature',
+    'bc_review_feature',
+    'bc_site_settings_feature',
+    'bc_user_feature',
+  ));
+}

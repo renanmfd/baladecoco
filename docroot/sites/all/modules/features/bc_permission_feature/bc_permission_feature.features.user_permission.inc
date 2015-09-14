@@ -15,7 +15,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'access administration menu',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'admin_menu',
   );
@@ -25,7 +24,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'access administration pages',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'system',
   );
@@ -44,7 +42,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'access bean overview',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'bean',
   );
@@ -76,7 +73,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'access content overview',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -86,7 +82,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'access contextual links',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'contextual',
   );
@@ -96,7 +91,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'access dashboard',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'dashboard',
   );
@@ -106,7 +100,8 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'access devel information',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'devel',
   );
@@ -126,7 +121,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'access site in maintenance mode',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'system',
   );
@@ -145,7 +139,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'access statistics',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'statistics',
   );
@@ -155,9 +148,20 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'access user profiles',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'add own cart'.
+  $permissions['add own cart'] = array(
+    'name' => 'add own cart',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+      'moderator' => 'moderator',
+    ),
+    'module' => 'bc_cart',
   );
 
   // Exported permission: 'admin_classes'.
@@ -219,7 +223,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer bean settings',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'bean',
   );
@@ -229,7 +232,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer bean types',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'bean',
   );
@@ -239,7 +241,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer beans',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'bean',
   );
@@ -249,7 +250,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer block classes',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'block_class',
   );
@@ -259,9 +259,18 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer blocks',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'block',
+  );
+
+  // Exported permission: 'administer cart'.
+  $permissions['administer cart'] = array(
+    'name' => 'administer cart',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'moderator' => 'moderator',
+    ),
+    'module' => 'bc_cart',
   );
 
   // Exported permission: 'administer comments'.
@@ -269,7 +278,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer comments',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'comment',
   );
@@ -290,6 +298,16 @@ function bc_permission_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'context_ui',
+  );
+
+  // Exported permission: 'administer cupom'.
+  $permissions['administer cupom'] = array(
+    'name' => 'administer cupom',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'moderator' => 'moderator',
+    ),
+    'module' => 'bc_cupom',
   );
 
   // Exported permission: 'administer dependencies'.
@@ -337,6 +355,15 @@ function bc_permission_feature_user_default_permissions() {
     'module' => 'filter',
   );
 
+  // Exported permission: 'administer form placeholder'.
+  $permissions['administer form placeholder'] = array(
+    'name' => 'administer form placeholder',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'form_placeholder',
+  );
+
   // Exported permission: 'administer google analytics'.
   $permissions['administer google analytics'] = array(
     'name' => 'administer google analytics',
@@ -351,7 +378,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer image styles',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'image',
   );
@@ -370,7 +396,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer menu',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'menu',
   );
@@ -380,7 +405,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer menu attributes',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'menu_attributes',
   );
@@ -392,6 +416,15 @@ function bc_permission_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'metatag',
+  );
+
+  // Exported permission: 'administer mini panels'.
+  $permissions['administer mini panels'] = array(
+    'name' => 'administer mini panels',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels_mini',
   );
 
   // Exported permission: 'administer module filter'.
@@ -417,7 +450,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer nodes',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -427,7 +459,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer page manager',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'page_manager',
   );
@@ -437,7 +468,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer pane access',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'panels',
   );
@@ -447,142 +477,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer panelizer',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer bean presentation defaults'.
-  $permissions['administer panelizer bean presentation defaults'] = array(
-    'name' => 'administer panelizer bean presentation defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer file audio defaults'.
-  $permissions['administer panelizer file audio defaults'] = array(
-    'name' => 'administer panelizer file audio defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer file document defaults'.
-  $permissions['administer panelizer file document defaults'] = array(
-    'name' => 'administer panelizer file document defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer file image defaults'.
-  $permissions['administer panelizer file image defaults'] = array(
-    'name' => 'administer panelizer file image defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer file video defaults'.
-  $permissions['administer panelizer file video defaults'] = array(
-    'name' => 'administer panelizer file video defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node article defaults'.
-  $permissions['administer panelizer node article defaults'] = array(
-    'name' => 'administer panelizer node article defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node page defaults'.
-  $permissions['administer panelizer node page defaults'] = array(
-    'name' => 'administer panelizer node page defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node product content'.
-  $permissions['administer panelizer node product content'] = array(
-    'name' => 'administer panelizer node product content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node product context'.
-  $permissions['administer panelizer node product context'] = array(
-    'name' => 'administer panelizer node product context',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node product defaults'.
-  $permissions['administer panelizer node product defaults'] = array(
-    'name' => 'administer panelizer node product defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node product layout'.
-  $permissions['administer panelizer node product layout'] = array(
-    'name' => 'administer panelizer node product layout',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node product overview'.
-  $permissions['administer panelizer node product overview'] = array(
-    'name' => 'administer panelizer node product overview',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node product settings'.
-  $permissions['administer panelizer node product settings'] = array(
-    'name' => 'administer panelizer node product settings',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node review content'.
-  $permissions['administer panelizer node review content'] = array(
-    'name' => 'administer panelizer node review content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node review context'.
-  $permissions['administer panelizer node review context'] = array(
-    'name' => 'administer panelizer node review context',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'panelizer',
   );
@@ -590,90 +484,49 @@ function bc_permission_feature_user_default_permissions() {
   // Exported permission: 'administer panelizer node review defaults'.
   $permissions['administer panelizer node review defaults'] = array(
     'name' => 'administer panelizer node review defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+    'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node review layout'.
-  $permissions['administer panelizer node review layout'] = array(
-    'name' => 'administer panelizer node review layout',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+  // Exported permission: 'administer panelizer user user content'.
+  $permissions['administer panelizer user user content'] = array(
+    'name' => 'administer panelizer user user content',
+    'roles' => array(),
     'module' => 'panelizer',
   );
 
-  // Exported permission: 'administer panelizer node review overview'.
-  $permissions['administer panelizer node review overview'] = array(
-    'name' => 'administer panelizer node review overview',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer node review settings'.
-  $permissions['administer panelizer node review settings'] = array(
-    'name' => 'administer panelizer node review settings',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer taxonomy_term bala_type defaults'.
-  $permissions['administer panelizer taxonomy_term bala_type defaults'] = array(
-    'name' => 'administer panelizer taxonomy_term bala_type defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer taxonomy_term flavours defaults'.
-  $permissions['administer panelizer taxonomy_term flavours defaults'] = array(
-    'name' => 'administer panelizer taxonomy_term flavours defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer taxonomy_term product_type defaults'.
-  $permissions['administer panelizer taxonomy_term product_type defaults'] = array(
-    'name' => 'administer panelizer taxonomy_term product_type defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer taxonomy_term states defaults'.
-  $permissions['administer panelizer taxonomy_term states defaults'] = array(
-    'name' => 'administer panelizer taxonomy_term states defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'panelizer',
-  );
-
-  // Exported permission: 'administer panelizer taxonomy_term tags defaults'.
-  $permissions['administer panelizer taxonomy_term tags defaults'] = array(
-    'name' => 'administer panelizer taxonomy_term tags defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+  // Exported permission: 'administer panelizer user user context'.
+  $permissions['administer panelizer user user context'] = array(
+    'name' => 'administer panelizer user user context',
+    'roles' => array(),
     'module' => 'panelizer',
   );
 
   // Exported permission: 'administer panelizer user user defaults'.
   $permissions['administer panelizer user user defaults'] = array(
     'name' => 'administer panelizer user user defaults',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+    'roles' => array(),
+    'module' => 'panelizer',
+  );
+
+  // Exported permission: 'administer panelizer user user layout'.
+  $permissions['administer panelizer user user layout'] = array(
+    'name' => 'administer panelizer user user layout',
+    'roles' => array(),
+    'module' => 'panelizer',
+  );
+
+  // Exported permission: 'administer panelizer user user overview'.
+  $permissions['administer panelizer user user overview'] = array(
+    'name' => 'administer panelizer user user overview',
+    'roles' => array(),
+    'module' => 'panelizer',
+  );
+
+  // Exported permission: 'administer panelizer user user settings'.
+  $permissions['administer panelizer user user settings'] = array(
+    'name' => 'administer panelizer user user settings',
+    'roles' => array(),
     'module' => 'panelizer',
   );
 
@@ -691,7 +544,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer panels styles',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'panels',
   );
@@ -701,7 +553,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer pathauto',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'pathauto',
   );
@@ -783,7 +634,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer taxonomy',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'taxonomy',
   );
@@ -802,7 +652,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'administer url aliases',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'path',
   );
@@ -839,9 +688,17 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'block IP addresses',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'system',
+  );
+
+  // Exported permission: 'bypass advanced aggregation'.
+  $permissions['bypass advanced aggregation'] = array(
+    'name' => 'bypass advanced aggregation',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'advagg',
   );
 
   // Exported permission: 'bypass file access'.
@@ -867,7 +724,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'cancel account',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'user',
   );
@@ -895,7 +751,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'context ajax block access',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'context_ui',
   );
@@ -905,7 +760,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'create any presentation bean',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'bean',
   );
@@ -915,7 +769,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'create article content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -925,9 +778,17 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'create files',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'create mini panels'.
+  $permissions['create mini panels'] = array(
+    'name' => 'create mini panels',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels_mini',
   );
 
   // Exported permission: 'create page content'.
@@ -935,7 +796,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'create page content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -945,7 +805,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'create product content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -955,7 +814,7 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'create review content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -965,7 +824,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'create url aliases',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'path',
   );
@@ -984,7 +842,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'delete any article content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1021,7 +878,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'delete any page content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1031,7 +887,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'delete any presentation bean',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'bean',
   );
@@ -1041,7 +896,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'delete any product content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1051,7 +905,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'delete any review content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1070,7 +923,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'delete own article content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1107,7 +959,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'delete own page content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1117,7 +968,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'delete own product content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1127,7 +977,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'delete own review content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1146,7 +995,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'delete revisions',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1168,13 +1016,6 @@ function bc_permission_feature_user_default_permissions() {
   // Exported permission: 'delete terms in product_type'.
   $permissions['delete terms in product_type'] = array(
     'name' => 'delete terms in product_type',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in states'.
-  $permissions['delete terms in states'] = array(
-    'name' => 'delete terms in states',
     'roles' => array(),
     'module' => 'taxonomy',
   );
@@ -1274,7 +1115,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'edit any article content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1286,6 +1126,16 @@ function bc_permission_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit any cart'.
+  $permissions['edit any cart'] = array(
+    'name' => 'edit any cart',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'moderator' => 'moderator',
+    ),
+    'module' => 'bc_cart',
   );
 
   // Exported permission: 'edit any document files'.
@@ -1311,7 +1161,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'edit any page content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1321,7 +1170,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'edit any presentation bean',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'bean',
   );
@@ -1331,7 +1179,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'edit any product content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1341,7 +1188,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'edit any review content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1360,7 +1206,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'edit bean view mode',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'bean',
   );
@@ -1379,7 +1224,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'edit own article content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1391,6 +1235,18 @@ function bc_permission_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit own cart'.
+  $permissions['edit own cart'] = array(
+    'name' => 'edit own cart',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+      'moderator' => 'moderator',
+    ),
+    'module' => 'bc_cart',
   );
 
   // Exported permission: 'edit own comments'.
@@ -1426,7 +1282,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'edit own page content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1436,7 +1291,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'edit own product content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1446,7 +1300,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'edit own review content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1481,13 +1334,6 @@ function bc_permission_feature_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: 'edit terms in states'.
-  $permissions['edit terms in states'] = array(
-    'name' => 'edit terms in states',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: 'edit terms in tags'.
   $permissions['edit terms in tags'] = array(
     'name' => 'edit terms in tags',
@@ -1502,7 +1348,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'epsacrop administer available crops',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'epsacrop',
   );
@@ -1512,7 +1357,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'epsacrop create crops',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'epsacrop',
   );
@@ -1522,7 +1366,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'epsacrop delete all crops',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'epsacrop',
   );
@@ -1532,7 +1375,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'epsacrop edit all crops',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'epsacrop',
   );
@@ -1542,7 +1384,8 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'execute php code',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'devel',
   );
@@ -1606,7 +1449,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'notify of path changes',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'pathauto',
   );
@@ -1653,7 +1495,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'revert revisions',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1682,7 +1523,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'select account cancellation method',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'user',
   );
@@ -1701,7 +1541,7 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'skip comment approval',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
+      'moderator' => 'moderator',
     ),
     'module' => 'comment',
   );
@@ -1729,6 +1569,8 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'switch users',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
       'moderator' => 'moderator',
     ),
     'module' => 'devel',
@@ -1777,7 +1619,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'use ipe with page manager',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'panels',
   );
@@ -1787,7 +1628,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'use page manager',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'page_manager',
   );
@@ -1806,7 +1646,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'use panels dashboard',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'panels',
   );
@@ -1816,7 +1655,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'use panels in place editing',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'panels',
   );
@@ -1826,7 +1664,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'use panels locks',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'panels',
   );
@@ -1847,7 +1684,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'use text format full_html',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'filter',
   );
@@ -1857,7 +1693,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'view any presentation bean',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'bean',
   );
@@ -1867,7 +1702,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'view bean page',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'bean',
   );
@@ -1879,6 +1713,18 @@ function bc_permission_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'bean',
+  );
+
+  // Exported permission: 'view cart'.
+  $permissions['view cart'] = array(
+    'name' => 'view cart',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+      'moderator' => 'moderator',
+    ),
+    'module' => 'bc_cart',
   );
 
   // Exported permission: 'view files'.
@@ -1917,7 +1763,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'view own files',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'file_entity',
   );
@@ -1927,7 +1772,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'view own private files',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'file_entity',
   );
@@ -1937,7 +1781,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'view own unpublished content',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );
@@ -1947,7 +1790,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'view pane admin links',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'panels',
   );
@@ -1957,7 +1799,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'view post access counter',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'statistics',
   );
@@ -1967,7 +1808,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'view private files',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'file_entity',
   );
@@ -1977,7 +1817,6 @@ function bc_permission_feature_user_default_permissions() {
     'name' => 'view revisions',
     'roles' => array(
       'administrator' => 'administrator',
-      'moderator' => 'moderator',
     ),
     'module' => 'node',
   );

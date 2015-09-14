@@ -16,6 +16,12 @@ function bc_menu_feature_menu_default_menu_custom() {
     'title' => 'Main menu',
     'description' => 'The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.',
   );
+  // Exported menu: menu-administration.
+  $menus['menu-administration'] = array(
+    'menu_name' => 'menu-administration',
+    'title' => 'Administration',
+    'description' => 'Menu for administrative tasks to be performed by the moderator or admin.',
+  );
   // Exported menu: menu-balas-de-coco.
   $menus['menu-balas-de-coco'] = array(
     'menu_name' => 'menu-balas-de-coco',
@@ -48,9 +54,11 @@ function bc_menu_feature_menu_default_menu_custom() {
   );
   // Translatables
   // Included for use with string extractors like potx.
+  t('Administration');
   t('Balas de Coco');
   t('Empresa');
   t('Main menu');
+  t('Menu for administrative tasks to be performed by the moderator or admin.');
   t('Quick Links');
   t('Suporte');
   t('The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.');

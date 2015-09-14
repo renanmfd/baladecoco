@@ -22,17 +22,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -10,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '<none>',
@@ -49,17 +49,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -14,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '<none>',
@@ -76,16 +76,16 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
         'weight' => 0,
       ),
     ),
@@ -103,20 +103,155 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => 1,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '<none>',
+    'visibility' => 0,
+  );
+
+  $export['bc_cart-bc_cart_cart'] = array(
+    'cache' => 8,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'bc_cart_cart',
+    'module' => 'bc_cart',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['bc_cart-bc_cart_link'] = array(
+    'cache' => 8,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'bc_cart_link',
+    'module' => 'bc_cart',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['bean-bala-de-abacaxi'] = array(
+    'cache' => 1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'bala-de-abacaxi',
+    'module' => 'bean',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['bean-bala-de-abacaxi-0'] = array(
+    'cache' => 1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'bala-de-abacaxi-0',
+    'module' => 'bean',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['bean-bala-de-morango'] = array(
+    'cache' => 1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'bala-de-morango',
+    'module' => 'bean',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
     'visibility' => 0,
   );
 
@@ -130,17 +265,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'dashboard_inactive',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -1,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => 'dashboard_inactive',
+        'status' => 1,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -157,17 +292,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -11,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -184,17 +319,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -12,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -211,17 +346,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -7,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -238,17 +373,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => 5,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -265,16 +400,16 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
         'weight' => 0,
       ),
     ),
@@ -292,17 +427,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -9,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -319,17 +454,47 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -6,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['menu-menu-administration'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'menu-administration',
+    'module' => 'menu',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(
+      'administrator' => 11,
+      'moderator' => 16,
+    ),
+    'themes' => array(
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -346,17 +511,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -13,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -373,17 +538,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -8,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -400,17 +565,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -2,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '<none>',
@@ -427,17 +592,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => 4,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -454,16 +619,16 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'dashboard_inactive',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => 'dashboard_inactive',
+        'status' => 1,
+        'theme' => 'rubik',
         'weight' => 0,
       ),
     ),
@@ -481,17 +646,44 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => 6,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['panels_mini-mobile_menu'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'mobile_menu',
+    'module' => 'panels_mini',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -508,17 +700,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'dashboard_inactive',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => -1,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => 2,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => 'dashboard_inactive',
+        'status' => 1,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -535,43 +727,16 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => 3,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 0,
-  );
-
-  $export['statistics-popular'] = array(
-    'cache' => -1,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => 'popular',
-    'module' => 'statistics',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
         'weight' => 0,
       ),
-      'bc_theme' => array(
+      'rubik' => array(
         'region' => '',
         'status' => 0,
-        'theme' => 'bc_theme',
+        'theme' => 'rubik',
         'weight' => 0,
       ),
     ),
@@ -589,17 +754,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
+      'bc_theme' => array(
         'region' => 'help',
         'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bc_theme' => array(
-        'region' => '',
-        'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => 7,
+        'weight' => 5,
+      ),
+      'rubik' => array(
+        'region' => 'help',
+        'status' => 1,
+        'theme' => 'rubik',
+        'weight' => 5,
       ),
     ),
     'title' => '',
@@ -616,16 +781,16 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => 'content',
         'status' => 1,
         'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'rubik',
         'weight' => 0,
       ),
     ),
@@ -643,17 +808,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
+      'bc_theme' => array(
         'region' => '',
         'status' => 0,
-        'theme' => 'bartik',
+        'theme' => 'bc_theme',
         'weight' => 0,
       ),
-      'bc_theme' => array(
-        'region' => 'navigation',
-        'status' => 1,
-        'theme' => 'bc_theme',
-        'weight' => -11,
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -670,17 +835,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -5,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -697,17 +862,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -4,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -724,17 +889,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 10,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => -3,
+        'weight' => 10,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 10,
       ),
     ),
     'title' => '',
@@ -751,17 +916,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => 9,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -778,17 +943,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => 8,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -805,17 +970,17 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => 'dashboard_inactive',
-        'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
-        'weight' => 10,
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => 'dashboard_inactive',
+        'status' => 1,
+        'theme' => 'rubik',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -832,43 +997,16 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
+      'bc_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
         'region' => 'dashboard_inactive',
         'status' => 1,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bc_theme' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bc_theme',
-        'weight' => 11,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 0,
-  );
-
-  $export['views-4d82c813e15c15066878df9cc8172b27'] = array(
-    'cache' => -1,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => '4d82c813e15c15066878df9cc8172b27',
-    'module' => 'views',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
-      'bc_theme' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bc_theme',
+        'theme' => 'rubik',
         'weight' => 0,
       ),
     ),
@@ -886,16 +1024,16 @@ function bc_block_settings_feature_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
-      ),
       'bc_theme' => array(
         'region' => '',
         'status' => 0,
         'theme' => 'bc_theme',
+        'weight' => 0,
+      ),
+      'rubik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'rubik',
         'weight' => 0,
       ),
     ),

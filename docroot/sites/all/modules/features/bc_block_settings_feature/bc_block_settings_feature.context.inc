@@ -50,11 +50,17 @@ function bc_block_settings_feature_context_default_contexts() {
           'region' => 'presentation',
           'weight' => '1',
         ),
+        'bc_cart-bc_cart_link' => array(
+          'module' => 'bc_cart',
+          'delta' => 'bc_cart_link',
+          'region' => 'navigation',
+          'weight' => '-10',
+        ),
         'system-main-menu' => array(
           'module' => 'system',
           'delta' => 'main-menu',
           'region' => 'navigation',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'system-help' => array(
           'module' => 'system',
@@ -96,6 +102,12 @@ function bc_block_settings_feature_context_default_contexts() {
           'module' => 'bc_blocks',
           'delta' => 'bc_copyright',
           'region' => 'bottom',
+          'weight' => '-10',
+        ),
+        'panels_mini-mobile_menu' => array(
+          'module' => 'panels_mini',
+          'delta' => 'mobile_menu',
+          'region' => 'mobile_menu',
           'weight' => '-10',
         ),
       ),

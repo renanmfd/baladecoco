@@ -47,7 +47,7 @@ function bc_block_settings_feature_default_page_manager_handlers() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Login';
   $display->uuid = '0d6af9e1-7302-4b66-8cef-b598e44cf202';
   $display->content = array();
   $display->panels = array();
@@ -59,8 +59,8 @@ function bc_block_settings_feature_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => '<none>',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
@@ -83,11 +83,11 @@ function bc_block_settings_feature_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title_heading' => 'h2',
-      'form_build_id' => 'form-WMMBrRvcVaLrP95TsAF5seJSlxTTlZH9GZ0RdZ4ptVc',
-      'form_token' => 'ScPYuGYzi4-6uEDaNG8ObTMNxZyTnF26bOLkxF8BHZI',
+      'form_build_id' => 'form-Bl9MwjwBgPaaCVOHckwMu5shPNFx9uqYsilRTzgfi2c',
+      'form_token' => 'sQg0SdG32wNN-ZB2dwIDY_jubMb-EPxVAB_wFtpnfpw',
       'form_id' => 'ctools_user_login_form_content_type_edit_form',
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => '<none>',
     );
     $pane->cache = array();
     $pane->style = array(
