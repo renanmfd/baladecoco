@@ -220,7 +220,58 @@ function bc_cart_block_view($delta = '') {
 }
 
 /**
- * Form callback for quantity select on product page.
+ * Implements HOOK_preprocess_node().
+ */
+function bc_cart_preprocess_node(&$vars) {
+  // Node PRODUCT TEASER
+  if ($vars['type'] == 'product' and $vars['view_mode'] == 'teaser') {
+    $nid = $vars['nid'];
+    $title = $vars['title'];
+    $vars['links'][] = l('Add to cart', "cart/{$nid}/1000/add", array(
+      'query' => array('destination' => 'cart'),
+      'attributes' => array(
+        'class' => array('btn btn-add-to-cart'),
+        'data-toggle' => 'tooltip',
+        'title' => t('Click to add "!title" to your cart.', array('!title' => $title)),
+      ),
+    ));
+  }
+}
+
+/**
+ * Form callback for quantity select on product(s) pages.
+ */
+function _bc_cart_quantity_product($form, &$form_state, $nid) {
+  // TODO - check if the item is already on the cart.
+
+  // Get quantity enabled values.
+  $options = cart_get_quantities();
+
+  // Build form
+  $form['quantity'] = array(
+    '#type' => 'select',
+    '#title' => t('Quantity'),
+    '#options' => $options,
+    '#default_value' => BC_CART_WEIGHT_UNIT,
+  );
+
+  $form['nid'] = array(
+    '#type' => 'hidden',
+    '#value' => $nid,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Add to Cart'),
+    '#prefix' => '<noscript><div class="form-submit-wrapper">',
+    '#suffix' => '</div></noscript>',
+  );
+
+  return $form;
+}
+
+/**
+ * Form callback for quantity select on cart page.
  */
 function _bc_cart_quantity_form($form, &$form_state, $nid, $quantity) {
   // Get quantity enabled values.
@@ -384,8 +435,8 @@ function bc_cart_user_login(&$edit, $account) {
     }
 
     // Save the merged cart.
-    $edit['data']['cart'] = $cart;
-    user_save($account, $edit);
+    $new['data']['cart'] = $cart;
+    user_save($account, $new);
     //$account->data['cart'] = $cart;
 
     // Unset cart on session.

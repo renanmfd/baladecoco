@@ -237,10 +237,13 @@ function bc_master_update_7114() {
     'remember_me',
     'user_registrationpassword',
     'panels_mini',
-    'placeholder',
+    'form_placeholder',
+  ));
+  module_enable(array(
     'date_api',
     'date_popup',
     'bc_cart',
+    'addressfield',
   ));
   module_disable(array('location'));
   drupal_uninstall_modules(array('location'));
@@ -255,6 +258,8 @@ function bc_master_update_7115() {
     'bc_menu_feature',
     'bc_permission_feature',
     'bc_product_feature',
+  ));
+  features_revert(array(
     'bc_review_feature',
     'bc_site_settings_feature',
     'bc_user_feature',

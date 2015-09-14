@@ -104,7 +104,6 @@ function _bc_theme_preprocess_node_product_full(&$vars) {
   drupal_add_js(drupal_get_path('theme', 'bc_theme') . '/js/vendor/jquery.flexslider-min.js', 'file');
 
   $vars['content']['field_product_image']['#theme'] = 'item_list';
-  dpm($vars);
 }
 
 /**
@@ -137,6 +136,8 @@ function _bc_theme_preprocess_node_product_teaser(&$vars) {
       'tid' => $term->tid,
     );
   }
+  // Links - array of links.
+  $vars['links'] = is_array($vars['links'])? $vars['links'] : array();
   // Title - Add class to hide it.
   $vars['title_attributes_array']['class'][] = 'hidden';
 }

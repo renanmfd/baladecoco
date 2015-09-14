@@ -4216,7 +4216,7 @@ form.quantity-form .form-submit-wrapper .form-submit {
   font-size: 1rem;
   font-weight: 400;
   font-style: normal;
-  margin-left: 5px;
+  margin-left: 0.3125rem;
 }
 #baladecoco-showroom .more-link {
   text-align: center;
@@ -4247,6 +4247,18 @@ form.quantity-form .form-submit-wrapper .form-submit {
 }
 #baladecoco-showroom .node-teaser .contextual-links-wrapper {
   top: 0.125rem;
+}
+#baladecoco-showroom .item-list {
+  position: absolute;
+  bottom: 0.625rem;
+  right: 0.625rem;
+}
+#baladecoco-showroom .item-list .btn {
+  background-color: rgba(255, 140, 0, 0.7);
+  border: 1px solid #FF8C00;
+}
+#baladecoco-showroom .item-list .btn:hover {
+  background-color: darkorange;
 }
 
 .shipping-calc__form {

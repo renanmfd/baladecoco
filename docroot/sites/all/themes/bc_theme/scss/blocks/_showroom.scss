@@ -149,7 +149,7 @@
         line-height: rem(18px);
         @include font ($bc-font2, $font-default, $font-normal);
         font-style: normal;
-        margin-left: 5px;
+        margin-left: rem(5px);
       }
     }
   }
@@ -189,5 +189,20 @@
   
   .node-teaser .contextual-links-wrapper {
     top: 0.125rem;
+  }
+  
+  .item-list {
+    position: absolute;
+    bottom: rem(10px);
+    right: rem(10px);
+    
+    .btn {
+      background-color: rgba(255, 140, 0, 0.7); // orange with opacity.
+      border: 1px solid $orange;
+      
+      &:hover {
+        background-color: rgba(255, 140, 0, 1);
+      }
+    }
   }
 }
