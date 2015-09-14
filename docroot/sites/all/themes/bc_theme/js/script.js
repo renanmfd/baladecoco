@@ -123,7 +123,6 @@
     else {
       $('.review-teaser').height('');
     }
-    console.log('reviewTeaserEqualizer');
   }
 
   /**
@@ -140,7 +139,6 @@
     else if (width > breakpoints.tablet) result = 'tablet';
     else if (width > breakpoints.mobile_landscape) result = 'mobile-landscape';
     else if (width > breakpoints.mobile) result = 'mobile';
-    console.log('detectBreakpoint');
     return result;
   }
 
