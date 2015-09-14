@@ -1,0 +1,616 @@
+<?php
+
+/**
+ * @file
+ * Main file for bc_cart module.
+ */
+
+define('BC_CART_CART', 'bc_cart_cart');
+
+define('BC_CART_LINK', 'bc_cart_link');
+
+define('BC_CART_WEIGHT_UNIT', 1000);
+
+// CART ITEM STATUS.
+
+define('CART_ITEM_DELETED', 0);
+
+define('CART_ITEM_ACTIVE', 1);
+
+define('CART_ITEM_SAVED', 2);
+
+/**
+ * Implements HOOK_permission().
+ */
+function bc_cart_permission() {
+  $permissions = array(
+    'administer cart' => array(
+      'title' => t('Administer cart configurations'),
+      'description' => t('Allows users to configure cart settings.'),
+      'restrict access' => TRUE,
+    ),
+    'add own cart' => array(
+      'title' => t('Add items to cart'),
+      'description' => t('Allows users to add product items to own cart.'),
+    ),
+    'view cart' => array(
+      'title' => t('View cart'),
+      'description' => t('Allows users to view cart.'),
+    ),
+    'edit any cart' => array(
+      'title' => t('Edit any cart'),
+      'description' => t('Allows users to edit any cart.'),
+      'restrict access' => TRUE,
+    ),
+    'edit own cart' => array(
+      'title' => t('Edit own cart'),
+      'description' => t('Allows users to edit own cart.'),
+    ),
+  );
+
+  return $permissions;
+}
+
+/**
+ * Implements HOOK_theme().
+ */
+function bc_cart_theme($existing, $type, $theme, $path) {
+  return array(
+    'cart_table' => array(
+      'variables' => array('theme_path' => ''),
+      'template' => 'templates/cart-table'
+    ),
+    'cart_table_row' => array(
+      'variables' => array(
+        'item' => NULL,
+      ),
+      'template' => 'templates/cart-table--row'
+    ),
+    'cart_table_shipping_row' => array(
+      'variables' => array(
+        'cart' => NULL,
+      ),
+      'template' => 'templates/cart-table--shipping-row'
+    ),
+    'cart_table_subtotal_row' => array(
+      'variables' => array(
+        'cart' => NULL,
+      ),
+      'template' => 'templates/cart-table--subtotal-row'
+    ),
+  );
+}
+
+/**
+ * Implements HOOK_menu().
+ */
+function bc_cart_menu() {
+  $items['cart/%node/%/add'] = array(
+    'title' => 'Add to cart',
+    'page callback' => '_bc_cart_add_item',
+    'page arguments' => array(1, 2),
+    'access arguments' => array('add own cart'),
+    'type' => MENU_CALLBACK,
+    'file' => 'bc_cart.inc'
+  );
+
+  $items['cart/%node/%/add/nojs'] = array(
+    'title' => 'Add to cart (nojs)',
+    'page callback' => '_bc_cart_add_item_nojs',
+    'page arguments' => array(1, 2),
+    'access arguments' => array('add own cart'),
+    'type' => MENU_CALLBACK,
+    'file' => 'bc_cart.inc'
+  );
+
+  $items['cart/%node/save'] = array(
+    'title' => 'Save for Later',
+    'page callback' => '_bc_cart_save_item',
+    'page arguments' => array(1),
+    'access arguments' => array('edit own cart'),
+    'type' => MENU_CALLBACK,
+    'file' => 'bc_cart.inc'
+  );
+
+  $items['cart/%node/delete'] = array(
+    'title' => 'Delete item',
+    'page callback' => '_bc_cart_delete_item',
+    'page arguments' => array(1),
+    'access arguments' => array('edit own cart'),
+    'type' => MENU_CALLBACK,
+    'file' => 'bc_cart.inc'
+  );
+
+  return $items;
+}
+
+/**
+ * Implements HOOK_block_info().
+ */
+function bc_cart_block_info() {
+  $blocks[BC_CART_CART] = array(
+    'info' => t('Cart'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks[BC_CART_LINK] = array(
+    'info' => t('Cart Link'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements HOOK_block_configure().
+ */
+function bc_cart_block_configure($delta = '') {
+  $form = array();
+  if ($delta == BC_CART_CART) {
+    $form[BC_CART_CART . '_text'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Display Text'),
+      '#default_value' => variable_get(BC_CART_CART . '_text', ''),
+      '#required' => TRUE,
+    );
+  }
+  elseif ($delta == BC_CART_LINK) {
+    $form[BC_CART_LINK . '_link'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Cart Link'),
+      '#default_value' => variable_get(BC_CART_LINK . '_link', ''),
+    );
+  }
+  return $form;
+}
+
+/**
+ * Implements HOOK_block_save().
+ */
+function bc_cart_block_save($delta = '', $edit = array()) {
+  if ($delta == BC_CART_CART) {
+    variable_set(BC_CART_CART . '_text', t($edit[BC_CART_CART . '_text']));
+  }
+  elseif ($delta == BC_CART_LINK) {
+    variable_set(BC_CART_LINK . '_link', $edit[BC_CART_LINK . '_link']);
+  }
+}
+
+/**
+ * Implements HOOK_block_view().
+ */
+function bc_cart_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case BC_CART_CART:
+      $block['subject'] = NULL;
+      $block['content'] = theme('cart_table', array());
+      break;
+
+    case BC_CART_LINK:
+      $cart = cart_get();
+      $number = count($cart['items']);
+      $link = variable_set(BC_CART_LINK . '_link', '');
+      $opt = array(
+        'attributes' => array(
+          'class' => array('cart-button'),
+          'data-toggle' => 'tooltip',
+          'data-placement' => 'bottom',
+          'data-title' => t('Access your shopping cart.'),
+        ),
+        'html' => TRUE,
+      );
+      $title = '<span class="icon icon-cart"></span>';
+      $title .= '<span class="title">' . t('Cart');
+      if ($number > 0) {
+        $title .= ' <b>(' . $number . ')</b>';
+      }
+      $title .= '</span>';
+      $block['subject'] = NULL;
+      $block['content'] = array(
+        '#markup' => l($title, 'cart', $opt),
+        '#prefix' => '<div class="cart-wrapper">',
+        '#suffix' => '</div>',
+      );
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Form callback for quantity select on product page.
+ */
+function _bc_cart_quantity_form($form, &$form_state, $nid, $quantity) {
+  // Get quantity enabled values.
+  $options = cart_get_quantities();
+
+  // To correct 500 addition, add to options numbers like 1500 when needed.
+  if (isset($options[intval($quantity) + 500])) {
+    $options[$quantity] = strval($quantity / BC_CART_WEIGHT_UNIT) . ' Kg';
+    ksort($options);
+  }
+
+  // Build form
+  $form['quantity'] = array(
+    '#type' => 'select',
+    '#title' => t('Quantity'),
+    '#options' => $options,
+    '#default_value' => $quantity,
+  );
+
+  $form['nid'] = array(
+    '#type' => 'hidden',
+    '#value' => $nid,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Ok'),
+    '#prefix' => '<noscript><div class="form-submit-wrapper">',
+    '#suffix' => '</div></noscript>',
+  );
+
+  $form['#attributes']['class'][] = 'quantity-form';
+  return $form;
+}
+
+function _bc_cart_quantity_form_submit(&$form, &$form_state) {
+  $nid = $form_state['values']['nid'];
+  $quantity = $form_state['values']['quantity'];
+  cart_change_quantity($nid, $quantity);
+}
+
+/**
+ * Implements HOOK_forms().
+ */
+function bc_cart_forms($form_id, $args) {
+  $forms = array();
+  if (strpos($form_id, '_bc_cart_quantity_form') === 0) {
+    $forms[$form_id] = array(
+      'callback' => '_bc_cart_quantity_form',
+    );
+  }
+  return $forms;
+}
+
+/**
+ * Implements template_preprocess_THEME() for cart_table.
+ */
+function template_preprocess_cart_table(&$vars, $hook) {
+  $cart = cart_get();
+  $items = array();
+  foreach ($cart['items'] as $item) {
+    $nid = $item['nid'];
+
+    // Theme cart items.
+    $vars['rows'][$nid] = theme('cart_table_row', array(
+      'item' => $item,
+    ));
+  }
+
+  // Theme cart shipping row.
+  $vars['shipping'] = theme('cart_table_shipping_row', array(
+    'cart' => $cart,
+  ));
+
+  // Theme cart sub-total row.
+  $vars['subtotal'] = theme('cart_table_subtotal_row', array(
+    'cart' => $cart,
+  ));
+}
+
+/**
+ * Implements template_preprocess_THEME() for cart_table_row.
+ */
+function template_preprocess_cart_table_row(&$vars, $hook) {
+  $item = $vars['item'];
+
+  // NID
+  $nid = $item['nid'];
+  $vars['nid'] = $nid;
+
+  // NODE
+  $node = node_load($nid);
+  $vars['node'] = $node;
+
+  // IMAGE
+  $image = $node->field_product_image[LANGUAGE_NONE][0];
+  $vars['image'] = theme('image_style',
+    array(
+      'path' => $image['uri'],
+      'style_name' => 'product_thumb_epsa',
+      'alt' => t('Product image'),
+      'title' => $node->title,
+    )
+  );
+
+  // PRICE
+  $price = cart_format_money($node->field_product_price[LANGUAGE_NONE][0]['value']);
+  $vars['price'] = $price;
+
+  // QUANTITY FORM
+  $vars['quantity_form'] = drupal_get_form('_bc_cart_quantity_form_' . $nid, $nid, $item['quantity']);
+
+  // TOTAL ITEM PRICE
+  $vars['total_price'] = cart_format_money($price * intval($item['quantity']) / BC_CART_WEIGHT_UNIT);
+
+  // DISCOUNT - TODO
+  $discount = t('You save !value (!percent%)', array(
+    '!value' => 'XX.XX',
+    '!percent' => 'XX'
+  ));
+
+  // BREADCRUMB
+  /*$product_type = field_view_field('node', $node, 'field_product_type', 'teaser');
+  $breadcrumb = render($product_type[0]);
+  if ($product_type['#items'][0]['tid'] == 56) { // Bala de Coco.
+    $bala_flavour = field_view_field('node', $node, 'field_bala_flavour', 'teaser');
+    $breadcrumb .= ' > ' . render($bala_flavour[0]);
+    $bala_type = field_view_field('node', $node, 'field_bala_type', 'teaser');
+    $breadcrumb .= ' > ' . render($bala_type[0]);
+    if ($bala_type['#items'][0]['tid'] == 41 or $bala_type['#items'][0]['tid'] == 46) {// Recheada ou Bombom recheada.
+      $bala_filling = field_view_field('node', $node, 'field_stuffed_flavour', 'teaser');
+      $breadcrumb .= ' > ' . render($bala_filling[0]);
+    }
+  }
+  $vars['breadcrumb'] = $breadcrumb;*/
+}
+
+/**
+ * Implements template_preprocess_THEME() for cart_table_row.
+ */
+function template_preprocess_cart_table_subtotal_row(&$vars, $hook) {
+  $cart = $vars['cart'];
+  $vars['subtotal'] = cart_subtotal($cart);
+}
+
+/**
+ * Implements HOOK_user_login().
+ */
+function bc_cart_user_login(&$edit, $account) {
+  // Check if user that is logging in has a cart in his session.
+  if (isset($_SESSION['cart'])) {
+    // Save the cart into user data.
+    $cart = cart_get();
+    foreach ($_SESSION['cart']['items'] as $item) {
+      // If item already exists in the user cart, don't add.
+      // If it don't exists, add it.
+      $nid = $item['nid'];
+      if (!isset($cart['items'][$nid])) {
+        $cart['items'][$nid] = $item;
+      }
+    }
+
+    // Save the merged cart.
+    $edit['data']['cart'] = $cart;
+    user_save($account, $edit);
+    //$account->data['cart'] = $cart;
+
+    // Unset cart on session.
+    unset($_SESSION['cart']);
+  }
+}
+
+/**
+ * Implements HOOK_preprocess_page().
+ */
+function bc_cart_preprocess_page(&$vars) {
+  // Change page template for /cart page.
+  if ($_GET['q'] == 'cart') {
+    $vars['theme_hook_suggestions'][] = 'page__checkout';
+  }
+
+  // Add cart block to variables to be displayed in presentation region.
+  $block = block_load('bc_cart', BC_CART_LINK);
+  $vars['cart_link'] = _block_get_renderable_array(_block_render_blocks(array($block)));
+}
+
+/** ================================================================ **/
+/** ==                         CART API                           == **/
+/** ================================================================ **/
+
+/**
+ * Add item to user cart.
+ */
+function cart_add_item($nid, $quantity, $status = CART_ITEM_ACTIVE) {
+  // Get user cart...
+  $cart = cart_get();
+
+  // Check quantity validity
+  $quantities = cart_get_quantities();
+  if (!isset($quantities[$quantity])) {
+    $quantity = BC_CART_WEIGHT_UNIT;
+  }
+
+  // Build item array.
+  $item = array(
+    'nid' => $nid,
+    'quantity' => $quantity,
+    'status' => $status,
+  );
+
+  // Check if item is already in the cart...
+  if (!isset($cart['items'][$nid])) {
+    // ... if not, add it.
+    $cart['items'][$nid] = $item;
+  }
+  else {
+    // ... if it is, just add the quantity.
+    $cart['items'][$nid]['quantity'] += $item['quantity'];
+
+    // limit the quantity to 10 kg.
+    if ($cart['items'][$nid]['quantity'] > 10 * BC_CART_WEIGHT_UNIT) {
+      $cart['items'][$nid]['quantity'] = 10 * BC_CART_WEIGHT_UNIT;
+    }
+  }
+
+  // Save the cart.
+  cart_save($cart);
+  return $cart;
+}
+
+/**
+ * Delete item in user cart.
+ */
+function cart_delete_item($nid) {
+  // Get user cart...
+  $cart = cart_get();
+
+  // Check if item is in the cart...
+  if (isset($cart['items'][$nid])) {
+    // ... if it is, delete it, save cart and return TRUE.
+    unset($cart['items'][$nid]);
+    cart_save($cart);
+    return TRUE;
+  }
+  else {
+    // ... if it isn't, just return FALSE.
+    return FALSE;
+  }
+}
+
+/**
+ * Change status of the cart item to SAVED.
+ */
+function cart_save_item($nid) {
+    // Get user cart...
+  $cart = cart_get();
+
+  // Check if item is in the cart...
+  if (isset($cart['items'][$nid])) {
+    // ... if it is, delete it, save cart and return TRUE.
+    $cart['items'][$nid]['status'] = CART_ITEM_SAVED;
+    cart_save($cart);
+    return TRUE;
+  }
+  else {
+    // ... if it isn't, just return FALSE.
+    return FALSE;
+  }
+}
+
+/**
+ * Change quantity of one of the cart items.
+ *
+ * @return TRUE/FALSE.
+ */
+function cart_change_quantity($nid, $quantity) {
+  // Get user cart...
+  $cart = cart_get();
+
+  $cart['items'][$nid]['quantity'] = $quantity;
+
+  cart_save($cart);
+}
+
+/**
+ * Create a cart.
+ *
+ * @return Empty cart array.
+ */
+function cart_create() {
+  global $user;
+  $serial_id = variable_get('bc_cart_serial_id', 0);
+  variable_set('bc_cart_serial_id', ++$serial_id);
+  $cart = array(
+    'cid' => $serial_id,
+    'created' => REQUEST_TIME,
+    'changed' => REQUEST_TIME,
+    'uid' => $user->uid,
+    'items' => array(),
+    'frete' => FALSE,
+  );
+  return $cart;
+}
+
+/**
+ * Get user cart.
+ *
+ * @return User cart if set or new cart.
+ */
+function cart_get() {
+  $cart = &drupal_static(__FUNCTION__);
+
+  if (isset($cart)) {
+    return $cart;
+  }
+
+  global $user;
+  $cart = array();
+  if ($user->uid == 0 && isset($_SESSION['cart'])) {
+    // ... if anonymous user and cart is set, get from session.
+    $cart = $_SESSION['cart'];
+    $cart['changed'] = REQUEST_TIME;
+  }
+  else if ($user->uid > 0 && isset($user->data['cart'])) {
+    // ... if logged user and cart is set, get it from user data.
+    $cart = $user->data['cart'];
+    $cart['changed'] = REQUEST_TIME;
+  }
+  else {
+    // ... if cart is not set, create it.
+    $cart = cart_create();
+  }
+  return $cart;
+}
+
+/**
+ * Save user cart.
+ */
+function cart_save($cart) {
+  global $user;
+
+  // If user is a visitor save cart in a session.
+  if ($user->uid == 0) {
+    $_SESSION['cart'] = $cart;
+  }
+  else {
+    // Else, save in user data.
+    $edit = array('data' => array('cart' => $cart));
+    user_save($user, $edit);
+  }
+}
+
+/**
+ * Save user cart.
+ */
+function cart_subtotal($cart) {
+  $items = $cart['items'];
+  $subtotal = 0;
+  foreach ($items as $item) {
+    $node = node_load($item['nid']);
+    $price = $node->field_product_price[LANGUAGE_NONE][0]['value'];
+    $quantity = $item['quantity'] / BC_CART_WEIGHT_UNIT;
+    $subtotal += ($price * $quantity);
+  }
+  return cart_format_money($subtotal);
+}
+
+
+/**
+ * Get quantity allowed values for product cart items.
+ *
+ * @return Array of allowed quantities.
+ */
+function cart_get_quantities() {
+  return array(
+    BC_CART_WEIGHT_UNIT / 2 => '500 g',
+    BC_CART_WEIGHT_UNIT => '1 Kg',
+    BC_CART_WEIGHT_UNIT * 2 => '2 Kg',
+    BC_CART_WEIGHT_UNIT * 3 => '3 Kg',
+    BC_CART_WEIGHT_UNIT * 4 => '4 Kg',
+    BC_CART_WEIGHT_UNIT * 5 => '5 Kg',
+    BC_CART_WEIGHT_UNIT * 6 => '6 Kg',
+    BC_CART_WEIGHT_UNIT * 7 => '7 Kg',
+    BC_CART_WEIGHT_UNIT * 8 => '8 Kg',
+    BC_CART_WEIGHT_UNIT * 9 => '9 Kg',
+    BC_CART_WEIGHT_UNIT * 10 => '10 Kg',
+  );
+}
+
+/**
+ * Format money values.
+ */
+function cart_format_money($value) {
+  $float = floatval($value);
+  return number_format($float, 2, ',', '.');
+}

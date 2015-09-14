@@ -103,13 +103,20 @@ $showroom-content-price-bg-hover: $darkblue;
 $showroom-content-price-cl-hover: $white;
 
 // User forms ============================== //
-$form-background:       $lighterblue;
-$form-color:            $darkblue;
-$form-color-active:     $darkerblue;
-$form-color-hover:      $lightblue;
+$form-background:         $lighterblue;
+$form-color:              $darkblue;
+$form-color-active:       $darkerblue;
+$form-color-hover:        $lightblue;
 
 // Reviews page ============================ //
 $review-page-bg:          $purple2;
 $review-page-border:      $purple3;
 $review-page-form-bg:     $lightblue;
 $review-page-form-border: $blue;
+
+// Cart page =============================== //
+$cart-title-bg:           $darkerblue;
+$cart-title-color:        $white;
+$cart-link-color:         $white;
+$cart-link-bg :           $orange;
+$cart-link-bg-hover :     $darkorange;

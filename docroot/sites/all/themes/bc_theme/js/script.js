@@ -3,17 +3,19 @@
   Drupal.behaviors.presentation_adaptative_image = {
     attach: function (context, settings) {
       // PRESENTATION - Adaptative image load on presentation region.
-      var result = null,
-        element = null,
-        src = '',
-        image = document.querySelector('.image-wrapper .active');
-      result = detectBreakpoint();
-      element = document.querySelector('.images-holder .' + result);
-      if (element) {
-        src = element.getAttribute('data-src');
-        image.style.display = 'none';
-        image.setAttribute('src', src);
-        $(image).fadeIn(2000);
+      if (!$('body').hasClass('page-checkout')) {
+        var result = null,
+          element = null,
+          src = '',
+          image = document.querySelector('.image-wrapper .active');
+        result = detectBreakpoint();
+        element = document.querySelector('.images-holder .' + result);
+        if (element) {
+          src = element.getAttribute('data-src');
+          image.style.display = 'none';
+          image.setAttribute('src', src);
+          $(image).fadeIn(2000);
+        }
       }
     }
   };
@@ -41,7 +43,7 @@
       // Add JS class to HTML tag
       $('html').addClass('js');
       // Tooltip
-      $('[data-toggle="tooltip"]').tooltip({container: 'body', html: true}); 
+      $('[data-toggle="tooltip"]').tooltip({container: 'body', html: true});
     }
   };
 
@@ -63,27 +65,32 @@
         $('body').removeClass('mobile-menu-open');
       });
       // BC Homepage - Reviews equilizer
-      var equalizer = null;
-      $(document).load(reviewTeaserEqualizer);
-      $(window).on('resize', function(e) {
-        clearTimeout(equalizer);
-        equalizer = setTimeout(reviewTeaserEqualizer, 200);
+      if ($('body').hasClass('front')) {
+        var equalizer = null;
+        $(document).load(reviewTeaserEqualizer);
+        $(window).on('resize', function(e) {
+          clearTimeout(equalizer);
+          equalizer = setTimeout(reviewTeaserEqualizer, 200);
+        });
+      }
+    }
+  };
+
+  Drupal.behaviors.cart_behaviors = {
+    attach: function (context, settings) {
+      // Add autosubmit to the same button above.
+      $('.page-cart .quantity-form select').change(function() {
+        $(this).parents('form.quantity-form').submit();
+        $(this).attr('disabled', 'disabled');
+        $(this).trigger('chosen:updated');
       });
     }
   };
-  
-  Drupal.behaviors.cart_behaviors = {
-    attach: function (context, settings) {
-      /*$('.flexslider').flexslider({
-        animation: "slide"
-      });*/
-    }
-  };
-  
+
   /**
    * Function to equalize height of .review-teaser's on homepage.
    * This is based on screen size, to differantiate how many containers
-   * per row we have. Mobile: 1 per row; Table: 2 per row; Desktop: 4 
+   * per row we have. Mobile: 1 per row; Table: 2 per row; Desktop: 4
    * per row. The resize function is timed out so we only need to do
    * the calculations once resizing is finish.
    */
@@ -114,8 +121,9 @@
       $('.review-teaser').height(bigger);
     }
     else {
-       $('.review-teaser').height('');
+      $('.review-teaser').height('');
     }
+    console.log('reviewTeaserEqualizer');
   }
 
   /**
@@ -132,6 +140,7 @@
     else if (width > breakpoints.tablet) result = 'tablet';
     else if (width > breakpoints.mobile_landscape) result = 'mobile-landscape';
     else if (width > breakpoints.mobile) result = 'mobile';
+    console.log('detectBreakpoint');
     return result;
   }
 
