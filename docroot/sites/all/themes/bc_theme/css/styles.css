@@ -3014,6 +3014,7 @@ nav:after, section:after {
 }
 #cart-section .table {
   max-width: 48rem;
+  margin: 0 auto;
 }
 @media (min-width: 48em) {
   #cart-section .table {
@@ -3201,6 +3202,60 @@ nav:after, section:after {
   font-weight: 400;
 }
 
+.subtotal {
+  height: auto !important;
+  background-color: #050558 !important;
+}
+.subtotal:before, .subtotal:after {
+  content: '';
+  display: table;
+}
+.subtotal:after {
+  clear: both;
+}
+.subtotal__value {
+  float: right;
+  padding: 10px;
+  padding: 0.625rem;
+  text-align: right;
+}
+.subtotal__value__discount {
+  margin-bottom: 0.1875rem;
+  padding-bottom: 0.1875rem;
+  border-bottom: 0.125rem solid white;
+}
+.subtotal__value__nocupom span.value, .subtotal__value__discount span.value {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+.subtotal__value .label {
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 200;
+  text-align: right;
+  color: white;
+}
+.subtotal__value .value {
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+.subtotal__value .currency {
+  font-family: "serif";
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+}
+.subtotal__cupom {
+  float: left;
+  padding-left: 0.625rem;
+}
+
 form.quantity-form {
   margin: 0;
 }
@@ -3253,41 +3308,37 @@ form.quantity-form .form-submit-wrapper .form-submit {
   height: 2rem;
 }
 
-.subtotal {
-  height: auto !important;
-  background-color: #050558 !important;
+#bc-cupom-cupom-cart-form {
+  max-width: 16.25rem;
+  margin: 0.625rem 0;
+  font-size: 0;
+  text-align: center;
 }
-.subtotal:before, .subtotal:after {
-  content: '';
-  display: table;
+#bc-cupom-cupom-cart-form .form-item:first-child {
+  display: inline-block;
+  vertical-align: top;
+  width: 12.5rem;
+  margin: 0;
 }
-.subtotal:after {
-  clear: both;
+#bc-cupom-cupom-cart-form .form-item:first-child input {
+  padding-right: 0.625rem;
+  font-size: 13px;
+  font-size: 0.8125rem;
 }
-.subtotal__value {
-  float: right;
-  padding: 10px;
-  padding: 0.625rem;
-  text-align: right;
+#bc-cupom-cupom-cart-form .form-submit {
+  display: inline-block;
+  vertical-align: top;
+  width: 3.125rem;
+  margin-left: 0.625rem;
 }
-.subtotal__value .label {
-  display: block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-size: 1rem;
-  font-weight: 200;
-  text-align: right;
-  color: white;
+#bc-cupom-cupom-cart-form .form-submit.cupom-remove {
+  height: 1.875rem;
+  width: 10rem;
+  margin: 0;
+  margin-top: 0.625rem;
 }
-.subtotal__value .value {
-  font-family: "Open Sans", sans-serif;
-  font-size: 24px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: white;
-}
-.subtotal__value .currency {
-  font-family: "serif";
+#bc-cupom-cupom-cart-form p {
+  font-family: "Roboto Slab", serif;
   font-size: 16px;
   font-size: 1rem;
   font-weight: 400;

@@ -122,14 +122,26 @@ function template_preprocess_cart_cupom(&$vars) {
 
     // Get discount value.
     if ($cupom['discount_type'] == 0) { // Percentage.
-      $vars['discount'] = cart_format_money(($total * $value) / 100);
-      $vars['percetage'] = $value;
+      $vars['discount'] = ($total * $value) / 100;
+      $vars['percetage'] = number_format($value, 1);
       $vars['subtotal_cupom'] = cart_format_money($total - $vars['discount']);
+      $vars['discount'] = cart_format_money($vars['discount']);
     }
     else { // Value.
       $vars['discount'] = cart_format_money($value);
-      $vars['percetage'] = number_format(($value / $total) * 100,1);
+      $vars['percetage'] = number_format(($value * 100) / $total,1);
       $vars['subtotal_cupom'] = cart_format_money($total - $value);
+    }
+
+    // Check if value < 0.
+    if ($vars['subtotal_cupom'] < 0) {
+      $vars['subtotal_cupom'] = 0;
+      $vars['discount'] = $total;
+    }
+    // Check if percentage > 100.
+    if ($vars['percetage'] > 100) {
+      $vars['percetage'] = 100;
+      $vars['discount'] = $total;
     }
   }
 }
@@ -158,11 +170,15 @@ function bc_cupom_cupom_cart_form($form, &$form_state) {
   else {
     $form['text'] = array(
       '#type' => 'markup',
-      '#markup' => t('This cupom "!title" gives you !discount!type of discount. Good shopping!', array(
+      '#markup' => t('This cupom "!title" gives you a !discount!type discount!link. Good shopping!', array(
         '!title' =>  $cart['cupom']['title'],
         '!discount' =>  $cart['cupom']['discount'],
         '!type' => ($cart['cupom']['discount_type'] == 0)? '%' : ' R$',
+        '!link' => '<span title="' . t('There is no money back or left over when you use cupons. Check Terms & Conditions for more information.') .
+          '" data-toggle="tooltip" data-placement="top" style="color: red">*</span>',
       )),
+      '#prefix' => '<p>',
+      '#suffix' => '</p>',
     );
 
     $form['remove'] = array(
@@ -170,6 +186,11 @@ function bc_cupom_cupom_cart_form($form, &$form_state) {
       '#value' => t('Remove Cupom'),
       '#submit' => array('bc_cupom_cart_form_remove'),
       '#validation' => array(),
+      '#attributes' => array(
+        'class' => array('cupom-remove'),
+        'title' => t('Carefull! Some cupons have usage limit. If you remove, you might not be able to use it again.'),
+        'data-toggle' => 'tooltip',
+      ),
     );
   }
 
