@@ -10,6 +10,57 @@
 function bc_user_feature_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'user-user-field_address'
+  $field_instances['user-user-field_address'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'addressfield',
+        'settings' => array(
+          'format_handlers' => array(
+            0 => 'address',
+          ),
+          'use_widget_handlers' => 1,
+        ),
+        'type' => 'addressfield_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_address',
+    'label' => 'Address',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'addressfield',
+      'settings' => array(
+        'available_countries' => array(
+          'BR' => 'BR',
+        ),
+        'default_country' => 'BR',
+        'format_handlers' => array(
+          'address' => 'address',
+          'address-hide-country' => 'address-hide-country',
+          'address-hide-postal-code' => 0,
+          'address-hide-street' => 0,
+          'organisation' => 0,
+          'name-full' => 0,
+          'name-oneline' => 0,
+          'address-optional' => 0,
+        ),
+      ),
+      'type' => 'addressfield_standard',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_user_document'
   $field_instances['user-user-field_user_document'] = array(
     'bundle' => 'user',
@@ -114,6 +165,7 @@ function bc_user_feature_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Address');
   t('Document');
   t('Enter you SSN. This information is confidential and protected, we will not make it available for general public.');
   t('Enter you phone or cell-phone number. We will only call about your orders.');
