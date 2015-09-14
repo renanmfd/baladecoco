@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * bc_product_feature.features.conditional_fields.inc
+ * bc_user_feature.features.conditional_fields.inc
  */
 
 /**
  * Implements hook_conditional_fields_default_fields().
  */
-function bc_product_feature_conditional_fields_default_fields() {
+function bc_user_feature_conditional_fields_default_fields() {
   $items = array();
 
   $items[] = array(

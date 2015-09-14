@@ -130,6 +130,78 @@ function bc_menu_feature_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
+  // Exported menu link: menu-administration_orders:http://www.google.com/
+  $menu_links['menu-administration_orders:http://www.google.com/'] = array(
+    'menu_name' => 'menu-administration',
+    'link_path' => 'http://www.google.com/',
+    'router_path' => '',
+    'link_title' => 'Orders',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-administration_orders:http://www.google.com/',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-administration_reviews:http://google.com/
+  $menu_links['menu-administration_reviews:http://google.com/'] = array(
+    'menu_name' => 'menu-administration',
+    'link_path' => 'http://google.com/',
+    'router_path' => '',
+    'link_title' => 'Reviews',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-administration_reviews:http://google.com/',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-administration_shipping:http://google.com/
+  $menu_links['menu-administration_shipping:http://google.com/'] = array(
+    'menu_name' => 'menu-administration',
+    'link_path' => 'http://google.com/',
+    'router_path' => '',
+    'link_title' => 'Shipping',
+    'options' => array(
+      'attributes' => array(),
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-administration_shipping:http://google.com/',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -40,
+    'customized' => 1,
+  );
   // Exported menu link: menu-balas-de-coco_como-conservar:http://google.com/
   $menu_links['menu-balas-de-coco_como-conservar:http://google.com/'] = array(
     'menu_name' => 'menu-balas-de-coco',
@@ -680,13 +752,16 @@ function bc_menu_feature_menu_default_menu_links() {
   t('Login');
   t('Minha Conta');
   t('Nossos Clientes');
+  t('Orders');
   t('Parceiros');
   t('Perguntas Frequentes');
   t('Políticas de Privacidade');
   t('Quem Somos');
   t('Registrar');
   t('Revendedor');
+  t('Reviews');
   t('Sair');
+  t('Shipping');
   t('Sobre Nós');
   t('Sobre as Balas');
   t('Suporte');

@@ -124,7 +124,7 @@ function bc_product_feature_views_default_views() {
   $handler->display->display_options['filters']['field_product_type_tid']['table'] = 'field_data_field_product_type';
   $handler->display->display_options['filters']['field_product_type_tid']['field'] = 'field_product_type_tid';
   $handler->display->display_options['filters']['field_product_type_tid']['value'] = array(
-    28 => '28',
+    56 => '56',
   );
   $handler->display->display_options['filters']['field_product_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_product_type_tid']['vocabulary'] = 'product_type';

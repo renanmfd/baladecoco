@@ -56,11 +56,11 @@ function bc_product_feature_image_default_styles() {
   $styles['product_thumb_epsa'] = array(
     'label' => 'Product Thumb EPSA',
     'effects' => array(
-      19 => array(
+      1 => array(
         'name' => 'epsacrop_crop',
         'data' => array(
-          'width' => 80,
-          'height' => 80,
+          'width' => 100,
+          'height' => 100,
           'anchor' => 'center-center',
           'disable_scale' => 0,
           'jcrop_settings' => array(
