@@ -93,6 +93,9 @@
         <h2 class="slogan"><?php print $site_slogan; ?></h2>
         <?php print drupal_render($pres_logo); ?>
         <h1 class="page-title"><?php print ($is_front)? t('Home') : $title; ?></h1>
+        <?php if (isset($cart_link)): ?>
+          <?php print drupal_render($cart_link); ?>
+        <?php endif; ?>
       </div>
     </section>
     <!-- /Presentation -->

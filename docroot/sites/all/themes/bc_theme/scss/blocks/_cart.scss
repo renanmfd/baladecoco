@@ -42,20 +42,25 @@
     a {
       display: block;
       padding: 10px;
-      color: $darkorange;
-      border-color: $darkorange;
-      border: 1px solid;
-      border-radius: 15px;
-      background-color: rgba(255, 255, 255, 0.4);
-      transition: all 0.3s ease-in-out;
+      color: $darkblue;
+      border-color: $darkblue;
+      border: rem(4px) solid;
+      border-radius: rem(5px);
+      background-color: rgba(124, 124, 255, 0.4);
+      transition: all 0.2s ease-in-out;
       
       &:hover {
-        color: $orange;
-        border-color: $orange;
+        color: $blue;
+        border-color: $blue;
         
         span {
-          color: $orange;
+          color: $blue !important;
         }
+      }
+      
+      span {
+        transition: all 0.2s ease-in-out;
+        color: $darkblue;
       }
     }
   }

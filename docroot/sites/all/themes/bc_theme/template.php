@@ -181,7 +181,7 @@ function _bc_theme_preprocess_node_review_group_page(&$vars) {
     $name = check_plain($account->name);
   }
   // Format name as a link to profile with tooltip.
-  $first_name = explode(' ', $name)[0]; 
+  $first_name = explode(' ', $name)[0];
   $options = array(
     'attributes' => array(
       'class' => array('username'),

@@ -94,6 +94,7 @@ form {
     color: transparent;
     border-top-left-radius: $form-border-radius;
     border-bottom-left-radius: $form-border-radius;
+    overflow: hidden;
 
     &:before {
       content: "\e9d9"; // default icon-star

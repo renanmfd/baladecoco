@@ -65,7 +65,7 @@ function bc_master_update_7102() {
 }
 
 /**
- * Enable media, mediafield, bc_blocks, bc_menu_feature and file_entity 
+ * Enable media, mediafield, bc_blocks, bc_menu_feature and file_entity
  * modules.
  */
 function bc_master_update_7103() {
@@ -79,7 +79,7 @@ function bc_master_update_7103() {
 }
 
 /**
- * Enable context, uuid_features, bc_menu_feature, chosen, block_class, 
+ * Enable context, uuid_features, bc_menu_feature, chosen, block_class,
  * pathauto and revert bc_block_settings_feature.
  */
 function bc_master_update_7104() {
@@ -100,8 +100,8 @@ function bc_master_update_7104() {
 }
 
 /**
- * Enable libraries, media_crop, wysiwyg, entitycache, googleanalytics, 
- * imagecache_actions, imagecache_coloractions, bean, 
+ * Enable libraries, media_crop, wysiwyg, entitycache, googleanalytics,
+ * imagecache_actions, imagecache_coloractions, bean,
  * image_url_formatter modules.
  */
 function bc_master_update_7105() {
@@ -131,7 +131,7 @@ function bc_master_update_7106() {
 }
 
 /**
- * Enable bean_entitycache and espacrop modules and revert 
+ * Enable bean_entitycache and espacrop modules and revert
  * bc_presentation_feature and bc_menu_feature features.
  */
 function bc_master_update_7107() {
@@ -161,7 +161,7 @@ function bc_master_update_7108() {
  * Set new admin theme, RUBIK.
  */
 function bc_master_update_7109() {
-  variable_set('admin_theme', 'rubik'); 
+  variable_set('admin_theme', 'rubik');
 }
 
 /**
@@ -176,7 +176,7 @@ function bc_master_update_7110() {
     'location_cck',
     'page_manager',
     'panels',
-    'hybridauth', 
+    'hybridauth',
     'user_pages',
   ));
 }
@@ -238,6 +238,9 @@ function bc_master_update_7114() {
     'user_registrationpassword',
     'panels_mini',
     'placeholder',
+    'date_api',
+    'date_popup',
+    'bc_cart',
   ));
   module_disable(array('location'));
   drupal_uninstall_modules(array('location'));
