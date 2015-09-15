@@ -28,7 +28,7 @@
       </div>
 
       <div class="subtotal__value__discount">
-        <span class="value"><?php print $discount; ?></span>
+        <span class="value">-<?php print $discount; ?></span>
         <span class="currency">R$</span>
         <span class="currency percentage">(<?php print $percetage; ?>%)</span>
       </div>
