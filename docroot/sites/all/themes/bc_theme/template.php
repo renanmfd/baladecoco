@@ -348,7 +348,9 @@ function bc_theme_form_element_label($variables) {
 
   // If there are attributes already, use them. If not, create empty array.
   $attributes = isset($element['#label_attributes'])?$element['#label_attributes'] : array();
-  $attributes['title'] = isset($element['#description'])? strip_tags($element['#description']) : t('No description');
+  $attributes['title'] = isset($element['#description'])? strip_tags($element['#description']) : strip_tags($element['#title']);
+
+  // Add required to tooltip.
   if (isset($element['#required']) and $element['#required']) $attributes['title'] .= ' ' . t('(required)');
   $attributes['data-toggle'] = 'tooltip';
   $attributes['data-placement'] = 'auto left';
@@ -381,5 +383,4 @@ function bc_theme_form_alter(&$form, &$form_state, $form_id) {
     $form['sort_order']['#description'] = t('Ascendent or descent sorting.');
     _bc_user_form_label_tooltip($form['sort_order'], 'bottom');
   }
-  //dpm(array($form, $form_state, $form_id));
 }

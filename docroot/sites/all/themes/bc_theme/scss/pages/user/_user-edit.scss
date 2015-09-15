@@ -1,0 +1,100 @@
+.page-user-edit {
+  form {
+    max-width: rem(480px);
+    padding: rem(20px);
+    background-color: $form-background;
+    border-top: 10px solid $form-color;
+    border-bottom: 10px solid $form-color;
+  }
+  
+  #edit-timezone {
+    display: none;
+  }
+}
+  
+.field-type-addressfield {  
+  .locality-block .clearfix,
+  .addressfield-container-inline:after {
+    display: none;
+  }
+
+  legend {
+    background-color: $form-color;
+
+    span {
+      color: $white;
+    }
+  }
+}
+
+.page-user-hybridauth {
+  form {
+    max-width: rem(480px);
+  }
+  
+  table {
+    width: 100%;
+    border: rem(10px) solid $form-color;
+    border-top: none;
+    border-left-width: rem(2px);
+    border-right-width: rem(2px);
+  }
+  
+  thead {
+    background-color: $form-color;
+    
+    th {
+      color: $white;
+      padding: rem(10px 5px);
+    }
+  }
+  
+  tbody {
+    td {
+      color: $coal;
+      @include padding (5px);
+    }
+  }
+  
+  .hybridauth-widget-wrapper {
+    margin: rem(40px 0);
+    @include clearfix;
+    
+    h3 {
+      text-transform: uppercase;
+      border-bottom: rem(3px) solid $form-color;
+    }
+    
+    ul {
+
+      li {
+        @include span(4 of 8);
+
+        &:nth-child(2n) {
+          @include last;
+          margin-left: 0;
+        }
+      }
+
+      .icon {
+        display: none;
+      }
+
+      .hybridauth-icon {
+        width: 100%;
+        padding-left: rem(58px);
+        opacity: 1;
+      }
+
+      span {
+        line-height: rem(48px);
+      }
+      
+      a:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
