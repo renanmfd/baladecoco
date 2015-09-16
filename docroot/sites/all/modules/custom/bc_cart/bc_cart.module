@@ -81,6 +81,12 @@ function bc_cart_theme($existing, $type, $theme, $path) {
       ),
       'template' => 'templates/cart-table--subtotal-row'
     ),
+    'cart_table_row_empty' => array(
+      'variables' => array(
+        'cart' => NULL,
+      ),
+      'template' => 'templates/cart-table--row-empty'
+    ),
   );
 }
 
@@ -331,7 +337,6 @@ function bc_cart_forms($form_id, $args) {
  */
 function template_preprocess_cart_table(&$vars, $hook) {
   $cart = cart_get();
-  $items = array();
   foreach ($cart['items'] as $item) {
     $nid = $item['nid'];
 
@@ -339,6 +344,9 @@ function template_preprocess_cart_table(&$vars, $hook) {
     $vars['rows'][$nid] = theme('cart_table_row', array(
       'item' => $item,
     ));
+  }
+  if (count($cart['items']) == 0) {
+    $vars['rows'][] = theme('cart_table_row_empty', array());
   }
 
   // Theme cart shipping row.
@@ -456,6 +464,18 @@ function bc_cart_preprocess_page(&$vars) {
   // Add cart block to variables to be displayed in presentation region.
   $block = block_load('bc_cart', BC_CART_LINK);
   $vars['cart_link'] = _block_get_renderable_array(_block_render_blocks(array($block)));
+}
+
+/**
+ * Implements custom HOOK_checkout_link_alter().
+ */
+function bc_cart_checkout_link_alter(&$links) {
+  $links[] = array(
+    'title' => t('Cart'),
+    'path' => 'cart',
+    'attributes' => array(),
+    'weight' => -99,
+  );
 }
 
 /** ================================================================ **/
