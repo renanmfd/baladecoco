@@ -4,6 +4,12 @@
   <?php print drupal_render_children($form) ?>
 </div>
 <ul class="user-form-bottom">
-  <li><a href="<?php print url('user/password'); ?>"><?php print t('I forgot my password'); ?></a></li>
-  <li><a href="<?php print url('user/register'); ?>"><?php print t('I don\'t have an account'); ?></a></li>
+  <li><a href="<?php print url('modal/nojs/user/password'); ?>" 
+         class="ctools-use-modal ctools-modal-user-modal-style">
+    <?php print t('I forgot my password'); ?></a>
+  </li>
+  <li><a href="<?php print url('modal/nojs/user/register'); ?>" 
+         class="ctools-use-modal ctools-modal-user-modal-style">
+    <?php print t('I don\'t have an account'); ?></a>
+  </li>
 </ul>

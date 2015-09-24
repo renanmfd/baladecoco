@@ -1,0 +1,149 @@
+#checkout-header {
+  font-size: 0;
+  background-color: #420464;
+  padding-bottom: 0.3125rem;
+  padding-top: 0.3125rem;
+}
+@media (min-width: 64em) {
+  #checkout-header {
+    background-color: transparent;
+    padding: 20px 0;
+    padding: 1.25rem 0;
+  }
+}
+@media screen and (max-width: 47.9375em) {
+  #checkout-header > .container {
+    margin: 0;
+  }
+}
+@media (min-width: 64em) {
+  #checkout-header .breadcrumb {
+    margin-left: 1.25rem;
+  }
+}
+#checkout-header .breadcrumb__item {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 50%;
+  padding: 10px;
+  padding: 0.625rem;
+  background-color: #e6e1eb;
+  border: 1px solid white;
+}
+@media (min-width: 64em) {
+  #checkout-header .breadcrumb__item {
+    width: 25%;
+    height: 2.5rem;
+    padding: 0;
+    border: none;
+  }
+  #checkout-header .breadcrumb__item:last-child {
+    border-top-right-radius: 1.25rem;
+    border-bottom-right-radius: 1.25rem;
+  }
+  #checkout-header .breadcrumb__item:last-child:after {
+    display: none;
+  }
+  #checkout-header .breadcrumb__item:after {
+    content: '';
+    display: block;
+    width: 2.875rem;
+    height: 2.875rem;
+    position: absolute;
+    top: -0.1875rem;
+    right: -1.4375rem;
+    background-color: white;
+    border-radius: 100%;
+  }
+}
+#checkout-header .breadcrumb__item.active {
+  background-color: #6C05A4;
+}
+#checkout-header .breadcrumb__item.active span {
+  border-color: #6C05A4;
+  color: white;
+}
+@media (min-width: 64em) {
+  #checkout-header .breadcrumb__item.active span {
+    color: #6C05A4;
+  }
+}
+#checkout-header .breadcrumb__item.active .breadcrumb__item__title {
+  font-weight: 600;
+  color: white;
+}
+@media (min-width: 64em) {
+  #checkout-header .breadcrumb__item.active .breadcrumb__item__title {
+    color: white;
+  }
+}
+#checkout-header .breadcrumb__item.complete {
+  background-color: #AD14FF;
+}
+#checkout-header .breadcrumb__item.complete span {
+  border-color: #AD14FF;
+  color: #420464;
+}
+@media (min-width: 64em) {
+  #checkout-header .breadcrumb__item.complete span {
+    color: #AD14FF;
+  }
+}
+#checkout-header .breadcrumb__item.complete .breadcrumb__item__title {
+  color: #420464;
+}
+@media (min-width: 64em) {
+  #checkout-header .breadcrumb__item.complete .breadcrumb__item__title {
+    color: white;
+  }
+}
+#checkout-header .breadcrumb__item__title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: default;
+  overflow: hidden;
+}
+@media (min-width: 64em) {
+  #checkout-header .breadcrumb__item__title {
+    font-size: 20px;
+    font-size: 1.25rem;
+    margin-left: 0.625rem;
+    line-height: 2.4375rem;
+  }
+}
+#checkout-header .breadcrumb__item__index {
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin-right: 0.3125rem;
+  cursor: default;
+}
+@media (min-width: 64em) {
+  #checkout-header .breadcrumb__item__index {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: -1.25rem;
+    margin-right: 0;
+    border: 0.1875rem solid #e6e1eb;
+    border-radius: 100%;
+    background-color: white;
+    font-size: 20px;
+    font-size: 1.25rem;
+    color: #29023F;
+    text-align: center;
+    line-height: 2rem;
+  }
+}
+#checkout-header .breadcrumb__item__index:after {
+  content: '.';
+}
+@media (min-width: 64em) {
+  #checkout-header .breadcrumb__item__index:after {
+    display: none;
+  }
+}

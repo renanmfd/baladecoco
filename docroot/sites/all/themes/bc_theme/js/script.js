@@ -87,6 +87,17 @@
     }
   };
 
+  Drupal.behaviors.modal_behavior = {
+    attach: function (context, settings) {
+      // Remove all tooltips when a link is clicked to prevent ghosts.
+      $('#modalContent a').click(function() {
+        $('.tooltip').remove();
+      });
+    }
+  };
+
+  // ================================================================ //
+
   /**
    * Function to equalize height of .review-teaser's on homepage.
    * This is based on screen size, to differantiate how many containers

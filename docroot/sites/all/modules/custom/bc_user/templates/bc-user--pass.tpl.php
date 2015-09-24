@@ -4,5 +4,5 @@
   <?php print drupal_render_children($form) ?>
 </div>
 <ul class="user-form-bottom">
-  <li><a href="<?php print url('user/register'); ?>"><?php print t('I don\'t have an account'); ?></a></li>
+  <li><a href="<?php print url('modal/nojs/user/register'); ?>"><?php print t('I don\'t have an account'); ?></a></li>
 </ul>

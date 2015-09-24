@@ -1,0 +1,93 @@
+#modalContent {
+  min-height: rem(600px) !important;
+  min-width: rem(400px) !important;
+  
+  .modal-content,
+  .ctools-modal-content {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .modal-content {
+    width: 100% !important;
+    min-height: rem(400px);
+    background-color: $form-background;
+  }
+  
+  .ctools-modal-content {
+    box-shadow: rem(0px 0px 30px -5px) $coal;
+    border: none;
+  }
+  
+  .modal-header {
+    position: absolute;
+    top: rem(110px);
+    right: rem(10px);
+    background-color: transparent;
+    z-index: 1;
+    
+    .modal-title {
+      display: none;
+    }
+    
+    .close {
+      padding: 2px 2px 0px 3px;
+      border: 1px solid $white;
+      text-align: center;
+      color: $white;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        border-color: $blue;
+        color: $blue;
+      }
+    }
+  }
+  
+  form {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    
+    label {
+      float: none;
+      width: rem(45px);
+      
+      &.option {
+        width: auto;
+      }
+    }
+    
+    .user-form {
+      border-bottom: none;
+    }
+    
+    .user-form-bottom {
+      margin: 0;
+      padding-bottom: rem(20px);
+      background-color: $form-background;
+      border-bottom: rem(10px) solid $form-color;
+      
+      li {
+        padding-left: rem(40px);
+        padding-right: rem(40px);
+      }
+    }
+  }
+  
+  #modal-throbber {
+    padding-top: rem(180px);
+    background-color: $form-background;
+    
+    .icon:before {
+      font-size: $font-title;
+      animation: spin 1s infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}

@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   background-color: $header-navigation-bg;
-  z-index: 998; // right below admin_menu
+  z-index: 500; // right below admin_menu
 
   .menu-wrapper h3 {
     display: inline-block !important;

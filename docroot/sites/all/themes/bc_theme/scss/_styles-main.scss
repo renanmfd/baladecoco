@@ -32,6 +32,7 @@
 @import 'components/components';
 @import 'components/text';
 @import 'components/tooltip';
+@import 'components/modal';
 
 // Vendors.
 @import 'vendors/chosen';
@@ -43,6 +44,10 @@
 @import 'layout/layout';
 @import 'layout/navigation';
 @import 'layout/sidebar';
+
+// HOMEPAGE BLOCKS
+@import 'blocks/reviews';
+@import 'blocks/showroom';
 
 // Pages.
 @import 'pages/homepage';
@@ -57,9 +62,10 @@
 @import 'pages/user/user-edit';
 
 // Blocks
-@import 'blocks/reviews';
-@import 'blocks/showroom';
+// @import 'blocks/reviews';
+// @import 'blocks/showroom';
 @import 'blocks/shipping';
 @import 'blocks/register-call';
 @import 'blocks/similar-slider';
 @import 'blocks/cart';
+@import 'blocks/checkout';
