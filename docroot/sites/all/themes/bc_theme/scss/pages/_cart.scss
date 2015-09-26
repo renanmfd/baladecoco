@@ -39,6 +39,12 @@
       @include padding (10px 0);
       border-bottom: rem(2px) solid $cart-title-bg;
       background-color: $lightergray;
+      
+      &.empty {
+        height: auto;
+        @include padding (20px 0);
+        text-align: center;
+      }
     }
     
     .cell {

@@ -218,45 +218,42 @@
 
 .user-form-bottom {
   margin: rem(20px 0);
-  
+
   li {
     padding: rem(5px 0);
-    
+
     a {
       text-decoration: underline;
     }
   }
 }
 
-.page-user-login,
-.page-user-register,
-.page-user-password {
-  form {
-    display: block;
-    vertical-align: top;
-    padding: 0;
-    max-width: rem(400px);
-    margin: rem(40px) auto;
-    clear: both;
+form[id|='user']{
+  display: block;
+  vertical-align: top;
+  padding: 0;
+  max-width: rem(400px);
+  margin: rem(40px) auto;
+  clear: both;
 
-    h2.user-login-header {
-      margin: rem(0 0 20px 0);
-      @include font ($bc-font2, $font-large, $font-default);
-      color: $white;
-      text-transform: uppercase;
-      text-align: center;
-      text-transform: none;
-      border: none;
-    }
-
-    .user-form {
-      padding: rem(40px);
-      background-color: $form-background;
-      border-bottom: 10px solid $form-color;
-    }
-
-    .form-actions {
-      margin: rem(20px 0 0 0);
-    }
+  h2.user-login-header {
+    margin: rem(0 0 20px 0);
+    @include font ($bc-font2, $font-large, $font-default);
+    color: $white;
+    text-transform: uppercase;
+    text-align: center;
+    text-transform: none;
+    border: none;
   }
+
+  .user-form {
+    padding: rem(40px);
+    background-color: $form-background;
+    border-bottom: 10px solid $form-color;
+  }
+
+  .form-actions {
+    margin: rem(20px 0 0 0);
+  }
+
 }

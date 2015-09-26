@@ -1,0 +1,122 @@
+<?php
+
+/**
+ * @file
+ * Main file for bc_cart module.
+ */
+
+
+/**
+ * Implements HOOK_theme().
+ */
+function bc_checkout_theme($existing, $type, $theme, $path) {
+  return array(
+    'checkout_header' => array(
+      'variables' => array(
+        'path' => '',
+      ),
+      'template' => 'templates/checkout-header'
+    ),
+  );
+}
+
+/**
+ * Implements HOOK_block_info().
+ */
+function bc_checkout_block_info() {
+  $blocks['checkout_header'] = array(
+    'info' => t('Checkout Header'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements HOOK_block_configure().
+ */
+function bc_checkout_block_configure($delta = '') {
+  $form = array();
+  if ($delta == 'checkout_header') {
+    $form['checkout_header_text'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Display Text'),
+      '#default_value' => variable_get('checkout_header_text', ''),
+      '#required' => TRUE,
+    );
+  }
+  return $form;
+}
+
+/**
+ * Implements HOOK_block_save().
+ */
+function bc_checkout_block_save($delta = '', $edit = array()) {
+  if ($delta == 'checkout_header') {
+    variable_set('checkout_header_text', t($edit['checkout_header_text']));
+  }
+}
+
+/**
+ * Implements HOOK_block_view().
+ */
+function bc_checkout_block_view($delta = '') {
+  $block = array();
+
+  if ($delta == 'checkout_header') {
+    $block['subject'] = NULL;
+    $block['content'] = theme('checkout_header', array('path' => $_GET['q']));
+  }
+  return $block;
+}
+
+/**
+ * Implements template_preprocess_THEME().
+ */
+function template_preprocess_checkout_header(&$vars) {
+  $links[0] = array(
+    'title' => 'Exemple',
+    'path' => 'example/of/path',
+    'attributes' => array(),
+    'weight' => 0,
+  );
+
+  // Let checkout modules add their links to checkout process.
+  drupal_alter('checkout_link', $links);
+
+  // Remove example.
+  unset($links[0]);
+
+  // Sort array by link weight.
+  usort($links, '_bc_checkout_orderby');
+
+  // Prepare attributes.
+  $index = 1;
+  $complete = TRUE; // help add complete to previous steps (before active).
+  foreach ($links as $k => $link) {
+    $links[$k]['attributes']['class'][] = 'breadcrumb__item';
+    if (current_path() == $link['path']) {
+      $links[$k]['attributes']['class'][] = 'active';
+      $links[$k]['attributes']['title'] = t('You are here!');
+      $complete = FALSE;
+    }
+    else if ($complete) {
+      $links[$k]['attributes']['class'][] = 'complete';
+      $links[$k]['attributes']['title'] = t('This step is complete!');
+    }
+    else {
+      $links[$k]['attributes']['title'] = t('Keep going... you\'ll get here!');
+    }
+    $links[$k]['attributes']['data-toggle'] = 'tooltip';
+    $links[$k]['attributes']['data-placement'] = 'bottom';
+
+    $links[$k]['attributes_string'] = drupal_attributes($links[$k]['attributes']);
+    $links[$k]['index'] = $index++;
+  }
+
+  // Set variable for template use.
+  $vars['links'] = $links;
+}
+
+function _bc_checkout_orderby($a, $b) {
+  return $a['weight'] - $b['weight'];
+}
