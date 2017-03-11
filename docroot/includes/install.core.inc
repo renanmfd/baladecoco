@@ -809,6 +809,13 @@ function install_system_module(&$install_state) {
 
   variable_set('install_profile_modules', array_diff($modules, array('system')));
   $install_state['database_tables_exist'] = TRUE;
+
+  // Prevent the hook_requirements() check from telling us to convert the
+  // database to utf8mb4.
+  $connection = Database::getConnection();
+  if ($connection->utf8mb4IsConfigurable() && $connection->utf8mb4IsActive()) {
+    variable_set('drupal_all_databases_are_utf8mb4', TRUE);
+  }
 }
 
 /**
@@ -1046,19 +1053,7 @@ function install_select_profile(&$install_state) {
   $install_state['profiles'] += install_find_profiles();
   if (empty($install_state['parameters']['profile'])) {
     // Try to find a profile.
-    $profiles = $install_state['profiles'];
-    foreach ($profiles as $key => $profile) {
-      $details = install_profile_info($profile->name);
-      // Remove hidden profiles (such as the testing profile, which only exists
-      // to speed up test runs) from the list. This prevents them from being
-      // displayed in the user interface, and also means that if there is only
-      // one non-hidden profile, _install_select_profile() will choose it
-      // automatically.
-      if (!empty($details['hidden'])) {
-        unset($profiles[$key]);
-      }
-    }
-    $profile = _install_select_profile($profiles);
+    $profile = _install_select_profile($install_state['profiles']);
     if (empty($profile)) {
       // We still don't have a profile, so display a form for selecting one.
       // Only do this in the case of interactive installations, since this is
@@ -1068,7 +1063,7 @@ function install_select_profile(&$install_state) {
       if ($install_state['interactive']) {
         include_once DRUPAL_ROOT . '/includes/form.inc';
         drupal_set_title(st('Select an installation profile'));
-        $form = drupal_get_form('install_select_profile_form', $profiles);
+        $form = drupal_get_form('install_select_profile_form', $install_state['profiles']);
         return drupal_render($form);
       }
       else {
@@ -1156,8 +1151,6 @@ function install_select_profile_form($form, &$form_state, $profile_files) {
     $details = install_profile_info($profile->name);
     // Don't show hidden profiles. This is used by to hide the testing profile,
     // which only exists to speed up test runs.
-    // @todo: This duplicates logic in install_select_profile() and is here
-    //   only for backwards compatibility. Remove it in Drupal 8.
     if ($details['hidden'] === TRUE) {
       continue;
     }
@@ -1604,7 +1597,9 @@ function install_finished(&$install_state) {
 }
 
 /**
- * Batch callback for batch installation of modules.
+ * Implements callback_batch_operation().
+ *
+ * Performs batch installation of modules.
  */
 function _install_module_batch($module, $module_name, &$context) {
   // Install and enable the module right away, so that the module will be
@@ -1617,6 +1612,8 @@ function _install_module_batch($module, $module_name, &$context) {
 }
 
 /**
+ * Implements callback_batch_finished().
+ *
  * 'Finished' callback for module installation batch.
  */
 function _install_profile_modules_finished($success, $results, $operations) {
