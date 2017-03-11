@@ -218,7 +218,7 @@ $databases['default']['default'] = array(
   'username' => 'drupal',
   'password' => 'drupal',
   'host' => 'localhost',
-  'prefix' => 'main_',
+  'prefix' => '',
   'collation' => 'utf8_general_ci',
 );
 

@@ -7,270 +7,82 @@
 
 function bc_master_install() {
   // Theme
-  variable_set('theme_default', 'bc_theme');
-  variable_set('admin_theme', 'adminimal_theme');
+  $enable = array(
+    'theme_base' => 'bootstrap',
+    'theme_default' => 'bc_theme',
+    'admin_theme' => 'rubik',
+  );
+  theme_enable($enable);
+  
+  foreach ($enable as $var => $theme) {
+    if (!is_numeric($var)) {
+      variable_set($var, $theme);
+    }
+  }
+  
+  theme_disable(array('bartik', 'seven'));
 
   // Modules: Core
-  module_enable(array(
-    'statistics',
-  ));
   module_disable(array(
     'toolbar',
+    'overlay',
+  ));
+  module_enable(array(
+    'locale',
+    'statistics',
+    'syslog',
   ));
 
   // Modules: Contrib
-  module_enable(array(
+  _bc_master_module_enable(array(
     'admin_menu',
-    'ctools',
-    'devel',
-    'entity',
-    'features',
-    'jquery_update',
-    'menu_attributes',
-    'metatag',
-    'metatag_facebook',
-    'metatag_favicons',
-    'metatag_verification',
-    'metatag_views',
     'module_filter',
-    'services',
+    'advagg',
+    'advagg_css_compress',
+    'advagg_js_compress',
+    'ctools',
+    'token',
+    'date',
+    'devel',
+    'devel_generate',
+    'features',
+    'addressfield',
+    'email',
+    'entityreference',
+    'media',
+    'mediafield',
+    'backup_migrate',
+    'email_registration',
+    'entity',
+    'libraries',
+    'menu_attributes',
+    'pathauto',
+    'remember_me',
     'shield',
-    'strongarm',
+    'metatag',
+    'googleanalytics',
+    'chosen',
+    'jquery_update',
+    'wysiwyg',
     'uuid',
+    'variable',
+    'variable_admin',
     'views',
     'views_ui',
+    'date_api',
+    'date_views',
   ));
+}
+
+function _bc_master_module_enable($modules) {
+  foreach ($modules as $module) {
+    module_enable(array($module), TRUE);
+  }
 }
 
 /**
  * Disable overlay module - Enable theme settings feature.
- */
+ *//*
 function bc_master_update_7101() {
-  module_disable(array('overlay'));
-  module_enable(array(
-    'bc_theme_settings_feature',
-    'bc_site_settings_feature',
-    'menu_item_visibility'
-  ));
-}
 
-/**
- * Enable feature block settings.
- */
-function bc_master_update_7102() {
-  module_enable(array(
-    'fe_block',
-    'bc_block_settings_feature'
-  ));
-}
-
-/**
- * Enable media, mediafield, bc_blocks, bc_menu_feature and file_entity
- * modules.
- */
-function bc_master_update_7103() {
-  module_enable(array(
-    'bc_menu_feature',
-    'file_entity',
-    'media',
-    'mediafield',
-    'bc_blocks'
-  ));
-}
-
-/**
- * Enable context, uuid_features, bc_menu_feature, chosen, block_class,
- * pathauto and revert bc_block_settings_feature.
- */
-function bc_master_update_7104() {
-  module_enable(array(
-    'context',
-    'context_ui',
-    'context_layouts',
-    'uuid_features',
-    'bc_menu_feature',
-    'chosen',
-    'block_class',
-    'pathauto',
-  ));
-  features_revert(array(
-    'bc_block_settings_feature',
-    'bc_site_settings_feature'
-  ));
-}
-
-/**
- * Enable libraries, media_crop, wysiwyg, entitycache, googleanalytics,
- * imagecache_actions, imagecache_coloractions, bean,
- * image_url_formatter modules.
- */
-function bc_master_update_7105() {
-  module_enable(array(
-    'libraries',
-    'wysiwyg',
-    'entitycache',
-    'googleanalytics',
-    'imagecache_actions',
-    'imagecache_coloractions',
-    'bean',
-    'image_url_formatter',
-  ));
-}
-
-/**
- * Enable bc_presentation_feature.
- */
-function bc_master_update_7106() {
-  module_enable(array(
-    'bc_presentation_feature'
-  ));
-  features_revert(array(
-    'bc_block_settings_feature',
-    'bc_site_settings_feature',
-  ));
-}
-
-/**
- * Enable bean_entitycache and espacrop modules and revert
- * bc_presentation_feature and bc_menu_feature features.
- */
-function bc_master_update_7107() {
-  module_enable(array(
-    'bean_entitycache',
-    'espacrop',
-  ));
-  features_revert(array(
-    'bc_presentation_feature',
-    'bc_menu_feature',
-  ));
-}
-
-/**
- * Revert bc_presentation_feature and bc_block_settings_feature and
- * bc_site_settings_feature features.
- */
-function bc_master_update_7108() {
-  features_revert(array(
-    'bc_presentation_feature',
-    'bc_block_settings_feature',
-    'bc_site_settings_feature',
-  ));
-}
-
-/**
- * Set new admin theme, RUBIK.
- */
-function bc_master_update_7109() {
-  variable_set('admin_theme', 'rubik');
-}
-
-/**
- * User modules enable.
- */
-function bc_master_update_7110() {
-  module_enable(array(
-    'variable',
-    'email',
-    'email_registration',
-    'location',
-    'location_cck',
-    'page_manager',
-    'panels',
-    'hybridauth',
-    'user_pages',
-  ));
-}
-
-/**
- * Product content type modules enable.
- */
-function bc_master_update_7111() {
-  module_enable(array(
-    'conditional_fields',
-    'entityreference',
-    'ds',
-    'panelizer',
-  ));
-  module_enable(array(
-    'bc_product_feature',
-  ));
-  features_revert(array(
-    'bc_block_settings_feature',
-    'bc_site_settings_feature',
-    'bc_theme_settings_feature',
-  ));
-}
-
-/**
- * Homepage and other modules.
- */
-function bc_master_update_7112() {
-  module_enable(array(
-    'page_manager',
-    'panels',
-  ));
-}
-
-/**
- * Enable features bc_review_feature.
- */
-function bc_master_update_7113() {
-  module_enable(array(
-    'bc_review_feature',
-    'bc_permission_feature',
-    'bc_text_format_feature',
-    'bc_user',
-    'bc_user_feature',
-  ));
-  features_revert(array(
-    'bc_theme_settings_feature',
-    'bc_site_settings_feature',
-  ));
-}
-
-/**
- * Enable modules user_registrationpassword, remember_me, panels_mini.
- * Disable location in favor of addressfield.
- */
-function bc_master_update_7114() {
-  module_enable(array(
-    'remember_me',
-    'user_registrationpassword',
-    'panels_mini',
-    'form_placeholder',
-  ));
-  module_enable(array(
-    'date_api',
-    'date_popup',
-    'bc_cart',
-    'addressfield',
-  ));
-  module_disable(array('location'));
-  drupal_uninstall_modules(array('location'));
-}
-
-/**
- * Revert several features.
- */
-function bc_master_update_7115() {
-  features_revert(array(
-    'bc_block_settings_feature',
-    'bc_menu_feature',
-    'bc_permission_feature',
-    'bc_product_feature',
-  ));
-  features_revert(array(
-    'bc_review_feature',
-    'bc_site_settings_feature',
-    'bc_user_feature',
-  ));
-}
-
-/**
- * Enable bc_cupom.
- */
-function bc_master_update_7116() {
-  module_enable(array(
-    'bc_cupom',
-  ));
-}
+}*/
