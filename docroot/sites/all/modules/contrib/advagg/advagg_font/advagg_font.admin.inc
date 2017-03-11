@@ -16,16 +16,23 @@ function advagg_font_admin_settings_form() {
   drupal_set_title(t('AdvAgg: Async Font Loader'));
   $form = array();
 
-  $package = drupal_http_request('https://cdn.rawgit.com/bramstein/fontfaceobserver/master/package.json');
-  $package = json_decode($package->data);
+  $package = drupal_http_request('https://cdn.rawgit.com/bramstein/fontfaceobserver/master/package.json', array('timeout' => 7));
+  if (!empty($package->data)) {
+    $package = json_decode($package->data);
+  }
+  else {
+    unset($package);
+    $package = new stdClass();
+    $package->version = 0;
+  }
 
   $options = array(
     0 => t('Disabled'),
     6 => t('Externally load the latest from github (version: @version)', array('@version' => $package->version)),
   );
   $description = t('This will use the fallback font until the font has been downloaded. See <a href="@link">fontfaceobserver</a> for more info.', array(
-      '@link' => 'https://github.com/bramstein/fontfaceobserver',
-    ));
+    '@link' => 'https://github.com/bramstein/fontfaceobserver',
+  ));
   if (function_exists('libraries_info')) {
     $lib_info = libraries_detect('fontfaceobserver');
     if ($lib_info['installed']) {
@@ -34,11 +41,21 @@ function advagg_font_admin_settings_form() {
         4 => t('Local file included in aggregate (version: @version)', array('@version' => $lib_info['version'])),
       );
     }
-    else {
+    elseif (!is_readable('sites/all/libraries/fontfaceobserver/fontfaceobserver.js')) {
       $description .= ' ' . t('To use fontfaceobserver locally fontfaceobserver needs to be placed inside the sites/all/libraries directory so sites/all/libraries/fontfaceobserver/fontfaceobserver.js and package.json can be found at that location.', array(
         '@url' => 'https://www.drupal.org/project/libraries',
       ));
     }
+    else {
+      $description .= ' ' . t('Go to the <a href="@url">library report page</a> and make sure fontfaceobserver is installed correctly.', array(
+        '@url' => url('admin/reports/libraries'),
+      ));
+    }
+  }
+  elseif (is_readable('sites/all/libraries/fontfaceobserver/fontfaceobserver.js')) {
+    $description .= ' ' . t('To use fontfaceobserver locally the <a href="@url">libraries api module</a> needs to be installed.', array(
+      '@url' => 'https://www.drupal.org/project/libraries',
+    ));
   }
   else {
     $description .= ' ' . t('To use fontfaceobserver locally the <a href="@url">libraries api module</a> needs to be installed and then fontfaceobserver needs to be placed inside the sites/all/libraries directory so sites/all/libraries/fontfaceobserver/fontfaceobserver.js and package.json can be found at that location.', array(
@@ -98,7 +115,7 @@ function advagg_font_admin_settings_form() {
       continue;
     }
     // Get the file contents.
-    $file_contents = file_get_contents($row['filename']);
+    $file_contents = (string) @file_get_contents($row['filename']);
     // Get font names.
     $replacements = advagg_font_get_replacements_array($file_contents);
     if (!empty($replacements)) {

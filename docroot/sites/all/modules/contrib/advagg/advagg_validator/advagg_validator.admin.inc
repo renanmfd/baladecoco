@@ -148,7 +148,7 @@ function advagg_validator_admin_form_generator($type, $run_client_side) {
     $point = &$form;
     $built = array();
     foreach ($levels as $key => $value) {
-      // Build direcotry structure,
+      // Build direcotry structure.
       $built[] = $value;
       $point = &$point[$value];
       if (!is_array($point)) {
@@ -254,7 +254,6 @@ function advagg_validator_admin_form_generator($type, $run_client_side) {
   return $form;
 }
 
-
 // Submit callbacks.
 /**
  * Display file info in a drupal message.
@@ -262,6 +261,7 @@ function advagg_validator_admin_form_generator($type, $run_client_side) {
 function advagg_validator_admin_test_advagg_css_submit($form, &$form_state) {
   module_load_include('inc', 'advagg_validator', 'advagg_validator');
 
+  // @codingStandardsIgnoreLine
   if (!empty($form_state['input']['ajax_page_state'])) {
     return;
   }
@@ -304,6 +304,7 @@ function advagg_validator_admin_test_advagg_css_callback($form, &$form_state) {
  * Display file info in a drupal message.
  */
 function advagg_validator_admin_test_advagg_css_directory_submit($form, &$form_state) {
+  // @codingStandardsIgnoreLine
   if (!empty($form_state['input']['ajax_page_state']) || empty($form_state['values']['op']) || strpos($form_state['values']['op'], t('Check this Directory:')) !== 0) {
     return;
   }
@@ -378,6 +379,7 @@ function advagg_validator_admin_test_advagg_css_directory_callback($form, &$form
  * Display file info in a drupal message.
  */
 function advagg_validator_admin_test_advagg_css_subdirectory_submit($form, &$form_state) {
+  // @codingStandardsIgnoreLine
   if (!empty($form_state['input']['ajax_page_state']) || empty($form_state['values']['op']) || strpos($form_state['values']['op'], t('Check this Directory and all Subdirectories:')) !== 0) {
     return;
   }
@@ -452,6 +454,7 @@ function advagg_validator_admin_test_advagg_css_subdirectory_callback($form, &$f
 function advagg_validator_admin_test_all_css_submit($form, &$form_state) {
   module_load_include('inc', 'advagg_validator', 'advagg_validator');
 
+  // @codingStandardsIgnoreLine
   if (!empty($form_state['input']['ajax_page_state'])) {
     return;
   }
