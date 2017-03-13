@@ -1,43 +1,46 @@
-name = BC Theme
-description = Theme for Menina das Balas.
+name = 'BC Theme'
+description = Uses the Bootstrap Framework Less source files and must be compiled (not for beginners).
 core = 7.x
+base theme = bootstrap
 
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Regions
 ;;;;;;;;;;;;;;;;;;;;;
 
-regions[topbar]         = 'Topbar'
-regions[presentation]   = 'Presentation'
 regions[navigation]     = 'Navigation'
-regions[management]     = 'Management'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
 regions[help]           = 'Help'
 regions[content]        = 'Content'
-regions[sidebar]        = 'Sidebar'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
-regions[bottom]         = 'Bottom'
-regions[mobile_menu]    = 'Mobile Menu'
 regions[page_top]       = 'Page top'
 regions[page_bottom]    = 'Page bottom'
-
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;
 
-stylesheets[all][] = css/styles.css
-
+stylesheets[all][] = css/style.min.css
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Scripts
 ;;;;;;;;;;;;;;;;;;;;;
- 
-scripts[] = js/script.js
-scripts[] = js/vendor/bootstrap-tooltip.js
 
+scripts[] = 'bootstrap/bootstrap/js/affix.js'
+scripts[] = 'bootstrap/bootstrap/js/alert.js'
+scripts[] = 'bootstrap/bootstrap/js/button.js'
+scripts[] = 'bootstrap/bootstrap/js/carousel.js'
+scripts[] = 'bootstrap/bootstrap/js/collapse.js'
+scripts[] = 'bootstrap/bootstrap/js/dropdown.js'
+scripts[] = 'bootstrap/bootstrap/js/modal.js'
+scripts[] = 'bootstrap/bootstrap/js/tooltip.js'
+scripts[] = 'bootstrap/bootstrap/js/popover.js'
+scripts[] = 'bootstrap/bootstrap/js/scrollspy.js'
+scripts[] = 'bootstrap/bootstrap/js/tab.js'
+scripts[] = 'bootstrap/bootstrap/js/transition.js'
 
-;;;;;;;;;;;;;;;;;;;;;
-;; Panels layout
-;;;;;;;;;;;;;;;;;;;;;
-
-plugins[panels][layouts] = layouts
+; Disable the CDN provider so compiled source files can be used.
+settings[bootstrap_cdn] = ''
