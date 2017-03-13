@@ -71,6 +71,9 @@ function bc_master_install() {
     'views_ui',
     'date_api',
     'date_views',
+    'strongarm',
+    'bulk_export',
+    'conditional_fields',
   ));
 }
 
