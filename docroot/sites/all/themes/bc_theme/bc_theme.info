@@ -29,18 +29,18 @@ stylesheets[all][] = css/style.min.css
 ;; Scripts
 ;;;;;;;;;;;;;;;;;;;;;
 
-scripts[] = 'bootstrap/bootstrap/js/affix.js'
-scripts[] = 'bootstrap/bootstrap/js/alert.js'
-scripts[] = 'bootstrap/bootstrap/js/button.js'
-scripts[] = 'bootstrap/bootstrap/js/carousel.js'
-scripts[] = 'bootstrap/bootstrap/js/collapse.js'
-scripts[] = 'bootstrap/bootstrap/js/dropdown.js'
-scripts[] = 'bootstrap/bootstrap/js/modal.js'
-scripts[] = 'bootstrap/bootstrap/js/tooltip.js'
-scripts[] = 'bootstrap/bootstrap/js/popover.js'
-scripts[] = 'bootstrap/bootstrap/js/scrollspy.js'
-scripts[] = 'bootstrap/bootstrap/js/tab.js'
-scripts[] = 'bootstrap/bootstrap/js/transition.js'
+scripts[] = 'bootstrap/js/affix.js'
+scripts[] = 'bootstrap/js/alert.js'
+scripts[] = 'bootstrap/js/button.js'
+scripts[] = 'bootstrap/js/carousel.js'
+scripts[] = 'bootstrap/js/collapse.js'
+scripts[] = 'bootstrap/js/dropdown.js'
+scripts[] = 'bootstrap/js/modal.js'
+scripts[] = 'bootstrap/js/tooltip.js'
+scripts[] = 'bootstrap/js/popover.js'
+scripts[] = 'bootstrap/js/scrollspy.js'
+scripts[] = 'bootstrap/js/tab.js'
+scripts[] = 'bootstrap/js/transition.js'
 
 ; Disable the CDN provider so compiled source files can be used.
 settings[bootstrap_cdn] = ''
