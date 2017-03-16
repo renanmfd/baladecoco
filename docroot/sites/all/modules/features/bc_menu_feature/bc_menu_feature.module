@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the bc_menu_feature feature.
- */
-
-include_once 'bc_menu_feature.features.inc';

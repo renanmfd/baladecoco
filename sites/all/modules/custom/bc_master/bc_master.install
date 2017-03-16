@@ -1,0 +1,91 @@
+<?php
+
+/**
+ * @file
+ * For hook_update_X functions.
+ */
+
+function bc_master_install() {
+  // Theme
+  $enable = array(
+    'theme_base' => 'bootstrap',
+    'theme_default' => 'bc_theme',
+    'admin_theme' => 'rubik',
+  );
+  theme_enable($enable);
+  
+  foreach ($enable as $var => $theme) {
+    if (!is_numeric($var)) {
+      variable_set($var, $theme);
+    }
+  }
+  
+  theme_disable(array('bartik', 'seven'));
+
+  // Modules: Core
+  module_disable(array(
+    'toolbar',
+    'overlay',
+  ));
+  module_enable(array(
+    'locale',
+    'statistics',
+    'syslog',
+  ));
+
+  // Modules: Contrib
+  _bc_master_module_enable(array(
+    'admin_menu',
+    'module_filter',
+    'advagg',
+    'advagg_css_compress',
+    'advagg_js_compress',
+    'ctools',
+    'token',
+    'date',
+    'devel',
+    'devel_generate',
+    'features',
+    'addressfield',
+    'email',
+    'entityreference',
+    'media',
+    'mediafield',
+    'backup_migrate',
+    'email_registration',
+    'entity',
+    'libraries',
+    'menu_attributes',
+    'pathauto',
+    'remember_me',
+    'shield',
+    'metatag',
+    'googleanalytics',
+    'chosen',
+    'jquery_update',
+    'wysiwyg',
+    'uuid',
+    'variable',
+    'variable_admin',
+    'views',
+    'views_ui',
+    'date_api',
+    'date_views',
+    'strongarm',
+    'bulk_export',
+    'conditional_fields',
+  ));
+}
+
+function _bc_master_module_enable($modules) {
+  foreach ($modules as $module) {
+    module_enable(array($module), TRUE);
+  }
+}
+
+/**
+ * Disable overlay module - Enable theme settings feature.
+ *//*
+function bc_master_update_7101() {
+
+}*/

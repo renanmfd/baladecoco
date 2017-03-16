@@ -70,7 +70,7 @@ drupal_composer_project_options: "--prefer-dist --stability dev --no-interaction
 install_site: false
 
 # Required Drupal settings.
-drupal_core_path: "{{ drupal_composer_install_dir }}docroot"
+drupal_core_path: "{{ drupal_composer_install_dir }}"
 drupal_db_user:
 drupal_db_password: drupal
 drupal_db_name: drupal
