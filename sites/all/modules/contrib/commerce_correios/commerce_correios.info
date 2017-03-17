@@ -1,0 +1,16 @@
+name = Brazilian Correios Shipping Method
+description = Provides a shipping method for Brazilian Correios.
+package = Commerce (contrib)
+dependencies[] = commerce
+dependencies[] = commerce_shipping
+core = 7.x
+
+; Base module files
+files[] = commerce_correios.module
+
+; Information added by drupal.org packaging script on 2013-09-30
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "commerce_correios"
+datestamp = "1380560082"
+

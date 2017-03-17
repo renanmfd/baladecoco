@@ -14,7 +14,7 @@ vagrant_ip: 192.168.88.88
 # Allow Drupal VM to be accessed via a public network interface on your host.
 # Vagrant boxes are insecure by default, so be careful. You've been warned!
 # See: https://docs.vagrantup.com/v2/networking/public_network.html
-vagrant_public_ip: ""
+vagrant_public_ip: "192.168.0.17"
 
 # A list of synced folders, with the keys 'local_path', 'destination', and
 # a 'type' of [nfs|rsync|smb] (leave empty for slow native shares). See

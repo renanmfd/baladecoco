@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Provides a shipping method for Drupal Commerce for Brazilian Correios.
+ */
+
+/**
+ * Implementation of hook_ctools_plugin_directory().
+ */
+function commerce_correios_ctools_plugin_directory($owner, $plugin_type) {
+  // Standard ctools hook, used to tell ctools where our commerce shipping
+  // plugins are located.
+  if ($owner == 'commerce_shipping') {
+    return "plugins/$plugin_type";
+  }
+}
+
+/**
+ * Implements hook_commerce_checkout_page_info().
+ */
+function commerce_correios_commerce_checkout_page_info() {
+  $checkout_pages = array();
+
+  // Define a page for reviewing the data entered during checkout.
+  // @todo: move this to commerce_shipping?
+  $checkout_pages['commerce_correios'] = array(
+    'name' => t('Shipping'),
+    'title' => t('Shipping method'),
+    'help' => t('Choose a shipping method bellow.'),
+    'weight' => 5,
+  );
+
+  return $checkout_pages;
+}
