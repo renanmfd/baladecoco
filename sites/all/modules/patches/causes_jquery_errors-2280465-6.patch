@@ -1,0 +1,14 @@
+diff --git a/commerce_ajax_cart.module b/commerce_ajax_cart.module
+index fd3232f..32395cd 100644
+--- a/commerce_ajax_cart.module
++++ b/commerce_ajax_cart.module
+@@ -100,8 +100,7 @@ function commerce_ajax_validate_post_request() {
+  */
+ function commerce_ajax_cart_preprocess_html() {
+   $defaults = variable_get('commerce_ajax_cart_position', commerce_ajax_cart_get_defaults());
+-  drupal_add_library('system', 'ui.position');
+-  drupal_add_js('misc/ajax.js', array('type' => 'file', 'weight' => -100));
++  drupal_add_library('system', 'ui.position', 'drupal.ajax');
+   drupal_add_js(drupal_get_path('module', 'commerce_ajax_cart') . '/js/commerce_ajax_cart.js', array(
+     'type' => 'file',
+     'scope' => 'footer',
