@@ -29,10 +29,12 @@ stylesheets[all][] = css/style.min.css
 ;; Scripts
 ;;;;;;;;;;;;;;;;;;;;;
 
+scripts[] = 'js/script.js'
+
 scripts[] = 'bootstrap/js/affix.js'
 scripts[] = 'bootstrap/js/alert.js'
 scripts[] = 'bootstrap/js/button.js'
-scripts[] = 'bootstrap/js/carousel.js'
+;scripts[] = 'bootstrap/js/carousel.js' ;Using FLEXSLIDER
 scripts[] = 'bootstrap/js/collapse.js'
 scripts[] = 'bootstrap/js/dropdown.js'
 scripts[] = 'bootstrap/js/modal.js'
