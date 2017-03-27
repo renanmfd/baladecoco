@@ -92,7 +92,7 @@ if (!String.prototype.startsWith) {
             });
     });
     gulp.task('less', ['less-lint'], function cssTask() {
-        return gulp.src('./less/style.less')
+        return gulp.src('./less/*.less')
             .pipe(plumber(plumberOpt))
             .pipe(sourcemaps.init())
             .pipe(less({
@@ -110,16 +110,15 @@ if (!String.prototype.startsWith) {
     gulp.task('js-lint', function () {
         return gulp.src('./js/**/*.js')
             .pipe(plumber())
-            .pipe(eslint('.eslintrc'))
+            //.pipe(eslint('.eslintrc'))
             .pipe(eslint.format())
             .pipe(eslint.failAfterError());
     });
     gulp.task('js', ['js-lint'], function jsTask() {
-        return gulp.src('./js/**/*.js')
+        return gulp.src('./js/src/*.js')
             .pipe(cache('js'))
             .pipe(plumber(plumberOpt))
             .pipe(complexity())
-            .pipe(rename({prefix: 'bc_'}))
             .pipe(gulp.dest('./js/'))
             .pipe(rename({suffix: '.min'}))
             .pipe(uglify())
@@ -174,7 +173,7 @@ if (!String.prototype.startsWith) {
         });
 
         gulp.watch('./less/**/*.less', ['less']);
-        gulp.watch('./js/**/*.js', ['js']);
+        gulp.watch('./js/src/*.js', ['js']);
     });
 
     gulp.task('default', ['less', 'js', 'img', 'watch']);

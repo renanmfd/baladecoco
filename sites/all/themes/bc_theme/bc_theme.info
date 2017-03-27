@@ -8,9 +8,11 @@ base theme = bootstrap
 ;; Regions
 ;;;;;;;;;;;;;;;;;;;;;
 
-regions[navigation]     = 'Navigation'
-regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'
+regions[header]         = 'Top Bar'
+regions[navigation]     = 'Navigation'
+regions[cart_summary]   = 'Cart Summary'
+regions[banner]         = 'Banner'
 regions[help]           = 'Help'
 regions[content]        = 'Content'
 regions[sidebar_first]  = 'Primary'
@@ -23,26 +25,32 @@ regions[page_bottom]    = 'Page bottom'
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;
 
-stylesheets[all][] = css/style.min.css
+stylesheets[all][] = css/general.min.css
+stylesheets[all][] = css/header.min.css
+stylesheets[all][] = css/navbar.min.css
+stylesheets[all][] = css/banner.min.css
+stylesheets[all][] = css/footer.min.css
+
+stylesheets[all][] = css/page_home.min.css
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Scripts
 ;;;;;;;;;;;;;;;;;;;;;
 
-scripts[] = 'js/script.js'
+scripts[] = 'js/script.min.js'
 
-scripts[] = 'bootstrap/js/affix.js'
-scripts[] = 'bootstrap/js/alert.js'
-scripts[] = 'bootstrap/js/button.js'
+;scripts[] = 'bootstrap/js/affix.js'
+;scripts[] = 'bootstrap/js/alert.js'
+;scripts[] = 'bootstrap/js/button.js'
 ;scripts[] = 'bootstrap/js/carousel.js' ;Using FLEXSLIDER
-scripts[] = 'bootstrap/js/collapse.js'
-scripts[] = 'bootstrap/js/dropdown.js'
-scripts[] = 'bootstrap/js/modal.js'
-scripts[] = 'bootstrap/js/tooltip.js'
-scripts[] = 'bootstrap/js/popover.js'
-scripts[] = 'bootstrap/js/scrollspy.js'
-scripts[] = 'bootstrap/js/tab.js'
-scripts[] = 'bootstrap/js/transition.js'
+;scripts[] = 'bootstrap/js/collapse.js'
+;scripts[] = 'bootstrap/js/dropdown.js'
+;scripts[] = 'bootstrap/js/modal.js'
+;scripts[] = 'bootstrap/js/tooltip.js'
+;scripts[] = 'bootstrap/js/popover.js'
+;scripts[] = 'bootstrap/js/scrollspy.js'
+;scripts[] = 'bootstrap/js/tab.js'
+;scripts[] = 'bootstrap/js/transition.js'
 
 ; Disable the CDN provider so compiled source files can be used.
-settings[bootstrap_cdn] = ''
+;settings[bootstrap_cdn] = ''

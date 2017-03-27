@@ -76,7 +76,7 @@
     <?php print $page; ?>
     <?php print $page_bottom; ?>
   </div>
-  <div od="scripts">
+  <div id="scripts">
     
   </div>
 </body>

@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["variables.less"],"sourcesContent":["@mainColor: purple;\n@secColor: #a9a2ff;\n\n@black: #1f1c1c;\n@white: #f2f2f2;"],"file":"variables.min.css"}

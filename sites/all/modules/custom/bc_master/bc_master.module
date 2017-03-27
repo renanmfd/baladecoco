@@ -4,3 +4,29 @@
  * @file
  * Empty file. All code to be plased to baladecoco_master.install.
  */
+
+function bc_master_get_cart_count() {
+  global $user;
+  // Can leave blank or provide UID
+  $uid = $user->uid; // anon
+  $product_count = 0;
+  $product_quantity_count = 0;
+
+  // Load cart order
+  if ($order = commerce_cart_order_load($uid)) {
+    // Let's use the wrapper because it rocks
+    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+
+    // Loop over line items and increment product counter
+    foreach ($order_wrapper->commerce_line_items as $delta => $line_item_wrapper) {
+      // If line item is a commerce product type
+      if (in_array($line_item_wrapper->type->value(), commerce_product_line_item_types())) {
+        // Increment counters
+        // Individual product line item
+        $product_count++;
+      }
+    }
+    return $product_count;
+  }
+  return 0;
+}
