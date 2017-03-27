@@ -33,11 +33,6 @@
     <?php print $title; ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
-  <?php if ($header): ?>
-    <div class="view-header col-xs-12 col-md-4 col-lg-3">
-      <?php print $header; ?>
-    </div>
-  <?php endif; ?>
 
   <?php if ($exposed): ?>
     <div class="view-filters">
