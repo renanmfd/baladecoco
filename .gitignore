@@ -8,3 +8,7 @@ sites/*/files
 sites/*/private
 
 # Ignore default text files
+
+# Custom ignore
+monografia/node_modules
+monografia/build

@@ -1,0 +1,29 @@
+{
+  "name": "monografia",
+  "version": "1.0.0",
+  "description": "Monografia in LaTeX for TFG UNIFEI 2017 - ECO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp build",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/renanmfd/baladecoco.git"
+  },
+  "keywords": [
+    "latex",
+    "monografia",
+    "tfg",
+    "unifei",
+    "eco"
+  ],
+  "author": "Renan Dias",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-latex": "^1.0.1",
+    "pdflatex": "0.0.1"
+  }
+}
