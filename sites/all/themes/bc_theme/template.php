@@ -32,7 +32,7 @@ function bc_theme_preprocess_node(&$vars) {
   } elseif ($vars['type'] == 'banner') {
     bc_theme_preprocess_banner_node($vars);
   } else {
-    drupal_set_message($vars['type']);
+    //drupal_set_message($vars['type']);
   }
 }
 
@@ -129,7 +129,7 @@ function bc_get_icon($name, $size = 32) {
 }
 
 /**
- * Implementation of theme_menu_link__MENU_NAME().
+ * Implements TEMPLATE_menu_link__MENU().
  */
 function bc_theme_menu_link__user_menu($vars) {
   $element = $vars['element'];
@@ -139,13 +139,29 @@ function bc_theme_menu_link__user_menu($vars) {
   if ($element ['#below']) {
     $sub_menu = drupal_render($element ['#below']);
   }
-  
+
   $icon = '';
   if (!empty($element['#attributes']['id'])) {
-    $icon = bc_get_icon($element['#attributes']['id'], 15);
+    $size = isset($vars['#icon_size'])? $vars['#icon_size'] : 15;
+    $icon = bc_get_icon($element['#attributes']['id'], $size);
   }
-  
-  $output = l($icon . $element ['#title'], $element ['#href'], $element ['#localized_options']);
+
+  $output = l($icon . $element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element ['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+}
+
+/**
+ * Implements TEMPLATE_menu_link__MENU().
+ */
+function bc_theme_menu_link__menu_visitor_menu($vars) {
+  return bc_theme_menu_link__user_menu($vars);
+}
+
+/**
+ * Implements TEMPLATE_menu_link__MENU().
+ */
+function bc_theme_menu_link__menu_footer_social($vars) {
+  $vars['#icon_size'] = 25;
+  return bc_theme_menu_link__user_menu($vars);
 }
 

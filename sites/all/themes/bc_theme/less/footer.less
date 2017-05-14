@@ -1,0 +1,116 @@
+@import 'variables';
+
+@footer-bg: @color-gray-higher;
+@footer-title-size: 26px;
+@footer-title-color: @color-complement-low;
+@footer-link-size: 16px;
+@footer-link-color: @color-complement-lower;
+@footer-link-color-hover: @color-white;
+@footer-social-bg: @color-gray;
+@footer-social-bg-hover: @color-white;
+@footer-social-color: @color-white;
+@bottom-bg: @color-secondary-higher;
+
+#footer {
+  margin: 0;
+  margin-top: 50px;
+
+  .footer-wrapper {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    background-color: @footer-bg;
+  }
+  .footer-bottom {
+    background-color: @bottom-bg;
+  }
+  
+  .block {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 250px;
+
+    .block-title {
+      font-size: @footer-title-size;
+      color: @footer-title-color;
+    }
+    .menu {
+      a {
+        padding: 5px 0;
+        color: @footer-link-color;
+        font-size: @footer-link-size;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        transition: all .3s ease-in-out;
+        
+        &:hover {
+          background-color: transparent;
+          color: @footer-link-color-hover;
+          text-decoration-color: @footer-link-color-hover;
+        }
+      }
+    }
+  }
+}
+
+#block-menu-menu-footer-social {
+  display: block !important;
+  max-width: none !important;
+
+  .block-title,
+  .menu,
+  .menu li {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .block-title {
+    margin: 15px 0;
+    padding-right: 20px;
+    line-height: 20px;
+  }
+  .menu li {
+    margin: 5px;
+
+    a {
+      display: block;
+      height: 40px;
+      width: 40px;
+      padding: 7px 0 !important;
+      font-size: 0 !important;
+      border-radius: 50%;
+      background-color: @footer-social-bg;
+      overflow: hidden;
+      text-align: center;
+      transition: all .5s ease-in-out !important;
+
+      &:hover {
+        background-color: @footer-social-bg-hover !important;
+        box-shadow: 0 0 10px @color-white;
+        
+        &:after {
+          content: '' !important;
+        }
+      }
+    }
+    svg * {
+      fill: @footer-social-color;
+      stroke: @footer-social-color;
+      transition: all .5s ease-in-out;
+    }
+    &.footer-social-facebook a:hover svg * {
+      stroke: @facebook;
+      fill: @facebook;
+    }
+    &.footer-social-twitter a:hover svg * {
+      stroke: @twitter;
+      fill: @twitter;
+    }
+    &.footer-social-email a:hover svg * {
+      stroke: @gmail;
+      fill: @gmail;
+    }
+  }
+}
+
+#block-menu-menu-footer-company {
+  margin-bottom: 40px;
+}

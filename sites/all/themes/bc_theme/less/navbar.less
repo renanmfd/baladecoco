@@ -1,6 +1,11 @@
 @import 'variables';
 
-@cartSize: 66px;
+@navbar-cart-size: 66px;
+@navbar-link-font: @font-alt;
+@navbar-link-size: 24px;
+@navbar-link-color: @color-primary-high;
+@navbar-link-color-hover: @color-secondary;
+@navbar-link-color-active: @color-secondary-higher;
 
 #navbar {
   position: relative;
@@ -28,15 +33,21 @@
       a {
         display: block;
         position: relative;
-        font-size: 18px;
-        color: @black;
+        font-family: @navbar-link-font;
+        font-size: @navbar-link-size;
+        color: @navbar-link-color;
+        .transition();
         
+        &:focus,
+        &:active {
+          background-color: transparent;
+        }
         &:hover {
           background-color: transparent;
-          color: @mainColor;
+          color: @navbar-link-color-hover;
           
           &:before {
-            background-color: @mainColor;
+            background-color: @navbar-link-color-hover;
           }
         }
         &:before {
@@ -49,14 +60,15 @@
           height: 2px;
           border-radius: 1px;
           background-color: transparent;
+          .transition();
         }
       }
       li.active a {
         pointer-events: none;
-        color: @secColor;
+        color: @navbar-link-color-active;
         
         &:before {
-          background-color: @secColor;
+          background-color: @navbar-link-color-active;
         }
       }
     }
@@ -69,11 +81,11 @@
     }
     &:hover svg {
       #mb_text * {
-        stroke: @mainColor !important;
-        fill: @mainColor !important;
+        stroke: @color-primary !important;
+        fill: @color-primary !important;
       }
       #mb_frame * {
-        stroke: @mainColor !important;
+        stroke: @color-primary !important;
       }
     }
   }
@@ -90,7 +102,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: @cartSize;
+  width: @navbar-cart-size;
   margin: 10px 0;
 
   &.summary-open {
@@ -109,10 +121,10 @@
   .cart-toggle {
     display: block;
     position: relative;
-    width: @cartSize;
-    height: @cartSize;
+    width: @navbar-cart-size;
+    height: @navbar-cart-size;
     text-align: center;
-    border: 2px solid @black;
+    border: 2px solid @color-black;
     border-radius: 3px;
     
     .badge {
@@ -131,7 +143,7 @@
     right: 0;
     width: 300px;
     margin-top: -2px;
-    border: 2px solid @black;
+    border: 2px solid @color-black;
     border-radius: 3px;
     border-top-right-radius: 0;
     overflow: hidden;
@@ -143,7 +155,7 @@
     &:before {
       content: '';
       display: block;
-      width: calc(@cartSize - 4px);
+      width: calc(@navbar-cart-size - 4px);
       height: 2px;
       position: absolute;
       top: -2px;

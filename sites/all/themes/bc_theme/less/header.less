@@ -1,23 +1,23 @@
 @import 'variables';
 
-@background: #383131;
-@height: 22px;
-@distance: 20px;
+@header-background: @color-gray-higher;
+@header-height: 25px;
+@header-distance: 20px;
 
 #region-header-wrapper {
-  background-color: @background;
+  background-color: @header-background;
   
   a {
     transition: all .3s ease-in-out;
-    color: @white;
-    
+    color: @color-white;
+
     &:hover {
-      color: @secColor;
+      color: @color-secondary;
       background-color: transparent;
 
       svg * {
-        stroke: @secColor;
-        fill: @secColor;
+        stroke: @color-secondary;
+        fill: @color-secondary;
       }
     }
   }
@@ -26,42 +26,49 @@
     
     * {
       transition: all .3s ease-in-out;
-      stroke: @white;
-      fill: @white;
+      stroke: @color-white;
+      fill: @color-white;
     }
   }
 }
 
 #block-bc-blocks-bc-contact {
   float: left;
-  height: calc(@height + 2px);
+  height: calc(@header-height + 2px);
   
   .bc-contact {
-    line-height: @height;
+    line-height: @header-height;
   }
   .wrapper {
     display: inline-block;
-    margin-right: @distance;
+    margin-right: @header-distance;
     
     &:last-child {
       margin-right: 0;
     }
   }
+  .icon {
+    vertical-align: top;
+    line-height: 20px;
+  }
 }
 
-#block-system-user-menu {
+#block-system-user-menu,
+#block-menu-menu-visitor-menu {
   float: right;
   
   .nav > li {
     display: inline-block;
-    margin-left: @distance;
+    margin-left: @header-distance;
     
     > a {
       padding: 0;
-      line-height: @height;
+      line-height: @header-height;
     }
     .icon {
-      margin-right: 5px;
+      vertical-align: top;
+      line-height: 20px;
+      margin-right: 8px;
     }
     &:first-child {
       margin-left: 0;
@@ -80,7 +87,7 @@
       color: white;
 
       &:hover {
-        background-color: @background;
+        background-color: @header-background;
       }
     }
   }

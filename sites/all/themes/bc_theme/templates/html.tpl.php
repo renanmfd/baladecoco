@@ -61,23 +61,22 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
-  <?php print $scripts; ?>
   <!-- HTML5 element support for IE6-8 -->
   <!--[if lt IE 9]>
     <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body<?php print $body_attributes; ?>>
+  <?php print $page_top; ?>
   <div id="page">
     <div id="skip-link">
       <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
     </div>
-    <?php print $page_top; ?>
     <?php print $page; ?>
-    <?php print $page_bottom; ?>
   </div>
   <div id="scripts">
-    
+    <?php print $scripts; ?>
   </div>
+  <?php print $page_bottom; ?>
 </body>
 </html>
