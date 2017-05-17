@@ -38,7 +38,7 @@
    * Browser sync watch.
    */
   gulp.task('watch', function watchTask() {
-    gulp.watch('./latex/*.tex', ['latex']);
+    gulp.watch('./latex/*.tex', ['build']);
   });
 
   /**
